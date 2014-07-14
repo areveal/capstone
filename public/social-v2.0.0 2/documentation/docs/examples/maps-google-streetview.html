@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>maps-google-streetview example | Social Admin Template Template (v2.0.0-rc8)</title>
+	
+	<!-- Meta -->
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE" />
+
+	<!-- 
+	**********************************************************
+	In development, use the LESS files and the less.js compiler
+	instead of the minified CSS loaded by default.
+	**********************************************************
+	-->
+
+		<!-- <link rel="stylesheet/less" href="../../assets/less/docs/module.examples.page.maps-google-streetview.less" /> -->
+
+	<link rel="stylesheet" href="../../assets/css/docs/module.examples.page.maps-google-streetview.min.css" />
+
+	
+	<script src="../../assets/library/jquery/jquery.min.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../../assets/library/jquery/jquery-migrate.min.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../../assets/library/modernizr/modernizr.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../../assets/plugins/core_less-js/less.min.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../../assets/plugins/charts_flot/excanvas.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../../assets/plugins/core_browser/ie/ie.prototype.polyfill.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+</head>
+<body id="examples">
+
+	<div class="container">
+		<div class="innerTB">
+
+			<div class="jumbotron">
+				<h1 class="separator bottom">maps-google-streetview example</h1>
+				<p class="lead">This is an example page that loads strictly the minimal core styles &amp; scripts required by <strong>Social Admin Template</strong> and the <strong>maps-google-streetview component</strong></p>
+			</div>
+<!-- Streetview -->
+<h4 class="separator bottom">Streetview with microformats <span>Click on marker or "Spinal Tap" title to open Street View</span></h4>
+<div class="thumbnail"><div class="map_canvas" id="google-map-streetview" style="height: 400px"></div></div>
+<div class="separator"></div>
+
+<div class="vevent well box-generic bg-gray margin-none">
+	<a href="#spinaltap"><h3 class="url summary">Spinal Tap</h3></a> 
+	<p class="box-generic">After their highly-publicized search for a new
+		drummer, Spinal Tap kicks off their latest comeback tour with a San
+		Francisco show.</p>
+	
+	<p><strong>When:</strong>
+	<span class="dtstart"> Oct 15, 7:00PM <span class="value-title" title="2015-10-15T19:00-08:00"></span></span> - 
+	<span class="dtend"> 9:00PM<span class="value-title" title="2015-10-15T21:00-08:00"></span></span><br/>
+	
+	<strong>Where:</strong>
+	<span class="location vcard">
+		<span class="fn org">Warfield Theatre</span>, 
+		<span class="adr"> 
+			<span class="street-address">982 Market St</span>, 
+			<span class="locality">San Francisco</span>, 
+			<span class="region">CA</span>
+		</span> 
+		<span class="geo"> 
+			<span class="latitude"><span class="value-title" title="37.774929"></span></span>
+			<span class="longitude"><span class="value-title" title="-122.419416"></span></span>
+		</span>
+	</span></p>
+</div>
+<!-- // Streetview END -->
+
+	
+		</div>
+	</div>
+
+	<!-- Global -->
+	<script>
+	var basePath = '',
+		rootPath = '../../',
+		DEV = false,
+		componentsPath = '../../assets/components/';
+	
+	var primaryColor = '#25ad9f',
+		dangerColor = '#b55151',
+		successColor = '#609450',
+		warningColor = '#ab7a4b',
+		inverseColor = '#45484d';
+	
+	var themerPrimaryColor = primaryColor;
+	</script>
+
+	<script src="../../assets/library/bootstrap/js/bootstrap.min.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../../assets/components/maps_google/maps-google.init.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="http://maps.googleapis.com/maps/api/js?v=3&sensor=false&callback=initGoogleMaps"></script>
+</body>
+</html>

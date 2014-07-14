@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Social Admin Template Template (v2.0.0-rc8)</title>
+	
+	<!-- Meta -->
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE" />
+
+	 
+	
+	<!-- 
+	**********************************************************
+	In development, use the LESS files and the less.js compiler
+	instead of the minified CSS loaded by default.
+	**********************************************************
+	-->
+
+		<!-- <link rel="stylesheet/less" href="../assets/less/docs/module.docs.page.guide.component.guide.getting-started-html.less" /> -->
+
+	<link rel="stylesheet" href="../assets/css/docs/module.docs.page.guide.component.guide.getting-started-html.min.css" />
+
+	
+	
+	<script src="../assets/library/jquery/jquery.min.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../assets/library/jquery/jquery-migrate.min.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../assets/library/modernizr/modernizr.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../assets/plugins/core_less-js/less.min.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../assets/plugins/charts_flot/excanvas.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../assets/plugins/core_browser/ie/ie.prototype.polyfill.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../assets/library/angular/angular.min.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+</head>
+<body id="docs">
+
+<!-- Fixed navbar -->
+<div class="navbar navbar-default navbar-fixed-top">
+  	<div class="container">
+    	<div class="navbar-header">
+      		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        		<span class="icon-bar"></span>
+        		<span class="icon-bar"></span>
+        		<span class="icon-bar"></span>
+      		</button>
+      		<a class="navbar-brand" href="http://www.mosaicpro.biz" target="_blank"><img src="../assets/images/logo/logo.jpg" alt="" /></a>
+      		<a class="navbar-brand" href="guide.getting-started-html.html?lang=en">Social Admin Template</a>
+    	</div>
+    	<div class="navbar-collapse collapse">
+      		<ul class="nav navbar-nav">
+        		<li class="dropdown active">
+          			<a href="#" class="dropdown-toggle" data-toggle="dropdown">Guides <b class="caret"></b></a>
+          			<ul class="dropdown-menu">
+          									<li class="active"><a href="guide.getting-started-html.html?v=v2.0.0-rc8">HTML Guide</a></li>
+												<li><a href="guide.getting-started-php.html?v=v2.0.0-rc8">PHP Guide</a></li>
+						          			</ul>
+        		</li>
+                        		<li class="dropdown">
+          			<a href="#" class="dropdown-toggle" data-toggle="dropdown">Documentation <b class="caret"></b></a>
+          			<ul class="dropdown-menu">
+          				<li class="dropdown-header">Components</li>
+
+                                    			<li><a href="filter.all.html?v=v2.0.0-rc8">All components</a></li>
+                                    			<li><a href="filter.core.html?v=v2.0.0-rc8">Core</a></li>
+                                    			<li><a href="filter.charts.html?v=v2.0.0-rc8">Charts</a></li>
+                                    			<li><a href="filter.forms.html?v=v2.0.0-rc8">Forms</a></li>
+                                    			<li><a href="filter.maps.html?v=v2.0.0-rc8">Maps</a></li>
+                                    			<li><a href="filter.media.html?v=v2.0.0-rc8">Media</a></li>
+                                    			<li><a href="filter.table.html?v=v2.0.0-rc8">Tables</a></li>
+                                    			<li><a href="filter.ui.html?v=v2.0.0-rc8">UI</a></li>
+                                    			<li><a href="filter.widget.html?v=v2.0.0-rc8">Widgets</a></li>
+                                    			<li><a href="filter.other.html?v=v2.0.0-rc8">Other</a></li>
+                        
+                        <li class="dropdown-header">Modules</li>
+
+            			                        <li><a href="filter.admin.html?v=v2.0.0-rc8">Admin</a></li>
+                        
+                        <!-- <li class="dropdown-header">Pages</li>
+                        <li><a href="">Demo pages</a></li> -->
+          			</ul>
+        		</li>
+      		</ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="http://www.mosaicpro.biz/blog/tutorials" target="_blank"><i class="fa fa-fw fa-file-text-o"></i> Online Guides</a></li>
+      		</ul>
+    	</div><!--/.nav-collapse -->
+  	</div>
+</div>
+
+<div class="container">
+
+				
+						
+				
+
+<h1>Getting Started - HTML Guide <a href="guide.getting-started-php.html?v=v2.0.0-rc8" class="btn btn-primary pull-right">Go to PHP Guide <i class="fa fa-arrow-right"></i></a></h1>
+<p class="lead">Overview, structure and description of Social Admin Template </p>
+<ol class="strong">
+    <li><a href="#guide-overview">Overview</a></li>
+    <li><a href="#guide-folder-structure">Folder Structure</a></li>
+    <li><a href="#guide-layout-menu">Layout &amp; Menus</a></li>
+    <li><a href="#guide-css-less">CSS &amp; LESS</a></li>
+    <li><a href="#guide-assets-structure">Assets Structure</a></li>
+    <li><a href="#guide-components">Components</a></li>
+</ol>
+				<br/>
+
+									
+						
+				
+
+<a id="1"></a><h2>1. Overview</h2>
+<div class="separator"></div>
+<p>Social Admin Template is a fully responsive admin dashboard panel and front-end website template that is primarily designed with social networks in mind. Built with love by mosaicpro, the Social Admin Template  contains a HUGE collection of ready to go pages with hundreds of HTML elements. Social Admin Template works on any modern browser, any device, any screen size and it includes over 1600 high resolution retina ready font icons, including the popular Font Awesome and Glyphicons PRO. </p>
+
+<img src="../assets/images/docs-preview.jpg" class="img-responsive widget innerAll half"/>
+				<br/>
+
+									
+						
+				
+<h2 id="guide-folder-structure">2. Folder Structure</h2>
+<div class="separator"></div>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto, culpa, ex. Accusantium adipisci architecto assumenda at consequatur, delectus distinctio eius enim error eveniet fuga illo illum impedit ipsam iure labore laboriosam magnam minima perspiciatis placeat praesentium quo reiciendis reprehenderit suscipit ullam unde vel voluptatem. Adipisci aliquam dolores in incidunt iure iusto laboriosam maiores, officiis rem tenetur velit veritatis, voluptate voluptatum?</p>
+<div class="separator"></div>
+<pre class"prettyprint">social_admin_template/
+└── non-ajax/
+    ├── assets/
+    │   ├── components/
+    │   ├── library/
+    │   ├── plugins/
+    │   ├── css/
+    │   ├── less/
+    └── admin_fixed/
+    └── admin_fluid/
+└── ajax/
+    ├── assets/
+    │   ├── components/
+    │   ├── library/
+    │   ├── plugins/
+    │   ├── css/
+    │   ├── less/
+    └── admin_fixed/
+    └── admin_fluid/
+
+
+</pre>
+
+
+				<br/>
+
+									
+						
+				
+<h2 id="guide-layout-menu">3. Layouts & Menus</h2>
+<div class="separator"></div>
+
+
+<h3><strong>Header</strong></h3>
+<p>Include this in every page of your site</p>
+
+<pre class="prettyprint">&lt;!DOCTYPE html&gt;
+&lt;!--[if lt IE 7]&gt; &lt;html class=&quot;ie lt-ie9 lt-ie8 lt-ie7 sidebar sidebar-social footer-sticky&quot;&gt; &lt;![endif]--&gt;
+&lt;!--[if IE 7]&gt;    &lt;html class=&quot;ie lt-ie9 lt-ie8 sidebar sidebar-social footer-sticky&quot;&gt; &lt;![endif]--&gt;
+&lt;!--[if IE 8]&gt;    &lt;html class=&quot;ie lt-ie9 sidebar sidebar-social footer-sticky&quot;&gt; &lt;![endif]--&gt;
+&lt;!--[if gt IE 8]&gt; &lt;html class=&quot;ie sidebar sidebar-social footer-sticky&quot;&gt; &lt;![endif]--&gt;
+
+&lt;!--[if !IE]&gt;&lt;!--&gt;
+&lt;html class=&quot;sidebar sidebar-social footer-sticky&quot;&gt;
+&lt;!-- &lt;![endif]--&gt;
+
+&lt;head&gt;
+    &lt;title&gt;Social Admin Template&lt;/title&gt;
+    &lt;!-- Meta --&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0&quot;&gt;
+
+    &lt;!--[if lt IE 9]&gt;
+        &lt;link rel=&quot;stylesheet&quot; href=&quot;../assets/components/library/bootstrap/css/bootstrap.min.css&quot; /&gt;
+    &lt;![endif]--&gt;
+
+    &lt;!--  Stylesheet Complete CSS compiled from ../assets/css/admin/module.admin.stylesheet-complete.less --&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;../assets/css/admin/module.admin.stylesheet-complete.min.css&quot;/&gt;
+
+    &lt;!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries --&gt;
+        &lt;!--[if lt IE 9]&gt;
+        &lt;script src=&quot;https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js&quot;&gt;&lt;/script&gt;
+        &lt;script src=&quot;https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js&quot;&gt;&lt;/script&gt;
+        &lt;![endif]--&gt;
+
+    &lt;!-- HEADER SCRIPTS GO HERE --&gt;
+
+    &lt;script&gt;
+        if ( /*@cc_on!@*/ false &amp;&amp; document.documentMode === 10)
+        {
+            document.documentElement.className += ' ie ie10';
+        }
+    &lt;/script&gt;
+&lt;/head&gt;
+</pre>
+<div class="separator"></div>
+<h3><strong>Body Content & Footer</strong></h3>
+<p>Structure of the important wrappers within the body tag.</p>
+<div class="separator"></div>
+<h5>Body for LAYOUT FLUID:</h5>
+<div class="separator"></div>
+<pre class="prettyprint">&lt;body&gt;
+
+    &lt;div class=&quot;container-fluid menu-hidden&quot;&gt;
+        &lt;!-- SIDEBAR MENU --&gt;
+        &lt;!-- SIDEBAR CHAT RIGHT --&gt;
+
+        &lt;div id=&quot;content&quot;&gt;
+            &lt;!-- NAVBAR FOR FLUID LAYOUT HERE --&gt;
+        &lt;/div&gt;
+
+        &lt;!-- FOOTER HERE --&gt;
+
+    &lt;/div&gt;
+
+    &lt;!-- REQUIRED VARIABLES SCRIPTS --&gt;
+
+    &lt;!-- FOOTER SCRIPTS --&gt;
+
+&lt;/body&gt;
+
+</pre>
+<div class="separator"></div>
+<h5>Body for LAYOUT FIXED:</h5>
+
+*Update Header:
+<div class="separator"></div>
+<div class="alert alert-info strong"> <i class="fa fa-exclamation-circle fa-fw"></i> Please change the header doctype and html tag to the following:</div>
+<pre class="prettyprint">&lt;!DOCTYPE html&gt;
+&lt;!--[if lt IE 7]&gt; &lt;html class=&quot;ie lt-ie9 lt-ie8 lt-ie7 footer-sticky&quot;&gt; &lt;![endif]--&gt;
+&lt;!--[if IE 7]&gt;    &lt;html class=&quot;ie lt-ie9 lt-ie8 footer-sticky&quot;&gt; &lt;![endif]--&gt;
+&lt;!--[if IE 8]&gt;    &lt;html class=&quot;ie lt-ie9 footer-sticky&quot;&gt; &lt;![endif]--&gt;
+&lt;!--[if gt IE 8]&gt; &lt;html class=&quot;ie footer-sticky&quot;&gt; &lt;![endif]--&gt;
+
+&lt;!--[if !IE]&gt;&lt;!--&gt;
+&lt;html&gt;
+&lt;!-- &lt;![endif]--&gt;
+
+</pre>
+<div class="separator"></div>
+Body:
+<div class="separator"></div>
+<pre class="prettyprint">&lt;body&gt;
+
+    &lt;div class=&quot;container-fluid&quot;&gt;
+        &lt;div id=&quot;content&quot;&gt;
+                &lt;!-- NAVBAR FOR FIXED LAYOUT HERE --&gt;
+
+                &lt;div class=&quot;container&quot;&gt;
+                    &lt;!-- CONTENT HERE --&gt;
+                &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;!-- FOOTER HERE --&gt;
+
+    &lt;/div&gt;
+
+    &lt;!-- REQUIRED VARIABLES SCRIPTS --&gt;
+
+    &lt;!-- FOOTER SCRIPTS --&gt;
+
+&lt;/body&gt;
+</pre>
+
+<div class="separator"></div>
+<h5><strong>Footer</strong></h5>
+
+<pre class="prettyprint">&lt;div id=&quot;footer&quot; class=&quot;hidden-print&quot;&gt;
+    &lt;div class=&quot;copy&quot;&gt; &lt;!-- Copyright HERE--&gt;&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+
+
+<div class="separator"></div>
+<h5><strong>Required JavaScript Global Variables</strong></h5>
+<p>Required Variables used by different scripts and components throughout the template.</p>
+<pre class="prettyprint">
+&lt;script data-id=&quot;App.Config&quot;&gt;
+    var App = {};
+    var basePath = '',
+        commonPath = '../assets/',
+        rootPath = '../',
+        DEV = false,
+        componentsPath = '../assets/components/';
+    var primaryColor = '#25ad9f',
+        dangerColor = '#b55151',
+        successColor = '#609450',
+        infoColor = '#4a8bc2',
+        warningColor = '#ab7a4b',
+        inverseColor = '#45484d';
+    var themerPrimaryColor = primaryColor;
+&lt;/script&gt;
+
+</pre>
+
+<div class="separator"></div>
+<h3><strong>Sidebar Menu (Used in Fluid Layout)</strong></h3>
+<p>Structure of the Sidebar Menu</p>
+
+<pre class="prettyprint">&lt;div id=&quot;menu&quot; class=&quot;hidden-print hidden-xs sidebar-default sidebar-brand-primary&quot;&gt;
+    &lt;div id=&quot;sidebar-social-wrapper&quot;&gt;
+
+        &lt;!-- LOGO / TEXT --&gt;
+        &lt;div id=&quot;brandWrapper&quot;&gt;
+            &lt;a href=&quot;#&quot;&gt;&lt;span&gt;LOGO&lt;/span&gt;&lt;/a&gt;
+        &lt;/div&gt;
+
+
+        &lt;ul class=&quot;menu list-unstyled&quot; id=&quot;navigation_current_page&quot;&gt;
+            &lt;!-- MENU BUTTONS &amp; DROPDOWNS--&gt;
+            &lt;li class=&quot;category&quot;&gt;Navigation&lt;/li&gt;
+
+            &lt;!-- EXAMPLE OF 2 LEVEL COLLAPSE--&gt;
+            &lt;li class=&quot;hasSubmenu active&quot;&gt;
+                &lt;a href=&quot;#unqiue-ref&quot; data-toggle=&quot;collapse&quot;&gt;&lt;i class=&quot;icon-tv&quot;&gt;&lt;/i&gt;&lt;span&gt; Button&lt;/span&gt;&lt;/a&gt;
+                &lt;ul id=&quot;unqiue-ref&quot; class=&quot;collapse&quot;&gt;
+                    &lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;&lt;i class=&quot;fa fa-circle-o&quot;&gt;&lt;/i&gt;&lt;span&gt;Submenu&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;&lt;i class=&quot;fa fa-circle-o&quot;&gt;&lt;/i&gt;&lt;span&gt;Submenu&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+                    &lt;li class=&quot;hasSubmenu&quot;&gt;
+                        &lt;a href=&quot;#unique-submenu-ref&quot; data-toggle=&quot;collapse&quot;&gt;
+                            &lt;span class=&quot;badge badge-primary pull-right&quot;&gt;3&lt;/span&gt;
+                            &lt;i class=&quot;fa fa-circle-o&quot;&gt;&lt;/i&gt; 2nd Level Submenu
+                        &lt;/a&gt;
+                        &lt;ul class=&quot;collapse&quot; id=&quot;unique-submenu-ref&quot;&gt;
+                            &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Link&lt;/a&gt;&lt;/li&gt;
+                            &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Link&lt;/a&gt;&lt;/li&gt;
+                            &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Link&lt;/a&gt;&lt;/li&gt;
+                        &lt;/ul&gt;
+                    &lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/li&gt;
+
+            &lt;!-- RESET the padding to allow custom spaced content within the sidebar --&gt;
+            &lt;li class=&quot;reset&quot;&gt;&lt;/li&gt;
+
+            &lt;!-- NEWS FEEDS ELEMENT FROM SIDEBAR --&gt;
+            &lt;li class=&quot;category&quot;&gt;News Feeds&lt;/li&gt;
+            &lt;li class=&quot;reset&quot;&gt;
+                &lt;ul&gt;
+                    &lt;li class=&quot;media news-item&quot;&gt;
+                        &lt;span class=&quot;news-item-success pull-right&quot;&gt;&lt;i class=&quot;fa fa-circle&quot;&gt;&lt;/i&gt;&lt;/span&gt;
+                        &lt;span class=&quot;pull-left media-object&quot;&gt;&lt;i class=&quot;fa fa-fw fa-bell&quot;&gt;&lt;/i&gt;&lt;/span&gt;
+                        &lt;div class=&quot;media-body&quot;&gt;
+                            &lt;a href=&quot;#&quot; class=&quot;text-white&quot;&gt;Adrian&lt;/a&gt; just logged in
+                            &lt;span class=&quot;time&quot;&gt;2 min ago&lt;/span&gt;
+                        &lt;/div&gt;
+
+                    &lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/li&gt;
+
+            &lt;!-- FILTER ELEMENT--&gt;
+            &lt;li class=&quot;category&quot;&gt;Filter&lt;/li&gt;
+            &lt;li class=&quot;reset&quot;&gt;
+                &lt;div class=&quot;innerLR innerB&quot;&gt;
+                    &lt;ul&gt;
+                        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;&lt;span class=&quot;fa fa-fw fa-circle-o text-success&quot;&gt;&lt;/span&gt; Work Related&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;&lt;span class=&quot;fa fa-fw fa-circle-o text-primary&quot;&gt;&lt;/span&gt; Very Important&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;&lt;span class=&quot;fa fa-fw fa-circle-o text-info&quot;&gt;&lt;/span&gt; Friends &amp;amp; Family&lt;/a&gt;&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/div&gt;
+            &lt;/li&gt;
+        &lt;/ul&gt;
+
+    &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+<div class="widget bg-gray innerAll">Please note the <strong>toggle button</strong> for the sidebar resides within the NAVBAR (for fluid layout) bars icon on the left. For viewing the required styling and scripts go to "../assets/component/menus/"</div>
+
+<div class="separator"></div>
+<h3><strong>Sidebar Chat Right (Used in Fluid Layout)</strong></h3>
+<p>Structure of the Chat Right Sidebar</p>
+
+<pre class="prettyprint">&lt;div id=&quot;menu-right&quot;&gt;
+    &lt;div&gt;
+
+        &lt;!-- Close Sidebar Button --&gt;
+        &lt;button class=&quot;btn btn-inverse btn-xs btn-close&quot; data-toggle=&quot;sidr-close&quot; data-menu=&quot;menu-right&quot;&gt;&lt;i class=&quot;fa fa-times&quot;&gt;&lt;/i&gt;&lt;/button&gt;
+
+        &lt;!-- Sidebar Content--&gt;
+        &lt;div class=&quot;tab-content&quot;&gt;
+
+            &lt;!-- CHAT CONVERSATION --&gt;
+            &lt;div class=&quot;tab-pane&quot; id=&quot;chat-conversation&quot;&gt;
+                &lt;ul&gt;
+                    &lt;!-- Show Friends List --&gt;
+                    &lt;li&gt;
+                        &lt;div class=&quot;innerAll&quot;&gt;&lt;button class=&quot;btn btn-primary&quot; data-toggle=&quot;tab&quot; data-target=&quot;#chat-list&quot;&gt;&lt;i class=&quot;fa fa-fw fa-user&quot;&gt;&lt;/i&gt; friends&lt;/button&gt;&lt;/div&gt;
+                    &lt;/li&gt;
+
+                    &lt;!-- Show Conversation Between 2 Friends --&gt;
+                    &lt;li class=&quot;conversation innerAll&quot;&gt;
+                        &lt;div class=&quot;media&quot;&gt;
+
+                            &lt;!--  AUTHOR --&gt;
+                            &lt;small class=&quot;author&quot;&gt;&lt;a href=&quot;#&quot; title=&quot;&quot; class=&quot;strong&quot;&gt;Jane Doe&lt;/a&gt;&lt;/small&gt;
+
+                            &lt;!--  AVATAR --&gt;
+                            &lt;div class=&quot;media-object pull-left&quot;&gt;&lt;img src=&quot;../assets/images/people/50/1.jpg&quot; alt=&quot;Image&quot; class=&quot;img-circle&quot; /&gt;&lt;/div&gt;
+
+                            &lt;!--  COMMENT --&gt;
+                            &lt;div class=&quot;media-body&quot;&gt;
+                                &lt;blockquote&gt;
+                                    &lt;small class=&quot;date&quot;&gt;&lt;cite&gt;just now&lt;/cite&gt;&lt;/small&gt;
+                                    &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus, sit?&lt;/p&gt;
+                                &lt;/blockquote&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+
+                    &lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/div&gt;
+
+            &lt;!-- CHAT LIST --&gt;
+            &lt;div class=&quot;tab-pane active&quot; id=&quot;chat-list&quot;&gt;
+                &lt;div class=&quot;mixitup&quot; id=&quot;mixitup-chat&quot; data-show-default=&quot;mixit-chat-1&quot; data-layout-mode=&quot;list&quot; data-target-selector=&quot;.mix&quot; data-filter-selector=&quot;.filter-chat&quot;&gt;
+                    &lt;ul&gt;
+                        &lt;!-- TITLE --&gt;
+                        &lt;li class=&quot;category&quot;&gt;Groups&lt;/li&gt;
+
+                        &lt;!-- GROUPS --&gt;
+                        &lt;li class=&quot;reset&quot;&gt;
+                            &lt;div class=&quot;innerLR&quot;&gt;
+                                &lt;ul&gt;
+                                    &lt;li class=&quot;filter-chat&quot; data-filter=&quot;mixit-chat-1&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;no-ajaxify&quot;&gt;&lt;span class=&quot;fa fa-fw fa-circle-o text-success&quot;&gt;&lt;/span&gt; Work Related&lt;/a&gt;&lt;/li&gt;
+                                    &lt;li class=&quot;filter-chat&quot; data-filter=&quot;mixit-chat-2&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;no-ajaxify&quot;&gt;&lt;span class=&quot;fa fa-fw fa-circle-o text-primary&quot;&gt;&lt;/span&gt; Very Important&lt;/a&gt;&lt;/li&gt;
+                                    &lt;li class=&quot;filter-chat&quot; data-filter=&quot;mixit-chat-3&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;no-ajaxify&quot;&gt;&lt;span class=&quot;fa fa-fw fa-circle-o text-info&quot;&gt;&lt;/span&gt; Friends &amp;amp; Family&lt;/a&gt;&lt;/li&gt;
+                                &lt;/ul&gt;
+                            &lt;/div&gt;
+                        &lt;/li&gt;
+
+                        &lt;!-- TITLE --&gt;
+                        &lt;li class=&quot;category border-bottom&quot;&gt;Online&lt;/li&gt;
+
+                        &lt;!-- CHAT LIST connected to Group &quot;mixit-chat-1&quot; --&gt;
+                        &lt;li&gt;
+                            &lt;div class=&quot;mixit-chat-1 mix media border-bottom innerAll margin-none&quot;&gt;
+                                &lt;a href=&quot;#chat-conversation&quot; data-toggle=&quot;tab&quot; class=&quot;pull-left media-object&quot;&gt;&lt;img src=&quot;../assets/images/people/35/1.jpg&quot; class=&quot;img-circle&quot; /&gt;&lt;/a&gt;
+                                &lt;div class=&quot;media-body&quot;&gt;
+                                    &lt;a href=&quot;#chat-conversation&quot; data-toggle=&quot;tab&quot; class=&quot;pull-right text-muted innerT half&quot;&gt;&lt;i class=&quot;fa fa-comments&quot;&gt;&lt;/i&gt; 4&lt;/a&gt;
+                                    &lt;h5 class=&quot;margin-none&quot;&gt;&lt;a href=&quot;#chat-conversation&quot; data-toggle=&quot;tab&quot; class=&quot;text-white&quot;&gt;&lt;/a&gt;&lt;/h5&gt;
+                                    &lt;small&gt;Hey, the party is on tonight!&lt;/small&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/li&gt;
+
+                    &lt;/ul&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+
+        &lt;/div&gt;
+
+    &lt;/div&gt;
+&lt;/div&gt;
+
+</pre>
+<div class="widget bg-gray innerAll">Please note the <strong>toggle button</strong> for the sidebar resides within the NAVBAR (for fluid layout) chat icon on the right. For viewing the required styling and scripts go to "../assets/component/menus/"</div>
+
+<div class="separator"></div>
+
+<h3>Navbar</h3>
+<h5>LAYOUT FLUID</h5>
+<pre class="prettyprint">&lt;div class=&quot;navbar hidden-print navbar-default box main&quot; role=&quot;navigation&quot;&gt;
+
+    &lt;!--  RIGHT TOGGLE BUTTON FOR SIDEBAR CHAT  --&gt;
+    &lt;div class=&quot;user-action user-action-btn-navbar pull-right border-left&quot;&gt;
+        &lt;a href=&quot;#menu-right&quot; class=&quot;btn btn-sm btn-navbar btn-open-right&quot;&gt;&lt;i class=&quot;fa fa-comments fa-2x&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+    &lt;/div&gt;
+
+    &lt;!--  LEFT TOGGLE BUTTON FOR SIDEBAR MENU --&gt;
+    &lt;div class=&quot;user-action user-action-btn-navbar pull-left&quot;&gt;
+        &lt;a href=&quot;#menu&quot; class=&quot;btn btn-sm btn-navbar btn-open-left&quot;&gt;&lt;i class=&quot;fa fa-bars fa-2x&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+    &lt;/div&gt;
+
+    &lt;!-- ICON WITH DROPDOWN FOR NOTIFICATIONS    --&gt;
+    &lt;ul class=&quot;notifications pull-left hidden-xs&quot;&gt;
+        &lt;li class=&quot;dropdown notif&quot;&gt;
+            &lt;a href=&quot;#&quot; class=&quot;dropdown-toggle&quot;  data-toggle=&quot;dropdown&quot;&gt;&lt;i class=&quot;notif-block icon-envelope-1&quot;&gt;&lt;/i&gt;&lt;span class=&quot;fa fa-star&quot;&gt;&lt;/span&gt;&lt;/a&gt;
+            &lt;ul class=&quot;dropdown-menu chat media-list&quot;&gt;
+
+                &lt;!-- DROPDOWN LIST ITEM --&gt;
+                &lt;li class=&quot;media&quot;&gt;
+                    &lt;a class=&quot;pull-left&quot; href=&quot;#&quot;&gt;&lt;img class=&quot;media-object thumb&quot; src=&quot;../assets/images/people/100/15.jpg&quot; alt=&quot;50x50&quot; width=&quot;50&quot;/&gt;&lt;/a&gt;
+                    &lt;div class=&quot;media-body&quot;&gt;
+                        &lt;span class=&quot;label label-default pull-right&quot;&gt;5 min&lt;/span&gt;
+                        &lt;h5 class=&quot;media-heading&quot;&gt;Adrian D.&lt;/h5&gt;
+                        &lt;p class=&quot;margin-none&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit.&lt;/p&gt;
+                    &lt;/div&gt;
+                &lt;/li&gt;
+
+            &lt;/ul&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;!--  USER DROPDOWN MENU--&gt;
+    &lt;div class=&quot;user-action pull-left menu-right-hidden-xs menu-left-hidden-xs border-left&quot;&gt;
+        &lt;div class=&quot;dropdown username pull-left&quot;&gt;
+            &lt;!-- DROPDOWN BUTTON --&gt;
+            &lt;a class=&quot;dropdown-toggle&quot; data-toggle=&quot;dropdown&quot; href=&quot;#&quot;&gt;
+				&lt;span class=&quot;media margin-none&quot;&gt;
+					&lt;span class=&quot;pull-left&quot;&gt;&lt;img src=&quot;../assets/images/people/35/16.jpg&quot; alt=&quot;user&quot; class=&quot;img-circle&quot;&gt;&lt;/span&gt;
+					&lt;span class=&quot;media-body&quot;&gt;Bill &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;&lt;/span&gt;
+				&lt;/span&gt;
+            &lt;/a&gt;
+            &lt;!-- DROPDOWN ITEMS --&gt;
+            &lt;ul class=&quot;dropdown-menu&quot;&gt;
+                &lt;li&gt;&lt;a href=&quot;about_1.html?lang=en&quot; &gt;About&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href=&quot;messages.html?lang=en&quot;&gt;Messages&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href=&quot;timeline_3.html?lang=en&quot;&gt;Profile&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href=&quot;login.html?lang=en&quot;&gt;Logout&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!--  SEARCH INPUT 100% WIDTH--&gt;
+    &lt;div class=&quot;input-group hidden-xs pull-left&quot;&gt;
+        &lt;span class=&quot;input-group-addon&quot;&gt;&lt;i class=&quot;icon-search&quot;&gt;&lt;/i&gt;&lt;/span&gt;
+        &lt;input type=&quot;text&quot; class=&quot;form-control&quot; placeholder=&quot;Search a friend&quot;/&gt;
+    &lt;/div&gt;
+
+&lt;/div&gt;
+</pre>
+<div class="separator"></div>
+<h5>LAYOUT FIXED</h5>
+<pre class="prettyprint">&lt;!-- You can choose a style from navbar-default, navbar-inverse, navbar-primary --&gt;
+&lt;nav class=&quot;navbar navbar-inverse top-nav navbar-fixed-top&quot; role=&quot;navigation&quot;&gt;
+
+    &lt;!-- NAVBAR CENTER CONTENT  --&gt;
+    &lt;div class=&quot;container&quot;&gt;
+
+        &lt;!-- Brand and toggle get grouped for better mobile display --&gt;
+        &lt;div class=&quot;navbar-header&quot;&gt;
+            &lt;button type=&quot;button&quot; class=&quot;navbar-toggle btn btn-default&quot; data-toggle=&quot;collapse&quot; data-target=&quot;#navbar-fixed-layout-collapse&quot;&gt;
+                &lt;i class=&quot;fa fa-indent&quot;&gt;&lt;/i&gt;
+            &lt;/button&gt;
+            &lt;a class=&quot;navbar-brand&quot; href=&quot;#&quot;&gt;&lt;img src=&quot;../assets//images/logo/logo.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt;
+        &lt;/div&gt;
+
+        &lt;!-- Collect the nav links, forms, and other content for toggling --&gt;
+        &lt;div class=&quot;collapse navbar-collapse&quot; id=&quot;navbar-fixed-layout-collapse&quot;&gt;
+            &lt;ul class=&quot;nav navbar-nav&quot;&gt;
+                &lt;!-- DROPDOWN MENU --&gt;
+                &lt;li class=&quot;dropdown&quot;&gt;
+                    &lt;a href=&quot;#&quot; class=&quot;dropdown-toggle&quot; data-toggle=&quot;dropdown&quot;&gt;Menu Button &lt;b class=&quot;caret&quot;&gt;&lt;/b&gt;&lt;/a&gt;
+                    &lt;ul class=&quot;dropdown-menu&quot;&gt;
+                        &lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#&quot; &gt;Dropdown Link&lt;/a&gt;&lt;/li&gt;
+                        &lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#&quot; &gt;Dropdown Link&lt;/a&gt;&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/li&gt;
+            &lt;/ul&gt;
+
+            &lt;!-- SEARCH FORM --&gt;
+            &lt;form class=&quot;navbar-form navbar-left hidden-sm&quot; role=&quot;search&quot;&gt;
+                &lt;div class=&quot;form-group inline-block&quot;&gt;
+                    &lt;input type=&quot;text&quot; class=&quot;form-control&quot; placeholder=&quot;Search&quot;&gt;
+                &lt;/div&gt;
+                &lt;button type=&quot;submit&quot; class=&quot;btn btn-inverse&quot;&gt;&lt;i class=&quot;fa fa-search fa-fw&quot;&gt;&lt;/i&gt;&lt;/button&gt;
+            &lt;/form&gt;
+
+            &lt;!-- NAVBAR RIGHT --&gt;
+            &lt;ul class=&quot;nav navbar-nav navbar-right&quot;&gt;
+
+                &lt;!-- BUTTON SUCCESS --&gt;
+                &lt;li class=&quot;innerLR&quot;&gt;&lt;button type=&quot;button&quot; class=&quot;btn btn-success navbar-btn&quot;&gt;&lt;i class=&quot;fa fa-pencil&quot;&gt;&lt;/i&gt; Sign in&lt;/button&gt;&lt;/li&gt;
+
+                &lt;!-- USER DROPDOWN --&gt;
+                &lt;li class=&quot;dropdown&quot;&gt;
+                    &lt;a href=&quot;#&quot; class=&quot;dropdown-toggle&quot; data-toggle=&quot;dropdown&quot;&gt;
+                        &lt;span class=&quot;pull-left innerR&quot;&gt;&lt;img src=&quot;../assets/images/people/35/16.jpg&quot; alt=&quot;user&quot; class=&quot;img-circle&quot;&gt;&lt;/span&gt;
+                        Bill &lt;b class=&quot;caret&quot;&gt;&lt;/b&gt;
+                    &lt;/a&gt;
+                    &lt;ul class=&quot;dropdown-menu&quot;&gt;
+                        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Action&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Another action&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Something else here&lt;/a&gt;&lt;/li&gt;
+                        &lt;li class=&quot;divider&quot;&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Separated link&lt;/a&gt;&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/li&gt;
+
+            &lt;/ul&gt;
+
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/nav&gt;
+</pre>
+<div class="separator"></div>
+
+
+				<br/>
+
+									
+						
+				
+<h2 id="guide-css-less">4. CSS &amp; LESS</h2>
+<div class="separator"></div>
+<div class="alert alert-danger strong"> <i class="fa fa-info-circle fa-fw fa-2x pull-left innerT half"></i> By default, Social Admin Template is loading a complete stylesheet file that contains all the styles needed for the entire template, which is located within the <code>less/module_name</code> folder.</div>
+<div class="separator"></div>
+<p> For example, the <strong>assets/less/admin/module.admin.stylesheet-complete.less </strong> used by the admin module, might contain something like this:</p>
+<div class="separator"></div>
+<pre class="prettyprint">// Example of stylesheet complete contents
+@import '../../../assets/components/menus/navbar.main.less';
+@import '../../../assets/components/menus/skin.colors.less';
+@import '../../../assets/components/ui_breadcrumb/breadcrumb.less';
+@import '../../../assets/components/ui_forms/forms.less';
+@import '../../../assets/components/ui_labels/labels.less';
+...
+</pre>
+    <p>The imports represent all the style assets used by over 300 components included with the template.</p>
+				<br/>
+
+									
+						
+				
+<h2 id="guide-assets-structure">5. Assets Structure</h2>
+
+<div class="separator"></div>
+<p> The assets is structured in a specific modular way.</p>
+<div class="separator"></div>
+<pre class="prettyprint">social_admin_template/
+
+└── assets/
+    │   // Library includes core frameworks like Bootstrap, jQuery, jQuery UI, Modernizr etc.
+    └── library/
+    │
+    │   // Plugins like jQuery Plugins, Bootstrap Plugins, etc
+    └── plugins/
+    │
+    │   // Custom Javascript &amp; Styling
+    └── components/
+        │
+        │   // As a general rule of thumb, component folders are named by the following
+        │   // convention: {module_or_page_name}_{component_categories}_{component_name}
+        └── component_name/
+                    └── &lt;custom javascript&gt;
+                    └── &lt;custom style&gt;
+
+
+</pre>
+
+
+				<br/>
+
+									
+						
+				
+<h2 id="guide-components">6. Components</h2>
+
+<p class="lead">A component is a group of resources needed to render a specific element.</p>
+<hr/>
+<div class="separator"></div>
+<p>Social Admin Template contains hundreds of components for various purposes. <a class="btn btn-primary" href="filter.all.html?v=v2.0.0-rc8">Browse Components <i class="fa fa-arrow-right"></i></a></p>				<br/>
+
+						
+</div>
+<!-- // END CONTAINER -->
+
+
+	<!-- Global -->
+	<script>
+	var basePath = '',
+		commonPath = '../assets/',
+		rootPath = '../',
+		DEV = false,
+		componentsPath = '../assets/components/';
+	
+	var primaryColor = '#25ad9f',
+		dangerColor = '#b55151',
+		successColor = '#609450',
+        infoColor = '#4a8bc2',
+		warningColor = '#ab7a4b',
+		inverseColor = '#45484d';
+	
+	var themerPrimaryColor = primaryColor;
+	</script>
+
+	<script src="../assets/library/bootstrap/js/bootstrap.min.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../assets/plugins/core_slimscroll/jquery.slimscroll.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../assets/plugins/media_holder/holder.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../assets/components/core_docs/docs/assets/angular/app/ng.app.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../assets/components/core_docs/assets/angular/filters/ng.filter.isarray.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../assets/components/core_docs/assets/angular/controllers/ng.ctrl.components.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../assets/components/core_docs/docs/assets/angular/directives/ng.docs.directive.components.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../assets/plugins/core_prettyprint/js/prettify.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../assets/components/core/core.init.js?v=v2.0.0-rc8"></script>
+</body>
+</html>
