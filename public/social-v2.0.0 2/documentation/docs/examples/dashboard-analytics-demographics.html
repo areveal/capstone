@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>dashboard-analytics-demographics example | Social Admin Template Template (v2.0.0-rc8)</title>
+	
+	<!-- Meta -->
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE" />
+
+	<!-- 
+	**********************************************************
+	In development, use the LESS files and the less.js compiler
+	instead of the minified CSS loaded by default.
+	**********************************************************
+	-->
+
+		<!-- <link rel="stylesheet/less" href="../../assets/less/docs/module.examples.page.dashboard-analytics-demographics.less" /> -->
+
+	<link rel="stylesheet" href="../../assets/css/docs/module.examples.page.dashboard-analytics-demographics.min.css" />
+
+	
+	<script src="../../assets/library/jquery/jquery.min.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../../assets/library/jquery/jquery-migrate.min.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../../assets/library/modernizr/modernizr.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../../assets/plugins/core_less-js/less.min.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../../assets/plugins/charts_flot/excanvas.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../../assets/plugins/core_browser/ie/ie.prototype.polyfill.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+</head>
+<body id="examples">
+
+	<div class="container">
+		<div class="innerTB">
+
+			<div class="jumbotron">
+				<h1 class="separator bottom">dashboard-analytics-demographics example</h1>
+				<p class="lead">This is an example page that loads strictly the minimal core styles &amp; scripts required by <strong>Social Admin Template</strong> and the <strong>dashboard-analytics-demographics component</strong></p>
+			</div>
+<!-- DEMOGRAPHIC START -->
+<div class="widget">
+    <div class="widget-head">
+        <h4 class="innerAll half"><i class="fa fa-fw icon-worldwide"></i> Demographic</h4>
+    </div>
+    <div class="bg-white border-bottom text-center">
+        <div id="world-map-markers" style="height: 200px; overflow:hidden"></div>
+    </div>
+    <ul class="list-unstyled">
+        <li class="innerAll border-bottom"><div class="pull-right strong">1249</div><i class="fa fa-fw fa-circle text-info"></i> Miami</li>
+        <li class="innerAll border-bottom"><div class="pull-right strong">892</div><i class="fa fa-fw fa-circle text-success"></i> Chicago</li>
+        <li class="innerAll border-bottom"><div class="pull-right strong">530</div><i class="fa fa-fw fa-circle text-primary"></i> Michigan</li>
+        <li class="innerAll"><div class="pull-right strong">380</div><i class="fa fa-fw fa-circle"></i> Boston</li>
+    </ul>
+</div>
+<!-- // END DEMOGRAPHIC -->
+
+	
+		</div>
+	</div>
+
+	<!-- Global -->
+	<script>
+	var basePath = '',
+		rootPath = '../../',
+		DEV = false,
+		componentsPath = '../../assets/components/';
+	
+	var primaryColor = '#25ad9f',
+		dangerColor = '#b55151',
+		successColor = '#609450',
+		warningColor = '#ab7a4b',
+		inverseColor = '#45484d';
+	
+	var themerPrimaryColor = primaryColor;
+	</script>
+
+	<script src="../../assets/library/bootstrap/js/bootstrap.min.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../../assets/plugins/maps_vector/jquery-jvectormap-1.2.2.min.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../../assets/plugins/maps_vector/data/gdp-data.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../../assets/plugins/maps_vector/maps/jquery-jvectormap-world-mill-en.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../../assets/plugins/maps_vector/maps/jquery-jvectormap-us-aea-en.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../../assets/plugins/maps_vector/maps/jquery-jvectormap-de-merc-en.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../../assets/plugins/maps_vector/maps/jquery-jvectormap-fr-merc-en.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../../assets/plugins/maps_vector/maps/jquery-jvectormap-es-merc-en.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../../assets/plugins/maps_vector/maps/jquery-jvectormap-us-lcc-en.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../../assets/plugins/maps_vector/maps/mall-map.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../../assets/components/maps_vector/maps-vector.france-elections.init.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../../assets/components/maps_vector/maps-vector.mall-map.init.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../../assets/components/maps_vector/maps-vector.projection-map.init.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../../assets/components/maps_vector/maps-vector.random-colors.init.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../../assets/components/maps_vector/maps-vector.region-selection.init.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../../assets/components/maps_vector/maps-vector.usa-unemployment.init.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../../assets/components/maps_vector/maps-vector.world-map-gdp.init.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../../assets/components/maps_vector/maps-vector.world-map-markers.init.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../../assets/components/maps_vector/maps-vector.tabs.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+</body>
+</html>

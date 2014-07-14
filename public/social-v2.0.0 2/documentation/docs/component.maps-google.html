@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Social Admin Template Template (v2.0.0-rc8)</title>
+	
+	<!-- Meta -->
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE" />
+
+	 
+	
+	<!-- 
+	**********************************************************
+	In development, use the LESS files and the less.js compiler
+	instead of the minified CSS loaded by default.
+	**********************************************************
+	-->
+
+		<!-- <link rel="stylesheet/less" href="../assets/less/docs/module.docs.page.index.component.maps-google.less" /> -->
+
+	<link rel="stylesheet" href="../assets/css/docs/module.docs.page.index.component.maps-google.min.css" />
+
+	
+	
+	<script src="../assets/library/jquery/jquery.min.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../assets/library/jquery/jquery-migrate.min.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../assets/library/modernizr/modernizr.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../assets/plugins/core_less-js/less.min.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../assets/plugins/charts_flot/excanvas.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../assets/plugins/core_browser/ie/ie.prototype.polyfill.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../assets/library/angular/angular.min.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+</head>
+<body id="docs">
+
+<!-- Fixed navbar -->
+<div class="navbar navbar-default navbar-fixed-top">
+  	<div class="container">
+    	<div class="navbar-header">
+      		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        		<span class="icon-bar"></span>
+        		<span class="icon-bar"></span>
+        		<span class="icon-bar"></span>
+      		</button>
+      		<a class="navbar-brand" href="http://www.mosaicpro.biz" target="_blank"><img src="../assets/images/logo/logo.jpg" alt="" /></a>
+      		<a class="navbar-brand" href="guide.getting-started-html.html?lang=en">Social Admin Template</a>
+    	</div>
+    	<div class="navbar-collapse collapse">
+      		<ul class="nav navbar-nav">
+        		<li class="dropdown">
+          			<a href="#" class="dropdown-toggle" data-toggle="dropdown">Guides <b class="caret"></b></a>
+          			<ul class="dropdown-menu">
+          									<li><a href="guide.getting-started-html.html?v=v2.0.0-rc8">HTML Guide</a></li>
+												<li><a href="guide.getting-started-php.html?v=v2.0.0-rc8">PHP Guide</a></li>
+						          			</ul>
+        		</li>
+                        		<li class="dropdown">
+          			<a href="#" class="dropdown-toggle" data-toggle="dropdown">Documentation <b class="caret"></b></a>
+          			<ul class="dropdown-menu">
+          				<li class="dropdown-header">Components</li>
+
+                                    			<li><a href="filter.all.html?v=v2.0.0-rc8">All components</a></li>
+                                    			<li><a href="filter.core.html?v=v2.0.0-rc8">Core</a></li>
+                                    			<li><a href="filter.charts.html?v=v2.0.0-rc8">Charts</a></li>
+                                    			<li><a href="filter.forms.html?v=v2.0.0-rc8">Forms</a></li>
+                                    			<li><a href="filter.maps.html?v=v2.0.0-rc8">Maps</a></li>
+                                    			<li><a href="filter.media.html?v=v2.0.0-rc8">Media</a></li>
+                                    			<li><a href="filter.table.html?v=v2.0.0-rc8">Tables</a></li>
+                                    			<li><a href="filter.ui.html?v=v2.0.0-rc8">UI</a></li>
+                                    			<li><a href="filter.widget.html?v=v2.0.0-rc8">Widgets</a></li>
+                                    			<li><a href="filter.other.html?v=v2.0.0-rc8">Other</a></li>
+                        
+                        <li class="dropdown-header">Modules</li>
+
+            			                        <li><a href="filter.admin.html?v=v2.0.0-rc8">Admin</a></li>
+                        
+                        <!-- <li class="dropdown-header">Pages</li>
+                        <li><a href="">Demo pages</a></li> -->
+          			</ul>
+        		</li>
+      		</ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="http://www.mosaicpro.biz/blog/tutorials" target="_blank"><i class="fa fa-fw fa-file-text-o"></i> Online Guides</a></li>
+      		</ul>
+    	</div><!--/.nav-collapse -->
+  	</div>
+</div>
+
+<div class="innerLR">
+<div class="widget widget-tabs">
+	<div class="widget-body">
+
+		<div class="row">
+			
+			<div class="col-md-3" ng-app="App" ng-controller="ComponentsCtrl">
+				<input class="form-control" type="text" ng-model="search" placeholder="Search .." />
+				<tree collection="components" search="search" version="v2.0.0-rc8"></tree>
+			</div>
+
+			<div class="col-md-9">
+
+									
+					<div class="well well-lg">
+						
+				<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">Google Maps Component</h4>
+			</div>
+			<div class="panel-body">
+
+				<i class="fa fa-fw fa-3x pull-right icon-map-location-1"></i>
+				<p class="lead">Multipl Google Maps Examples</p>
+
+						
+								
+		<hr><br><h4>3rd party assets:</h4><blockquote>
+					<i class="fa fa-fw fa-3x pull-left fa-code"></i>
+			<p><strong>Name:</strong> Bootbox.js | <strong>File</strong>: ../assets/plugins/ui_modals/bootbox.min.js</p>
+			<p><strong>Description:</strong> Bootbox.js is a small JavaScript library which allows you to create programmatic dialog boxes using Twitter’s Bootstrap modals.</p>
+						
+		<p>		<strong>Version</strong>: 4.1.0		 | <strong>Official Website</strong>: <a href="https://github.com/makeusabrew/bootbox" target="_blank">https://github.com/makeusabrew/bootbox</a>		</p>
+		
+		
+		</blockquote>
+					</div>
+		</div>
+		
+							</div>
+
+					
+						
+							<h4 class="separator bottom"><a href="#view-148f73a82e70c42a74fd38c6ffc8dd6f" data-toggle="collapse">maps-google-clustering</a></h4>
+							<div class="collapse in" id="view-148f73a82e70c42a74fd38c6ffc8dd6f">
+
+							<div class="widget widget-tabs">
+								<div class="widget-head padding-none">
+									
+									<ul>
+										<li class="active"><a href="#preview-148f73a82e70c42a74fd38c6ffc8dd6f" data-toggle="tab">Preview</a></li>										<li><a href="#source-148f73a82e70c42a74fd38c6ffc8dd6f" data-toggle="tab">Source</a></li>										<li><a href="#styles-148f73a82e70c42a74fd38c6ffc8dd6f" data-toggle="tab">Styles</a></li>										<li><a href="#scripts-148f73a82e70c42a74fd38c6ffc8dd6f" data-toggle="tab">Scripts</a></li>																			</ul>
+
+																		<a href="../docs/examples/maps-google-clustering.html" target="_blank" class="pull-right btn btn-success">Live Example</a>
+									
+								</div>
+								<div class="widget-body">
+									<div class="tab-content">
+
+																				<div class="tab-pane active" id="preview-148f73a82e70c42a74fd38c6ffc8dd6f">
+											<!-- Clustering -->
+<h4 class="separator bottom">Clustering</h4>
+<div class="thumbnail"><div class="map_canvas" id="google-map-clustering" style="height: 400px"></div></div>
+<!-- // Clustering END -->
+
+										</div>
+										
+																				<div class="tab-pane" id="source-148f73a82e70c42a74fd38c6ffc8dd6f">
+											<pre class="prettyprint">&lt;!-- Clustering --&gt;
+&lt;h4 class=&quot;separator bottom&quot;&gt;Clustering&lt;/h4&gt;
+&lt;div class=&quot;thumbnail&quot;&gt;&lt;div class=&quot;map_canvas&quot; id=&quot;google-map-clustering&quot; style=&quot;height: 400px&quot;&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;!-- // Clustering END --&gt;
+
+</pre>
+										</div>
+										
+																				<div class="tab-pane" id="styles-148f73a82e70c42a74fd38c6ffc8dd6f">
+
+											<p class="lead"><strong>Important note:</strong> By default, Social Admin Template is loading a complete stylesheet file that contains all the styles needed for the entire template. However, if you'd like to reduce bloat and load a minimal stylesheet with the required styles on each page of your application, follow along.</p>
+											<hr class="separator"/><br/>
+											
+											<h4>Usage</h4>
+											<ol>
+												<li>Create a new LESS file <em>(e.g. styles.less)</em> and save it in the <code>assets/less</code> folder.</li>
+												<li>
+													<p>Copy &amp; paste the following imports in the LESS file you just created, in this order:</p>
+													
+																										<div class="strong">CORE minimal styles:</div>
+													<pre class="prettyprint">@import &quot;../assets/library/bootstrap/css/bootstrap.min.css&quot;;
+@import &quot;../assets/library/icons/fontawesome/assets/css/font-awesome.min.css&quot;;
+@import &quot;../assets/library/icons/glyphicons/assets/css/glyphicons_regular.css&quot;;
+@import &quot;../assets/library/icons/glyphicons/assets/css/glyphicons_social.css&quot;;
+@import &quot;../assets/library/icons/glyphicons/assets/css/glyphicons_filetypes.css&quot;;
+@import &quot;../assets/components/core/variables.less&quot;;
+@import &quot;../assets/components/core/mixins.less&quot;;
+@import &quot;../assets/components/core/scaffolding.less&quot;;
+@import &quot;../assets/components/core/helpers.less&quot;;</pre>
+																										
+													<div class="strong">Component styles:</div>
+													<pre class="prettyprint">@import &quot;../assets/components/ui_tabs/tabs.less&quot;;</pre>
+												</li>
+												<li>Place the file in your project's document root.</li>
+												<li>
+													Load the LESS file into the <code>&lt;head&gt;</code> section of your HTML document, before any JavaScript files: <p><pre class="prettyprint">&lt;link rel=&quot;stylesheet/less&quot; href=&quot;styles.less&quot; /&gt;</pre>
+</p>
+													<p><span class="label label-danger">NOTE</span>&nbsp; To include the LESS file directly, make sure the LESS.js library is also loaded in the <code>head</code> section of the template, otherwise compile the LESS file into CSS and include that file.</p>
+												</li>
+												<li>If you'd like to include other components on the same page, don't create multiple LESS files, but add all the imports in one file. You can create a LESS file for each page with just the resources used for that specific page, or you could create and use a single LESS file for the entire project.</li>
+												<li>In production, compile the LESS file and use the resulting minified CSS file in the HTML document.</li>
+											</ol>
+
+																						<h4>Example</h4>
+											<p>See the <a href="../docs/examples/maps-google-clustering.html" target="_blank">Live Example</a> page and it's source for a minimal implementation of this component.</p>
+											
+										</div>
+										
+																				<div class="tab-pane" id="scripts-148f73a82e70c42a74fd38c6ffc8dd6f">
+
+											<p class="lead"><strong>Important note:</strong> <code>&lt;filename&gt;.init.js</code> files are responsible for initializing and customizing the behaviour of the component and it's 3rd party assets.</p>
+
+																							
+												<h3>Scripts</h3>
+												<p><span class="label label-default">BODY</span> You should include the following scripts at the end of the HTML document, right before the closing <code>&lt;/body&gt;</code> tag.</p>
+
+												<pre class="prettyprint">&lt;script src=&quot;../assets/components/maps_google/maps-google.init.js?v=v2.0.0-rc8&amp;sv=v0.0.1.2&quot;&gt;&lt;/script&gt;</pre>
+
+										</div>
+										
+										
+									</div>
+								</div>
+							</div>
+							<div class="separator bottom"></div>
+						</div>
+												
+						
+							<h4 class="separator bottom"><a href="#view-ca73caee39560f3f308f2cb924d77767" data-toggle="collapse">maps-google-filtering</a></h4>
+							<div class="collapse in" id="view-ca73caee39560f3f308f2cb924d77767">
+
+							<div class="widget widget-tabs">
+								<div class="widget-head padding-none">
+									
+									<ul>
+										<li class="active"><a href="#preview-ca73caee39560f3f308f2cb924d77767" data-toggle="tab">Preview</a></li>										<li><a href="#source-ca73caee39560f3f308f2cb924d77767" data-toggle="tab">Source</a></li>										<li><a href="#styles-ca73caee39560f3f308f2cb924d77767" data-toggle="tab">Styles</a></li>										<li><a href="#scripts-ca73caee39560f3f308f2cb924d77767" data-toggle="tab">Scripts</a></li>																			</ul>
+
+																		<a href="../docs/examples/maps-google-filtering.html" target="_blank" class="pull-right btn btn-success">Live Example</a>
+									
+								</div>
+								<div class="widget-body">
+									<div class="tab-content">
+
+																				<div class="tab-pane active" id="preview-ca73caee39560f3f308f2cb924d77767">
+											<!-- Filtering -->
+<h4 class="separator bottom">Filtering</h4>
+<div class="thumbnail"><div class="map_canvas" id="google-map-filters" style="height: 400px"></div></div>
+<div id="radios" class="well"></div>
+<!--<div id="tags-control" class="well">
+	<label style="color:#555;font-size:12px; font-weight:bold;" for="tags">Filter by tag</label>
+	<select id="tags" style="outline:none;"></select>
+</div>-->
+<!-- // Filtering END -->
+
+										</div>
+										
+																				<div class="tab-pane" id="source-ca73caee39560f3f308f2cb924d77767">
+											<pre class="prettyprint">&lt;!-- Filtering --&gt;
+&lt;h4 class=&quot;separator bottom&quot;&gt;Filtering&lt;/h4&gt;
+&lt;div class=&quot;thumbnail&quot;&gt;&lt;div class=&quot;map_canvas&quot; id=&quot;google-map-filters&quot; style=&quot;height: 400px&quot;&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div id=&quot;radios&quot; class=&quot;well&quot;&gt;&lt;/div&gt;
+&lt;!--&lt;div id=&quot;tags-control&quot; class=&quot;well&quot;&gt;
+	&lt;label style=&quot;color:#555;font-size:12px; font-weight:bold;&quot; for=&quot;tags&quot;&gt;Filter by tag&lt;/label&gt;
+	&lt;select id=&quot;tags&quot; style=&quot;outline:none;&quot;&gt;&lt;/select&gt;
+&lt;/div&gt;--&gt;
+&lt;!-- // Filtering END --&gt;
+
+</pre>
+										</div>
+										
+																				<div class="tab-pane" id="styles-ca73caee39560f3f308f2cb924d77767">
+
+											<p class="lead"><strong>Important note:</strong> By default, Social Admin Template is loading a complete stylesheet file that contains all the styles needed for the entire template. However, if you'd like to reduce bloat and load a minimal stylesheet with the required styles on each page of your application, follow along.</p>
+											<hr class="separator"/><br/>
+											
+											<h4>Usage</h4>
+											<ol>
+												<li>Create a new LESS file <em>(e.g. styles.less)</em> and save it in the <code>assets/less</code> folder.</li>
+												<li>
+													<p>Copy &amp; paste the following imports in the LESS file you just created, in this order:</p>
+													
+																										<div class="strong">CORE minimal styles:</div>
+													<pre class="prettyprint">@import &quot;../assets/library/bootstrap/css/bootstrap.min.css&quot;;
+@import &quot;../assets/library/icons/fontawesome/assets/css/font-awesome.min.css&quot;;
+@import &quot;../assets/library/icons/glyphicons/assets/css/glyphicons_regular.css&quot;;
+@import &quot;../assets/library/icons/glyphicons/assets/css/glyphicons_social.css&quot;;
+@import &quot;../assets/library/icons/glyphicons/assets/css/glyphicons_filetypes.css&quot;;
+@import &quot;../assets/components/core/variables.less&quot;;
+@import &quot;../assets/components/core/mixins.less&quot;;
+@import &quot;../assets/components/core/scaffolding.less&quot;;
+@import &quot;../assets/components/core/helpers.less&quot;;</pre>
+																										
+													<div class="strong">Component styles:</div>
+													<pre class="prettyprint">@import &quot;../assets/components/ui_tabs/tabs.less&quot;;</pre>
+												</li>
+												<li>Place the file in your project's document root.</li>
+												<li>
+													Load the LESS file into the <code>&lt;head&gt;</code> section of your HTML document, before any JavaScript files: <p><pre class="prettyprint">&lt;link rel=&quot;stylesheet/less&quot; href=&quot;styles.less&quot; /&gt;</pre>
+</p>
+													<p><span class="label label-danger">NOTE</span>&nbsp; To include the LESS file directly, make sure the LESS.js library is also loaded in the <code>head</code> section of the template, otherwise compile the LESS file into CSS and include that file.</p>
+												</li>
+												<li>If you'd like to include other components on the same page, don't create multiple LESS files, but add all the imports in one file. You can create a LESS file for each page with just the resources used for that specific page, or you could create and use a single LESS file for the entire project.</li>
+												<li>In production, compile the LESS file and use the resulting minified CSS file in the HTML document.</li>
+											</ol>
+
+																						<h4>Example</h4>
+											<p>See the <a href="../docs/examples/maps-google-filtering.html" target="_blank">Live Example</a> page and it's source for a minimal implementation of this component.</p>
+											
+										</div>
+										
+																				<div class="tab-pane" id="scripts-ca73caee39560f3f308f2cb924d77767">
+
+											<p class="lead"><strong>Important note:</strong> <code>&lt;filename&gt;.init.js</code> files are responsible for initializing and customizing the behaviour of the component and it's 3rd party assets.</p>
+
+																							
+												<h3>Scripts</h3>
+												<p><span class="label label-default">BODY</span> You should include the following scripts at the end of the HTML document, right before the closing <code>&lt;/body&gt;</code> tag.</p>
+
+												<pre class="prettyprint">&lt;script src=&quot;../assets/components/maps_google/maps-google.init.js?v=v2.0.0-rc8&amp;sv=v0.0.1.2&quot;&gt;&lt;/script&gt;</pre>
+
+										</div>
+										
+										
+									</div>
+								</div>
+							</div>
+							<div class="separator bottom"></div>
+						</div>
+												
+						
+							<h4 class="separator bottom"><a href="#view-4c61a67881a4c5a0d86da693cf3c942e" data-toggle="collapse">maps-google-geocoding</a></h4>
+							<div class="collapse in" id="view-4c61a67881a4c5a0d86da693cf3c942e">
+
+							<div class="widget widget-tabs">
+								<div class="widget-head padding-none">
+									
+									<ul>
+										<li class="active"><a href="#preview-4c61a67881a4c5a0d86da693cf3c942e" data-toggle="tab">Preview</a></li>										<li><a href="#source-4c61a67881a4c5a0d86da693cf3c942e" data-toggle="tab">Source</a></li>										<li><a href="#styles-4c61a67881a4c5a0d86da693cf3c942e" data-toggle="tab">Styles</a></li>										<li><a href="#scripts-4c61a67881a4c5a0d86da693cf3c942e" data-toggle="tab">Scripts</a></li>										<li><a href="#resources-4c61a67881a4c5a0d86da693cf3c942e" data-toggle="tab">Resources</a></li>									</ul>
+
+																		<a href="../docs/examples/maps-google-geocoding.html" target="_blank" class="pull-right btn btn-success">Live Example</a>
+									
+								</div>
+								<div class="widget-body">
+									<div class="tab-content">
+
+																				<div class="tab-pane active" id="preview-4c61a67881a4c5a0d86da693cf3c942e">
+											<!-- Geocoding -->
+<h4 class="separator bottom">Geocoding <span>Click anywhere on map to add markers</span></h4>
+<div class="thumbnail"><div class="map_canvas" id="google-map-geocoding" style="height: 400px"></div></div>
+<div id="modals"></div>
+<!-- // Geocoding END -->
+
+
+										</div>
+										
+																				<div class="tab-pane" id="source-4c61a67881a4c5a0d86da693cf3c942e">
+											<pre class="prettyprint">&lt;!-- Geocoding --&gt;
+&lt;h4 class=&quot;separator bottom&quot;&gt;Geocoding &lt;span&gt;Click anywhere on map to add markers&lt;/span&gt;&lt;/h4&gt;
+&lt;div class=&quot;thumbnail&quot;&gt;&lt;div class=&quot;map_canvas&quot; id=&quot;google-map-geocoding&quot; style=&quot;height: 400px&quot;&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div id=&quot;modals&quot;&gt;&lt;/div&gt;
+&lt;!-- // Geocoding END --&gt;
+
+
+</pre>
+										</div>
+										
+																				<div class="tab-pane" id="styles-4c61a67881a4c5a0d86da693cf3c942e">
+
+											<p class="lead"><strong>Important note:</strong> By default, Social Admin Template is loading a complete stylesheet file that contains all the styles needed for the entire template. However, if you'd like to reduce bloat and load a minimal stylesheet with the required styles on each page of your application, follow along.</p>
+											<hr class="separator"/><br/>
+											
+											<h4>Usage</h4>
+											<ol>
+												<li>Create a new LESS file <em>(e.g. styles.less)</em> and save it in the <code>assets/less</code> folder.</li>
+												<li>
+													<p>Copy &amp; paste the following imports in the LESS file you just created, in this order:</p>
+													
+																										<div class="strong">CORE minimal styles:</div>
+													<pre class="prettyprint">@import &quot;../assets/library/bootstrap/css/bootstrap.min.css&quot;;
+@import &quot;../assets/library/icons/fontawesome/assets/css/font-awesome.min.css&quot;;
+@import &quot;../assets/library/icons/glyphicons/assets/css/glyphicons_regular.css&quot;;
+@import &quot;../assets/library/icons/glyphicons/assets/css/glyphicons_social.css&quot;;
+@import &quot;../assets/library/icons/glyphicons/assets/css/glyphicons_filetypes.css&quot;;
+@import &quot;../assets/components/core/variables.less&quot;;
+@import &quot;../assets/components/core/mixins.less&quot;;
+@import &quot;../assets/components/core/scaffolding.less&quot;;
+@import &quot;../assets/components/core/helpers.less&quot;;</pre>
+																										
+													<div class="strong">Component styles:</div>
+													<pre class="prettyprint">@import &quot;../assets/components/ui_tabs/tabs.less&quot;;</pre>
+												</li>
+												<li>Place the file in your project's document root.</li>
+												<li>
+													Load the LESS file into the <code>&lt;head&gt;</code> section of your HTML document, before any JavaScript files: <p><pre class="prettyprint">&lt;link rel=&quot;stylesheet/less&quot; href=&quot;styles.less&quot; /&gt;</pre>
+</p>
+													<p><span class="label label-danger">NOTE</span>&nbsp; To include the LESS file directly, make sure the LESS.js library is also loaded in the <code>head</code> section of the template, otherwise compile the LESS file into CSS and include that file.</p>
+												</li>
+												<li>If you'd like to include other components on the same page, don't create multiple LESS files, but add all the imports in one file. You can create a LESS file for each page with just the resources used for that specific page, or you could create and use a single LESS file for the entire project.</li>
+												<li>In production, compile the LESS file and use the resulting minified CSS file in the HTML document.</li>
+											</ol>
+
+																						<h4>Example</h4>
+											<p>See the <a href="../docs/examples/maps-google-geocoding.html" target="_blank">Live Example</a> page and it's source for a minimal implementation of this component.</p>
+											
+										</div>
+										
+																				<div class="tab-pane" id="scripts-4c61a67881a4c5a0d86da693cf3c942e">
+
+											<p class="lead"><strong>Important note:</strong> <code>&lt;filename&gt;.init.js</code> files are responsible for initializing and customizing the behaviour of the component and it's 3rd party assets.</p>
+
+																							
+												<h3>Scripts</h3>
+												<p><span class="label label-default">BODY</span> You should include the following scripts at the end of the HTML document, right before the closing <code>&lt;/body&gt;</code> tag.</p>
+
+												<pre class="prettyprint">&lt;script src=&quot;../assets/components/maps_google/maps-google.init.js?v=v2.0.0-rc8&amp;sv=v0.0.1.2&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;../assets/plugins/ui_modals/bootbox.min.js?v=v2.0.0-rc8&amp;sv=v0.0.1.2&quot;&gt;&lt;/script&gt;</pre>
+
+										</div>
+										
+																				<div class="tab-pane" id="resources-4c61a67881a4c5a0d86da693cf3c942e">
+
+											<div class="panel panel-default"><div class="panel-body"><blockquote class="margin-none">
+					<i class="fa fa-fw fa-3x pull-left fa-code"></i>
+			<p><strong>Name:</strong> Bootbox.js | <strong>File</strong>: ../assets/plugins/ui_modals/bootbox.min.js</p>
+			<p><strong>Description:</strong> Bootbox.js is a small JavaScript library which allows you to create programmatic dialog boxes using Twitter’s Bootstrap modals.</p>
+						
+		<p>		<strong>Version</strong>: 4.1.0		 | <strong>Official Website</strong>: <a href="https://github.com/makeusabrew/bootbox" target="_blank">https://github.com/makeusabrew/bootbox</a>		</p>
+		
+		
+		</blockquote></div></div>
+										</div>
+										
+									</div>
+								</div>
+							</div>
+							<div class="separator bottom"></div>
+						</div>
+												
+						
+							<h4 class="separator bottom"><a href="#view-37e6d3be4547a916366c5c631e40c7ac" data-toggle="collapse">maps-google-json</a></h4>
+							<div class="collapse in" id="view-37e6d3be4547a916366c5c631e40c7ac">
+
+							<div class="widget widget-tabs">
+								<div class="widget-head padding-none">
+									
+									<ul>
+										<li class="active"><a href="#preview-37e6d3be4547a916366c5c631e40c7ac" data-toggle="tab">Preview</a></li>										<li><a href="#source-37e6d3be4547a916366c5c631e40c7ac" data-toggle="tab">Source</a></li>										<li><a href="#styles-37e6d3be4547a916366c5c631e40c7ac" data-toggle="tab">Styles</a></li>										<li><a href="#scripts-37e6d3be4547a916366c5c631e40c7ac" data-toggle="tab">Scripts</a></li>																			</ul>
+
+																		<a href="../docs/examples/maps-google-json.html" target="_blank" class="pull-right btn btn-success">Live Example</a>
+									
+								</div>
+								<div class="widget-body">
+									<div class="tab-content">
+
+																				<div class="tab-pane active" id="preview-37e6d3be4547a916366c5c631e40c7ac">
+											<!-- JSON -->
+<h4 class="separator bottom">Loading markers from JSON</h4>
+<div class="thumbnail"><div class="map_canvas" id="google-map-json" style="height: 400px"></div></div>
+<!-- // JSON END -->
+
+										</div>
+										
+																				<div class="tab-pane" id="source-37e6d3be4547a916366c5c631e40c7ac">
+											<pre class="prettyprint">&lt;!-- JSON --&gt;
+&lt;h4 class=&quot;separator bottom&quot;&gt;Loading markers from JSON&lt;/h4&gt;
+&lt;div class=&quot;thumbnail&quot;&gt;&lt;div class=&quot;map_canvas&quot; id=&quot;google-map-json&quot; style=&quot;height: 400px&quot;&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;!-- // JSON END --&gt;
+
+</pre>
+										</div>
+										
+																				<div class="tab-pane" id="styles-37e6d3be4547a916366c5c631e40c7ac">
+
+											<p class="lead"><strong>Important note:</strong> By default, Social Admin Template is loading a complete stylesheet file that contains all the styles needed for the entire template. However, if you'd like to reduce bloat and load a minimal stylesheet with the required styles on each page of your application, follow along.</p>
+											<hr class="separator"/><br/>
+											
+											<h4>Usage</h4>
+											<ol>
+												<li>Create a new LESS file <em>(e.g. styles.less)</em> and save it in the <code>assets/less</code> folder.</li>
+												<li>
+													<p>Copy &amp; paste the following imports in the LESS file you just created, in this order:</p>
+													
+																										<div class="strong">CORE minimal styles:</div>
+													<pre class="prettyprint">@import &quot;../assets/library/bootstrap/css/bootstrap.min.css&quot;;
+@import &quot;../assets/library/icons/fontawesome/assets/css/font-awesome.min.css&quot;;
+@import &quot;../assets/library/icons/glyphicons/assets/css/glyphicons_regular.css&quot;;
+@import &quot;../assets/library/icons/glyphicons/assets/css/glyphicons_social.css&quot;;
+@import &quot;../assets/library/icons/glyphicons/assets/css/glyphicons_filetypes.css&quot;;
+@import &quot;../assets/components/core/variables.less&quot;;
+@import &quot;../assets/components/core/mixins.less&quot;;
+@import &quot;../assets/components/core/scaffolding.less&quot;;
+@import &quot;../assets/components/core/helpers.less&quot;;</pre>
+																										
+													<div class="strong">Component styles:</div>
+													<pre class="prettyprint">@import &quot;../assets/components/ui_tabs/tabs.less&quot;;</pre>
+												</li>
+												<li>Place the file in your project's document root.</li>
+												<li>
+													Load the LESS file into the <code>&lt;head&gt;</code> section of your HTML document, before any JavaScript files: <p><pre class="prettyprint">&lt;link rel=&quot;stylesheet/less&quot; href=&quot;styles.less&quot; /&gt;</pre>
+</p>
+													<p><span class="label label-danger">NOTE</span>&nbsp; To include the LESS file directly, make sure the LESS.js library is also loaded in the <code>head</code> section of the template, otherwise compile the LESS file into CSS and include that file.</p>
+												</li>
+												<li>If you'd like to include other components on the same page, don't create multiple LESS files, but add all the imports in one file. You can create a LESS file for each page with just the resources used for that specific page, or you could create and use a single LESS file for the entire project.</li>
+												<li>In production, compile the LESS file and use the resulting minified CSS file in the HTML document.</li>
+											</ol>
+
+																						<h4>Example</h4>
+											<p>See the <a href="../docs/examples/maps-google-json.html" target="_blank">Live Example</a> page and it's source for a minimal implementation of this component.</p>
+											
+										</div>
+										
+																				<div class="tab-pane" id="scripts-37e6d3be4547a916366c5c631e40c7ac">
+
+											<p class="lead"><strong>Important note:</strong> <code>&lt;filename&gt;.init.js</code> files are responsible for initializing and customizing the behaviour of the component and it's 3rd party assets.</p>
+
+																							
+												<h3>Scripts</h3>
+												<p><span class="label label-default">BODY</span> You should include the following scripts at the end of the HTML document, right before the closing <code>&lt;/body&gt;</code> tag.</p>
+
+												<pre class="prettyprint">&lt;script src=&quot;../assets/components/maps_google/maps-google.init.js?v=v2.0.0-rc8&amp;sv=v0.0.1.2&quot;&gt;&lt;/script&gt;</pre>
+
+										</div>
+										
+										
+									</div>
+								</div>
+							</div>
+							<div class="separator bottom"></div>
+						</div>
+												
+						
+							<h4 class="separator bottom"><a href="#view-f1149b7557eaa6dbae282fa899383463" data-toggle="collapse">maps-google-pagination</a></h4>
+							<div class="collapse in" id="view-f1149b7557eaa6dbae282fa899383463">
+
+							<div class="widget widget-tabs">
+								<div class="widget-head padding-none">
+									
+									<ul>
+										<li class="active"><a href="#preview-f1149b7557eaa6dbae282fa899383463" data-toggle="tab">Preview</a></li>										<li><a href="#source-f1149b7557eaa6dbae282fa899383463" data-toggle="tab">Source</a></li>										<li><a href="#styles-f1149b7557eaa6dbae282fa899383463" data-toggle="tab">Styles</a></li>										<li><a href="#scripts-f1149b7557eaa6dbae282fa899383463" data-toggle="tab">Scripts</a></li>																			</ul>
+
+																		<a href="../docs/examples/maps-google-pagination.html" target="_blank" class="pull-right btn btn-success">Live Example</a>
+									
+								</div>
+								<div class="widget-body">
+									<div class="tab-content">
+
+																				<div class="tab-pane active" id="preview-f1149b7557eaa6dbae282fa899383463">
+											<!-- Pagination -->
+<h4 class="separator bottom">Extend Gmaps with pagination</h4>
+<div class="thumbnail"><div class="map_canvas" id="google-map-extend-pagination" style="height: 400px"></div></div>
+<!-- // Pagination END -->
+
+										</div>
+										
+																				<div class="tab-pane" id="source-f1149b7557eaa6dbae282fa899383463">
+											<pre class="prettyprint">&lt;!-- Pagination --&gt;
+&lt;h4 class=&quot;separator bottom&quot;&gt;Extend Gmaps with pagination&lt;/h4&gt;
+&lt;div class=&quot;thumbnail&quot;&gt;&lt;div class=&quot;map_canvas&quot; id=&quot;google-map-extend-pagination&quot; style=&quot;height: 400px&quot;&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;!-- // Pagination END --&gt;
+
+</pre>
+										</div>
+										
+																				<div class="tab-pane" id="styles-f1149b7557eaa6dbae282fa899383463">
+
+											<p class="lead"><strong>Important note:</strong> By default, Social Admin Template is loading a complete stylesheet file that contains all the styles needed for the entire template. However, if you'd like to reduce bloat and load a minimal stylesheet with the required styles on each page of your application, follow along.</p>
+											<hr class="separator"/><br/>
+											
+											<h4>Usage</h4>
+											<ol>
+												<li>Create a new LESS file <em>(e.g. styles.less)</em> and save it in the <code>assets/less</code> folder.</li>
+												<li>
+													<p>Copy &amp; paste the following imports in the LESS file you just created, in this order:</p>
+													
+																										<div class="strong">CORE minimal styles:</div>
+													<pre class="prettyprint">@import &quot;../assets/library/bootstrap/css/bootstrap.min.css&quot;;
+@import &quot;../assets/library/icons/fontawesome/assets/css/font-awesome.min.css&quot;;
+@import &quot;../assets/library/icons/glyphicons/assets/css/glyphicons_regular.css&quot;;
+@import &quot;../assets/library/icons/glyphicons/assets/css/glyphicons_social.css&quot;;
+@import &quot;../assets/library/icons/glyphicons/assets/css/glyphicons_filetypes.css&quot;;
+@import &quot;../assets/components/core/variables.less&quot;;
+@import &quot;../assets/components/core/mixins.less&quot;;
+@import &quot;../assets/components/core/scaffolding.less&quot;;
+@import &quot;../assets/components/core/helpers.less&quot;;</pre>
+																										
+													<div class="strong">Component styles:</div>
+													<pre class="prettyprint">@import &quot;../assets/components/ui_tabs/tabs.less&quot;;</pre>
+												</li>
+												<li>Place the file in your project's document root.</li>
+												<li>
+													Load the LESS file into the <code>&lt;head&gt;</code> section of your HTML document, before any JavaScript files: <p><pre class="prettyprint">&lt;link rel=&quot;stylesheet/less&quot; href=&quot;styles.less&quot; /&gt;</pre>
+</p>
+													<p><span class="label label-danger">NOTE</span>&nbsp; To include the LESS file directly, make sure the LESS.js library is also loaded in the <code>head</code> section of the template, otherwise compile the LESS file into CSS and include that file.</p>
+												</li>
+												<li>If you'd like to include other components on the same page, don't create multiple LESS files, but add all the imports in one file. You can create a LESS file for each page with just the resources used for that specific page, or you could create and use a single LESS file for the entire project.</li>
+												<li>In production, compile the LESS file and use the resulting minified CSS file in the HTML document.</li>
+											</ol>
+
+																						<h4>Example</h4>
+											<p>See the <a href="../docs/examples/maps-google-pagination.html" target="_blank">Live Example</a> page and it's source for a minimal implementation of this component.</p>
+											
+										</div>
+										
+																				<div class="tab-pane" id="scripts-f1149b7557eaa6dbae282fa899383463">
+
+											<p class="lead"><strong>Important note:</strong> <code>&lt;filename&gt;.init.js</code> files are responsible for initializing and customizing the behaviour of the component and it's 3rd party assets.</p>
+
+																							
+												<h3>Scripts</h3>
+												<p><span class="label label-default">BODY</span> You should include the following scripts at the end of the HTML document, right before the closing <code>&lt;/body&gt;</code> tag.</p>
+
+												<pre class="prettyprint">&lt;script src=&quot;../assets/components/maps_google/maps-google.init.js?v=v2.0.0-rc8&amp;sv=v0.0.1.2&quot;&gt;&lt;/script&gt;</pre>
+
+										</div>
+										
+										
+									</div>
+								</div>
+							</div>
+							<div class="separator bottom"></div>
+						</div>
+												
+						
+							<h4 class="separator bottom"><a href="#view-e6483130879ddf2de21a1509d9cecb23" data-toggle="collapse">maps-google-streetview</a></h4>
+							<div class="collapse in" id="view-e6483130879ddf2de21a1509d9cecb23">
+
+							<div class="widget widget-tabs">
+								<div class="widget-head padding-none">
+									
+									<ul>
+										<li class="active"><a href="#preview-e6483130879ddf2de21a1509d9cecb23" data-toggle="tab">Preview</a></li>										<li><a href="#source-e6483130879ddf2de21a1509d9cecb23" data-toggle="tab">Source</a></li>										<li><a href="#styles-e6483130879ddf2de21a1509d9cecb23" data-toggle="tab">Styles</a></li>										<li><a href="#scripts-e6483130879ddf2de21a1509d9cecb23" data-toggle="tab">Scripts</a></li>																			</ul>
+
+																		<a href="../docs/examples/maps-google-streetview.html" target="_blank" class="pull-right btn btn-success">Live Example</a>
+									
+								</div>
+								<div class="widget-body">
+									<div class="tab-content">
+
+																				<div class="tab-pane active" id="preview-e6483130879ddf2de21a1509d9cecb23">
+											<!-- Streetview -->
+<h4 class="separator bottom">Streetview with microformats <span>Click on marker or "Spinal Tap" title to open Street View</span></h4>
+<div class="thumbnail"><div class="map_canvas" id="google-map-streetview" style="height: 400px"></div></div>
+<div class="separator"></div>
+
+<div class="vevent well box-generic bg-gray margin-none">
+	<a href="#spinaltap"><h3 class="url summary">Spinal Tap</h3></a> 
+	<p class="box-generic">After their highly-publicized search for a new
+		drummer, Spinal Tap kicks off their latest comeback tour with a San
+		Francisco show.</p>
+	
+	<p><strong>When:</strong>
+	<span class="dtstart"> Oct 15, 7:00PM <span class="value-title" title="2015-10-15T19:00-08:00"></span></span> - 
+	<span class="dtend"> 9:00PM<span class="value-title" title="2015-10-15T21:00-08:00"></span></span><br/>
+	
+	<strong>Where:</strong>
+	<span class="location vcard">
+		<span class="fn org">Warfield Theatre</span>, 
+		<span class="adr"> 
+			<span class="street-address">982 Market St</span>, 
+			<span class="locality">San Francisco</span>, 
+			<span class="region">CA</span>
+		</span> 
+		<span class="geo"> 
+			<span class="latitude"><span class="value-title" title="37.774929"></span></span>
+			<span class="longitude"><span class="value-title" title="-122.419416"></span></span>
+		</span>
+	</span></p>
+</div>
+<!-- // Streetview END -->
+
+										</div>
+										
+																				<div class="tab-pane" id="source-e6483130879ddf2de21a1509d9cecb23">
+											<pre class="prettyprint">&lt;!-- Streetview --&gt;
+&lt;h4 class=&quot;separator bottom&quot;&gt;Streetview with microformats &lt;span&gt;Click on marker or &quot;Spinal Tap&quot; title to open Street View&lt;/span&gt;&lt;/h4&gt;
+&lt;div class=&quot;thumbnail&quot;&gt;&lt;div class=&quot;map_canvas&quot; id=&quot;google-map-streetview&quot; style=&quot;height: 400px&quot;&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;separator&quot;&gt;&lt;/div&gt;
+
+&lt;div class=&quot;vevent well box-generic bg-gray margin-none&quot;&gt;
+	&lt;a href=&quot;#spinaltap&quot;&gt;&lt;h3 class=&quot;url summary&quot;&gt;Spinal Tap&lt;/h3&gt;&lt;/a&gt; 
+	&lt;p class=&quot;box-generic&quot;&gt;After their highly-publicized search for a new
+		drummer, Spinal Tap kicks off their latest comeback tour with a San
+		Francisco show.&lt;/p&gt;
+	
+	&lt;p&gt;&lt;strong&gt;When:&lt;/strong&gt;
+	&lt;span class=&quot;dtstart&quot;&gt; Oct 15, 7:00PM &lt;span class=&quot;value-title&quot; title=&quot;2015-10-15T19:00-08:00&quot;&gt;&lt;/span&gt;&lt;/span&gt; - 
+	&lt;span class=&quot;dtend&quot;&gt; 9:00PM&lt;span class=&quot;value-title&quot; title=&quot;2015-10-15T21:00-08:00&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;br/&gt;
+	
+	&lt;strong&gt;Where:&lt;/strong&gt;
+	&lt;span class=&quot;location vcard&quot;&gt;
+		&lt;span class=&quot;fn org&quot;&gt;Warfield Theatre&lt;/span&gt;, 
+		&lt;span class=&quot;adr&quot;&gt; 
+			&lt;span class=&quot;street-address&quot;&gt;982 Market St&lt;/span&gt;, 
+			&lt;span class=&quot;locality&quot;&gt;San Francisco&lt;/span&gt;, 
+			&lt;span class=&quot;region&quot;&gt;CA&lt;/span&gt;
+		&lt;/span&gt; 
+		&lt;span class=&quot;geo&quot;&gt; 
+			&lt;span class=&quot;latitude&quot;&gt;&lt;span class=&quot;value-title&quot; title=&quot;37.774929&quot;&gt;&lt;/span&gt;&lt;/span&gt;
+			&lt;span class=&quot;longitude&quot;&gt;&lt;span class=&quot;value-title&quot; title=&quot;-122.419416&quot;&gt;&lt;/span&gt;&lt;/span&gt;
+		&lt;/span&gt;
+	&lt;/span&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;!-- // Streetview END --&gt;
+
+</pre>
+										</div>
+										
+																				<div class="tab-pane" id="styles-e6483130879ddf2de21a1509d9cecb23">
+
+											<p class="lead"><strong>Important note:</strong> By default, Social Admin Template is loading a complete stylesheet file that contains all the styles needed for the entire template. However, if you'd like to reduce bloat and load a minimal stylesheet with the required styles on each page of your application, follow along.</p>
+											<hr class="separator"/><br/>
+											
+											<h4>Usage</h4>
+											<ol>
+												<li>Create a new LESS file <em>(e.g. styles.less)</em> and save it in the <code>assets/less</code> folder.</li>
+												<li>
+													<p>Copy &amp; paste the following imports in the LESS file you just created, in this order:</p>
+													
+																										<div class="strong">CORE minimal styles:</div>
+													<pre class="prettyprint">@import &quot;../assets/library/bootstrap/css/bootstrap.min.css&quot;;
+@import &quot;../assets/library/icons/fontawesome/assets/css/font-awesome.min.css&quot;;
+@import &quot;../assets/library/icons/glyphicons/assets/css/glyphicons_regular.css&quot;;
+@import &quot;../assets/library/icons/glyphicons/assets/css/glyphicons_social.css&quot;;
+@import &quot;../assets/library/icons/glyphicons/assets/css/glyphicons_filetypes.css&quot;;
+@import &quot;../assets/components/core/variables.less&quot;;
+@import &quot;../assets/components/core/mixins.less&quot;;
+@import &quot;../assets/components/core/scaffolding.less&quot;;
+@import &quot;../assets/components/core/helpers.less&quot;;</pre>
+																										
+													<div class="strong">Component styles:</div>
+													<pre class="prettyprint">@import &quot;../assets/components/ui_tabs/tabs.less&quot;;</pre>
+												</li>
+												<li>Place the file in your project's document root.</li>
+												<li>
+													Load the LESS file into the <code>&lt;head&gt;</code> section of your HTML document, before any JavaScript files: <p><pre class="prettyprint">&lt;link rel=&quot;stylesheet/less&quot; href=&quot;styles.less&quot; /&gt;</pre>
+</p>
+													<p><span class="label label-danger">NOTE</span>&nbsp; To include the LESS file directly, make sure the LESS.js library is also loaded in the <code>head</code> section of the template, otherwise compile the LESS file into CSS and include that file.</p>
+												</li>
+												<li>If you'd like to include other components on the same page, don't create multiple LESS files, but add all the imports in one file. You can create a LESS file for each page with just the resources used for that specific page, or you could create and use a single LESS file for the entire project.</li>
+												<li>In production, compile the LESS file and use the resulting minified CSS file in the HTML document.</li>
+											</ol>
+
+																						<h4>Example</h4>
+											<p>See the <a href="../docs/examples/maps-google-streetview.html" target="_blank">Live Example</a> page and it's source for a minimal implementation of this component.</p>
+											
+										</div>
+										
+																				<div class="tab-pane" id="scripts-e6483130879ddf2de21a1509d9cecb23">
+
+											<p class="lead"><strong>Important note:</strong> <code>&lt;filename&gt;.init.js</code> files are responsible for initializing and customizing the behaviour of the component and it's 3rd party assets.</p>
+
+																							
+												<h3>Scripts</h3>
+												<p><span class="label label-default">BODY</span> You should include the following scripts at the end of the HTML document, right before the closing <code>&lt;/body&gt;</code> tag.</p>
+
+												<pre class="prettyprint">&lt;script src=&quot;../assets/components/maps_google/maps-google.init.js?v=v2.0.0-rc8&amp;sv=v0.0.1.2&quot;&gt;&lt;/script&gt;</pre>
+
+										</div>
+										
+										
+									</div>
+								</div>
+							</div>
+							<div class="separator bottom"></div>
+						</div>
+												
+			</div>
+			<!-- // END COL -->
+
+		</div>
+		<!-- // END ROW -->
+
+	</div>
+	<!-- // END WIDGET BODY -->
+
+</div>
+<!-- // END WIDGET -->
+
+</div>
+<!-- // END INNER -->
+
+
+	<!-- Global -->
+	<script>
+	var basePath = '',
+		commonPath = '../assets/',
+		rootPath = '../',
+		DEV = false,
+		componentsPath = '../assets/components/';
+	
+	var primaryColor = '#25ad9f',
+		dangerColor = '#b55151',
+		successColor = '#609450',
+        infoColor = '#4a8bc2',
+		warningColor = '#ab7a4b',
+		inverseColor = '#45484d';
+	
+	var themerPrimaryColor = primaryColor;
+	</script>
+
+	<script src="../assets/library/bootstrap/js/bootstrap.min.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../assets/plugins/core_slimscroll/jquery.slimscroll.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../assets/components/maps_google/maps-google.init.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="http://maps.googleapis.com/maps/api/js?v=3&sensor=false&callback=initGoogleMaps"></script>
+<script src="../assets/plugins/ui_modals/bootbox.min.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../assets/components/core_docs/docs/assets/angular/app/ng.app.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../assets/components/core_docs/assets/angular/filters/ng.filter.isarray.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../assets/components/core_docs/assets/angular/controllers/ng.ctrl.components.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../assets/components/core_docs/docs/assets/angular/directives/ng.docs.directive.components.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../assets/plugins/core_prettyprint/js/prettify.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../assets/components/core/core.init.js?v=v2.0.0-rc8"></script>
+</body>
+</html>

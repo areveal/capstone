@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>core_ajaxify example | Social Admin Template Template (v2.0.0-rc8)</title>
+	
+	<!-- Meta -->
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE" />
+
+	<!-- 
+	**********************************************************
+	In development, use the LESS files and the less.js compiler
+	instead of the minified CSS loaded by default.
+	**********************************************************
+	-->
+
+		<!-- <link rel="stylesheet/less" href="../../assets/less/docs/module.examples.page.core_ajaxify.less" /> -->
+
+	<link rel="stylesheet" href="../../assets/css/docs/module.examples.page.core_ajaxify.min.css" />
+
+	
+	<script src="../../assets/library/jquery/jquery.min.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../../assets/library/jquery/jquery-migrate.min.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../../assets/library/modernizr/modernizr.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../../assets/plugins/core_less-js/less.min.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../../assets/plugins/charts_flot/excanvas.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../../assets/plugins/core_browser/ie/ie.prototype.polyfill.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+</head>
+<body id="examples">
+
+	<div class="container">
+		<div class="innerTB">
+
+			<div class="jumbotron">
+				<h1 class="separator bottom">core_ajaxify example</h1>
+				<p class="lead">This is an example page that loads strictly the minimal core styles &amp; scripts required by <strong>Social Admin Template</strong> and the <strong>core_ajaxify component</strong></p>
+			</div>
+
+
+
+
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, fuga, nisi totam cupiditate a voluptatum molestiae enim culpa ipsam sapiente neque quam harum optio rem tempore ipsa labore quod incidunt!</p>
+
+
+<pre class="prettyprint">&lt;script src=&quot;../../../assets/plugins/core_ajaxify_loadscript/script.min.js?v=v2.0.0-rc8&amp;sv=v0.0.1.2&quot;&gt;&lt;/script&gt;
+
+&lt;script&gt;var App = {};&lt;/script&gt;
+
+&lt;script data-id=&quot;App.Scripts&quot;&gt;
+App.Scripts = {
+
+	/* CORE scripts always load first; */
+	core: [
+		'../../../assets/library/jquery/jquery.min.js?v=v2.0.0-rc8&amp;sv=v0.0.1.2', 
+		'../../../assets/library/modernizr/modernizr.js?v=v2.0.0-rc8&amp;sv=v0.0.1.2'
+	],
+
+	/* PLUGINS_DEPENDENCY always load after CORE but before PLUGINS; */
+	plugins_dependency: [
+		'../../assets/library/bootstrap/js/bootstrap.min.js?v=v2.0.0-rc8&amp;sv=v0.0.1.2', 
+		'../../../assets/library/jquery/jquery-migrate.min.js?v=v2.0.0-rc8&amp;sv=v0.0.1.2'
+	],
+
+	/* PLUGINS always load after CORE and PLUGINS_DEPENDENCY, but before the BUNDLE / initialization scripts; */
+	plugins: [
+		'../../../assets/plugins/core_less-js/less.min.js?v=v2.0.0-rc8&amp;sv=v0.0.1.2', 
+		'../../../assets/plugins/charts_flot/excanvas.js?v=v2.0.0-rc8&amp;sv=v0.0.1.2', 
+		'../../../assets/plugins/core_browser/ie/ie.prototype.polyfill.js?v=v2.0.0-rc8&amp;sv=v0.0.1.2'
+	],
+
+	/* The initialization scripts always load last and are automatically and dynamically loaded when AJAX navigation is enabled; */
+	bundle: [
+		'../../assets/components/core/core.init.js?v=v2.0.0-rc8'
+	]
+
+};
+&lt;/script&gt;
+
+&lt;script&gt;
+$script(App.Scripts.core, 'core');
+
+$script.ready(['core'], function(){
+	$script(App.Scripts.plugins_dependency, 'plugins_dependency');
+});
+$script.ready(['core', 'plugins_dependency'], function(){
+	$script(App.Scripts.plugins, 'plugins');
+});
+$script.ready(['core', 'plugins_dependency', 'plugins'], function(){
+	$script(App.Scripts.bundle, 'bundle');
+});
+&lt;/script&gt;
+</pre>	
+		</div>
+	</div>
+
+	<!-- Global -->
+	<script>
+	var basePath = '',
+		rootPath = '../../',
+		DEV = false,
+		componentsPath = '../../assets/components/';
+	
+	var primaryColor = '#25ad9f',
+		dangerColor = '#b55151',
+		successColor = '#609450',
+		warningColor = '#ab7a4b',
+		inverseColor = '#45484d';
+	
+	var themerPrimaryColor = primaryColor;
+	</script>
+
+	<script src="../../assets/library/bootstrap/js/bootstrap.min.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+</body>
+</html>
