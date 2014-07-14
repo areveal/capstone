@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>contacts example | Social Admin Template Template (v2.0.0-rc8)</title>
+	
+	<!-- Meta -->
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE" />
+
+	<!-- 
+	**********************************************************
+	In development, use the LESS files and the less.js compiler
+	instead of the minified CSS loaded by default.
+	**********************************************************
+	-->
+
+		<!-- <link rel="stylesheet/less" href="../../assets/less/docs/module.examples.page.contacts.less" /> -->
+
+	<link rel="stylesheet" href="../../assets/css/docs/module.examples.page.contacts.min.css" />
+
+	
+	<script src="../../assets/library/jquery/jquery.min.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../../assets/library/jquery/jquery-migrate.min.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../../assets/library/modernizr/modernizr.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../../assets/plugins/core_less-js/less.min.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../../assets/plugins/charts_flot/excanvas.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../../assets/plugins/core_browser/ie/ie.prototype.polyfill.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+</head>
+<body id="examples">
+
+	<div class="container">
+		<div class="innerTB">
+
+			<div class="jumbotron">
+				<h1 class="separator bottom">contacts example</h1>
+				<p class="lead">This is an example page that loads strictly the minimal core styles &amp; scripts required by <strong>Social Admin Template</strong> and the <strong>contacts component</strong></p>
+			</div>
+<div class="input-group innerB">
+ 	<input type="text" class="form-control " placeholder="Search contacts">
+	<div class="input-group-btn"><button class="btn btn-default" type="button"><i class="fa fa-search"></i></button></div>
+</div>
+
+<div class="row row-merge">
+		
+		<div class="col-md-12 col-lg-6 bg-white border-bottom">
+		<div class="row">
+
+			<div class="col-sm-9">
+				<div class="media">
+					<a class="pull-left margin-none" href="#">
+						<img class="img-clean" src="../../assets//images/people/100/1.jpg" alt="...">
+					</a>
+					<div class="media-body innerAll inner-2x padding-right-none padding-bottom-none">
+						 <h4 class="media-heading"><a href="" class="text-inverse">Perpetua Inger</a></h4>
+						 <p>
+						 	<!-- <span class="text-success strong"><i class="fa fa-check"></i> Friend</span> &nbsp;  -->
+						 	<i class="fa fa-fw fa-map-marker text-muted"></i> Living in Kentucky, USA</p> 
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-3">
+				<div class="innerAll text-right">
+					<div class="btn-group-vertical btn-group-sm">
+						<a href="" class="btn btn-primary"><i class="fa fa-fw fa-thumbs-up"></i> Like</a>
+						<a href="" class="btn btn-default" data-toggle="sidr-open" data-menu="menu-right"><i class="fa fa-fw fa-envelope-o"></i> Chat</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+	</div>
+		<div class="col-md-12 col-lg-6 bg-white border-bottom">
+		<div class="row">
+
+			<div class="col-sm-9">
+				<div class="media">
+					<a class="pull-left margin-none" href="#">
+						<img class="img-clean" src="../../assets//images/people/100/2.jpg" alt="...">
+					</a>
+					<div class="media-body innerAll inner-2x padding-right-none padding-bottom-none">
+						 <h4 class="media-heading"><a href="" class="text-inverse">Zoticus Axel</a></h4>
+						 <p>
+						 	<!-- <span class="text-success strong"><i class="fa fa-check"></i> Friend</span> &nbsp;  -->
+						 	<i class="fa fa-fw fa-map-marker text-muted"></i> Living in Texas, USA</p> 
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-3">
+				<div class="innerAll text-right">
+					<div class="btn-group-vertical btn-group-sm">
+						<a href="" class="btn btn-primary"><i class="fa fa-fw fa-thumbs-up"></i> Like</a>
+						<a href="" class="btn btn-default" data-toggle="sidr-open" data-menu="menu-right"><i class="fa fa-fw fa-envelope-o"></i> Chat</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+	</div>
+		<div class="col-md-12 col-lg-6 bg-white border-bottom">
+		<div class="row">
+
+			<div class="col-sm-9">
+				<div class="media">
+					<a class="pull-left margin-none" href="#">
+						<img class="img-clean" src="../../assets//images/people/100/3.jpg" alt="...">
+					</a>
+					<div class="media-body innerAll inner-2x padding-right-none padding-bottom-none">
+						 <h4 class="media-heading"><a href="" class="text-inverse">Yun Ragna</a></h4>
+						 <p>
+						 	<!-- <span class="text-success strong"><i class="fa fa-check"></i> Friend</span> &nbsp;  -->
+						 	<i class="fa fa-fw fa-map-marker text-muted"></i> Living in California, USA</p> 
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-3">
+				<div class="innerAll text-right">
+					<div class="btn-group-vertical btn-group-sm">
+						<a href="" class="btn btn-primary"><i class="fa fa-fw fa-thumbs-up"></i> Like</a>
+						<a href="" class="btn btn-default" data-toggle="sidr-open" data-menu="menu-right"><i class="fa fa-fw fa-envelope-o"></i> Chat</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+	</div>
+		<div class="col-md-12 col-lg-6 bg-white border-bottom">
+		<div class="row">
+
+			<div class="col-sm-9">
+				<div class="media">
+					<a class="pull-left margin-none" href="#">
+						<img class="img-clean" src="../../assets//images/people/100/4.jpg" alt="...">
+					</a>
+					<div class="media-body innerAll inner-2x padding-right-none padding-bottom-none">
+						 <h4 class="media-heading"><a href="" class="text-inverse">Victor Tacitus</a></h4>
+						 <p>
+						 	<!-- <span class="text-success strong"><i class="fa fa-check"></i> Friend</span> &nbsp;  -->
+						 	<i class="fa fa-fw fa-map-marker text-muted"></i> Living in Florida, USA</p> 
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-3">
+				<div class="innerAll text-right">
+					<div class="btn-group-vertical btn-group-sm">
+						<a href="" class="btn btn-primary"><i class="fa fa-fw fa-thumbs-up"></i> Like</a>
+						<a href="" class="btn btn-default" data-toggle="sidr-open" data-menu="menu-right"><i class="fa fa-fw fa-envelope-o"></i> Chat</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+	</div>
+		<div class="col-md-12 col-lg-6 bg-white border-bottom">
+		<div class="row">
+
+			<div class="col-sm-9">
+				<div class="media">
+					<a class="pull-left margin-none" href="#">
+						<img class="img-clean" src="../../assets//images/people/100/5.jpg" alt="...">
+					</a>
+					<div class="media-body innerAll inner-2x padding-right-none padding-bottom-none">
+						 <h4 class="media-heading"><a href="" class="text-inverse">Arden Catharine</a></h4>
+						 <p>
+						 	<!-- <span class="text-success strong"><i class="fa fa-check"></i> Friend</span> &nbsp;  -->
+						 	<i class="fa fa-fw fa-map-marker text-muted"></i> Living in Florida, USA</p> 
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-3">
+				<div class="innerAll text-right">
+					<div class="btn-group-vertical btn-group-sm">
+						<a href="" class="btn btn-primary"><i class="fa fa-fw fa-thumbs-up"></i> Like</a>
+						<a href="" class="btn btn-default" data-toggle="sidr-open" data-menu="menu-right"><i class="fa fa-fw fa-envelope-o"></i> Chat</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+	</div>
+		<div class="col-md-12 col-lg-6 bg-white border-bottom">
+		<div class="row">
+
+			<div class="col-sm-9">
+				<div class="media">
+					<a class="pull-left margin-none" href="#">
+						<img class="img-clean" src="../../assets//images/people/100/6.jpg" alt="...">
+					</a>
+					<div class="media-body innerAll inner-2x padding-right-none padding-bottom-none">
+						 <h4 class="media-heading"><a href="" class="text-inverse">Mihovil Govinda</a></h4>
+						 <p>
+						 	<!-- <span class="text-success strong"><i class="fa fa-check"></i> Friend</span> &nbsp;  -->
+						 	<i class="fa fa-fw fa-map-marker text-muted"></i> Living in Massachusetts, USA</p> 
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-3">
+				<div class="innerAll text-right">
+					<div class="btn-group-vertical btn-group-sm">
+						<a href="" class="btn btn-primary"><i class="fa fa-fw fa-thumbs-up"></i> Like</a>
+						<a href="" class="btn btn-default" data-toggle="sidr-open" data-menu="menu-right"><i class="fa fa-fw fa-envelope-o"></i> Chat</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+	</div>
+		<div class="col-md-12 col-lg-6 bg-white border-bottom">
+		<div class="row">
+
+			<div class="col-sm-9">
+				<div class="media">
+					<a class="pull-left margin-none" href="#">
+						<img class="img-clean" src="../../assets//images/people/100/7.jpg" alt="...">
+					</a>
+					<div class="media-body innerAll inner-2x padding-right-none padding-bottom-none">
+						 <h4 class="media-heading"><a href="" class="text-inverse">Mariya Hadya</a></h4>
+						 <p>
+						 	<!-- <span class="text-success strong"><i class="fa fa-check"></i> Friend</span> &nbsp;  -->
+						 	<i class="fa fa-fw fa-map-marker text-muted"></i> Living in California, USA</p> 
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-3">
+				<div class="innerAll text-right">
+					<div class="btn-group-vertical btn-group-sm">
+						<a href="" class="btn btn-primary"><i class="fa fa-fw fa-thumbs-up"></i> Like</a>
+						<a href="" class="btn btn-default" data-toggle="sidr-open" data-menu="menu-right"><i class="fa fa-fw fa-envelope-o"></i> Chat</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+	</div>
+		<div class="col-md-12 col-lg-6 bg-white border-bottom">
+		<div class="row">
+
+			<div class="col-sm-9">
+				<div class="media">
+					<a class="pull-left margin-none" href="#">
+						<img class="img-clean" src="../../assets//images/people/100/8.jpg" alt="...">
+					</a>
+					<div class="media-body innerAll inner-2x padding-right-none padding-bottom-none">
+						 <h4 class="media-heading"><a href="" class="text-inverse">Tahir Benedikt</a></h4>
+						 <p>
+						 	<!-- <span class="text-success strong"><i class="fa fa-check"></i> Friend</span> &nbsp;  -->
+						 	<i class="fa fa-fw fa-map-marker text-muted"></i> Living in Texas, USA</p> 
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-3">
+				<div class="innerAll text-right">
+					<div class="btn-group-vertical btn-group-sm">
+						<a href="" class="btn btn-primary"><i class="fa fa-fw fa-thumbs-up"></i> Like</a>
+						<a href="" class="btn btn-default" data-toggle="sidr-open" data-menu="menu-right"><i class="fa fa-fw fa-envelope-o"></i> Chat</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+	</div>
+		<div class="col-md-12 col-lg-6 bg-white border-bottom">
+		<div class="row">
+
+			<div class="col-sm-9">
+				<div class="media">
+					<a class="pull-left margin-none" href="#">
+						<img class="img-clean" src="../../assets//images/people/100/9.jpg" alt="...">
+					</a>
+					<div class="media-body innerAll inner-2x padding-right-none padding-bottom-none">
+						 <h4 class="media-heading"><a href="" class="text-inverse">Olayinka Kristin</a></h4>
+						 <p>
+						 	<!-- <span class="text-success strong"><i class="fa fa-check"></i> Friend</span> &nbsp;  -->
+						 	<i class="fa fa-fw fa-map-marker text-muted"></i> Living in Virginia, USA</p> 
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-3">
+				<div class="innerAll text-right">
+					<div class="btn-group-vertical btn-group-sm">
+						<a href="" class="btn btn-primary"><i class="fa fa-fw fa-thumbs-up"></i> Like</a>
+						<a href="" class="btn btn-default" data-toggle="sidr-open" data-menu="menu-right"><i class="fa fa-fw fa-envelope-o"></i> Chat</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+	</div>
+		<div class="col-md-12 col-lg-6 bg-white border-bottom">
+		<div class="row">
+
+			<div class="col-sm-9">
+				<div class="media">
+					<a class="pull-left margin-none" href="#">
+						<img class="img-clean" src="../../assets//images/people/100/10.jpg" alt="...">
+					</a>
+					<div class="media-body innerAll inner-2x padding-right-none padding-bottom-none">
+						 <h4 class="media-heading"><a href="" class="text-inverse">Danko Nikodim</a></h4>
+						 <p>
+						 	<!-- <span class="text-success strong"><i class="fa fa-check"></i> Friend</span> &nbsp;  -->
+						 	<i class="fa fa-fw fa-map-marker text-muted"></i> Living in California, USA</p> 
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-3">
+				<div class="innerAll text-right">
+					<div class="btn-group-vertical btn-group-sm">
+						<a href="" class="btn btn-primary"><i class="fa fa-fw fa-thumbs-up"></i> Like</a>
+						<a href="" class="btn btn-default" data-toggle="sidr-open" data-menu="menu-right"><i class="fa fa-fw fa-envelope-o"></i> Chat</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+	</div>
+		<div class="col-md-12 col-lg-6 bg-white border-bottom">
+		<div class="row">
+
+			<div class="col-sm-9">
+				<div class="media">
+					<a class="pull-left margin-none" href="#">
+						<img class="img-clean" src="../../assets//images/people/100/11.jpg" alt="...">
+					</a>
+					<div class="media-body innerAll inner-2x padding-right-none padding-bottom-none">
+						 <h4 class="media-heading"><a href="" class="text-inverse">Zoja Aileas</a></h4>
+						 <p>
+						 	<!-- <span class="text-success strong"><i class="fa fa-check"></i> Friend</span> &nbsp;  -->
+						 	<i class="fa fa-fw fa-map-marker text-muted"></i> Living in Arizona, USA</p> 
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-3">
+				<div class="innerAll text-right">
+					<div class="btn-group-vertical btn-group-sm">
+						<a href="" class="btn btn-primary"><i class="fa fa-fw fa-thumbs-up"></i> Like</a>
+						<a href="" class="btn btn-default" data-toggle="sidr-open" data-menu="menu-right"><i class="fa fa-fw fa-envelope-o"></i> Chat</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+	</div>
+		<div class="col-md-12 col-lg-6 bg-white border-bottom">
+		<div class="row">
+
+			<div class="col-sm-9">
+				<div class="media">
+					<a class="pull-left margin-none" href="#">
+						<img class="img-clean" src="../../assets//images/people/100/12.jpg" alt="...">
+					</a>
+					<div class="media-body innerAll inner-2x padding-right-none padding-bottom-none">
+						 <h4 class="media-heading"><a href="" class="text-inverse">Alphonsus Braidy</a></h4>
+						 <p>
+						 	<!-- <span class="text-success strong"><i class="fa fa-check"></i> Friend</span> &nbsp;  -->
+						 	<i class="fa fa-fw fa-map-marker text-muted"></i> Living in Massachusetts, USA</p> 
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-3">
+				<div class="innerAll text-right">
+					<div class="btn-group-vertical btn-group-sm">
+						<a href="" class="btn btn-primary"><i class="fa fa-fw fa-thumbs-up"></i> Like</a>
+						<a href="" class="btn btn-default" data-toggle="sidr-open" data-menu="menu-right"><i class="fa fa-fw fa-envelope-o"></i> Chat</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+	</div>
+		<div class="col-md-12 col-lg-6 bg-white border-bottom">
+		<div class="row">
+
+			<div class="col-sm-9">
+				<div class="media">
+					<a class="pull-left margin-none" href="#">
+						<img class="img-clean" src="../../assets//images/people/100/13.jpg" alt="...">
+					</a>
+					<div class="media-body innerAll inner-2x padding-right-none padding-bottom-none">
+						 <h4 class="media-heading"><a href="" class="text-inverse">Helene Liana</a></h4>
+						 <p>
+						 	<!-- <span class="text-success strong"><i class="fa fa-check"></i> Friend</span> &nbsp;  -->
+						 	<i class="fa fa-fw fa-map-marker text-muted"></i> Living in Missouri, USA</p> 
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-3">
+				<div class="innerAll text-right">
+					<div class="btn-group-vertical btn-group-sm">
+						<a href="" class="btn btn-primary"><i class="fa fa-fw fa-thumbs-up"></i> Like</a>
+						<a href="" class="btn btn-default" data-toggle="sidr-open" data-menu="menu-right"><i class="fa fa-fw fa-envelope-o"></i> Chat</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+	</div>
+		<div class="col-md-12 col-lg-6 bg-white border-bottom">
+		<div class="row">
+
+			<div class="col-sm-9">
+				<div class="media">
+					<a class="pull-left margin-none" href="#">
+						<img class="img-clean" src="../../assets//images/people/100/14.jpg" alt="...">
+					</a>
+					<div class="media-body innerAll inner-2x padding-right-none padding-bottom-none">
+						 <h4 class="media-heading"><a href="" class="text-inverse">Sebastian Niklas</a></h4>
+						 <p>
+						 	<!-- <span class="text-success strong"><i class="fa fa-check"></i> Friend</span> &nbsp;  -->
+						 	<i class="fa fa-fw fa-map-marker text-muted"></i> Living in California, USA</p> 
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-3">
+				<div class="innerAll text-right">
+					<div class="btn-group-vertical btn-group-sm">
+						<a href="" class="btn btn-primary"><i class="fa fa-fw fa-thumbs-up"></i> Like</a>
+						<a href="" class="btn btn-default" data-toggle="sidr-open" data-menu="menu-right"><i class="fa fa-fw fa-envelope-o"></i> Chat</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+	</div>
+		<div class="col-md-12 col-lg-6 bg-white border-bottom">
+		<div class="row">
+
+			<div class="col-sm-9">
+				<div class="media">
+					<a class="pull-left margin-none" href="#">
+						<img class="img-clean" src="../../assets//images/people/100/15.jpg" alt="...">
+					</a>
+					<div class="media-body innerAll inner-2x padding-right-none padding-bottom-none">
+						 <h4 class="media-heading"><a href="" class="text-inverse">Elvire Maya</a></h4>
+						 <p>
+						 	<!-- <span class="text-success strong"><i class="fa fa-check"></i> Friend</span> &nbsp;  -->
+						 	<i class="fa fa-fw fa-map-marker text-muted"></i> Living in Massachusetts, USA</p> 
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-3">
+				<div class="innerAll text-right">
+					<div class="btn-group-vertical btn-group-sm">
+						<a href="" class="btn btn-primary"><i class="fa fa-fw fa-thumbs-up"></i> Like</a>
+						<a href="" class="btn btn-default" data-toggle="sidr-open" data-menu="menu-right"><i class="fa fa-fw fa-envelope-o"></i> Chat</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+	</div>
+		<div class="col-md-12 col-lg-6 bg-white border-bottom">
+		<div class="row">
+
+			<div class="col-sm-9">
+				<div class="media">
+					<a class="pull-left margin-none" href="#">
+						<img class="img-clean" src="../../assets//images/people/100/16.jpg" alt="...">
+					</a>
+					<div class="media-body innerAll inner-2x padding-right-none padding-bottom-none">
+						 <h4 class="media-heading"><a href="" class="text-inverse">Kerman Otakar</a></h4>
+						 <p>
+						 	<!-- <span class="text-success strong"><i class="fa fa-check"></i> Friend</span> &nbsp;  -->
+						 	<i class="fa fa-fw fa-map-marker text-muted"></i> Living in Tennessee, USA</p> 
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-3">
+				<div class="innerAll text-right">
+					<div class="btn-group-vertical btn-group-sm">
+						<a href="" class="btn btn-primary"><i class="fa fa-fw fa-thumbs-up"></i> Like</a>
+						<a href="" class="btn btn-default" data-toggle="sidr-open" data-menu="menu-right"><i class="fa fa-fw fa-envelope-o"></i> Chat</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+	</div>
+		
+</div>
+
+
+	
+		</div>
+	</div>
+
+	<!-- Global -->
+	<script>
+	var basePath = '',
+		rootPath = '../../',
+		DEV = false,
+		componentsPath = '../../assets/components/';
+	
+	var primaryColor = '#25ad9f',
+		dangerColor = '#b55151',
+		successColor = '#609450',
+		warningColor = '#ab7a4b',
+		inverseColor = '#45484d';
+	
+	var themerPrimaryColor = primaryColor;
+	</script>
+
+	<script src="../../assets/library/bootstrap/js/bootstrap.min.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../../assets/plugins/media_holder/holder.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+</body>
+</html>

@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Social Admin Template Template (v2.0.0-rc8)</title>
+	
+	<!-- Meta -->
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE" />
+
+	 
+	
+	<!-- 
+	**********************************************************
+	In development, use the LESS files and the less.js compiler
+	instead of the minified CSS loaded by default.
+	**********************************************************
+	-->
+
+		<!-- <link rel="stylesheet/less" href="../assets/less/docs/module.docs.page.index.component.messages.less" /> -->
+
+	<link rel="stylesheet" href="../assets/css/docs/module.docs.page.index.component.messages.min.css" />
+
+	
+	
+	<script src="../assets/library/jquery/jquery.min.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../assets/library/jquery/jquery-migrate.min.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../assets/library/modernizr/modernizr.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../assets/plugins/core_less-js/less.min.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../assets/plugins/charts_flot/excanvas.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../assets/plugins/core_browser/ie/ie.prototype.polyfill.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../assets/library/angular/angular.min.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+</head>
+<body id="docs">
+
+<!-- Fixed navbar -->
+<div class="navbar navbar-default navbar-fixed-top">
+  	<div class="container">
+    	<div class="navbar-header">
+      		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        		<span class="icon-bar"></span>
+        		<span class="icon-bar"></span>
+        		<span class="icon-bar"></span>
+      		</button>
+      		<a class="navbar-brand" href="http://www.mosaicpro.biz" target="_blank"><img src="../assets/images/logo/logo.jpg" alt="" /></a>
+      		<a class="navbar-brand" href="guide.getting-started-html.html?lang=en">Social Admin Template</a>
+    	</div>
+    	<div class="navbar-collapse collapse">
+      		<ul class="nav navbar-nav">
+        		<li class="dropdown">
+          			<a href="#" class="dropdown-toggle" data-toggle="dropdown">Guides <b class="caret"></b></a>
+          			<ul class="dropdown-menu">
+          									<li><a href="guide.getting-started-html.html?v=v2.0.0-rc8">HTML Guide</a></li>
+												<li><a href="guide.getting-started-php.html?v=v2.0.0-rc8">PHP Guide</a></li>
+						          			</ul>
+        		</li>
+                        		<li class="dropdown">
+          			<a href="#" class="dropdown-toggle" data-toggle="dropdown">Documentation <b class="caret"></b></a>
+          			<ul class="dropdown-menu">
+          				<li class="dropdown-header">Components</li>
+
+                                    			<li><a href="filter.all.html?v=v2.0.0-rc8">All components</a></li>
+                                    			<li><a href="filter.core.html?v=v2.0.0-rc8">Core</a></li>
+                                    			<li><a href="filter.charts.html?v=v2.0.0-rc8">Charts</a></li>
+                                    			<li><a href="filter.forms.html?v=v2.0.0-rc8">Forms</a></li>
+                                    			<li><a href="filter.maps.html?v=v2.0.0-rc8">Maps</a></li>
+                                    			<li><a href="filter.media.html?v=v2.0.0-rc8">Media</a></li>
+                                    			<li><a href="filter.table.html?v=v2.0.0-rc8">Tables</a></li>
+                                    			<li><a href="filter.ui.html?v=v2.0.0-rc8">UI</a></li>
+                                    			<li><a href="filter.widget.html?v=v2.0.0-rc8">Widgets</a></li>
+                                    			<li><a href="filter.other.html?v=v2.0.0-rc8">Other</a></li>
+                        
+                        <li class="dropdown-header">Modules</li>
+
+            			                        <li><a href="filter.admin.html?v=v2.0.0-rc8">Admin</a></li>
+                        
+                        <!-- <li class="dropdown-header">Pages</li>
+                        <li><a href="">Demo pages</a></li> -->
+          			</ul>
+        		</li>
+      		</ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="http://www.mosaicpro.biz/blog/tutorials" target="_blank"><i class="fa fa-fw fa-file-text-o"></i> Online Guides</a></li>
+      		</ul>
+    	</div><!--/.nav-collapse -->
+  	</div>
+</div>
+
+<div class="innerLR">
+<div class="widget widget-tabs">
+	<div class="widget-body">
+
+		<div class="row">
+			
+			<div class="col-md-3" ng-app="App" ng-controller="ComponentsCtrl">
+				<input class="form-control" type="text" ng-model="search" placeholder="Search .." />
+				<tree collection="components" search="search" version="v2.0.0-rc8"></tree>
+			</div>
+
+			<div class="col-md-9">
+
+									
+					<div class="well well-lg">
+						
+				<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">Messages Component</h4>
+			</div>
+			<div class="panel-body">
+
+				<i class="fa fa-fw fa-3x pull-right fa-comments-o"></i>
+				<p class="lead">Chat type message component html widget.</p>
+
+						
+								
+		<hr><br><h4>3rd party assets:</h4><blockquote>
+					<i class="fa fa-fw fa-3x pull-left fa-code"></i>
+			<p><strong>Name:</strong> Holder | <strong>File</strong>: ../assets/plugins/media_holder/holder.js</p>
+			<p><strong>Description:</strong> Holder uses SVG and canvas to render image placeholders on the client side.</p>
+						
+		<p>		<strong>Version</strong>: 1.9		 | <strong>Official Website</strong>: <a href="https://github.com/imsky/holder" target="_blank">https://github.com/imsky/holder</a>		</p>
+		
+		
+		</blockquote>
+					</div>
+		</div>
+		
+							</div>
+
+					
+						
+							<h4 class="separator bottom"><a href="#view-a8a31bca32b316f6a734e97e00b477ef" data-toggle="collapse">messages</a></h4>
+							<div class="collapse in" id="view-a8a31bca32b316f6a734e97e00b477ef">
+
+							<div class="widget widget-tabs">
+								<div class="widget-head padding-none">
+									
+									<ul>
+										<li class="active"><a href="#preview-a8a31bca32b316f6a734e97e00b477ef" data-toggle="tab">Preview</a></li>										<li><a href="#source-a8a31bca32b316f6a734e97e00b477ef" data-toggle="tab">Source</a></li>										<li><a href="#styles-a8a31bca32b316f6a734e97e00b477ef" data-toggle="tab">Styles</a></li>										<li><a href="#scripts-a8a31bca32b316f6a734e97e00b477ef" data-toggle="tab">Scripts</a></li>										<li><a href="#resources-a8a31bca32b316f6a734e97e00b477ef" data-toggle="tab">Resources</a></li>									</ul>
+
+																		<a href="../docs/examples/messages.html" target="_blank" class="pull-right btn btn-success">Live Example</a>
+									
+								</div>
+								<div class="widget-body">
+									<div class="tab-content">
+
+																				<div class="tab-pane active" id="preview-a8a31bca32b316f6a734e97e00b477ef">
+											<!-- Widget -->
+<div class="widget widget-messages widget-heading-simple widget-body-white">
+	<div class="widget-body padding-none">
+		
+		<div class="row row-merge borders">
+			<div class="col-md-3 listWrapper">
+				<div class="innerAll">
+					<form autocomplete="off" class="form-inline margin-none">
+						<div class="input-group input-group-sm">
+							<input type="text" class="form-control" placeholder="Find someone .." />
+							<span class="input-group-btn">
+								<button type="button" class="btn btn-primary btn-xs pull-right"><i class="fa fa-search"></i></button>
+							</span>
+						</div>
+					</form>
+				</div>
+				<span class="results">1490 messages <i class="fa fa-circle-arrow-down"></i></span>
+				<ul class="list unstyled">
+															<li class="active">
+						<div class="media innerAll">
+							<div class="media-object pull-left thumb hidden-phone"><img data-src="holder.js/50x50/dark" alt="Image" /></div>
+							<div class="media-body">
+								<span class="strong">adrian</span>
+								<small>Latest comment line...</small><br/>
+								<small class="text-italic text-primary-light"><i class="fa fa-calendar fa fa-fixed-width"></i> 17 days ago</small>
+							</div>
+						</div>
+					</li>
+										<li>
+						<div class="media innerAll">
+							<div class="media-object pull-left thumb hidden-phone"><img data-src="holder.js/50x50/dark" alt="Image" /></div>
+							<div class="media-body">
+								<span class="strong">bogdan</span>
+								<small>Latest comment line...</small><br/>
+								<small class="text-italic text-primary-light"><i class="fa fa-calendar fa fa-fixed-width"></i> 17 days ago</small>
+							</div>
+						</div>
+					</li>
+										<li>
+						<div class="media innerAll">
+							<div class="media-object pull-left thumb hidden-phone"><img data-src="holder.js/50x50/dark" alt="Image" /></div>
+							<div class="media-body">
+								<span class="strong">susanne</span>
+								<small>Latest comment line...</small><br/>
+								<small class="text-italic text-primary-light"><i class="fa fa-calendar fa fa-fixed-width"></i> 17 days ago</small>
+							</div>
+						</div>
+					</li>
+									</ul>
+			</div>
+			<div class="col-md-9 detailsWrapper">
+				<div class="ajax-loading hide">
+					<i class="fa fa-refresh text-primary-light fa fa-spin fa fa-4x"></i>
+				</div>
+				<div class="innerAll">
+					<div class="row">
+						<div class="col-md-9">
+							<h4 class="margin-none">
+								<a href="" class="btn btn-info"><i class="fa fa-user fa fa-fixed-width"></i> Bogdan</a>
+							</h4>
+						</div>
+						<div class="col-md-3 text-right">
+							<a href="" class="text-size-regular text-primary-light vertical-middle"><i class="fa fa-flag fa fa-fixed-width"></i> Report</a>
+						</div>
+					</div>
+				</div>
+				<a href="" class="load border-top ">Load earlier messages <i class="fa fa-refresh innerL third"></i></a>
+				
+				<div class="row row-merge borders border-top">
+					<div class="col-md-12">
+						<div class="innerAll">
+							<div class="media">
+								<a href="" class="thumb pull-left visible-md visible-lg"><img data-src="holder.js/50x50/white" alt="Image" class="media-object" /></a>
+								<div class="media-body">
+									<small class="pull-right text-primary-light"><i class="fa fa-calendar fa fa-fixed-width"></i> July 8, 2013 <em>12:38 pm</em></small>
+									<strong class="text-primary">adrian</strong><br/>
+									<small>Hello bogdan. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa, reiciendis soluta libero eligendi fuga quam nam tempora illum iste atque hic eveniet vel accusantium ad quisquam a sequi impedit cumque! Autem, ipsam esse officia amet.</small>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row row-merge borders border-bottom">
+					<div class="col-md-12">
+						<div class="innerAll">
+							<div class="media">
+								<a href="" class="thumb pull-left visible-md visible-lg"><img data-src="holder.js/50x50/white" alt="Image" class="media-object" /></a>
+								<div class="media-body">
+									<small class="pull-right text-primary-light"><i class="fa fa-calendar fa fa-fixed-width"></i> July 8, 2013 <em>12:38 pm</em></small>
+									<strong class="text-primary">bogdan</strong><br/>
+									<small>Hello adrian. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa, reiciendis soluta libero eligendi fuga quam nam tempora illum iste atque hic eveniet vel accusantium ad quisquam a sequi impedit cumque! Autem, ipsam esse officia amet.</small>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<span href="" class="load"><i class="fa fa-calendar innerR third"></i>Today</span>
+
+				<div class="row row-merge borders border-top">
+					<div class="col-md-12">
+						<div class="innerAll">
+							<div class="media">
+								<a href="" class="thumb pull-left visible-md visible-lg"><img data-src="holder.js/50x50/white" alt="Image" class="media-object" /></a>
+						
+								<div class="media-body">
+									<small class="pull-right text-primary-light"><i class="fa fa-calendar fa fa-fixed-width"></i> <em>12:38 pm</em></small>
+									<strong class="text-primary">adrian</strong><br/>
+									<small>Hello bogdan. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt, quos soluta cupiditate dolor nobis id!</small>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row row-merge borders border-bottom">
+					<div class="col-md-12">
+						<div class="innerAll">
+							<div class="media">
+								<a href="" class="thumb pull-left visible-md visible-lg"><img data-src="holder.js/50x50/white" alt="Image" class="media-object" /></a>
+								<div class="media-body">
+									<small class="pull-right text-primary-light"><i class="fa fa-calendar fa fa-fixed-width"></i> <em>12:38 pm</em></small>
+									<strong class="text-primary">bogdan</strong><br/>
+									<small>Hello adrian. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis, quas alias voluptatum odit nemo consequuntur blanditiis praesentium pariatur vitae dolore earum saepe dolorum maiores vero fuga sequi quibusdam labore optio doloribus consectetur laudantium in id quae nostrum dignissimos quidem voluptatibus!</small>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="innerAll">
+					<form role="form">
+						<div class="form-group">
+							<textarea placeholder="Type in your message .. " class="form-control" rows="5"></textarea>
+						</div>
+						<div class="form-group">
+							<div class="text-right">
+								<button type="button" class="btn btn-primary">Send <i class="fa-fw fa fa-envelope"></i></button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+</div>
+<!-- // Widget END -->
+
+										</div>
+										
+																				<div class="tab-pane" id="source-a8a31bca32b316f6a734e97e00b477ef">
+											<pre class="prettyprint">&lt;!-- Widget --&gt;
+&lt;div class=&quot;widget widget-messages widget-heading-simple widget-body-white&quot;&gt;
+	&lt;div class=&quot;widget-body padding-none&quot;&gt;
+		
+		&lt;div class=&quot;row row-merge borders&quot;&gt;
+			&lt;div class=&quot;col-md-3 listWrapper&quot;&gt;
+				&lt;div class=&quot;innerAll&quot;&gt;
+					&lt;form autocomplete=&quot;off&quot; class=&quot;form-inline margin-none&quot;&gt;
+						&lt;div class=&quot;input-group input-group-sm&quot;&gt;
+							&lt;input type=&quot;text&quot; class=&quot;form-control&quot; placeholder=&quot;Find someone ..&quot; /&gt;
+							&lt;span class=&quot;input-group-btn&quot;&gt;
+								&lt;button type=&quot;button&quot; class=&quot;btn btn-primary btn-xs pull-right&quot;&gt;&lt;i class=&quot;fa fa-search&quot;&gt;&lt;/i&gt;&lt;/button&gt;
+							&lt;/span&gt;
+						&lt;/div&gt;
+					&lt;/form&gt;
+				&lt;/div&gt;
+				&lt;span class=&quot;results&quot;&gt;1490 messages &lt;i class=&quot;fa fa-circle-arrow-down&quot;&gt;&lt;/i&gt;&lt;/span&gt;
+				&lt;ul class=&quot;list unstyled&quot;&gt;
+															&lt;li class=&quot;active&quot;&gt;
+						&lt;div class=&quot;media innerAll&quot;&gt;
+							&lt;div class=&quot;media-object pull-left thumb hidden-phone&quot;&gt;&lt;img data-src=&quot;holder.js/50x50/dark&quot; alt=&quot;Image&quot; /&gt;&lt;/div&gt;
+							&lt;div class=&quot;media-body&quot;&gt;
+								&lt;span class=&quot;strong&quot;&gt;adrian&lt;/span&gt;
+								&lt;small&gt;Latest comment line...&lt;/small&gt;&lt;br/&gt;
+								&lt;small class=&quot;text-italic text-primary-light&quot;&gt;&lt;i class=&quot;fa fa-calendar fa fa-fixed-width&quot;&gt;&lt;/i&gt; 17 days ago&lt;/small&gt;
+							&lt;/div&gt;
+						&lt;/div&gt;
+					&lt;/li&gt;
+										&lt;li&gt;
+						&lt;div class=&quot;media innerAll&quot;&gt;
+							&lt;div class=&quot;media-object pull-left thumb hidden-phone&quot;&gt;&lt;img data-src=&quot;holder.js/50x50/dark&quot; alt=&quot;Image&quot; /&gt;&lt;/div&gt;
+							&lt;div class=&quot;media-body&quot;&gt;
+								&lt;span class=&quot;strong&quot;&gt;bogdan&lt;/span&gt;
+								&lt;small&gt;Latest comment line...&lt;/small&gt;&lt;br/&gt;
+								&lt;small class=&quot;text-italic text-primary-light&quot;&gt;&lt;i class=&quot;fa fa-calendar fa fa-fixed-width&quot;&gt;&lt;/i&gt; 17 days ago&lt;/small&gt;
+							&lt;/div&gt;
+						&lt;/div&gt;
+					&lt;/li&gt;
+										&lt;li&gt;
+						&lt;div class=&quot;media innerAll&quot;&gt;
+							&lt;div class=&quot;media-object pull-left thumb hidden-phone&quot;&gt;&lt;img data-src=&quot;holder.js/50x50/dark&quot; alt=&quot;Image&quot; /&gt;&lt;/div&gt;
+							&lt;div class=&quot;media-body&quot;&gt;
+								&lt;span class=&quot;strong&quot;&gt;susanne&lt;/span&gt;
+								&lt;small&gt;Latest comment line...&lt;/small&gt;&lt;br/&gt;
+								&lt;small class=&quot;text-italic text-primary-light&quot;&gt;&lt;i class=&quot;fa fa-calendar fa fa-fixed-width&quot;&gt;&lt;/i&gt; 17 days ago&lt;/small&gt;
+							&lt;/div&gt;
+						&lt;/div&gt;
+					&lt;/li&gt;
+									&lt;/ul&gt;
+			&lt;/div&gt;
+			&lt;div class=&quot;col-md-9 detailsWrapper&quot;&gt;
+				&lt;div class=&quot;ajax-loading hide&quot;&gt;
+					&lt;i class=&quot;fa fa-refresh text-primary-light fa fa-spin fa fa-4x&quot;&gt;&lt;/i&gt;
+				&lt;/div&gt;
+				&lt;div class=&quot;innerAll&quot;&gt;
+					&lt;div class=&quot;row&quot;&gt;
+						&lt;div class=&quot;col-md-9&quot;&gt;
+							&lt;h4 class=&quot;margin-none&quot;&gt;
+								&lt;a href=&quot;&quot; class=&quot;btn btn-info&quot;&gt;&lt;i class=&quot;fa fa-user fa fa-fixed-width&quot;&gt;&lt;/i&gt; Bogdan&lt;/a&gt;
+							&lt;/h4&gt;
+						&lt;/div&gt;
+						&lt;div class=&quot;col-md-3 text-right&quot;&gt;
+							&lt;a href=&quot;&quot; class=&quot;text-size-regular text-primary-light vertical-middle&quot;&gt;&lt;i class=&quot;fa fa-flag fa fa-fixed-width&quot;&gt;&lt;/i&gt; Report&lt;/a&gt;
+						&lt;/div&gt;
+					&lt;/div&gt;
+				&lt;/div&gt;
+				&lt;a href=&quot;&quot; class=&quot;load border-top &quot;&gt;Load earlier messages &lt;i class=&quot;fa fa-refresh innerL third&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+				
+				&lt;div class=&quot;row row-merge borders border-top&quot;&gt;
+					&lt;div class=&quot;col-md-12&quot;&gt;
+						&lt;div class=&quot;innerAll&quot;&gt;
+							&lt;div class=&quot;media&quot;&gt;
+								&lt;a href=&quot;&quot; class=&quot;thumb pull-left visible-md visible-lg&quot;&gt;&lt;img data-src=&quot;holder.js/50x50/white&quot; alt=&quot;Image&quot; class=&quot;media-object&quot; /&gt;&lt;/a&gt;
+								&lt;div class=&quot;media-body&quot;&gt;
+									&lt;small class=&quot;pull-right text-primary-light&quot;&gt;&lt;i class=&quot;fa fa-calendar fa fa-fixed-width&quot;&gt;&lt;/i&gt; July 8, 2013 &lt;em&gt;12:38 pm&lt;/em&gt;&lt;/small&gt;
+									&lt;strong class=&quot;text-primary&quot;&gt;adrian&lt;/strong&gt;&lt;br/&gt;
+									&lt;small&gt;Hello bogdan. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa, reiciendis soluta libero eligendi fuga quam nam tempora illum iste atque hic eveniet vel accusantium ad quisquam a sequi impedit cumque! Autem, ipsam esse officia amet.&lt;/small&gt;
+								&lt;/div&gt;
+							&lt;/div&gt;
+						&lt;/div&gt;
+					&lt;/div&gt;
+				&lt;/div&gt;
+				&lt;div class=&quot;row row-merge borders border-bottom&quot;&gt;
+					&lt;div class=&quot;col-md-12&quot;&gt;
+						&lt;div class=&quot;innerAll&quot;&gt;
+							&lt;div class=&quot;media&quot;&gt;
+								&lt;a href=&quot;&quot; class=&quot;thumb pull-left visible-md visible-lg&quot;&gt;&lt;img data-src=&quot;holder.js/50x50/white&quot; alt=&quot;Image&quot; class=&quot;media-object&quot; /&gt;&lt;/a&gt;
+								&lt;div class=&quot;media-body&quot;&gt;
+									&lt;small class=&quot;pull-right text-primary-light&quot;&gt;&lt;i class=&quot;fa fa-calendar fa fa-fixed-width&quot;&gt;&lt;/i&gt; July 8, 2013 &lt;em&gt;12:38 pm&lt;/em&gt;&lt;/small&gt;
+									&lt;strong class=&quot;text-primary&quot;&gt;bogdan&lt;/strong&gt;&lt;br/&gt;
+									&lt;small&gt;Hello adrian. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa, reiciendis soluta libero eligendi fuga quam nam tempora illum iste atque hic eveniet vel accusantium ad quisquam a sequi impedit cumque! Autem, ipsam esse officia amet.&lt;/small&gt;
+								&lt;/div&gt;
+							&lt;/div&gt;
+						&lt;/div&gt;
+					&lt;/div&gt;
+				&lt;/div&gt;
+
+				&lt;span href=&quot;&quot; class=&quot;load&quot;&gt;&lt;i class=&quot;fa fa-calendar innerR third&quot;&gt;&lt;/i&gt;Today&lt;/span&gt;
+
+				&lt;div class=&quot;row row-merge borders border-top&quot;&gt;
+					&lt;div class=&quot;col-md-12&quot;&gt;
+						&lt;div class=&quot;innerAll&quot;&gt;
+							&lt;div class=&quot;media&quot;&gt;
+								&lt;a href=&quot;&quot; class=&quot;thumb pull-left visible-md visible-lg&quot;&gt;&lt;img data-src=&quot;holder.js/50x50/white&quot; alt=&quot;Image&quot; class=&quot;media-object&quot; /&gt;&lt;/a&gt;
+						
+								&lt;div class=&quot;media-body&quot;&gt;
+									&lt;small class=&quot;pull-right text-primary-light&quot;&gt;&lt;i class=&quot;fa fa-calendar fa fa-fixed-width&quot;&gt;&lt;/i&gt; &lt;em&gt;12:38 pm&lt;/em&gt;&lt;/small&gt;
+									&lt;strong class=&quot;text-primary&quot;&gt;adrian&lt;/strong&gt;&lt;br/&gt;
+									&lt;small&gt;Hello bogdan. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt, quos soluta cupiditate dolor nobis id!&lt;/small&gt;
+								&lt;/div&gt;
+							&lt;/div&gt;
+						&lt;/div&gt;
+					&lt;/div&gt;
+				&lt;/div&gt;
+				&lt;div class=&quot;row row-merge borders border-bottom&quot;&gt;
+					&lt;div class=&quot;col-md-12&quot;&gt;
+						&lt;div class=&quot;innerAll&quot;&gt;
+							&lt;div class=&quot;media&quot;&gt;
+								&lt;a href=&quot;&quot; class=&quot;thumb pull-left visible-md visible-lg&quot;&gt;&lt;img data-src=&quot;holder.js/50x50/white&quot; alt=&quot;Image&quot; class=&quot;media-object&quot; /&gt;&lt;/a&gt;
+								&lt;div class=&quot;media-body&quot;&gt;
+									&lt;small class=&quot;pull-right text-primary-light&quot;&gt;&lt;i class=&quot;fa fa-calendar fa fa-fixed-width&quot;&gt;&lt;/i&gt; &lt;em&gt;12:38 pm&lt;/em&gt;&lt;/small&gt;
+									&lt;strong class=&quot;text-primary&quot;&gt;bogdan&lt;/strong&gt;&lt;br/&gt;
+									&lt;small&gt;Hello adrian. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis, quas alias voluptatum odit nemo consequuntur blanditiis praesentium pariatur vitae dolore earum saepe dolorum maiores vero fuga sequi quibusdam labore optio doloribus consectetur laudantium in id quae nostrum dignissimos quidem voluptatibus!&lt;/small&gt;
+								&lt;/div&gt;
+							&lt;/div&gt;
+						&lt;/div&gt;
+					&lt;/div&gt;
+				&lt;/div&gt;
+				
+				&lt;div class=&quot;innerAll&quot;&gt;
+					&lt;form role=&quot;form&quot;&gt;
+						&lt;div class=&quot;form-group&quot;&gt;
+							&lt;textarea placeholder=&quot;Type in your message .. &quot; class=&quot;form-control&quot; rows=&quot;5&quot;&gt;&lt;/textarea&gt;
+						&lt;/div&gt;
+						&lt;div class=&quot;form-group&quot;&gt;
+							&lt;div class=&quot;text-right&quot;&gt;
+								&lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot;&gt;Send &lt;i class=&quot;fa-fw fa fa-envelope&quot;&gt;&lt;/i&gt;&lt;/button&gt;
+							&lt;/div&gt;
+						&lt;/div&gt;
+					&lt;/form&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+		
+	&lt;/div&gt;
+&lt;/div&gt;
+&lt;!-- // Widget END --&gt;
+
+</pre>
+										</div>
+										
+																				<div class="tab-pane" id="styles-a8a31bca32b316f6a734e97e00b477ef">
+
+											<p class="lead"><strong>Important note:</strong> By default, Social Admin Template is loading a complete stylesheet file that contains all the styles needed for the entire template. However, if you'd like to reduce bloat and load a minimal stylesheet with the required styles on each page of your application, follow along.</p>
+											<hr class="separator"/><br/>
+											
+											<h4>Usage</h4>
+											<ol>
+												<li>Create a new LESS file <em>(e.g. styles.less)</em> and save it in the <code>assets/less</code> folder.</li>
+												<li>
+													<p>Copy &amp; paste the following imports in the LESS file you just created, in this order:</p>
+													
+																										<div class="strong">CORE minimal styles:</div>
+													<pre class="prettyprint">@import &quot;../assets/library/bootstrap/css/bootstrap.min.css&quot;;
+@import &quot;../assets/library/icons/fontawesome/assets/css/font-awesome.min.css&quot;;
+@import &quot;../assets/library/icons/glyphicons/assets/css/glyphicons_regular.css&quot;;
+@import &quot;../assets/library/icons/glyphicons/assets/css/glyphicons_social.css&quot;;
+@import &quot;../assets/library/icons/glyphicons/assets/css/glyphicons_filetypes.css&quot;;
+@import &quot;../assets/components/core/variables.less&quot;;
+@import &quot;../assets/components/core/mixins.less&quot;;
+@import &quot;../assets/components/core/scaffolding.less&quot;;
+@import &quot;../assets/components/core/helpers.less&quot;;</pre>
+																										
+													<div class="strong">Component styles:</div>
+													<pre class="prettyprint">@import &quot;../assets/components/admin_messages/messages.less&quot;;
+@import &quot;../assets/components/core/widgets.less&quot;;
+@import &quot;../assets/components/ui_buttons/buttons.less&quot;;</pre>
+												</li>
+												<li>Place the file in your project's document root.</li>
+												<li>
+													Load the LESS file into the <code>&lt;head&gt;</code> section of your HTML document, before any JavaScript files: <p><pre class="prettyprint">&lt;link rel=&quot;stylesheet/less&quot; href=&quot;styles.less&quot; /&gt;</pre>
+</p>
+													<p><span class="label label-danger">NOTE</span>&nbsp; To include the LESS file directly, make sure the LESS.js library is also loaded in the <code>head</code> section of the template, otherwise compile the LESS file into CSS and include that file.</p>
+												</li>
+												<li>If you'd like to include other components on the same page, don't create multiple LESS files, but add all the imports in one file. You can create a LESS file for each page with just the resources used for that specific page, or you could create and use a single LESS file for the entire project.</li>
+												<li>In production, compile the LESS file and use the resulting minified CSS file in the HTML document.</li>
+											</ol>
+
+																						<h4>Example</h4>
+											<p>See the <a href="../docs/examples/messages.html" target="_blank">Live Example</a> page and it's source for a minimal implementation of this component.</p>
+											
+										</div>
+										
+																				<div class="tab-pane" id="scripts-a8a31bca32b316f6a734e97e00b477ef">
+
+											<p class="lead"><strong>Important note:</strong> <code>&lt;filename&gt;.init.js</code> files are responsible for initializing and customizing the behaviour of the component and it's 3rd party assets.</p>
+
+																							
+												<h3>Scripts</h3>
+												<p><span class="label label-default">BODY</span> You should include the following scripts at the end of the HTML document, right before the closing <code>&lt;/body&gt;</code> tag.</p>
+
+												<pre class="prettyprint">&lt;script src=&quot;../assets/components/admin_messages/messages.init.js?v=v2.0.0-rc8&amp;sv=v0.0.1.2&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;../assets/plugins/media_holder/holder.js?v=v2.0.0-rc8&amp;sv=v0.0.1.2&quot;&gt;&lt;/script&gt;</pre>
+
+										</div>
+										
+																				<div class="tab-pane" id="resources-a8a31bca32b316f6a734e97e00b477ef">
+
+											<div class="panel panel-default"><div class="panel-body"><blockquote class="margin-none">
+					<i class="fa fa-fw fa-3x pull-left fa-code"></i>
+			<p><strong>Name:</strong> Holder | <strong>File</strong>: ../assets/plugins/media_holder/holder.js</p>
+			<p><strong>Description:</strong> Holder uses SVG and canvas to render image placeholders on the client side.</p>
+						
+		<p>		<strong>Version</strong>: 1.9		 | <strong>Official Website</strong>: <a href="https://github.com/imsky/holder" target="_blank">https://github.com/imsky/holder</a>		</p>
+		
+		
+		</blockquote></div></div>
+										</div>
+										
+									</div>
+								</div>
+							</div>
+							<div class="separator bottom"></div>
+						</div>
+												
+			</div>
+			<!-- // END COL -->
+
+		</div>
+		<!-- // END ROW -->
+
+	</div>
+	<!-- // END WIDGET BODY -->
+
+</div>
+<!-- // END WIDGET -->
+
+</div>
+<!-- // END INNER -->
+
+
+	<!-- Global -->
+	<script>
+	var basePath = '',
+		commonPath = '../assets/',
+		rootPath = '../',
+		DEV = false,
+		componentsPath = '../assets/components/';
+	
+	var primaryColor = '#25ad9f',
+		dangerColor = '#b55151',
+		successColor = '#609450',
+        infoColor = '#4a8bc2',
+		warningColor = '#ab7a4b',
+		inverseColor = '#45484d';
+	
+	var themerPrimaryColor = primaryColor;
+	</script>
+
+	<script src="../assets/library/bootstrap/js/bootstrap.min.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../assets/plugins/core_slimscroll/jquery.slimscroll.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../assets/components/admin_messages/messages.init.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../assets/plugins/media_holder/holder.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../assets/components/core_docs/docs/assets/angular/app/ng.app.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../assets/components/core_docs/assets/angular/filters/ng.filter.isarray.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../assets/components/core_docs/assets/angular/controllers/ng.ctrl.components.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../assets/components/core_docs/docs/assets/angular/directives/ng.docs.directive.components.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../assets/plugins/core_prettyprint/js/prettify.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../assets/components/core/core.init.js?v=v2.0.0-rc8"></script>
+</body>
+</html>

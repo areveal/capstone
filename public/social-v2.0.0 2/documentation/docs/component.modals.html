@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Social Admin Template Template (v2.0.0-rc8)</title>
+	
+	<!-- Meta -->
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE" />
+
+	 
+	
+	<!-- 
+	**********************************************************
+	In development, use the LESS files and the less.js compiler
+	instead of the minified CSS loaded by default.
+	**********************************************************
+	-->
+
+		<!-- <link rel="stylesheet/less" href="../assets/less/docs/module.docs.page.index.component.modals.less" /> -->
+
+	<link rel="stylesheet" href="../assets/css/docs/module.docs.page.index.component.modals.min.css" />
+
+	
+	
+	<script src="../assets/library/jquery/jquery.min.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../assets/library/jquery/jquery-migrate.min.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../assets/library/modernizr/modernizr.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../assets/plugins/core_less-js/less.min.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../assets/plugins/charts_flot/excanvas.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../assets/plugins/core_browser/ie/ie.prototype.polyfill.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../assets/library/angular/angular.min.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+</head>
+<body id="docs">
+
+<!-- Fixed navbar -->
+<div class="navbar navbar-default navbar-fixed-top">
+  	<div class="container">
+    	<div class="navbar-header">
+      		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        		<span class="icon-bar"></span>
+        		<span class="icon-bar"></span>
+        		<span class="icon-bar"></span>
+      		</button>
+      		<a class="navbar-brand" href="http://www.mosaicpro.biz" target="_blank"><img src="../assets/images/logo/logo.jpg" alt="" /></a>
+      		<a class="navbar-brand" href="guide.getting-started-html.html?lang=en">Social Admin Template</a>
+    	</div>
+    	<div class="navbar-collapse collapse">
+      		<ul class="nav navbar-nav">
+        		<li class="dropdown">
+          			<a href="#" class="dropdown-toggle" data-toggle="dropdown">Guides <b class="caret"></b></a>
+          			<ul class="dropdown-menu">
+          									<li><a href="guide.getting-started-html.html?v=v2.0.0-rc8">HTML Guide</a></li>
+												<li><a href="guide.getting-started-php.html?v=v2.0.0-rc8">PHP Guide</a></li>
+						          			</ul>
+        		</li>
+                        		<li class="dropdown">
+          			<a href="#" class="dropdown-toggle" data-toggle="dropdown">Documentation <b class="caret"></b></a>
+          			<ul class="dropdown-menu">
+          				<li class="dropdown-header">Components</li>
+
+                                    			<li><a href="filter.all.html?v=v2.0.0-rc8">All components</a></li>
+                                    			<li><a href="filter.core.html?v=v2.0.0-rc8">Core</a></li>
+                                    			<li><a href="filter.charts.html?v=v2.0.0-rc8">Charts</a></li>
+                                    			<li><a href="filter.forms.html?v=v2.0.0-rc8">Forms</a></li>
+                                    			<li><a href="filter.maps.html?v=v2.0.0-rc8">Maps</a></li>
+                                    			<li><a href="filter.media.html?v=v2.0.0-rc8">Media</a></li>
+                                    			<li><a href="filter.table.html?v=v2.0.0-rc8">Tables</a></li>
+                                    			<li><a href="filter.ui.html?v=v2.0.0-rc8">UI</a></li>
+                                    			<li><a href="filter.widget.html?v=v2.0.0-rc8">Widgets</a></li>
+                                    			<li><a href="filter.other.html?v=v2.0.0-rc8">Other</a></li>
+                        
+                        <li class="dropdown-header">Modules</li>
+
+            			                        <li><a href="filter.admin.html?v=v2.0.0-rc8">Admin</a></li>
+                        
+                        <!-- <li class="dropdown-header">Pages</li>
+                        <li><a href="">Demo pages</a></li> -->
+          			</ul>
+        		</li>
+      		</ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="http://www.mosaicpro.biz/blog/tutorials" target="_blank"><i class="fa fa-fw fa-file-text-o"></i> Online Guides</a></li>
+      		</ul>
+    	</div><!--/.nav-collapse -->
+  	</div>
+</div>
+
+<div class="innerLR">
+<div class="widget widget-tabs">
+	<div class="widget-body">
+
+		<div class="row">
+			
+			<div class="col-md-3" ng-app="App" ng-controller="ComponentsCtrl">
+				<input class="form-control" type="text" ng-model="search" placeholder="Search .." />
+				<tree collection="components" search="search" version="v2.0.0-rc8"></tree>
+			</div>
+
+			<div class="col-md-9">
+
+									
+					<div class="well well-lg">
+						
+				<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">Modals</h4>
+			</div>
+			<div class="panel-body">
+
+				<i class="fa fa-fw fa-3x pull-right icon-new-window"></i>
+				<p class="lead">Bootbox and Inline Modals Examples</p>
+
+						
+								
+		<hr><br><h4>3rd party assets:</h4><blockquote>
+					<i class="fa fa-fw fa-3x pull-left fa-code"></i>
+			<p><strong>Name:</strong> Bootbox.js | <strong>File</strong>: ../assets/plugins/ui_modals/bootbox.min.js</p>
+			<p><strong>Description:</strong> Bootbox.js is a small JavaScript library which allows you to create programmatic dialog boxes using Twitter’s Bootstrap modals.</p>
+						
+		<p>		<strong>Version</strong>: 4.1.0		 | <strong>Official Website</strong>: <a href="https://github.com/makeusabrew/bootbox" target="_blank">https://github.com/makeusabrew/bootbox</a>		</p>
+		
+		
+		</blockquote><blockquote>
+					<i class="fa fa-fw fa-3x pull-left fa-code"></i>
+			<p><strong>Name:</strong> Jquery.Gritter?? | <strong>File</strong>: ../assets/plugins/notifications_gritter/js/jquery.gritter.min.js</p>
+			<p><strong>Description:</strong> ??</p>
+						
+		<p>				 | <strong>Official Website</strong>: <a href="??" target="_blank">??</a>		</p>
+		
+		
+		</blockquote>
+					</div>
+		</div>
+		
+							</div>
+
+					
+						
+							<h4 class="separator bottom"><a href="#view-14e59edd17fe8c4d5f7fb79afe32fdcd" data-toggle="collapse">bootbox</a></h4>
+							<div class="collapse in" id="view-14e59edd17fe8c4d5f7fb79afe32fdcd">
+
+							<div class="widget widget-tabs">
+								<div class="widget-head padding-none">
+									
+									<ul>
+										<li class="active"><a href="#preview-14e59edd17fe8c4d5f7fb79afe32fdcd" data-toggle="tab">Preview</a></li>										<li><a href="#source-14e59edd17fe8c4d5f7fb79afe32fdcd" data-toggle="tab">Source</a></li>										<li><a href="#styles-14e59edd17fe8c4d5f7fb79afe32fdcd" data-toggle="tab">Styles</a></li>										<li><a href="#scripts-14e59edd17fe8c4d5f7fb79afe32fdcd" data-toggle="tab">Scripts</a></li>										<li><a href="#resources-14e59edd17fe8c4d5f7fb79afe32fdcd" data-toggle="tab">Resources</a></li>									</ul>
+
+																		<a href="../docs/examples/bootbox.html" target="_blank" class="pull-right btn btn-success">Live Example</a>
+									
+								</div>
+								<div class="widget-body">
+									<div class="tab-content">
+
+																				<div class="tab-pane active" id="preview-14e59edd17fe8c4d5f7fb79afe32fdcd">
+											<div class="widget">
+	<div class="widget-head">
+		<h4 class="heading">Bootbox <span>Manage modals with JavaScript API</span></h4>
+	</div>
+	<div class="widget-body">
+		<button id="modals-bootbox-alert" class="btn btn-primary">Alert</button>
+		<button id="modals-bootbox-confirm" class="btn btn-primary">Confirm</button>
+		<button id="modals-bootbox-prompt" class="btn btn-primary">Prompt</button>
+		<button id="modals-bootbox-custom" class="btn btn-primary">Custom Dialog</button>
+	</div>
+</div>
+
+
+										</div>
+										
+																				<div class="tab-pane" id="source-14e59edd17fe8c4d5f7fb79afe32fdcd">
+											<pre class="prettyprint">&lt;div class=&quot;widget&quot;&gt;
+	&lt;div class=&quot;widget-head&quot;&gt;
+		&lt;h4 class=&quot;heading&quot;&gt;Bootbox &lt;span&gt;Manage modals with JavaScript API&lt;/span&gt;&lt;/h4&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;widget-body&quot;&gt;
+		&lt;button id=&quot;modals-bootbox-alert&quot; class=&quot;btn btn-primary&quot;&gt;Alert&lt;/button&gt;
+		&lt;button id=&quot;modals-bootbox-confirm&quot; class=&quot;btn btn-primary&quot;&gt;Confirm&lt;/button&gt;
+		&lt;button id=&quot;modals-bootbox-prompt&quot; class=&quot;btn btn-primary&quot;&gt;Prompt&lt;/button&gt;
+		&lt;button id=&quot;modals-bootbox-custom&quot; class=&quot;btn btn-primary&quot;&gt;Custom Dialog&lt;/button&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+
+
+</pre>
+										</div>
+										
+																				<div class="tab-pane" id="styles-14e59edd17fe8c4d5f7fb79afe32fdcd">
+
+											<p class="lead"><strong>Important note:</strong> By default, Social Admin Template is loading a complete stylesheet file that contains all the styles needed for the entire template. However, if you'd like to reduce bloat and load a minimal stylesheet with the required styles on each page of your application, follow along.</p>
+											<hr class="separator"/><br/>
+											
+											<h4>Usage</h4>
+											<ol>
+												<li>Create a new LESS file <em>(e.g. styles.less)</em> and save it in the <code>assets/less</code> folder.</li>
+												<li>
+													<p>Copy &amp; paste the following imports in the LESS file you just created, in this order:</p>
+													
+																										<div class="strong">CORE minimal styles:</div>
+													<pre class="prettyprint">@import &quot;../assets/library/bootstrap/css/bootstrap.min.css&quot;;
+@import &quot;../assets/library/icons/fontawesome/assets/css/font-awesome.min.css&quot;;
+@import &quot;../assets/library/icons/glyphicons/assets/css/glyphicons_regular.css&quot;;
+@import &quot;../assets/library/icons/glyphicons/assets/css/glyphicons_social.css&quot;;
+@import &quot;../assets/library/icons/glyphicons/assets/css/glyphicons_filetypes.css&quot;;
+@import &quot;../assets/components/core/variables.less&quot;;
+@import &quot;../assets/components/core/mixins.less&quot;;
+@import &quot;../assets/components/core/scaffolding.less&quot;;
+@import &quot;../assets/components/core/helpers.less&quot;;</pre>
+																										
+													<div class="strong">Component styles:</div>
+													<pre class="prettyprint">@import &quot;../assets/components/ui_modals/modals.less&quot;;
+@import &quot;../assets/plugins/notifications_gritter/css/jquery.gritter.css&quot;;
+@import &quot;../assets/components/admin_notifications_gritter/gritter.less&quot;;
+@import &quot;../assets/components/ui_buttons/buttons.less&quot;;</pre>
+												</li>
+												<li>Place the file in your project's document root.</li>
+												<li>
+													Load the LESS file into the <code>&lt;head&gt;</code> section of your HTML document, before any JavaScript files: <p><pre class="prettyprint">&lt;link rel=&quot;stylesheet/less&quot; href=&quot;styles.less&quot; /&gt;</pre>
+</p>
+													<p><span class="label label-danger">NOTE</span>&nbsp; To include the LESS file directly, make sure the LESS.js library is also loaded in the <code>head</code> section of the template, otherwise compile the LESS file into CSS and include that file.</p>
+												</li>
+												<li>If you'd like to include other components on the same page, don't create multiple LESS files, but add all the imports in one file. You can create a LESS file for each page with just the resources used for that specific page, or you could create and use a single LESS file for the entire project.</li>
+												<li>In production, compile the LESS file and use the resulting minified CSS file in the HTML document.</li>
+											</ol>
+
+																						<h4>Example</h4>
+											<p>See the <a href="../docs/examples/bootbox.html" target="_blank">Live Example</a> page and it's source for a minimal implementation of this component.</p>
+											
+										</div>
+										
+																				<div class="tab-pane" id="scripts-14e59edd17fe8c4d5f7fb79afe32fdcd">
+
+											<p class="lead"><strong>Important note:</strong> <code>&lt;filename&gt;.init.js</code> files are responsible for initializing and customizing the behaviour of the component and it's 3rd party assets.</p>
+
+																							
+												<h3>Scripts</h3>
+												<p><span class="label label-default">BODY</span> You should include the following scripts at the end of the HTML document, right before the closing <code>&lt;/body&gt;</code> tag.</p>
+
+												<pre class="prettyprint">&lt;script src=&quot;../assets/plugins/ui_modals/bootbox.min.js?v=v2.0.0-rc8&amp;sv=v0.0.1.2&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;../assets/components/ui_modals/modals.init.js?v=v2.0.0-rc8&amp;sv=v0.0.1.2&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;../assets/plugins/notifications_gritter/js/jquery.gritter.min.js?v=v2.0.0-rc8&amp;sv=v0.0.1.2&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;../assets/components/admin_notifications_gritter/gritter.init.js?v=v2.0.0-rc8&amp;sv=v0.0.1.2&quot;&gt;&lt;/script&gt;</pre>
+
+										</div>
+										
+																				<div class="tab-pane" id="resources-14e59edd17fe8c4d5f7fb79afe32fdcd">
+
+											<div class="panel panel-default"><div class="panel-body"><blockquote class="margin-none">
+					<i class="fa fa-fw fa-3x pull-left fa-code"></i>
+			<p><strong>Name:</strong> Bootbox.js | <strong>File</strong>: ../assets/plugins/ui_modals/bootbox.min.js</p>
+			<p><strong>Description:</strong> Bootbox.js is a small JavaScript library which allows you to create programmatic dialog boxes using Twitter’s Bootstrap modals.</p>
+						
+		<p>		<strong>Version</strong>: 4.1.0		 | <strong>Official Website</strong>: <a href="https://github.com/makeusabrew/bootbox" target="_blank">https://github.com/makeusabrew/bootbox</a>		</p>
+		
+		
+		</blockquote></div></div><div class="panel panel-default"><div class="panel-body"><blockquote class="margin-none">
+					<i class="fa fa-fw fa-3x pull-left fa-code"></i>
+			<p><strong>Name:</strong> Jquery.Gritter?? | <strong>File</strong>: ../assets/plugins/notifications_gritter/js/jquery.gritter.min.js</p>
+			<p><strong>Description:</strong> ??</p>
+						
+		<p>				 | <strong>Official Website</strong>: <a href="??" target="_blank">??</a>		</p>
+		
+		
+		</blockquote></div></div>
+										</div>
+										
+									</div>
+								</div>
+							</div>
+							<div class="separator bottom"></div>
+						</div>
+												
+						
+							<h4 class="separator bottom"><a href="#view-5b4862a8399e76d4631ffcbb0f373237" data-toggle="collapse">modal-inline</a></h4>
+							<div class="collapse in" id="view-5b4862a8399e76d4631ffcbb0f373237">
+
+							<div class="widget widget-tabs">
+								<div class="widget-head padding-none">
+									
+									<ul>
+										<li class="active"><a href="#preview-5b4862a8399e76d4631ffcbb0f373237" data-toggle="tab">Preview</a></li>										<li><a href="#source-5b4862a8399e76d4631ffcbb0f373237" data-toggle="tab">Source</a></li>										<li><a href="#styles-5b4862a8399e76d4631ffcbb0f373237" data-toggle="tab">Styles</a></li>										<li><a href="#scripts-5b4862a8399e76d4631ffcbb0f373237" data-toggle="tab">Scripts</a></li>										<li><a href="#resources-5b4862a8399e76d4631ffcbb0f373237" data-toggle="tab">Resources</a></li>									</ul>
+
+																		<a href="../docs/examples/modal-inline.html" target="_blank" class="pull-right btn btn-success">Live Example</a>
+									
+								</div>
+								<div class="widget-body">
+									<div class="tab-content">
+
+																				<div class="tab-pane active" id="preview-5b4862a8399e76d4631ffcbb0f373237">
+											<!-- Modal inline -->
+<div class="modal modal-inline">
+	<div class="modal-dialog">
+		<div class="modal-content">
+
+			<!-- Modal heading -->
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title">Modal header</h4>
+			</div>
+			<!-- // Modal heading END -->
+			
+			<!-- Modal body -->
+			<div class="modal-body">
+				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+			</div>
+			<!-- // Modal body END -->
+			
+			<!-- Modal footer -->
+			<div class="modal-footer">
+				<a href="#" class="btn btn-default">Just a button</a> 
+				<a href="#modal-simple" data-toggle="modal" class="btn btn-primary">Open Live Modal</a>
+			</div>
+			<!-- // Modal footer END -->
+
+		</div>
+	</div>
+	
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="modal-simple">
+	
+	<div class="modal-dialog">
+		<div class="modal-content">
+
+			<!-- Modal heading -->
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h3 class="modal-title">Modal header</h3>
+			</div>
+			<!-- // Modal heading END -->
+			
+			<!-- Modal body -->
+			<div class="modal-body">
+				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+			</div>
+			<!-- // Modal body END -->
+			
+			<!-- Modal footer -->
+			<div class="modal-footer">
+				<a href="#" class="btn btn-default" data-dismiss="modal">Close</a> 
+				<a href="#" data-dismiss="modal" class="btn btn-primary">Save changes</a>
+			</div>
+			<!-- // Modal footer END -->
+
+		</div>
+	</div>
+	
+</div>
+<!-- // Modal END -->
+
+
+
+										</div>
+										
+																				<div class="tab-pane" id="source-5b4862a8399e76d4631ffcbb0f373237">
+											<pre class="prettyprint">&lt;!-- Modal inline --&gt;
+&lt;div class=&quot;modal modal-inline&quot;&gt;
+	&lt;div class=&quot;modal-dialog&quot;&gt;
+		&lt;div class=&quot;modal-content&quot;&gt;
+
+			&lt;!-- Modal heading --&gt;
+			&lt;div class=&quot;modal-header&quot;&gt;
+				&lt;button type=&quot;button&quot; class=&quot;close&quot; data-dismiss=&quot;modal&quot; aria-hidden=&quot;true&quot;&gt;&amp;times;&lt;/button&gt;
+				&lt;h4 class=&quot;modal-title&quot;&gt;Modal header&lt;/h4&gt;
+			&lt;/div&gt;
+			&lt;!-- // Modal heading END --&gt;
+			
+			&lt;!-- Modal body --&gt;
+			&lt;div class=&quot;modal-body&quot;&gt;
+				&lt;p&gt;Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.&lt;/p&gt;
+			&lt;/div&gt;
+			&lt;!-- // Modal body END --&gt;
+			
+			&lt;!-- Modal footer --&gt;
+			&lt;div class=&quot;modal-footer&quot;&gt;
+				&lt;a href=&quot;#&quot; class=&quot;btn btn-default&quot;&gt;Just a button&lt;/a&gt; 
+				&lt;a href=&quot;#modal-simple&quot; data-toggle=&quot;modal&quot; class=&quot;btn btn-primary&quot;&gt;Open Live Modal&lt;/a&gt;
+			&lt;/div&gt;
+			&lt;!-- // Modal footer END --&gt;
+
+		&lt;/div&gt;
+	&lt;/div&gt;
+	
+&lt;/div&gt;
+
+&lt;!-- Modal --&gt;
+&lt;div class=&quot;modal fade&quot; id=&quot;modal-simple&quot;&gt;
+	
+	&lt;div class=&quot;modal-dialog&quot;&gt;
+		&lt;div class=&quot;modal-content&quot;&gt;
+
+			&lt;!-- Modal heading --&gt;
+			&lt;div class=&quot;modal-header&quot;&gt;
+				&lt;button type=&quot;button&quot; class=&quot;close&quot; data-dismiss=&quot;modal&quot; aria-hidden=&quot;true&quot;&gt;&amp;times;&lt;/button&gt;
+				&lt;h3 class=&quot;modal-title&quot;&gt;Modal header&lt;/h3&gt;
+			&lt;/div&gt;
+			&lt;!-- // Modal heading END --&gt;
+			
+			&lt;!-- Modal body --&gt;
+			&lt;div class=&quot;modal-body&quot;&gt;
+				&lt;p&gt;Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.&lt;/p&gt;
+			&lt;/div&gt;
+			&lt;!-- // Modal body END --&gt;
+			
+			&lt;!-- Modal footer --&gt;
+			&lt;div class=&quot;modal-footer&quot;&gt;
+				&lt;a href=&quot;#&quot; class=&quot;btn btn-default&quot; data-dismiss=&quot;modal&quot;&gt;Close&lt;/a&gt; 
+				&lt;a href=&quot;#&quot; data-dismiss=&quot;modal&quot; class=&quot;btn btn-primary&quot;&gt;Save changes&lt;/a&gt;
+			&lt;/div&gt;
+			&lt;!-- // Modal footer END --&gt;
+
+		&lt;/div&gt;
+	&lt;/div&gt;
+	
+&lt;/div&gt;
+&lt;!-- // Modal END --&gt;
+
+
+
+</pre>
+										</div>
+										
+																				<div class="tab-pane" id="styles-5b4862a8399e76d4631ffcbb0f373237">
+
+											<p class="lead"><strong>Important note:</strong> By default, Social Admin Template is loading a complete stylesheet file that contains all the styles needed for the entire template. However, if you'd like to reduce bloat and load a minimal stylesheet with the required styles on each page of your application, follow along.</p>
+											<hr class="separator"/><br/>
+											
+											<h4>Usage</h4>
+											<ol>
+												<li>Create a new LESS file <em>(e.g. styles.less)</em> and save it in the <code>assets/less</code> folder.</li>
+												<li>
+													<p>Copy &amp; paste the following imports in the LESS file you just created, in this order:</p>
+													
+																										<div class="strong">CORE minimal styles:</div>
+													<pre class="prettyprint">@import &quot;../assets/library/bootstrap/css/bootstrap.min.css&quot;;
+@import &quot;../assets/library/icons/fontawesome/assets/css/font-awesome.min.css&quot;;
+@import &quot;../assets/library/icons/glyphicons/assets/css/glyphicons_regular.css&quot;;
+@import &quot;../assets/library/icons/glyphicons/assets/css/glyphicons_social.css&quot;;
+@import &quot;../assets/library/icons/glyphicons/assets/css/glyphicons_filetypes.css&quot;;
+@import &quot;../assets/components/core/variables.less&quot;;
+@import &quot;../assets/components/core/mixins.less&quot;;
+@import &quot;../assets/components/core/scaffolding.less&quot;;
+@import &quot;../assets/components/core/helpers.less&quot;;</pre>
+																										
+													<div class="strong">Component styles:</div>
+													<pre class="prettyprint">@import &quot;../assets/components/ui_modals/modals.less&quot;;
+@import &quot;../assets/plugins/notifications_gritter/css/jquery.gritter.css&quot;;
+@import &quot;../assets/components/admin_notifications_gritter/gritter.less&quot;;
+@import &quot;../assets/components/ui_buttons/buttons.less&quot;;
+@import &quot;../assets/components/ui_modals/modal-inline.less&quot;;</pre>
+												</li>
+												<li>Place the file in your project's document root.</li>
+												<li>
+													Load the LESS file into the <code>&lt;head&gt;</code> section of your HTML document, before any JavaScript files: <p><pre class="prettyprint">&lt;link rel=&quot;stylesheet/less&quot; href=&quot;styles.less&quot; /&gt;</pre>
+</p>
+													<p><span class="label label-danger">NOTE</span>&nbsp; To include the LESS file directly, make sure the LESS.js library is also loaded in the <code>head</code> section of the template, otherwise compile the LESS file into CSS and include that file.</p>
+												</li>
+												<li>If you'd like to include other components on the same page, don't create multiple LESS files, but add all the imports in one file. You can create a LESS file for each page with just the resources used for that specific page, or you could create and use a single LESS file for the entire project.</li>
+												<li>In production, compile the LESS file and use the resulting minified CSS file in the HTML document.</li>
+											</ol>
+
+																						<h4>Example</h4>
+											<p>See the <a href="../docs/examples/modal-inline.html" target="_blank">Live Example</a> page and it's source for a minimal implementation of this component.</p>
+											
+										</div>
+										
+																				<div class="tab-pane" id="scripts-5b4862a8399e76d4631ffcbb0f373237">
+
+											<p class="lead"><strong>Important note:</strong> <code>&lt;filename&gt;.init.js</code> files are responsible for initializing and customizing the behaviour of the component and it's 3rd party assets.</p>
+
+																							
+												<h3>Scripts</h3>
+												<p><span class="label label-default">BODY</span> You should include the following scripts at the end of the HTML document, right before the closing <code>&lt;/body&gt;</code> tag.</p>
+
+												<pre class="prettyprint">&lt;script src=&quot;../assets/plugins/ui_modals/bootbox.min.js?v=v2.0.0-rc8&amp;sv=v0.0.1.2&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;../assets/components/ui_modals/modals.init.js?v=v2.0.0-rc8&amp;sv=v0.0.1.2&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;../assets/plugins/notifications_gritter/js/jquery.gritter.min.js?v=v2.0.0-rc8&amp;sv=v0.0.1.2&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;../assets/components/admin_notifications_gritter/gritter.init.js?v=v2.0.0-rc8&amp;sv=v0.0.1.2&quot;&gt;&lt;/script&gt;</pre>
+
+										</div>
+										
+																				<div class="tab-pane" id="resources-5b4862a8399e76d4631ffcbb0f373237">
+
+											<div class="panel panel-default"><div class="panel-body"><blockquote class="margin-none">
+					<i class="fa fa-fw fa-3x pull-left fa-code"></i>
+			<p><strong>Name:</strong> Bootbox.js | <strong>File</strong>: ../assets/plugins/ui_modals/bootbox.min.js</p>
+			<p><strong>Description:</strong> Bootbox.js is a small JavaScript library which allows you to create programmatic dialog boxes using Twitter’s Bootstrap modals.</p>
+						
+		<p>		<strong>Version</strong>: 4.1.0		 | <strong>Official Website</strong>: <a href="https://github.com/makeusabrew/bootbox" target="_blank">https://github.com/makeusabrew/bootbox</a>		</p>
+		
+		
+		</blockquote></div></div><div class="panel panel-default"><div class="panel-body"><blockquote class="margin-none">
+					<i class="fa fa-fw fa-3x pull-left fa-code"></i>
+			<p><strong>Name:</strong> Jquery.Gritter?? | <strong>File</strong>: ../assets/plugins/notifications_gritter/js/jquery.gritter.min.js</p>
+			<p><strong>Description:</strong> ??</p>
+						
+		<p>				 | <strong>Official Website</strong>: <a href="??" target="_blank">??</a>		</p>
+		
+		
+		</blockquote></div></div>
+										</div>
+										
+									</div>
+								</div>
+							</div>
+							<div class="separator bottom"></div>
+						</div>
+												
+			</div>
+			<!-- // END COL -->
+
+		</div>
+		<!-- // END ROW -->
+
+	</div>
+	<!-- // END WIDGET BODY -->
+
+</div>
+<!-- // END WIDGET -->
+
+</div>
+<!-- // END INNER -->
+
+
+	<!-- Global -->
+	<script>
+	var basePath = '',
+		commonPath = '../assets/',
+		rootPath = '../',
+		DEV = false,
+		componentsPath = '../assets/components/';
+	
+	var primaryColor = '#25ad9f',
+		dangerColor = '#b55151',
+		successColor = '#609450',
+        infoColor = '#4a8bc2',
+		warningColor = '#ab7a4b',
+		inverseColor = '#45484d';
+	
+	var themerPrimaryColor = primaryColor;
+	</script>
+
+	<script src="../assets/library/bootstrap/js/bootstrap.min.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../assets/plugins/core_slimscroll/jquery.slimscroll.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../assets/plugins/ui_modals/bootbox.min.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../assets/components/ui_modals/modals.init.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../assets/plugins/notifications_gritter/js/jquery.gritter.min.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../assets/components/admin_notifications_gritter/gritter.init.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../assets/components/core_docs/docs/assets/angular/app/ng.app.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../assets/components/core_docs/assets/angular/filters/ng.filter.isarray.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../assets/components/core_docs/assets/angular/controllers/ng.ctrl.components.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../assets/components/core_docs/docs/assets/angular/directives/ng.docs.directive.components.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../assets/plugins/core_prettyprint/js/prettify.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../assets/components/core/core.init.js?v=v2.0.0-rc8"></script>
+</body>
+</html>

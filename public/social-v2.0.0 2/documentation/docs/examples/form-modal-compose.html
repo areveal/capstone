@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>form-modal-compose example | Social Admin Template Template (v2.0.0-rc8)</title>
+	
+	<!-- Meta -->
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE" />
+
+	<!-- 
+	**********************************************************
+	In development, use the LESS files and the less.js compiler
+	instead of the minified CSS loaded by default.
+	**********************************************************
+	-->
+
+		<!-- <link rel="stylesheet/less" href="../../assets/less/docs/module.examples.page.form-modal-compose.less" /> -->
+
+	<link rel="stylesheet" href="../../assets/css/docs/module.examples.page.form-modal-compose.min.css" />
+
+	
+	<script src="../../assets/library/jquery/jquery.min.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../../assets/library/jquery/jquery-migrate.min.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../../assets/library/modernizr/modernizr.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../../assets/plugins/core_less-js/less.min.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../../assets/plugins/charts_flot/excanvas.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../../assets/plugins/core_browser/ie/ie.prototype.polyfill.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+</head>
+<body id="examples">
+
+	<div class="container">
+		<div class="innerTB">
+
+			<div class="jumbotron">
+				<h1 class="separator bottom">form-modal-compose example</h1>
+				<p class="lead">This is an example page that loads strictly the minimal core styles &amp; scripts required by <strong>Social Admin Template</strong> and the <strong>form-modal-compose component</strong></p>
+			</div>
+<!-- Form Modal 1 -->
+<a href="#modal-compose" data-toggle="modal" class="btn btn-success"><i class="fa fa-fw fa-envelope"></i> Compose Email Modal</a>
+	
+<!-- Modal -->
+<div class="modal fade" id="modal-compose">
+	
+	<div class="modal-dialog">
+		<div class="modal-content">
+
+			<!-- Modal heading -->
+			<!-- <div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h3 class="modal-title">Login</h3>
+			</div> -->
+			<!-- // Modal heading END -->
+
+			<div class="innerAll border-bottom">
+				<div class="pull-left">
+					<a href="" class=" btn btn-default btn-sm"><i class="fa fa-fw fa-arrow-left"></i> back</a> 
+				</div>
+				<div class="pull-left innerL">
+					<a href="" class=" btn btn-success btn-sm strong"><i class="fa fa-fw icon-paperclip"></i> Save Draft</a>
+				</div>
+				<a href="" class="pull-right btn btn-primary btn-sm strong"><i class="fa fa-fw icon-outbox-fill"></i> Send Email</a>
+				<div class="clearfix"></div>
+			</div>
+			
+			<!-- Modal body -->
+			<div class="modal-body padding-none">
+				
+				<form class="form-horizontal" role="form">
+					<div class="bg-gray innerAll border-bottom">
+						<div class="innerLR">
+							<div class="form-group">
+								<label for="to" class="col-sm-2 control-label">To:</label>
+								<div class="col-sm-10">
+									<div class="input-group">
+										<input type="text" class="form-control" id="to">
+										<div class="input-group-btn">
+											<button type="button" data-toggle="collapse" data-target="#cc" class="btn btn-default">CC/BCC <span class="caret"></span></button>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div id="cc" class="collapse">
+								<div class="form-group">
+									<label for="Cc" class="col-sm-2 control-label">Cc:</label>
+									<div class="col-sm-10">
+										<input type="text" class="form-control" id="Cc">
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="Bcc" class="col-sm-2 control-label">Bcc:</label>
+									<div class="col-sm-10">
+										<input type="text" class="form-control" id="Bcc">
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="Bcc" class="col-sm-2 control-label">From:</label>
+								<div class="col-sm-6">
+									<select class="selectpicker">
+										<option>contact@mosaicpro.biz</option>
+									</select>
+								</div>
+							
+							</div>
+
+							<div class="form-group">
+								<label for="Bcc" class="col-sm-2 control-label">Signature:</label>
+								<div class="col-sm-6">
+								<select class="selectpicker">
+									<option>Select Signature</option>
+								</select>
+								</div>
+							</div>
+							<div class="clearfix"></div>
+						</div>
+					</div>
+
+					<div class="innerAll inner-2x">
+						<textarea class="notebook border-none form-control padding-none" rows="4" placeholder="Write your content here..."></textarea>
+						<div class="clearfix"></div>
+					</div>
+				</form>
+
+			</div>
+			<!-- // Modal body END -->
+
+			<div class="innerAll text-center border-top">
+				<a href="" class="btn btn-default"><i class="fa fa-fw icon-crossing"></i> Cancel</a>
+				<a href="" class="btn btn-primary"><i class="fa fa-fw icon-outbox-fill"></i> Send email</a>
+			</div>
+	
+		</div>
+	</div>
+	
+</div>
+<!-- // Modal END -->
+
+
+
+	
+		</div>
+	</div>
+
+	<!-- Global -->
+	<script>
+	var basePath = '',
+		rootPath = '../../',
+		DEV = false,
+		componentsPath = '../../assets/components/';
+	
+	var primaryColor = '#25ad9f',
+		dangerColor = '#b55151',
+		successColor = '#609450',
+		warningColor = '#ab7a4b',
+		inverseColor = '#45484d';
+	
+	var themerPrimaryColor = primaryColor;
+	</script>
+
+	<script src="../../assets/library/bootstrap/js/bootstrap.min.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../../assets/plugins/ui_modals/bootbox.min.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../../assets/components/ui_modals/modals.init.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../../assets/plugins/notifications_gritter/js/jquery.gritter.min.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="../../assets/components/admin_notifications_gritter/gritter.init.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+</body>
+</html>
