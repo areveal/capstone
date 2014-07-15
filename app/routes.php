@@ -19,7 +19,10 @@ Route::get('/', function()
 Route::get('/login', 'HomeController@showLogin');
 Route::post('/login', 'HomeController@doLogin');
 Route::get('/logout', 'HomeController@logout');
-Route::get('/reset_password', 'HomeController@reset');
+
+
+Route::controller('password', 'RemindersController');
 
 //Route for Users table resources
 Route::resource('users', 'UsersController');
+

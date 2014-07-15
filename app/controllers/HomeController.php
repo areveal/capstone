@@ -19,7 +19,7 @@ class HomeController extends BaseController {
 	//show the login screen
 	public function showLogin()
 	{
-		return View::make('login');
+		return View::make('users.login');
 	}
 	//enter the email and password to login
 	public function doLogin()
@@ -33,17 +33,22 @@ class HomeController extends BaseController {
 			return Redirect::intended(action('UsersController@index'));
 		}
 
-		// {
-		// 	//error message displayed if user name or password invalid
-		// 	Session::flash('errorMessage', 'Invalid email or password.');
-		// 	return Redirect::action('HomeController@showLogin');
-		// }
 		else
+		{
+			//error message displayed if user name or password invalid
+			Session::flash('errorMessage', 'Invalid email or password.');
+			return Redirect::action('HomeController@showLogin');
+		}
+	}
+
+	public function resetPassword()
 		{
 			//option to reset password
 			return Redirect::intended(action('RemindersController'));
-
 		}
+
+	
+
 
 	public function logout()
 	{

@@ -1,3 +1,4 @@
+@extends('layouts.master')
 <!DOCTYPE html>
 <!--[if lt IE 7]> <html class="ie lt-ie9 lt-ie8 lt-ie7 paceCounter paceSocial app"> <![endif]-->
 <!--[if IE 7]>    <html class="ie lt-ie9 lt-ie8 paceCounter paceSocial app"> <![endif]-->
@@ -5,7 +6,7 @@
 <!--[if gt IE 8]> <html class="ie paceCounter paceSocial app"> <![endif]-->
 <!--[if !IE]><!--><html class="paceCounter paceSocial app"><!-- <![endif]-->
 <head>
-	<title>Social Admin Template (v2.0.0-rc8)</title>
+	<title>Minority Linkedin</title>
 	
 	<!-- Meta -->
 	<meta charset="utf-8">
@@ -46,7 +47,7 @@
 
 						
 		
-		
+@section('content')	
 
 <div id="menu-right">
 	<div>
@@ -328,7 +329,7 @@
 	</div>
 </div>
 
-	
+@stop
 
 	<!-- Global -->
 	<script data-id="App.Config">
