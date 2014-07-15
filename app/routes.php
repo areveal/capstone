@@ -12,6 +12,7 @@
 */
 
 Route::get('/signup', 'HomeController@showSignup');
+Route::post('/signup', 'HomeController@doSignup');
 
 Route::get('/', function()
 {

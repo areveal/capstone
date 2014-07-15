@@ -361,8 +361,12 @@
 								  		{{Form::open(array('action' => 'HomeController@doSignup', 'class' => 'form-signin', 'role' => 'form'))}}
 								  		<!--<form role="form" action="index.html?lang=en"> -->
 									  		<div class="form-group">
-									    		<label for="exampleInputEmail1">Full Name</label>
-									    		<input name="name" type="text" class="form-control" id="exampleInputEmail1" placeholder="Your full name" value="{{Input::old('name')}}">
+									    		<label for="exampleInputEmail1">First Name</label>
+									    		<input name="first_name" type="text" class="form-control" id="exampleInputEmail1" placeholder="Your full name" value="{{Input::old('first_name')}}">
+									  		</div>
+									  		<div class="form-group">
+									    		<label for="exampleInputEmail1">Last Name</label>
+									    		<input name="last_name" type="text" class="form-control" id="exampleInputEmail1" placeholder="Your full name" value="{{Input::old('last_name')}}">
 									  		</div>
 								  	  		<div class="form-group">
 									    		<label for="exampleInputEmail1">Email address</label>
@@ -425,16 +429,16 @@
 
 		</script>
 	
-	<script src="../assets/library/bootstrap/js/bootstrap.min.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
-<script src="../assets/plugins/core_nicescroll/jquery.nicescroll.min.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
-<script src="../assets/plugins/core_breakpoints/breakpoints.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
-<script src="../assets/plugins/core_preload/pace.min.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
-<script src="../assets/components/core_preload/preload.pace.init.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
-<script src="../assets/plugins/menu_sidr/jquery.sidr.js?v=v2.0.0-rc8"></script>
-<script src="../assets/components/menus/menus.sidebar.chat.init.js?v=v2.0.0-rc8"></script>
-<script src="../assets/plugins/other_mixitup/jquery.mixitup.min.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
-<script src="../assets/plugins/other_mixitup/mixitup.init.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
-<script src="../assets/components/core/core.init.js?v=v2.0.0-rc8"></script>	
+	<script src="/library/bootstrap/js/bootstrap.min.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="/plugins/core_nicescroll/jquery.nicescroll.min.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="/plugins/core_breakpoints/breakpoints.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="/plugins/core_preload/pace.min.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="/components/core_preload/preload.pace.init.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="/plugins/menu_sidr/jquery.sidr.js?v=v2.0.0-rc8"></script>
+<script src="/components/menus/menus.sidebar.chat.init.js?v=v2.0.0-rc8"></script>
+<script src="/plugins/other_mixitup/jquery.mixitup.min.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="/plugins/other_mixitup/mixitup.init.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="/components/core/core.init.js?v=v2.0.0-rc8"></script>	
 @stop
 
 

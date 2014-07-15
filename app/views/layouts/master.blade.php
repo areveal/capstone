@@ -1,4 +1,9 @@
-<html>
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="ie lt-ie9 lt-ie8 lt-ie7 paceCounter paceSocial footer-sticky"> <![endif]-->
+<!--[if IE 7]>    <html class="ie lt-ie9 lt-ie8 paceCounter paceSocial footer-sticky"> <![endif]-->
+<!--[if IE 8]>    <html class="ie lt-ie9 paceCounter paceSocial footer-sticky"> <![endif]-->
+<!--[if gt IE 8]> <html class="ie paceCounter paceSocial footer-sticky"> <![endif]-->
+<!--[if !IE]><!--><html class="paceCounter paceSocial footer-sticky"><!-- <![endif]-->
 <head>
 	<title>Social Admin Template (v2.0.0-rc8)</title>
 	
@@ -12,12 +17,12 @@
 	In development, use the LESS files and the less.js compiler
 	instead of the minified CSS loaded by default.
 	**********************************************************
-	<link rel="stylesheet/less" href="../assets/less/admin/module.admin.stylesheet-complete.less" />
+	<link rel="stylesheet/less" href="../assets/less/admin/module.admin.stylesheet-complete.layout_fixed.true.less" />
 	-->
 
 		<!--[if lt IE 9]><link rel="stylesheet" href="../assets/components/library/bootstrap/css/bootstrap.min.css" /><![endif]-->
 	
-		<link rel="stylesheet" href="../assets/css/admin/module.admin.stylesheet-complete.min.css" />
+		<link rel="stylesheet" href="../assets/css/admin/module.admin.stylesheet-complete.layout_fixed.true.min.css" />
 	
 	
 	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -32,7 +37,12 @@
 <script src="../assets/plugins/core_less-js/less.min.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
 <script src="../assets/plugins/charts_flot/excanvas.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
 <script src="../assets/plugins/core_browser/ie/ie.prototype.polyfill.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>	<script>if (/*@cc_on!@*/false && document.documentMode === 10) { document.documentElement.className+=' ie ie10'; }</script>
+	
 </head>
+
+	
+</head>
+
 <body>
 @yield('content')
 </body>
