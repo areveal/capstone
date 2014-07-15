@@ -73,7 +73,7 @@ class UsersController extends \BaseController {
 	public function show($id)
 	{
 		// this is our user's home page
-		$user = User::with('experience')->with('education')->findOrfail($id);
+		$user = User::with('jobs')->with('schools')->findOrfail($id);
 
 		return View::make('users.show')->with('user', $user);
 	}
