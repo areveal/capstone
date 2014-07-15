@@ -24,7 +24,7 @@ return array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
 			'database'  => 'capstone_db',
-			'username'  => 'blog_user',
+			'username'  => 'capstone_user',
 			'password'  => 'runwithit',	
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
