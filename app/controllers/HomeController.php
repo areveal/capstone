@@ -15,9 +15,27 @@ class HomeController extends BaseController {
 	|
 	*/
 
-	public function showWelcome()
+	public function showSignup()
 	{
-		return View::make('hello');
+		return View::make('pages.signup');
+	}
+
+	public function doSignup()
+	{
+		$name = Input::get('name');
+		$email = Input::get('email');
+		$password = Input::get('password');
+		$confirmPassword = Input::get('confirmPassword');
+
+		if (Auth::attempt(array('name' => $name, 'email' => $email, 'password' => $password, 'confirmPassword' => $confirmPassword )))
+		{
+    		return Redirect::intended(action('HomeController@showSignup'));
+		}
+		else
+		{
+			Session::flash('errorMessage', 'Please complete all fields.');
+    		return Redirect::action('HomeController@showSignup')->withInput();
+		}
 	}
 
 	//show the login screen

@@ -11,6 +11,8 @@
 |
 */
 
+Route::get('/signup', 'HomeController@showSignup');
+
 Route::get('/', function()
 {
 	return View::make('hello');
