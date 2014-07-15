@@ -15,6 +15,7 @@ class HomeController extends BaseController {
 	|
 	*/
 
+
 	//show the login screen
 	public function showLogin()
 	{
@@ -31,7 +32,7 @@ class HomeController extends BaseController {
 		{
 			return Redirect::intended(action('UsersController@index'));
 		}
-		// elseif()
+
 		// {
 		// 	//error message displayed if user name or password invalid
 		// 	Session::flash('errorMessage', 'Invalid email or password.');
@@ -41,10 +42,8 @@ class HomeController extends BaseController {
 		{
 			//option to reset password
 			return Redirect::intended(action('RemindersController'));
+
 		}
-
-
-	}
 
 	public function logout()
 	{
