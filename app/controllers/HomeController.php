@@ -15,29 +15,6 @@ class HomeController extends BaseController {
 	|
 	*/
 
-	public function showSignup()
-	{
-		return View::make('pages.signup');
-	}
-
-	public function doSignup()
-	{
-		$name = Input::get('name');
-		$email = Input::get('email');
-		$password = Input::get('password');
-		$confirmPassword = Input::get('confirmPassword');
-
-		if (Auth::attempt(array('name' => $name, 'email' => $email, 'password' => $password, 'confirmPassword' => $confirmPassword )))
-		{
-    		return Redirect::intended(action('HomeController@showSignup'));
-		}
-		else
-		{
-			Session::flash('errorMessage', 'Please complete all fields.');
-    		return Redirect::action('HomeController@showSignup')->withInput();
-		}
-	}
-
 	//show the login screen
 	public function showLogin()
 	{
@@ -48,22 +25,23 @@ class HomeController extends BaseController {
 	{
 		$email = Input::get('email');
 		$password = Input::get('password');
-		$reset = Input::get('reset_password')
+		$reset = Input::get('reset_password');
 		//login successfully
 		if (Auth::attempt(array('email' => $email, 'password' => $password)))
 		{
 			return Redirect::intended(action('UsersController@index'));
 		}
-		elseif
-		{
-			//error message displayed if user name or password invalid
-			Session::flash('errorMessage', 'Invalid email or password.');
-			return Redirect::action('HomeController@showLogin');
-		}
+		// elseif()
+		// {
+		// 	//error message displayed if user name or password invalid
+		// 	Session::flash('errorMessage', 'Invalid email or password.');
+		// 	return Redirect::action('HomeController@showLogin');
+		// }
 		else
-		}
+		{
 			//option to reset password
-			return Redirect::intended(action('RemindersController'))
+			return Redirect::intended(action('RemindersController'));
+		}
 
 
 	}
@@ -73,5 +51,6 @@ class HomeController extends BaseController {
 		Auth::logout();
 		return Redirect::action('PostsController@index');
 	}
+
 
 }
