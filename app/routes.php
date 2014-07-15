@@ -11,8 +11,6 @@
 |
 */
 
-Route::get('/signup', 'HomeController@showSignup');
-
 Route::get('/', function()
 {
 	return View::make('hello');
@@ -22,4 +20,9 @@ Route::get('/login', 'HomeController@showLogin');
 Route::post('/login', 'HomeController@doLogin');
 Route::get('/logout', 'HomeController@logout');
 
+
 Route::controller('password', 'RemindersController');
+
+//Route for Users table resources
+Route::resource('users', 'UsersController');
+

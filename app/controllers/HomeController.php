@@ -15,28 +15,6 @@ class HomeController extends BaseController {
 	|
 	*/
 
-	public function showSignup()
-	{
-		return View::make('pages.signup');
-	}
-
-	public function doSignup()
-	{
-		$name = Input::get('name');
-		$email = Input::get('email');
-		$password = Input::get('password');
-		$confirmPassword = Input::get('confirmPassword');
-
-		if (Auth::attempt(array('name' => $name, 'email' => $email, 'password' => $password, 'confirmPassword' => $confirmPassword )))
-		{
-    		return Redirect::intended(action('HomeController@showSignup'));
-		}
-		else
-		{
-			Session::flash('errorMessage', 'Please complete all fields.');
-    		return Redirect::action('HomeController@showSignup')->withInput();
-		}
-	}
 
 	//show the login screen
 	public function showLogin()
@@ -54,6 +32,7 @@ class HomeController extends BaseController {
 		{
 			return Redirect::intended(action('UsersController@index'));
 		}
+
 		else
 		{
 			//error message displayed if user name or password invalid
@@ -70,10 +49,12 @@ class HomeController extends BaseController {
 
 	
 
+
 	public function logout()
 	{
 		Auth::logout();
 		return Redirect::action('PostsController@index');
 	}
+
 
 }
