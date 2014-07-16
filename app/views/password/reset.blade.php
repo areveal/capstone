@@ -3,8 +3,9 @@
 <style>
 	.navbar
 	{
-  		background: #0084b4;
+  		background: #25ad9f;
 	}
+	body { padding-top: 70px; }
 </style>
 <title>Reset Password Page</title>
 @stop
@@ -12,7 +13,7 @@
 @section('content')
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
-    ...
+    Inclusion
   </div>
 </nav>
 <div class"wrapper">Enter the following information to reset your password.</div>
