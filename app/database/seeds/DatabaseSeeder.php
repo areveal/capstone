@@ -12,8 +12,8 @@ class DatabaseSeeder extends Seeder {
 		Eloquent::unguard();
 
 		$this->call('UserTableSeeder');
-		$this->call('EducationTableSeeder');
-		$this->call('ExperienceTableSeeder');
+		$this->call('SchoolsTableSeeder');
+		$this->call('JobsTableSeeder');
 	}
 
 }
@@ -31,7 +31,7 @@ class UserTableSeeder extends Seeder {
 	        $user->first_name = 'Bob';
 	        $user->last_name = 'Somebody';
 	        $user->email = "user{$i}@codeup.com";
-	        $user->password = Hash::make('letmein');
+	        $user->password = Hash::make('password');
 	        $user->save();
         	
         }
@@ -39,22 +39,22 @@ class UserTableSeeder extends Seeder {
 
 }
 
-class EducationTableSeeder extends Seeder {
+class SchoolsTableSeeder extends Seeder {
 
 	public function run() 
 	{
-		DB::table('education')->delete();
+		DB::table('schools')->delete();
 
 
 		for ($i=1; $i <=8 ; $i++) { 
-			$education = new Education();
-			$education->college = 'That University';
-			$education->year_began = '2010';
-			$education->year_completed = '2014';
-			$education->major = 'BS in Comp Science';
-			$education->GPA = '3.0';
-			$education->user_id = mt_rand(1,5);
-			$education->save();
+			$school = new School();
+			$school->college = 'That University';
+			$school->date_began = '2010-05-01';
+			$school->date_complete = '2014-05-01';
+			$school->major = 'BS in Comp Science';
+			$school->gpa = '3.0';
+			$school->user_id = mt_rand(1,5);
+			$school->save();
 
 		}
 	}
@@ -62,22 +62,22 @@ class EducationTableSeeder extends Seeder {
 }
 
 
-class ExperienceTableSeeder extends Seeder {
+class JobsTableSeeder extends Seeder {
 
 	public function run() 
 	{
-		DB::table('experience')->delete();
+		DB::table('jobs')->delete();
 
 
 		for ($i=1; $i <=15 ; $i++) { 
-			$experience = new Experience();
-			$experience->job_title = 'That Job';
-			$experience->start_date = 'May 1 2010';
-			$experience->end_date = 'May 1 2014';
-			$experience->company = 'That Business';
-			$experience->description = 'Lorem ipsum dolor sit amet, volutpat nam, egestas massa pellentesque. Arcu et, amet orci vitae. Ante in vehicula, sit vitae nisl, diam exercitationem ac. At nunc nibh. Donec augue volutpat.';
-			$experience->user_id = mt_rand(1,5);
-			$experience->save();
+			$job = new Job();
+			$job->job_title = 'That Job';
+			$job->start_date = '2010-05-01';
+			$job->end_date = '2014-05-01';
+			$job->company = 'That Business';
+			$job->description = 'Lorem ipsum dolor sit amet, volutpat nam, egestas massa pellentesque. Arcu et, amet orci vitae. Ante in vehicula, sit vitae nisl, diam exercitationem ac. At nunc nibh. Donec augue volutpat.';
+			$job->user_id = mt_rand(1,5);
+			$job->save();
 
 		}
 	}

@@ -1,9 +1,9 @@
 <?php
 
-class Education extends BaseModel {
+class School extends BaseModel {
 
 	// The db table this model refers to 
-    protected $table = 'education';
+    protected $table = 'schools';
 
     // Validation rules for our model properties
     static public $rules = [
