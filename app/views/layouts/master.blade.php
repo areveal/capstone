@@ -31,6 +31,14 @@
       <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
 
+
+ @if (Session::has('successMessage'))
+    <div class="alert alert-success">{{{ Session::get('successMessage') }}}</div>
+ @endif
+ @if (Session::has('errorMessage'))
+    <div class="alert alert-danger">{{{ Session::get('errorMessage') }}}</div>
+ @endif	
+
 	<script src="/assets/library/jquery/jquery.min.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
 
 	<script src="/assets/library/jquery/jquery-migrate.min.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
@@ -42,6 +50,7 @@
 	@yield('topscript')
 	
 </head>
+
 
 	
 

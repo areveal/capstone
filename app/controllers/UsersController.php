@@ -87,7 +87,8 @@ class UsersController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		// this is an edit page for users information
+		
+		return View::make('users.edit')->with('user', $user);
 	}
 
 
