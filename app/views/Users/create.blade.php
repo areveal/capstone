@@ -1,6 +1,7 @@
 @extends('layouts.master')
 
-@section('topscript')	
+@section('topscript')
+	<title>Sign Up</title>	
 @stop 
   
 @section('content')
@@ -378,10 +379,10 @@
 									  		</div>
 								    		<div class="form-group">
 									    		<label for="confirm_password">Confirm Password</label>
-									    		<input type="password" class="form-control" id="confirm_password" placeholder="Retype Password">
+									    		<input type="password" name="confirmPassword" class="form-control" id="exampleInputPassword2" placeholder="Retype Password">
 									  		</div>
 									  		<button type="submit" class="btn btn-primary btn-block">Create Account</button>
-										{{Form::close()}}
+										{{ Form::close() }}
 							  		</div>
 								
 								</div>
