@@ -1,6 +1,6 @@
 <?php
 
-class RemindersController extends Controller {
+class RemindersController extends BaseController {
 
 	/**
 	 * Display the password reminder view.
@@ -9,7 +9,8 @@ class RemindersController extends Controller {
 	 */
 	public function getRemind()
 	{
-		return View::make('password.remind');
+		$token = 1;
+		return View::make('password.reset')->with('token', $token);
 	}
 
 	/**
