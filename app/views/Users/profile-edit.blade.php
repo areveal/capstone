@@ -1,7 +1,6 @@
 @extends('layouts.master')
 
-@section('topscript')
-	<title>Sign Up</title>	
+@section('topscript')	
 @stop 
   
 @section('content')
@@ -362,27 +361,55 @@
 								  		{{Form::open(array('action' => 'UsersController@store', 'class' => 'form-signin', 'role' => 'form'))}}
 								  		<!--<form role="form" action="index.html?lang=en"> -->
 									  		<div class="form-group">
-									    		<label for="first_name">First Name</label>
-									    		<input name="first_name" type="text" class="form-control" id="first_name" placeholder="Your first name" value="{{Input::old('first_name')}}">
+									    		<label for="jobs">When did you start your current position?</label>
+									    		<input name="jobs" type="text" class="form-control" id="jobs" placeholder="Your first name" value="{{Input::old('first_name')}}">
 									  		</div>
+									  			<button type="submit" class="btn btn-primary btn-block">Next</button><button type="submit" class="btn btn-primary btn-block">Done</button>
+
 									  		<div class="form-group">
-									    		<label for="last_name">Last Name</label>
-									    		<input name="last_name" type="text" class="form-control" id="last_name" placeholder="Your last name" value="{{Input::old('last_name')}}">
-									  		</div>
-								  	  		<div class="form-group">
-									    		<label for="email">Email address</label>
-									    		<input name="email" type="email" class="form-control" id="email" placeholder="Enter email" value="{{Input::old('email')}}">
-									  		</div>
-									  		<div class="form-group">
-									    		<label for="password">Password</label>
-									    		<input name="password" type="password" class="form-control" id="password" placeholder="Password" >
-									  		</div>
-								    		<div class="form-group">
-									    		<label for="confirm_password">Confirm Password</label>
-									    		<input type="password" name="confirmPassword" class="form-control" id="exampleInputPassword2" placeholder="Retype Password">
+									    		<label for="jobs">Where else have you worked</label>
+									    		<input name="jobs" type="text" class="form-control" id="jobs" placeholder="Your last name" value="{{Input::old('last_name')}}">
 									  		</div>
 									  		<button type="submit" class="btn btn-primary btn-block">Create Account</button>
-										{{ Form::close() }}
+										{{Form::close()}}
+										{{Form::open(array('action' => 'UsersController@store', 'class' => 'form-signin', 'role' => 'form'))}}
+								  		<!--<form role="form" action="index.html?lang=en"> -->
+									  		<div class="form-group">
+									    		<label for="schools">Where did you attend school?</label>
+									    		<input name="schools" type="text" class="form-control" id="schools" placeholder="Your first name" value="{{Input::old('first_name')}}">
+									  		</div>
+									  			<button type="submit" class="btn btn-primary btn-block">Next</button><button type="submit" class="btn btn-primary btn-block">Done</button>
+
+									  		<div class="form-group">
+									    		<label for="schools">Where else did you attend school</label>
+									    		<input name="schools" type="text" class="form-control" id="schools" placeholder="Your last name" value="{{Input::old('last_name')}}">
+									  		</div>
+									  		<button type="submit" class="btn btn-primary btn-block">Create Account</button>
+										{{Form::close()}}
+										{{Form::open(array('action' => 'UsersController@store', 'class' => 'form-signin', 'role' => 'form'))}}
+								  		<!--<form role="form" action="index.html?lang=en"> -->
+									  		<div class="form-group">
+									    		<label for="skills">What skills do you have?</label>
+									    		<input name="skills" type="textarea" class="form-control" id="skills" placeholder="Your first name" value="{{Input::old('first_name')}}">
+									  		</div>
+									  			<button type="submit" class="btn btn-primary btn-block">Submit</button><button type="submit" class="btn btn-primary btn-block">Done</button>
+										{{Form::close()}}
+										{{Form::open(array('action' => 'UsersController@store', 'class' => 'form-signin', 'role' => 'form'))}}
+								  		<!--<form role="form" action="index.html?lang=en"> -->
+									  		<div class="form-group">
+									    		<label for="skills">What languages do you know?</label>
+									    		<input name="skills" type="textarea" class="form-control" id="skills" placeholder="Your first name" value="{{Input::old('first_name')}}">
+									  		</div>
+									  			<button type="submit" class="btn btn-primary btn-block">Submit</button><button type="submit" class="btn btn-primary btn-block">Done</button>
+										{{Form::close()}}
+										{{Form::open(array('action' => 'UsersController@store', 'class' => 'form-signin', 'role' => 'form'))}}
+									 		<div>
+									 			<label for="skills">Please upload an profile picture.</label>
+												{{ Form::label('image', 'Image') }}
+												{{ Form::file('image') }}
+											</div>
+											<input type="submit">
+										{{Form::close()}}			  	  		
 							  		</div>
 								
 								</div>
@@ -430,16 +457,16 @@
 
 		</script>
 	
-	<script src="/assets/library/bootstrap/js/bootstrap.min.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
-<script src="/assets/plugins/core_nicescroll/jquery.nicescroll.min.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
-<script src="/assets/plugins/core_breakpoints/breakpoints.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
-<script src="/assets/plugins/core_preload/pace.min.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
-<script src="/assets/components/core_preload/preload.pace.init.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
-<script src="/assets/plugins/menu_sidr/jquery.sidr.js?v=v2.0.0-rc8"></script>
-<script src="/assets/components/menus/menus.sidebar.chat.init.js?v=v2.0.0-rc8"></script>
-<script src="/assets/plugins/other_mixitup/jquery.mixitup.min.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
-<script src="/assets/plugins/other_mixitup/mixitup.init.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
-<script src="/assets/components/core/core.init.js?v=v2.0.0-rc8"></script>	
+	<script src="/library/bootstrap/js/bootstrap.min.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="/plugins/core_nicescroll/jquery.nicescroll.min.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="/plugins/core_breakpoints/breakpoints.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="/plugins/core_preload/pace.min.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="/components/core_preload/preload.pace.init.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="/plugins/menu_sidr/jquery.sidr.js?v=v2.0.0-rc8"></script>
+<script src="/components/menus/menus.sidebar.chat.init.js?v=v2.0.0-rc8"></script>
+<script src="/plugins/other_mixitup/jquery.mixitup.min.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="/plugins/other_mixitup/mixitup.init.js?v=v2.0.0-rc8&sv=v0.0.1.2"></script>
+<script src="/components/core/core.init.js?v=v2.0.0-rc8"></script>	
 @stop
 
 
