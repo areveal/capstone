@@ -43,17 +43,21 @@ class UsersController extends \BaseController {
 		}
 		else
 		{
+			$user = new User();
 
-			if(Input::get('confirmPassword') === Input::get('password'))
+
+			$user->first_name = Input::get('first_name');
+			$user->last_name = Input::get('name');		
+			$user->email = Input::get('email');
+			$user->password = Input::get('password');
+
+			$confirmPassword = Input::get('confirmPassword');
+
+			if($confirmPassword == $user->password)
 			{
-				$user = new User();
-				$user->first_name = Input::get('first_name');
-				$user->last_name = Input::get('last_name');		
-				$user->email = Input::get('email');
-				$user->password = Hash::make(Input::get('password'));
 				$user->save();
 				Session::flash('successMessage', 'You have successfully created an account.');
-	    		return Redirect::action('UsersController@show',$user->id);
+	    		return Redirect::action('HomeController@showSignup')->withInput();
 			}
 			else 
 			{
@@ -73,7 +77,7 @@ class UsersController extends \BaseController {
 	public function show($id)
 	{
 		// this is our user's home page
-		$user = User::with('jobs')->with('schools')->findOrfail($id);
+		$user = User::findOrfail($id);
 
 		return View::make('users.show')->with('user', $user);
 	}
@@ -87,7 +91,7 @@ class UsersController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		
+		$user = User::find($id);
 		return View::make('users.edit')->with('user', $user);
 	}
 
