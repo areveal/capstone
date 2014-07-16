@@ -21,8 +21,8 @@ class CreateSchoolsTable extends Migration {
 		    $table->string('major', 150);
 		    $table->string('gpa', 10);
 			$table->integer('user_id')->unsigned();
-		    $table->foreign('user_id')->references('id')->on('users');	    
-		    $table->timestamps();
+		    $table->foreign('user_id')->references('id')->on('users');
+		    $table->timestamps();	    
 		});
 	}
 

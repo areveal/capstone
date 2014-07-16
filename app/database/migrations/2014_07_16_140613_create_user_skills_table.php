@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateJobsTable extends Migration {
+class CreateUserSkillsTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,17 +12,12 @@ class CreateJobsTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('jobs', function($table)
+		Schema::create('user_skills', function($table)
 		{
-		    $table->increments('id');
-		    $table->string('job_title', 100);
-		    $table->date('start_date');
-		    $table->date('end_date');
-		    $table->string('company', 100);
-		    $table->text('description');
 		    $table->integer('user_id')->unsigned();
 		    $table->foreign('user_id')->references('id')->on('users');
-		    $table->timestamps();		    
+		    $table->integer('skill_id')->unsigned();
+		    $table->foreign('skill_id')->references('id')->on('skills');    
 		});
 	}
 
@@ -33,8 +28,7 @@ class CreateJobsTable extends Migration {
 	 */
 	public function down()
 	{
-
-		Schema::drop('jobs');
+		Schema::drop('user_skills');
 	}
 
 }
