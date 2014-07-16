@@ -26,11 +26,10 @@ class HomeController extends BaseController {
 	{
 		$email = Input::get('email');
 		$password = Input::get('password');
-		$reset = Input::get('reset_password');
 		//login successfully
 		if (Auth::attempt(array('email' => $email, 'password' => $password)))
 		{
-			return Redirect::intended(action('UsersController@index'));
+			return Redirect::action('UsersController@index');
 		}
 
 		else
