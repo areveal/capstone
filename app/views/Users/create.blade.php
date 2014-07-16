@@ -1,6 +1,7 @@
 @extends('layouts.master')
 
-@section('topscript')	
+@section('topscript')
+	<title>Sign Up</title>	
 @stop 
   
 @section('content')
