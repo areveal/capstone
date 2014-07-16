@@ -358,30 +358,59 @@
 								<div class="panel panel-default col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
 
 								  	<div class="panel-body">
-								  		{{Form::open(array('action' => 'UsersController@store', 'class' => 'form-signin', 'role' => 'form'))}}
+								  	{{Form::open(array('action' => 'UsersController@store', 'class' => 'form-signin', 'role' => 'form'))}}
 								  		<!--<form role="form" action="index.html?lang=en"> -->
 									  		<div class="form-group">
-									    		<label for="first_name">First Name</label>
-									    		<input name="first_name" type="text" class="form-control" id="first_name" placeholder="Your first name" value="{{Input::old('first_name')}}">
+									    		<label for="jobs">When did you start your current position?</label>
+									    		<input name="jobs" type="text" class="form-control" id="jobs" placeholder="Your first name" value="{{Input::old('first_name')}}">
 									  		</div>
+									  			<button type="submit" class="btn btn-primary btn-block">Next</button><button type="submit" class="btn btn-primary btn-block">Done</button>
+
 									  		<div class="form-group">
-									    		<label for="last_name">Last Name</label>
-									    		<input name="last_name" type="text" class="form-control" id="last_name" placeholder="Your last name" value="{{Input::old('last_name')}}">
-									  		</div>
-								  	  		<div class="form-group">
-									    		<label for="email">Email address</label>
-									    		<input name="email" type="email" class="form-control" id="email" placeholder="Enter email" value="{{Input::old('email')}}">
-									  		</div>
-									  		<div class="form-group">
-									    		<label for="password">Password</label>
-									    		<input name="password" type="password" class="form-control" id="password" placeholder="Password" >
-									  		</div>
-								    		<div class="form-group">
-									    		<label for="confirm_password">Confirm Password</label>
-									    		<input type="password" class="form-control" id="confirm_password" placeholder="Retype Password">
+									    		<label for="jobs">Where else have you worked</label>
+									    		<input name="jobs" type="text" class="form-control" id="jobs" placeholder="Your last name" value="{{Input::old('last_name')}}">
 									  		</div>
 									  		<button type="submit" class="btn btn-primary btn-block">Create Account</button>
 										{{Form::close()}}
+										{{Form::open(array('action' => 'UsersController@store', 'class' => 'form-signin', 'role' => 'form'))}}
+								  		<!--<form role="form" action="index.html?lang=en"> -->
+									  		<div class="form-group">
+									    		<label for="schools">Where did you attend school?</label>
+									    		<input name="schools" type="text" class="form-control" id="schools" placeholder="Your first name" value="{{Input::old('first_name')}}">
+									  		</div>
+									  			<button type="submit" class="btn btn-primary btn-block">Next</button><button type="submit" class="btn btn-primary btn-block">Done</button>
+
+									  		<div class="form-group">
+									    		<label for="schools">Where else did you attend school</label>
+									    		<input name="schools" type="text" class="form-control" id="schools" placeholder="Your last name" value="{{Input::old('last_name')}}">
+									  		</div>
+									  		<button type="submit" class="btn btn-primary btn-block">Create Account</button>
+										{{Form::close()}}
+										{{Form::open(array('action' => 'UsersController@store', 'class' => 'form-signin', 'role' => 'form'))}}
+								  		<!--<form role="form" action="index.html?lang=en"> -->
+									  		<div class="form-group">
+									    		<label for="skills">What skills do you have?</label>
+									    		<input name="skills" type="textarea" class="form-control" id="skills" placeholder="Your first name" value="{{Input::old('first_name')}}">
+									  		</div>
+									  			<button type="submit" class="btn btn-primary btn-block">Submit</button><button type="submit" class="btn btn-primary btn-block">Done</button>
+										{{Form::close()}}
+										{{Form::open(array('action' => 'UsersController@store', 'class' => 'form-signin', 'role' => 'form'))}}
+								  		<!--<form role="form" action="index.html?lang=en"> -->
+									  		<div class="form-group">
+									    		<label for="skills">What languages do you know?</label>
+									    		<input name="skills" type="textarea" class="form-control" id="skills" placeholder="Your first name" value="{{Input::old('first_name')}}">
+									  		</div>
+									  			<button type="submit" class="btn btn-primary btn-block">Submit</button><button type="submit" class="btn btn-primary btn-block">Done</button>
+										{{Form::close()}}
+										{{Form::open(array('action' => 'UsersController@store', 'class' => 'form-signin', 'role' => 'form'))}}
+									 		<div>
+									 			<label for="skills">Please upload an profile picture.</label>
+												{{ Form::label('image', 'Image') }}
+												{{ Form::file('image') }}
+											</div>
+											<input type="submit">
+										{{Form::close()}}
+
 							  		</div>
 								
 								</div>
@@ -413,10 +442,10 @@
 	<!-- Global -->
 	<script data-id="App.Config">
 	var App = {};	var basePath = '',
-		commonPath = '../assets/',
-		rootPath = '../',
+		commonPath = '/assets/',
+		rootPath = '/',
 		DEV = false,
-		componentsPath = '../assets/components/';
+		componentsPath = '/assets/components/';
 	
 	var primaryColor = '#25ad9f',
 		dangerColor = '#b55151',
