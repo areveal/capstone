@@ -20,8 +20,7 @@ Route::get('/login', 'HomeController@showLogin');
 Route::post('/login', 'HomeController@doLogin');
 Route::get('/logout', 'HomeController@logout');
 
-
-Route::controller('password', 'RemindersController');
+Route::controller('forgetpass', 'RemindersController');
 
 //Route for Users table resources
 Route::resource('users', 'UsersController');
