@@ -24,12 +24,10 @@ class HomeController extends BaseController {
 	//enter the email and password to login
 	public function doLogin()
 	{
-		$email = Input::get('email');
-		$password = Input::get('password');
-		//login successfully
-		if (Auth::attempt(array('email' => $email, 'password' => $password)))
+
+		if (Auth::attempt(array('email' => Input::get('email'), 'password' => Input::get('password'))))
 		{
-			return Redirect::action('UsersController@index');
+		    return Redirect::action('UsersController@show', Auth::user()->id);
 		}
 
 		else

@@ -14,6 +14,12 @@ class DatabaseSeeder extends Seeder {
 		$this->call('UserTableSeeder');
 		$this->call('SchoolsTableSeeder');
 		$this->call('JobsTableSeeder');
+		$this->call('SkillsTableSeeder');
+		$this->call('UserSkillsTableSeeder');
+		$this->call('AssociationsTableSeeder');
+		$this->call('UserAssociationsTableSeeder');
+		$this->call('ConnectionsTableSeeder');
+		$this->call('MessagesTableSeeder');
 	}
 
 }
@@ -63,6 +69,59 @@ class SchoolsTableSeeder extends Seeder {
 
 
 class JobsTableSeeder extends Seeder {
+
+	public function run() 
+	{
+		DB::table('jobs')->delete();
+
+
+		for ($i=1; $i <=15 ; $i++) { 
+			$job = new Job();
+			$job->job_title = 'That Job';
+			$job->start_date = '2010-05-01';
+			$job->end_date = '2014-05-01';
+			$job->company = 'That Business';
+			$job->description = 'Lorem ipsum dolor sit amet, volutpat nam, egestas massa pellentesque. Arcu et, amet orci vitae. Ante in vehicula, sit vitae nisl, diam exercitationem ac. At nunc nibh. Donec augue volutpat.';
+			$job->user_id = mt_rand(1,5);
+			$job->save();
+
+		}
+	}
+
+}
+
+class SkillsTableSeeder extends Seeder {
+
+	public function run() 
+	{
+		DB::table('skills')->delete();
+
+			$skill = new Skill();
+			$skill->skill = 'comp programming';
+			$skill->save();
+
+			$skill = new Skill();
+			$skill->skill = 'web development';
+			$skill->save();
+
+			$skill = new Skill();
+			$skill->skill = 'hard work';
+			$skill->save();
+
+			$skill = new Skill();
+			$skill->skill = 'team player';
+			$skill->save();
+
+			$skill = new Skill();
+			$skill->skill = 'eager to learn';
+			$skill->save();												
+
+		}
+	}
+
+}
+
+class UserAssociationsTableSeeder extends Seeder {
 
 	public function run() 
 	{

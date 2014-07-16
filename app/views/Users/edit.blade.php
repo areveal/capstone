@@ -2,9 +2,13 @@
 
 @section('topscript')	
 @stop 
+
+@section('bodytag')
+	<body class=" loginWrapper">
+@stop
   
 @section('content')
-<body class=" loginWrapper">
+
 	
 	<!-- Main Container Fluid -->
 	<div class="container-fluid menu-hidden ">
