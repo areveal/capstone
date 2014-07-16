@@ -43,7 +43,6 @@
 </head>
 
 	
-</head>
 
 <body>
 @yield('content')
