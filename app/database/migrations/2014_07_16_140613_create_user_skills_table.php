@@ -12,12 +12,13 @@ class CreateUserSkillsTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('user_skills', function($table)
+		Schema::create('skill_user', function($table)
 		{
+		    $table->integer('skill_id')->unsigned();
+		    $table->foreign('skill_id')->references('id')->on('skills');		    
 		    $table->integer('user_id')->unsigned();
 		    $table->foreign('user_id')->references('id')->on('users');
-		    $table->integer('skill_id')->unsigned();
-		    $table->foreign('skill_id')->references('id')->on('skills');    
+    
 		});
 	}
 
@@ -28,7 +29,7 @@ class CreateUserSkillsTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('user_skills');
+		Schema::drop('skill_user');
 	}
 
 }
