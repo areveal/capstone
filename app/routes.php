@@ -20,7 +20,7 @@ Route::get('/login', 'HomeController@showLogin');
 Route::post('/login', 'HomeController@doLogin');
 Route::get('/logout', 'HomeController@logout');
 
-//call reminder/reset pages
+
 Route::controller('forgetpass', 'RemindersController');
 
 //will import email lists
@@ -31,4 +31,6 @@ Route::post('/contact', 'HomeController@getContacts');
 
 //Route for Users table resources
 Route::resource('users', 'UsersController');
+
+Route::get('/test', 'UsersController@showTest');
 
