@@ -24,12 +24,10 @@ class HomeController extends BaseController {
 	//enter the email and password to login
 	public function doLogin()
 	{
-		$email = Input::get('email');
-		$password = Input::get('password');
-		//login successfully
-		if (Auth::attempt(array('email' => $email, 'password' => $password)))
+
+		if (Auth::attempt(array('email' => Input::get('email'), 'password' => Input::get('password'))))
 		{
-			return Redirect::action('UsersController@index');
+		    return Redirect::action('UsersController@show', Auth::user()->id);
 		}
 
 		else
@@ -46,14 +44,34 @@ class HomeController extends BaseController {
 			return Redirect::intended(action('RemindersController'));
 		}
 
-	
-
 
 	public function logout()
 	{
 		Auth::logout();
-		return Redirect::action('PostsController@index');
+		return Redirect::action('UsersController@index');
 	}
+
+	public function getContacts()
+	{
+
+		//DO uploda file first and handle then read
+
+		
+		// return View::action('HomeController@index');
+		//import email addresses 
+		$contacts = [];
+
+		$handle = fopen($this->filename, 'r');
+		while(!feof($handle)) {
+			$row = fgetcsv($handle);
+			if (is_array($row)) {
+		  		$contacts[] = $row;
+			}
+		}
+		fclose($handle);
+		// return $contacts;
+	}
+	
 
 
 }

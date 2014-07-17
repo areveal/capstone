@@ -12,11 +12,15 @@ class CreateRemindersTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('reminders', function(Blueprint $table)
+		Schema::create('reminders_reminders', function(Blueprint $table)
 		{
-			$table->string('email')->index();
-			$table->string('token')->index();
+			$table->string('email');
+			$table->string('token');
 			$table->timestamp('created_at');
+
+			$table->primary('token');
+
+			$table->foreign('email')->references('email')->on('users')->onDelete('cascade')->onUpdate('cascade');
 		});
 	}
 
@@ -27,7 +31,7 @@ class CreateRemindersTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('reminders');
+		Schema::drop('reminders_reminders');
 	}
 
 }
