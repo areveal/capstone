@@ -10,7 +10,34 @@ class UsersController extends \BaseController {
 	public function index()
 	{
 		//this will return a page to search through all users
-		return View::make('users.index');
+		if(Input::has('first_name') || Input::has('last_name'))
+		{
+			$first = Input::get('first_name');
+			$last = Input::get('last_name');
+			$users = User::orderBy('last_name','asc')->where('first_name','LIKE', "%{$first}%")->orWhere('last_name','LIKE', "%{$last}%")->paginate(20);
+		}
+		elseif(Input::has('skills'))
+		{
+			$skills = Input::get('skills');
+			$users = User::orderBy('last_name','asc')->where('first_name','LIKE', "%{$first}%")->paginate(20);
+		}
+		elseif(Input::has('associations'))
+		{
+			$associations = Input::get('associations');
+			$users = User::orderBy('last_name','asc')->where('first_name','LIKE', "%{$first}%")->paginate(20);
+		}
+		elseif(Input::has('city') && Input::has('state'))
+		{
+			$city = Input::get('city');
+			$state = Input::get('state');
+			$users = User::orderBy('last_name','asc')->where('first_name','LIKE', "%{$first}%")->paginate(20);
+		}		
+		else 
+		{
+			$users = User::orderBy('last_name','asc')->paginate(20);
+		}
+		
+		return View::make('users.index')->with('users',$users);
 	}
 
 
@@ -43,17 +70,21 @@ class UsersController extends \BaseController {
 		}
 		else
 		{
+			$user = new User();
 
-			if(Input::get('confirmPassword') === Input::get('password'))
+
+			$user->first_name = Input::get('first_name');
+			$user->last_name = Input::get('name');		
+			$user->email = Input::get('email');
+			$user->password = Input::get('password');
+
+			$confirmPassword = Input::get('confirmPassword');
+
+			if($confirmPassword == $user->password)
 			{
-				$user = new User();
-				$user->first_name = Input::get('first_name');
-				$user->last_name = Input::get('last_name');		
-				$user->email = Input::get('email');
-				$user->password = Hash::make(Input::get('password'));
 				$user->save();
 				Session::flash('successMessage', 'You have successfully created an account.');
-	    		return Redirect::action('UsersController@show',$user->id);
+	    		return Redirect::action('HomeController@showSignup')->withInput();
 			}
 			else 
 			{
@@ -73,7 +104,7 @@ class UsersController extends \BaseController {
 	public function show($id)
 	{
 		// this is our user's home page
-		$user = User::with('jobs')->with('schools')->findOrfail($id);
+		$user = User::findOrfail($id);
 
 		return View::make('users.show')->with('user', $user);
 	}
@@ -87,7 +118,7 @@ class UsersController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		
+		$user = User::find($id);
 		return View::make('users.edit')->with('user', $user);
 	}
 

@@ -12,12 +12,12 @@ class CreateUserAssociationsTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('user_associations', function($table)
+		Schema::create('association_user', function($table)
 		{
-		    $table->integer('user_id')->unsigned();
-		    $table->foreign('user_id')->references('id')->on('users');
 		    $table->integer('association_id')->unsigned();
 		    $table->foreign('association_id')->references('id')->on('associations');    
+		    $table->integer('user_id')->unsigned();
+		    $table->foreign('user_id')->references('id')->on('users');
 		});
 	}
 
@@ -28,7 +28,7 @@ class CreateUserAssociationsTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('user_associations');
+		Schema::drop('association_user');
 	}
 
 }

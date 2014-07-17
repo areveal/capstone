@@ -11,7 +11,7 @@ class Skill extends BaseModel {
 
     public function users() 
     {
-    	return $this->hasMany('User');
+    	return $this->belongsToMany('User');
     }
 
     
