@@ -119,5 +119,11 @@ class UsersController extends \BaseController {
 		// this deletes the user
 	}
 
+	public function showTest()
+	{
+		
+		return View::make('users.profiler');
+	}
+
 
 }
