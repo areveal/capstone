@@ -25,13 +25,16 @@ class UserTableSeeder extends Seeder {
         DB::table('users')->delete();
 
 
-        for ($i=1; $i <= 5 ; $i++) { 
+        for ($i=1; $i <= 50 ; $i++) { 
 	        
 	        $user = new User();
 	        $user->first_name = 'Bob';
 	        $user->last_name = 'Somebody';
+	        $user->city = 'San Antonio';
+	        $user->state = 'TX';
 	        $user->email = "user{$i}@codeup.com";
 	        $user->password = Hash::make('password');
+	        $user->img_path = '/img-upload/user.jpg';
 	        $user->save();
         	
         }
