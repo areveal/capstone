@@ -9,8 +9,7 @@ class RemindersController extends BaseController {
 	 */
 	public function getRemind()
 	{
-		$token = 1;
-		return View::make('password.reset')->with('token', $token);
+		return View::make('password.remind');
 	}
 
 	/**
@@ -28,7 +27,7 @@ class RemindersController extends BaseController {
 			case Password::REMINDER_SENT:
 			Password::remind(Input::only('email'), function($message)
 			{
-   				$message->subject('Password Reminder');
+   				$message->subject('Reminder');
 				return Redirect::back()->with('status', Lang::get($response));
 			});
 		}
