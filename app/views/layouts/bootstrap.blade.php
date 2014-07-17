@@ -15,6 +15,6 @@
 
 <body>
 @yield('content')
+@yield('bottomscript')
 </body>
 </html>
-@yield('bottomscript')
