@@ -22,7 +22,7 @@
 								<h3 class="text-white innerB text-center">Account Access</h3>
 								<div class="lock-container">
 									<div class="innerAll text-center">
-										<img src="../assets//images/people/100/22.jpg" class="img-circle"/>
+										<img src="/img-upload/user.jpg" class="img-circle"/>
 										{{ Form::open(['action' => 'HomeController@doLogin', 'class' => 'form-signin']) }}	
 											<div class="innerLR">
 												<input class="form-control text-center bg-gray" type="text" placeholder="Username" name="email">
