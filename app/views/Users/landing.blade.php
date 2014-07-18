@@ -19,19 +19,22 @@
     </head>
 
     <body>
-
+                    
     <div class="main">
-
+        
       <section class="home">
         <div class="container">
-
+        
+        <div style="float: right">   
+            {{link_to_action('HomeController@showLogin', 'Login', null, array('class' => 'btn btn-default btn-sm'))}}
+        </div>
             <div class="home-phone hide hidden-xs col-xs-12 col-sm-5">
                 <img src="img/iphone-3.png" class="iphone-3 " alt="">
             </div>
             <div class="row">
 
                 <div class="home-copy  col-xs-18 col-sm-8 col-sm-offset-2 animated fadeInDown delay-2 ">
-                    <h1 class="demo1">MPM<br><!-- <button type="submit" class="btn btn-signup"><i >IN</strong></i> --></button> 
+                    <br><h1 class="demo1">MPM<br><!-- <button type="submit" class="btn btn-signup"><i >IN</strong></i> --></button> 
                     	<!-- <span class="rotate">Meet, Connect, Share, Jobs,</span> -->
                     </h1>
                     <p>The women and minorities professional network.</p>
