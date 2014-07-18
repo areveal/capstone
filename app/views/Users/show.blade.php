@@ -141,6 +141,78 @@ height: 40px;
                 </div>
                 <!-- //end Widget -->
             </div>
+            <div class="col-md-3 "> 
+        <div class="widget">
+            <div class="widget-body text-center">
+<!--                     <a href=""><img src="../assets/images/people/250/22.jpg" width="120" alt="" class="img-circle"></a>
+-->                    <h2 class="strong margin-none">Connections</h2>
+                <div class="innerB"></div>
+<!--                     <a href="" class="btn btn-primary text-center btn-block">PRO Account</a>
+-->                    <div class="btn-group-vertical btn-block">
+                            <a href="" class="btn btn-primary btn-xs pull-right">Edit</a>
+<!--                         <a href="" class="btn btn-default"><i class="fa fa-cog pull-right"></i>Edit Account</a>
+--><!--                         <a href="" class="btn btn-default"><i class="fa fa-cog pull-right"></i>Logout</a>
+-->                    </div>
+            </div>
+        </div><!-- /.widget -->
+
+        <div class="widget">
+                <h5 class="innerAll margin-none border-bottom bg-gray">Your Network</h5>
+                <div class="widget-body padding-none">
+                    <div class="media border-bottom innerAll margin-none">
+                        <img src="../assets/images/people/35/22.jpg" class="pull-left media-object"/>
+                        <div class="media-body">
+                            <a href="" class="pull-right text-muted innerT half">
+                                <i class="fa fa-comments"></i> 4
+                            </a>
+                            <h5 class="margin-none"><a href="" class="text-inverse">Social Admin Released</a></h5>
+                            <small>on February 2nd, 2014 </small> 
+                        </div>
+                    </div>
+                </div><!-- /.media -->
+                <div class="media border-bottom innerAll margin-none">
+                    <img src="../assets/images/people/35/22.jpg" class="pull-left media-object"/>
+                    <div class="media-body">
+                        <a href="" class="pull-right text-muted innerT half">
+                            <i class="fa fa-comments"></i> 4
+                        </a>
+                        <h5 class="margin-none"><a href="" class="text-inverse">Timeline Cover Page</a></h5>
+                        <small>on February 2nd, 2014 </small> 
+                    </div>
+                </div><!-- /.media -->
+                <div class="media border-bottom innerAll margin-none">
+                    <img src="../assets/images/people/35/22.jpg" class="pull-left media-object"/>
+                    <div class="media-body">
+                        <a href="" class="pull-right text-muted innerT half">
+                            <i class="fa fa-comments"></i> 4
+                        </a>
+                        <h5 class="margin-none"><a href="" class="text-inverse">1000+ Sales</a></h5>
+                        <small>on February 2nd, 2014 </small> 
+                    </div>
+                </div><!-- .media -->
+                <div class="media border-bottom innerAll margin-none">
+                    <img src="../assets/images/people/35/22.jpg" class="pull-left media-object"/>
+                    <div class="media-body">
+                        <a href="" class="pull-right text-muted innerT half">
+                            <i class="fa fa-comments"></i> 4
+                        </a>
+                        <h5 class="margin-none"><a href="" class="text-inverse">On-Page Optimization</a></h5>
+                        <small>on February 2nd, 2014 </small> 
+                    </div>
+                </div><!-- /.media -->
+                <div class="media border-bottom innerAll margin-none">
+                    <img src="../assets/images/people/35/22.jpg" class="pull-left media-object"/>
+                    <div class="media-body">
+                        <a href="" class="pull-right text-muted innerT half">
+                            <i class="fa fa-comments"></i> 4
+                        </a>
+                        <h5 class="margin-none"><a href="" class="text-inverse">14th Admin Template</a></h5>
+                        <small>on February 2nd, 2014 </small> 
+                    </div>
+                </div><!-- /.media -->
+           
+        </div>
+    </div>
         </div>
         <!-- //End Col -->
         <div class="col-md-9">
@@ -168,84 +240,16 @@ height: 40px;
                     <li>
                         {{{ $school->major }}}
                     </li>
+                    <a href="" class="btn btn-primary btn-xs pull-left">Edit</a>
                 @endforeach
                 @endif
-                    <a href="" class="btn btn-primary btn-xs pull-left">Edit</a>
                 </ul>
             </div>
             <!-- //end Widget -->
-        </div>
-        <!-- //End Col -->
-    <div class="col-md-3 "> 
-        <div class="widget">
-                <div class="widget-body text-center">
-<!--                     <a href=""><img src="../assets/images/people/250/22.jpg" width="120" alt="" class="img-circle"></a>
- -->                    <h2 class="strong margin-none">Connections</h2>
-                    <div class="innerB"></div>
-<!--                     <a href="" class="btn btn-primary text-center btn-block">PRO Account</a>
- -->                    <div class="btn-group-vertical btn-block">
-                    <a href="" class="btn btn-primary btn-xs pull-right">Edit</a>
-<!--                         <a href="" class="btn btn-default"><i class="fa fa-cog pull-right"></i>Edit Account</a>
- --><!--                         <a href="" class="btn btn-default"><i class="fa fa-cog pull-right"></i>Logout</a>
- -->                    </div>
-                </div>
-            </div>
+        </div><!-- /.col-md-9 -->
 
-            <div class="widget">
-    <h5 class="innerAll margin-none border-bottom bg-gray">Your Network</h5>
-    <div class="widget-body padding-none">
-                <div class="media border-bottom innerAll margin-none">
-            <img src="../assets/images/people/35/22.jpg" class="pull-left media-object"/>
-            <div class="media-body">
-                <a href="" class="pull-right text-muted innerT half">
-                    <i class="fa fa-comments"></i> 4
-                </a>
-                <h5 class="margin-none"><a href="" class="text-inverse">Social Admin Released</a></h5>
-                <small>on February 2nd, 2014 </small> 
-            </div>
-        </div>
-                <div class="media border-bottom innerAll margin-none">
-            <img src="../assets/images/people/35/22.jpg" class="pull-left media-object"/>
-            <div class="media-body">
-                <a href="" class="pull-right text-muted innerT half">
-                    <i class="fa fa-comments"></i> 4
-                </a>
-                <h5 class="margin-none"><a href="" class="text-inverse">Timeline Cover Page</a></h5>
-                <small>on February 2nd, 2014 </small> 
-            </div>
-        </div>
-                <div class="media border-bottom innerAll margin-none">
-            <img src="../assets/images/people/35/22.jpg" class="pull-left media-object"/>
-            <div class="media-body">
-                <a href="" class="pull-right text-muted innerT half">
-                    <i class="fa fa-comments"></i> 4
-                </a>
-                <h5 class="margin-none"><a href="" class="text-inverse">1000+ Sales</a></h5>
-                <small>on February 2nd, 2014 </small> 
-            </div>
-        </div>
-                <div class="media border-bottom innerAll margin-none">
-            <img src="../assets/images/people/35/22.jpg" class="pull-left media-object"/>
-            <div class="media-body">
-                <a href="" class="pull-right text-muted innerT half">
-                    <i class="fa fa-comments"></i> 4
-                </a>
-                <h5 class="margin-none"><a href="" class="text-inverse">On-Page Optimization</a></h5>
-                <small>on February 2nd, 2014 </small> 
-            </div>
-        </div>
-                <div class="media border-bottom innerAll margin-none">
-            <img src="../assets/images/people/35/22.jpg" class="pull-left media-object"/>
-            <div class="media-body">
-                <a href="" class="pull-right text-muted innerT half">
-                    <i class="fa fa-comments"></i> 4
-                </a>
-                <h5 class="margin-none"><a href="" class="text-inverse">14th Admin Template</a></h5>
-                <small>on February 2nd, 2014 </small> 
-            </div>
-        </div>
-            </div>
-</div>
+        <!-- //End Col -->
+    
     </div>  
 <!-- End Row -->
 </div>
