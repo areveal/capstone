@@ -104,7 +104,7 @@ height: 40px;
                                 @foreach($user->skills as $skill)
                                 <ul class="innerAll">
                                     <li>
-                                        {{{ $skill->technologyUsed }}}
+                                        {{{ $skill->skill }}}
                                     </li>
                                 </ul>
                                 @endforeach
@@ -123,10 +123,10 @@ height: 40px;
                         @foreach($user->jobs as $job)
                             <ul class="fa-ul">  
                                 <li> 
-                                    {{{ $job->title }}} {{{ $job->beginDate . ' ' . $job->endDate }}} 
+                                    {{{ $job->job_title }}} {{{ $job->start_date . ' ' . $job->end_date }}} 
                                 </li>
                                 <li> 
-                                    {{{ $job->companyName }}} 
+                                    {{{ $job->company }}} 
                                 </li>
                                 <li> 
                                     <p>
