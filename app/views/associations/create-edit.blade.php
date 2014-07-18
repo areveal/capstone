@@ -363,7 +363,7 @@
 								<div class="panel panel-default col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
 
 								  	<div class="panel-body">
-								  		{{Form::open(array('action' => 'UsersController@store', 'class' => 'form-signin', 'role' => 'form'))}}
+								  		{{Form::open(array('action' => 'AssociationsController@store', 'class' => 'form-signin', 'role' => 'form'))}}
 								  		<!--<form role="form" action="index.html?lang=en"> -->
 								  		
 									  		<div class="form-group">
@@ -373,25 +373,25 @@
 												    <div class="input-group">
 												      <p>
 												      <span class="">
-												        <input type="checkbox">
+												        <input name="association_id" id="association_id" input type="checkbox">
 												      </span>
 												      Women</p><br>
 												      <p>
 												      	<span class="">
-												        <input type="checkbox">
+												        <input name="association_id" id="association_id" input type="checkbox">
 												      </span>
 												      African American</p><br>
 												      <p>
 												      	<span class="">
-												        <input type="checkbox">
+												        <input name="association_id" id="association_id" input type="checkbox">
 												      </span>
 												      Latino American</p><br>
 												      <p><span class="">
-												        <input type="checkbox">
+												        <input name="association_id" id="association_id" input type="checkbox">
 												      </span>
 												      Veteran</p><br>
 												      <p><span class="">
-												        <input type="checkbox">
+												        <input name="association_id" id="association_id" input type="checkbox">
 												      </span>
 												      Disabled</p><br>
 												    </div><!-- /input-group -->
