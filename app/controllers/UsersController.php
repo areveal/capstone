@@ -57,7 +57,7 @@ class UsersController extends \BaseController {
 	public function create()
 	{
 		//this is our signup page
-		return View::make('users.create');
+		return View::make('users.create-edit');
 	}
 
 
@@ -83,7 +83,10 @@ class UsersController extends \BaseController {
 
 			$user->first_name = Input::get('first_name');
 			$user->last_name = Input::get('last_name');		
-			$user->email = Input::get('email');
+			$user->email = Input::get('email');	
+			$user->country = Input::get('country');
+			$user->zip = Input::get('zip');
+			$user->status = Input::get('status');
 			$password = Input::get('password');
 			$confirmPassword = Input::get('confirmPassword');
 
@@ -91,25 +94,21 @@ class UsersController extends \BaseController {
 			{
 				$user->password = Hash::make(Input::get('password'));
 				$user->save();
-				Session::flash('successMessage', 'You have successfully created an account.');
-	    		return Redirect::action('UsersController@show', $user->id);
-			}
-			
-			$user->country = Input::get('country');
-			$user->zip = Input::get('zip');
-			$user->status = Input::get('status');
-
-
-			if (Input::hasFile('image') && Input::file('image')->isValid())
-			{
-			    $user->addUploadedImage(Input::file('image'));
-			    $user->save();
 			}
 			else 
 			{
 				Session::flash('errorMessage', 'Your password and your confirmation password did not match.');
 	    		return Redirect::back()->withInput();
 			}
+			
+			if (Input::hasFile('image') && Input::file('image')->isValid())
+			{
+			    $user->addUploadedImage(Input::file('image'));
+			    $user->save();
+			}
+			
+			Session::flash('successMessage', 'You have successfully created an account. Please login below.');
+    		return Redirect::action('HomeController@showLogin');
 		}
 	}
 

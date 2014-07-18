@@ -35,6 +35,7 @@
 
                 <div class="home-copy  col-xs-12 col-sm-8 col-sm-offset-2 animated fadeInDown delay-2 ">
                     <br><h1 class="demo1">MPM<br><!-- <button type="submit" class="btn btn-signup"><i >IN</strong></i> --></button> 
+
                     	 <!-- <span class="rotate"> Meet, Connect, Share, Jobs,</span> </h1> -->
                     <p>Minority Professionals Meet</p>
                     <p><strong>Sign up. Its free.</strong> <br><br>
