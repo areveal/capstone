@@ -31,9 +31,9 @@
             <div class="row">
 
                 <div class="home-copy  col-xs-12 col-sm-8 col-sm-offset-2 animated fadeInDown delay-2 ">
-                    <h1 class="demo1">Minority Professionals Meet<!-- <button type="submit" class="btn btn-signup"><i >IN</strong></i> --></button> 
+                    <h2 class="demo1">Minority Professionals Meet<!-- <button type="submit" class="btn btn-signup"><i >IN</strong></i> --></button> 
                     	<span class="rotate">    </span>
-                    </h1>
+                    </h2>
                     <p>The first diversity professional network.</p>
                     <p><strong>Sign up. Its free.</strong> 
                    	<span class="take-a-look animated fadeInDown delay-8"><i class="entypo-down-open"></i>Join</span>
