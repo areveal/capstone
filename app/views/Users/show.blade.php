@@ -70,6 +70,9 @@
 			width:40px;
 			height: 40px;
 		}
+		.search {
+			margin-top: 10px;
+		}
 	</style>
 @stop
 
@@ -130,10 +133,15 @@
 		    </ul>
 		</div>
 	</div>
-	<div class="input-group hidden-xs pull-left">
-	  	<span class="input-group-addon"><i class="icon-search"></i></span>
-	  	<input type="text" class="form-control" placeholder="Search Inclusion Users"/>
-	</div>
+	{{ Form::open(['action' => ['UsersController@index'],'method' => 'GET']) }}			
+		<div class="input-group hidden-xs pull-left">
+		  	<input type="text" name="first_name" class="form-control " placeholder="First Name">
+		</div>
+		<div class="input-group hidden-xs pull-left">
+		  	<input type="text" name="last_name" class="form-control " placeholder="Last Name" required>
+		</div>
+		<button class="btn btn-default search" type="submit"><i class="fa fa-search"></i></button>
+	{{ Form::close() }}
 </div>
 	
 

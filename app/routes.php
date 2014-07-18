@@ -13,7 +13,19 @@
 
 Route::get('/', function()
 {
-	return View::make('hello');
+	//return View::make('hello');
+
+	$user = Auth::user();
+
+	// // add a friend
+	// $user->skills()->attach(6);
+
+	// // remove a friend
+	// $user->skills()->detach(6);
+
+	return $user->skills;
+
+
 });
 
 Route::get('/login', 'HomeController@showLogin');
@@ -30,7 +42,10 @@ Route::post('/contact', 'HomeController@getContacts');
 
 
 //Route for Users table resources
-Route::resource('users', 'UsersController');
+Route::resource('/users', 'UsersController');
+
+//Route for Skills table resources
+Route::resource('/skills', 'SkillsController');
 
 Route::get('/test', 'UsersController@showTest');
 

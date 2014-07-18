@@ -1,7 +1,14 @@
 @extends('layouts.master')
 
 @section('topscript')
-	<title>Sign Up</title>	
+	<title>Edit Skills</title>	
+
+	<style>
+		.deleteSkill {
+			margin-left: 20px;
+			margin-bottom: 10px;
+		}
+	</style>
 @stop 
   
 @section('content')
@@ -23,7 +30,7 @@
 			<!-- col-table -->
 			<div class="col-table">
 				
-				<h4 class="innerAll margin-none border-bottom text-center bg-primary"><i class="fa fa-pencil"></i> Create a new Account</h4>
+				<h4 class="innerAll margin-none border-bottom text-center bg-primary"><i class="fa fa-pencil"></i> Add Your Skills</h4>
 
 				<!-- col-table-row -->
 				<div class="col-table-row">
@@ -38,33 +45,55 @@
 								
 								<div class="placeholder text-center"><i class="fa fa-pencil"></i></div>
 								
+								
 								<div class="panel panel-default col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
 
 								  	<div class="panel-body">
-								  		{{Form::open(array('action' => 'UsersController@store', 'class' => 'form-signin', 'role' => 'form'))}}
+								  		{{ Form::model($skills, array('action' => array('SkillsController@update', Auth::user()->id), 'method' => 'PUT')) }}
+									  		<div class="form-group">
+									    		<label for="existing_skills">Choose From Existing Skills</label>
+									    		<select name="existing_skills" class="form-control" id="existing_skills">
+									    			@foreach($skills as $skill)
+									    				<option value="{{{ $skill->id }}}">{{{ $skill->skill }}}</option>
+									    			@endforeach
+									    		</select>
+									  		</div>
+									  		<button type="submit" class="btn btn-primary btn-block">Add Skill</button>
+										{{ Form::close() }}
+
+										{{ Form::model($skills, array('action' => array('SkillsController@update', Auth::user()->id), 'method' => 'PUT')) }}
 								  		<!--<form role="form" action="index.html?lang=en"> -->
 									  		<div class="form-group">
-									    		<label for="first_name">First Name</label>
-									    		<input name="first_name" type="text" class="form-control" id="first_name" placeholder="Your first name" value="{{Input::old('first_name')}}">
+									    		<label for="new_skills">Add New</label>
+									    		<input name="new_skills" type="text" class="form-control" id="new_skills" placeholder="New Skill Here" value="{{Input::old('first_name')}}">
 									  		</div>
-									  		<div class="form-group">
-									    		<label for="last_name">Last Name</label>
-									    		<input name="last_name" type="text" class="form-control" id="last_name" placeholder="Your last name" value="{{Input::old('last_name')}}">
-									  		</div>
-								  	  		<div class="form-group">
-									    		<label for="email">Email address</label>
-									    		<input name="email" type="email" class="form-control" id="email" placeholder="Enter email" value="{{Input::old('email')}}">
-									  		</div>
-									  		<div class="form-group">
-									    		<label for="password">Password</label>
-									    		<input name="password" type="password" class="form-control" id="password" placeholder="Password" >
-									  		</div>
-								    		<div class="form-group">
-									    		<label for="confirm_password">Confirm Password</label>
-									    		<input type="password" name="confirmPassword" class="form-control" id="exampleInputPassword2" placeholder="Retype Password">
-									  		</div>
-									  		<button type="submit" class="btn btn-primary btn-block">Create Account</button>
+									  		<button type="submit" class="btn btn-primary btn-block">Add Skill</button>
 										{{ Form::close() }}
+							  		</div>
+								
+								</div>
+
+
+								<div class="panel panel-default col-md-4 col-md-offset-0 col-sm-6 col-sm-offset-3">
+
+								  	<div class="panel-body">
+								  		<!--<form role="form" action="index.html?lang=en"> -->
+									  		<div class="form-group">
+									    		<center><h4>Your Skills</h4></center>
+									    		<ul class="list-unstyled">
+									    			@foreach($skills_owned as $skill_owned)
+									    				<center>
+									    					<li>
+									    						{{ Form::model($skills, array('action' => array('SkillsController@destroy', $skill_owned->id), 'method' => 'DELETE')) }}
+									    							{{{ $skill_owned->skill }}}
+
+									    							<button type="submit" class="btn btn-danger">Remove</button>
+									    						{{ Form::close() }}
+									    					</li>
+									    				</center>
+									    			@endforeach
+									    		</ul>
+									  		</div>
 							  		</div>
 								
 								</div>

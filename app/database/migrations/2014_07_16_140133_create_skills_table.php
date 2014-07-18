@@ -15,7 +15,7 @@ class CreateSkillsTable extends Migration {
 		Schema::create('skills', function($table)
 		{
 		    $table->increments('id');
-		    $table->string('skill', 50);
+		    $table->string('skill', 50)->unique();
 		    $table->timestamps();	    
 		});
 	}
