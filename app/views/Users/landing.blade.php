@@ -32,7 +32,7 @@
 
                 <div class="home-copy  col-xs-18 col-sm-8 col-sm-offset-2 animated fadeInDown delay-2 ">
                     <h1 class="demo1">MPM<br><!-- <button type="submit" class="btn btn-signup"><i >IN</strong></i> --></button> 
-                    	<span class="rotate">  Meet, Share, Jobs,</span>
+                    	<!-- <span class="rotate">Meet, Connect, Share, Jobs,</span> -->
                     </h1>
                     <p>The women and minorities professional network.</p>
                     <p><strong>Sign up. Its free.</strong> 
