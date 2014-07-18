@@ -79,3 +79,5 @@
 	<script src="/assets/components/core/core.init.js?v=v2.0.0-rc8"></script>	
 
 	@stop
+
+	
