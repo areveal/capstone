@@ -1,6 +1,6 @@
 <?php
 
-class JobsController extends \BaseController {
+class AssociationsController extends \BaseController {
 
 	/**
 	 * Display a listing of the resource.
@@ -9,7 +9,7 @@ class JobsController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
+		return View::make('associations.create-edit');
 	}
 
 
@@ -20,7 +20,7 @@ class JobsController extends \BaseController {
 	 */
 	public function create()
 	{
-		return View::make('jobs.create-edit');
+		//
 	}
 
 
@@ -31,26 +31,23 @@ class JobsController extends \BaseController {
 	 */
 	public function store()
 	{
-		$validator = Validator::make(Input::all(), Job::$rules);
+		$validator = Validator::make(Input::all(), Association::$rules);
 
 		if($validator->fails())
 		{
-			Session::flash('errorMessage','We could not create a new job. Please see errors below.');
+			Session::flash('errorMessage','We could not add your associations. Please see errors below.');
 			return Redirect::back()->withInput()->withErrors($validator);
 		}
 		else
 		{
-			$job = new job();
+			$association = new association();
 
-			$job->user_id = 1;
-			$job->job_title = Input::get('job_title');
-			$job->start_date = Input::get('start_date');		
-			$job->end_date = Input::get('end_date');
-			$job->company = Input::get('company');
-			$job->description = Input::get('description');
-			$job->save();
+			$association->id = "";
+			$association->association = Input::get('association');
+			
+			$association->save();
 		}
-			return View::make('jobs.create-edit');
+			return View::make('associations.create-edit');
 	}
 
 

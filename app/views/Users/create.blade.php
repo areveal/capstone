@@ -41,6 +41,7 @@
 								<div class="panel panel-default col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
 
 								  	<div class="panel-body">
+								  		
 								  		{{Form::open(array('action' => 'UsersController@store', 'class' => 'form-signin', 'role' => 'form','files' => true))}}
 								  		<!--<form role="form" action="index.html?lang=en"> -->
 									  		<div class="form-group">
