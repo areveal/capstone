@@ -57,6 +57,8 @@ Route::resource('schools', 'SchoolsController');
 
 Route::resource('connections', 'ConnectionsController');
 
+Route::resource('associations', 'AssociationsController');
+
 
 
 
