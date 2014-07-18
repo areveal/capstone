@@ -63,7 +63,7 @@ height: 40px;
                 </span>
                 <ul class="dropdown-menu">
                     <li><a href="">Messages</a></li>
-                    <li><a href="{{ action('UsersController@edit')}} ">Edit Profile</a></li>
+                    <li><a href="{{ action('UsersController@edit', Auth::user()->id) }} ">Edit Profile</a></li>
                     <li><a href="{{ action('HomeController@logout') }}">Logout</a></li>
                 </ul>
             </div>
