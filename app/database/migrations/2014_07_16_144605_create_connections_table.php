@@ -14,10 +14,10 @@ class CreateConnectionsTable extends Migration {
 	{
 		Schema::create('connections', function($table)
 		{
-		    $table->integer('user_one')->unsigned();
-		    $table->foreign('user_one')->references('id')->on('users');
-		    $table->integer('user_two')->unsigned();
-		    $table->foreign('user_two')->references('id')->on('users');    
+		    $table->integer('user_id')->unsigned();
+		    $table->foreign('user_id')->references('id')->on('users');
+		    $table->integer('connection_id')->unsigned();
+		    $table->foreign('connection_id')->references('id')->on('users');    
 		});
 	}
 

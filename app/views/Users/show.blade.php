@@ -2,7 +2,6 @@
 
 @section('topscript')
 <title>User Profile</title>
-
 <style>
 .img-circle {
 width:40px;
@@ -13,6 +12,7 @@ height: 40px;
       background: #25ad9f;
   }
 </style>
+
 @stop
 
 @section('bodytag')
@@ -174,7 +174,6 @@ height: 40px;
     </div>   
 <!-- End Row -->
 </div>
-
 
 </div>
 <!-- // Content END -->
