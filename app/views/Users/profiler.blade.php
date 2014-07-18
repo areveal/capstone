@@ -1897,6 +1897,10 @@ $script.ready(['core', 'plugins_dependency', 'plugins'], function(){
 				<!-- Step 5 -->
 				<div class="tab-pane" id="tab5">
 					<h4>Upload and image of yourself</h4>
+					<div>
+					{{ Form::label('image', 'Image') }}
+					{{ Form::file('image') }}
+					</div><br>
 					<button type="submit" class="btn btn-default">Upload</button>
 					<button type="submit" class="btn btn-default">Skip</button>
 					
@@ -1905,17 +1909,12 @@ $script.ready(['core', 'plugins_dependency', 'plugins'], function(){
 				
 				<!-- Step 6 -->
 				<div class="tab-pane" id="tab6">
-					<h4>Sixth tab</h4>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ultrices libero vel massa egestas facilisis. Mauris convallis augue nec dolor dignissim vestibulum. Praesent imperdiet elit posuere arcu posuere consectetur. Morbi dignissim eleifend nibh, eget tincidunt nibh dignissim hendrerit. Cras iaculis congue lorem, eget gravida augue vehicula sed. Nam lorem sem, consectetur ac tempus quis, consectetur ut lectus. In bibendum luctus pharetra. Morbi lacinia sem sem. Phasellus quis tellus magna.</p>
+					<h4>Your profile looks great!</h4>
+					<button type="submit" class="btn btn-default">Done</button>
+					
 				</div>
 				<!-- // Step 6 END -->
-				
-				<!-- Step 7 -->
-				<div class="tab-pane" id="tab7">
-					<h4>Seventh tab</h4>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ultrices libero vel massa egestas facilisis. Mauris convallis augue nec dolor dignissim vestibulum. Praesent imperdiet elit posuere arcu posuere consectetur. Morbi dignissim eleifend nibh, eget tincidunt nibh dignissim hendrerit. Cras iaculis congue lorem, eget gravida augue vehicula sed. Nam lorem sem, consectetur ac tempus quis, consectetur ut lectus. In bibendum luctus pharetra. Morbi lacinia sem sem. Phasellus quis tellus magna.</p>
-				</div>
-				<!-- // Step 7 END -->
+
 				
 			</div>
 			
