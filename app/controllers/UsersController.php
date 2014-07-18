@@ -82,11 +82,18 @@ class UsersController extends \BaseController {
 
 
 			$user->first_name = Input::get('first_name');
-			$user->last_name = Input::get('name');		
+			$user->last_name = Input::get('last_name');		
 			$user->email = Input::get('email');
 			$user->password = Input::get('password');
-
 			$confirmPassword = Input::get('confirmPassword');
+			$user->country = Input::get('country');
+			$user->zip = Input::get('zip');
+
+			if (Input::hasFile('image') && Input::file('image')->isValid())
+			{
+			    $post->addUploadedImage(Input::file('image'));
+			    $post->save();
+			}
 
 			if($confirmPassword == $user->password)
 			{
@@ -160,5 +167,10 @@ class UsersController extends \BaseController {
 		return View::make('users.profiler');
 	}
 
+	public function showLanding()
+	{
+		
+		return View::make('users.landing');
+	}
 
 }
