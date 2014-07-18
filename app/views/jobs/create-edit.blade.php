@@ -364,36 +364,36 @@
 
 								  	<div class="panel-body">
 								  		
-								  		{{Form::open(array('action' => 'UsersController@store', 'class' => 'form-signin', 'role' => 'form'))}}
+								  		{{Form::open(array('action' => 'JobsController@store', 'class' => 'form-signin', 'role' => 'form'))}}
 								  		<!--<form role="form" action="index.html?lang=en"> -->
 									  		<div class="form-group">
 									  		<p>Welcome Justin</p>
-									    		<label for="jobs">What is your current position?</label>
+									    		<label for="job_title">What is your current position?</label>
 									    		<!-- below is for when a user has had more than one job
 									    		<label for="jobs">Where else have you worked?</label> -->
-									    		<input name="jobs" type="text" class="form-control" id="jobs" placeholder="Your job title" value="{{Input::old('last_name')}}">
+									    		<input name="job_title" type="text" class="form-control" id="job_title" placeholder="Your job title" value="">
 									  		</div>
 									  		<div class="form-group">
 									    		<label for="company">Company</label>
-									    		<input name="company" type="text" class="form-control" id="company" placeholder="Company name" value="{{Input::old('last_name')}}">
+									    		<input name="company" type="text" class="form-control" id="company" placeholder="Company name" value="">
 									  		</div>
 									  		<p class="muted"><strong>When did you start?</strong></p>
 									  		<div class="form-group">
 									  			<div class="col-md-9">
-											<input type="date" id="inputTitle" class="col-md-6 form-control" value=""/>
+											<input name="start_date" input type="date" id="start_date" class="col-md-6 form-control" value=""/>
 											<div class="separator"></div>
 											</div><br><br><br>
 											<p>
 											<p class="muted"><strong>When did you end working here?</strong></p>
 									  		<div class="form-group">
 									  			<div class="col-md-9">
-											<input type="date" id="inputTitle" class="col-md-6 form-control" value=""/>
+											<input name="end_date"input type="date" id="end_date" class="col-md-6 form-control" value=""/>
 											<div class="separator"></div>
 											</div><br><br><br>
 											<p>
 											<div class="form-group">
-									    		<label for="company">Job Description</label>
-									    		<input name="company" type="textarea" class="form-control" id="company" placeholder="Job description" value="{{Input::old('last_name')}}">
+									    		<label for="description">Job Description</label>
+									    		<input name="description" type="textarea" class="form-control" id="description" placeholder="Job description" value="">
 									  		</div>	
 									  		<button type="submit" class="btn btn-primary ">Save</button>
 									  		<button type="submit" class="btn btn-primary ">Skip</button>
