@@ -64,6 +64,8 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	{
 		return $this->hasMany('Message');
 	}
+		
+
 
 	public function addUploadedImage($image)
     {
@@ -74,7 +76,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
         $image->move($systemPath, $imageName);
 
         $this->img_path = '/' . $this->imgDir . '/' . $imageName;
-    }		
+    }
 
 }
 

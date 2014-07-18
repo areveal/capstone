@@ -32,7 +32,7 @@
 				</div>
 				
 				<div class="media-body">
-					<h4>{{ Auth::user()->first_name . ' ' . Auth::user()->last_name }}</a> <a href="" class="text-muted"></h4>
+					<h4>{{ Auth::user()->id }} {{ Auth::user()->first_name . ' ' . Auth::user()->last_name }}</a> <a href="" class="text-muted"></h4>
 					<div class="clearfix"></div>
 					<a href="{{ action('UsersController@show', Auth::user()->id) }}" class="btn btn-info btn-sm">
 						<i class="icon-turn-right"></i> Home
@@ -40,36 +40,6 @@
 				</div>
 			</div>
 		</div>
-
-
-<!-- 		<nav class="navbar widget-head padding-none margin-none" role="navigation">
-	      
-	        <div class="navbar-header">
-	          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-3">
-	            <span>Choose menu </span>
-	            <i class="fa fa-bars "></i>
-	           
-	          </button>
-	        </div>
-	        <div class="navbar-collapse collapse" id="bs-example-navbar-collapse-3" style="height: 1px;">
-				<div class="padding-none">
-					<ul class="display-block">
-						<li><a class="" href="timeline_3.html?lang=en"><i class="fa fa-fw icon-road-sign"></i> <span>Timeline</span></a></li>
-						<li><a href="media_3.html?lang=en"><i class="fa fa-fw icon-flip-camera"></i> <span>Photos</span></a></li>
-						<li class="active"><a href="contacts_3.html?lang=en"><i class="fa fa-fw icon-group"></i> <span>Friends</span></a></li>
-						<li><a href="messages.html?lang=en"><i class="fa fa-fw fa-envelope"></i> <span>Messages</span></a></li>
-						<li class="pull-right"><a href="about_3.html?lang=en"><i class="fa fa-fw fa-user"></i> <span>About</span></a></li>
-					</ul>
-				</div>
-	        </div>
-	      
-	    </nav>
- -->
-
-		
-	
-		
-
 	</div>
 	
 
