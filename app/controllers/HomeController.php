@@ -51,26 +51,26 @@ class HomeController extends BaseController {
 		return Redirect::action('UsersController@index');
 	}
 
-	public function getContacts()
-	{
+	// public function getContacts()
+	// {
 
-		//DO uploda file first and handle then read
+	// 	//DO uploda file first and handle then read
 
 		
-		// return View::action('HomeController@index');
-		//import email addresses 
-		$contacts = [];
+	// 	// return View::action('HomeController@index');
+	// 	//import email addresses 
+	// 	$contacts = [];
 
-		$handle = fopen($this->filename, 'r');
-		while(!feof($handle)) {
-			$row = fgetcsv($handle);
-			if (is_array($row)) {
-		  		$contacts[] = $row;
-			}
-		}
-		fclose($handle);
+	// 	$handle = fopen($this->filename, 'r');
+	// 	while(!feof($handle)) {
+	// 		$row = fgetcsv($handle);
+	// 		if (is_array($row)) {
+	// 	  		$contacts[] = $row;
+	// 		}
+	// 	}
+	// 	fclose($handle);
 		// return $contacts;
-	}
+	
 	
 
 

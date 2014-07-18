@@ -93,36 +93,41 @@
 
 <!--Here is the list of all the contacts!!!-->
 <div class="row row-merge">
-		
-@foreach($users as $user)
-	<div class="col-md-12 col-lg-6 bg-white border-bottom">
-		<div class="row">
-				<div class="col-sm-9">
-					<div class="media">
-						<a class="pull-left margin-none" href="{{ action('UsersController@show', $user->id) }}">
-							<img class="img-clean" src="/img-upload/user.jpg" alt="">
-						</a>
-						<div class="media-body innerAll inner-2x padding-right-none padding-bottom-none">
-							 <h4 class="media-heading"><a href="{{ action('UsersController@show', $user->id) }}" class="text-inverse">{{ $user->first_name . ' ' . $user->last_name }}</a></h4>
-							 <p>
-							 	<!-- <span class="text-success strong"><i class="fa fa-check"></i> Friend</span> &nbsp;  -->
-							 	<i class="fa fa-fw fa-map-marker text-muted"></i>{{ $user->city . ', ' . $user->state }}</p> 
+
+@if(count($users)>0)		
+	@foreach($users as $user)
+		<div class="col-md-12 col-lg-6 bg-white border-bottom">
+			<div class="row">
+					<div class="col-sm-9">
+						<div class="media">
+							<a class="pull-left margin-none" href="{{ action('UsersController@show', $user->id) }}">
+								<img class="img-clean" src="{{ $user->img_path }}" alt="">
+							</a>
+							<div class="media-body innerAll inner-2x padding-right-none padding-bottom-none">
+								 <h4 class="media-heading"><a href="{{ action('UsersController@show', $user->id) }}" class="text-inverse">{{ $user->first_name . ' ' . $user->last_name }}</a></h4>
+								 <p>
+								 	<!-- <span class="text-success strong"><i class="fa fa-check"></i> Friend</span> &nbsp;  -->
+								 	<i class="fa fa-fw fa-map-marker text-muted"></i>{{ $user->city . ', ' . $user->state }}</p> 
+							</div>
 						</div>
 					</div>
-				</div>
-				@if(Auth::check())
-				<div class="col-sm-3">
-					<div class="innerAll text-right">
-						<div class="btn-group-vertical btn-group-sm">
-							<a href="{{ action('UsersController@show', $user->id) }}" class="btn btn-primary"><i class="fa fa-fw fa-thumbs-up"></i> Connect</a>
-							<a href="" class="btn btn-default" data-toggle="sidr-open" data-menu="menu-right"><i class="fa fa-fw fa-envelope-o"></i> Chat</a>
+					@if(Auth::check())
+					<div class="col-sm-3">
+						<div class="innerAll text-right">
+							<div class="btn-group-vertical btn-group-sm">
+								<a href="{{ action('UsersController@show', $user->id) }}" class="btn btn-primary"><i class="fa fa-fw fa-thumbs-up"></i> Connect</a>
+								<a href="" class="btn btn-default" data-toggle="sidr-open" data-menu="menu-right"><i class="fa fa-fw fa-envelope-o"></i> Chat</a>
+							</div>
 						</div>
 					</div>
-				</div>
-				@endif
+					@endif
+			</div>
 		</div>
-	</div>
-@endforeach
+	@endforeach
+@else
+	<h3>The search returned no results.</h3>
+@endif
+
 		
 </div>
 

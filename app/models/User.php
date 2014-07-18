@@ -17,10 +17,10 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	protected $table = 'users';
 
 	static public $rules = [
-    	'email' => 'required|max:100',
+    	'email' => 'required|max:100|unique',
     	'password' => 'required|max:100|min:6',
     	'first_name' => 'required|max:100',
-    	'last_name' => 'required|max:100' 
+    	'last_name' => 'required|max:100'
     ];
 
 	/**
@@ -52,7 +52,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 
 	public function connections() 
 	{
-		return $this->hasMany('Connection');
+		return $this->belongsToMany('User', 'connections', 'user_id', 'connection_id');
 	}
 
 	public function messages() 
