@@ -78,7 +78,24 @@ class SchoolsController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		if(Auth::check())
+		{
+			if(Auth::user()->id == $id)	
+			{
+				$schools = School::where('user_id', Auth::user()->id)->get();
+				return View::make('schools.create-edit')->with('schools', $schools);
+			}
+			else 
+			{
+				Session::flash('errorMessage','You do not have the necessary priveleges to edit this user.');
+				return Redirect::action('UsersController@index');
+			}
+		}
+		else
+		{
+			Session::flash('errorMessage','You must be logged in to edit users.');
+			return Redirect::action('UsersController@index');
+		}
 	}
 
 
