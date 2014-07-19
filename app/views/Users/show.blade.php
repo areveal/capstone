@@ -4,13 +4,12 @@
 <title>User Profile</title>
 <style>
 .img-circle {
-width:40px;
-height: 40px;
+    width:40px;
+    height: 40px;
 }
-.navbar
-  {
-      background: #25ad9f;
-  }
+.navbar{
+    background: #25ad9f;
+}
 </style>
 
 @stop
