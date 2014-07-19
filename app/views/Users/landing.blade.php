@@ -19,147 +19,80 @@
     </head>
 
     <body>
+
                     
     <div class="main">
         
-      <section class="home">
+      <section class="home"><nav class="navbar navbar-default" role="navigation">
+  <div class="container-fluid"> <a class="navbar-brand" style="font-family: Raleway" href="#"><strong>MINORITY PROFESIONALS MEET</a>
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header" style="float: right">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+     
+        {{ Form::open(['action' => 'HomeController@doLogin', 'class' => 'form-signin']) }}  
+            <div style="float: right">
+                <input  style="width: 180px" type="text" placeholder="Username" name="email">
+                <input  style="width: 180px" type="password" placeholder="Enter Password" name="password">
+                <button type="submit" class="btn btn-primary">Sign In<i class='fa fa-fw fa-unlock-alt'></i></button>
+            </div>
+        {{ Form::close() }} 
+        <!-- <div style="float: right">   
+            {{link_to_action('HomeController@showLogin', 'Login', null, array('class' => 'btn btn-default btn-sm'))}}
+        </div>  -->
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
         <div class="container">
         
-        <div style="float: right">   
-            {{link_to_action('HomeController@showLogin', 'Login', null, array('class' => 'btn btn-default btn-sm'))}}
-        </div>
             <div class="home-phone hide hidden-xs col-xs-12 col-sm-5">
                 <img src="img/iphone-3.png" class="iphone-3 " alt="">
             </div>
             <div class="row">
 
                 <div class="home-copy  col-xs-12 col-sm-8 col-sm-offset-2 animated fadeInDown delay-2 ">
-                    <br><h1 class="demo1">MPM<br><!-- <button type="submit" class="btn btn-signup"><i >IN</strong></i> --></button> 
-                    	 <!-- <span class="rotate"> Meet, Connect, Share, Jobs,</span> </h1> -->
-                    <p>Minority Professionals Meet</p>
-                    <p><strong>Sign up. Its free.</strong> <br><br>
-                    <span>    
-                   	{{link_to_action('UsersController@create','Join Today', null, array('class' => 'btn btn-default btn-lg'))}}
-                    <br></span>
-                	</p>
-                </div>
-            </div>
+                    <br><h1 class="demo1"><br><!-- <button type="submit" class="btn btn-signup"><i >IN</strong></i> --></button> 
+                    	 
+                    <p>The professional network for women and minorities</p>
+                    <span class="rotate">Connect, Share, Jobs </span> 
 
-        </div>
-
-      </section>
-
-      <section class="slide-1 slide full-color">
-        <div class="container">
-            <div class="row">
-
-                <div class="col-xs-12 col-sm-6 iphone-container ">
+                    <p><strong>Get Started. Its free.<br>Registration takes less than 2 minutes</strong>
                     
+                    <span>
+                    <div class="home-copy">    
+                       {{ Form::open(['action' => 'UsersController@create', 'class' => 'form-signin']) }}                  
+                          <div>
+                          <span class="input-group"></span>
+                          <input name="first_name" id="first_name"type="text"  style="float:left" class="form-control" placeholder="First name">
+                          <span class="input-group"></span>
+                          <input name="last_name" id="last_name" type="text" style="float:left" class="form-control" placeholder="Last name">
+                          </div>  
+                          <span class="input-group"></span>
+                          <input name="email" id="email" type="text" class="form-control" placeholder="Email">
+                          <span class="input-group"></span>
+                          <input name="password" id="password" type="text" class="form-control" placeholder="Password">                 
+                   	{{link_to_action('UsersController@create','Join Now', null, array('class' => 'btn btn-default btn-lg'))}}
+                    {{ Form::close() }} 
+                    </div>
+                </span>
+            </p>
                 </div>
+            </div>
 
-                <div class="col-xs-12 col-sm-9 copy">
-                    <h2 class=" hide slide-1-title slide-titles">  Sign Up. Its Free.</h2>
-                    <p class="slide-1-1 hide">
-                    </p>
+        </div>
+
+      </section>
+
       
-                    <i class="hide entypo-down-open slide-1-scroll scroll-down"></i>
-                    {{Form::open(array('action' => 'UsersController@store', 'class' => 'form-signin', 'role' => 'form'))}}
-								  		<!--<form role="form" action="index.html?lang=en"> -->
-									  		<div class="form-group">
-									    		<label for="first_name">First Name</label>
-									    		<input name="first_name" type="text" class="form-control" id="first_name" placeholder="Your first name" value="{{Input::old('first_name')}}">
-									  		</div>
-									  		<div class="form-group">
-									    		<label for="last_name">Last Name</label>
-									    		<input name="last_name" type="text" class="form-control" id="last_name" placeholder="Your last name" value="{{Input::old('last_name')}}">
-									  		</div>
-								  	  		<div class="form-group">
-									    		<label for="email">Email address</label>
-									    		<input name="email" type="email" class="form-control" id="email" placeholder="Enter email" value="{{Input::old('email')}}">
-									  		</div>
-									  		<div class="form-group">
-									    		<label for="password">Password</label>
-									    		<input name="password" type="password" class="form-control" id="password" placeholder="Password" >
-									  		</div>
-								    		<div class="form-group">
-									    		<label for="confirm_password">Confirm Password</label>
-									    		<input type="password" name="confirmPassword" class="form-control" id="exampleInputPassword2" placeholder="Retype Password">
-									  		</div>
-									  		<button type="submit" class="btn btn-primary btn-block">Create Account</button>
-										{{ Form::close() }}
-                </div>
-            </div>
-        </div>
-
-      </section>
-
-      <section class="slide-2 slide full-color">
-        <div class="container">
-            <div class="row">
-
-                <div class="col-xs-12 col-sm-4 copy">
-                    <h2 class=" hide slide-2-title slide-titles">  Simple is effective  </h2>
-
-                    <p class="slide-2-1 hide">
-                    Use the three example layouts to take your users on a journey through your app. Use bootsraps grid system to control copy/phone size.
-                    </p>
-
-                    <p class="slide-2-2 hide hidden-xs">
-                    Simply slide between slides just likes Apple's latest series of promotion sites.
-                    </p>
-
-                    <p class="slide-2-3 hide hidden-xs">
-                    Remember simplicty will keep your work looking its best. Keep it simple.
-                    </p>
-                </div>
-
-                <div class="col-xs-12 col-sm-4 iphone-container">
-                    <img src="img/iphone-2.png" class="hide iphone-2" alt="">
-                </div>
-
-                <div class="col-xs-12 col-sm-4 copy">
-
-                    <p class="slide-2-4 hide hidden-xs">
-                    Use the settings cog to see what options you have avalible. Perhaps have a big video of your team hard at work in the office.
-                    </p>
-
-                    <p class="slide-2-5 hide hidden-xs">
-                    Adding animations is easy, simply follow the examples in the code.
-                    </p>
-
-                    <p class="slide-2-6 hide hidden-xs">
-                    Changing slide colors, images and video is all really easy.
-                    </p>
-                    <i class="hide entypo-down-open slide-2-scroll scroll-down hidden-xs"></i>
-                </div>
-            </div>
-        </div>
-      </section>
-      <section class="slide-3 slide full-color">
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12 col-sm-4 copy">
-                    <h2 class=" hide slide-3-title slide-titles">  Obvisouly its Responsive </h2>
-                    <p class="slide-3-1 hide">
-                    Works great all all screen sizes. Use bootstraps default classes hidden-xs hidden-sm to control what you see.
-                    </p>
-
-                    <p class="slide-3-2 hide hidden-xs">
-                    Show only the top half of the phone or hide it all together on mobile.
-                    </p>
-
-                    <p class="slide-3-3 hide hidden-xs">
-                    PSD files are added for your screenshots, drop them right in and be up and running quickly.
-                    </p>
-                    <i class="hide entypo-down-open slide-3-scroll scroll-down hidden-xs"></i>
-                </div>
-
-                <div class="col-xs-12 col-sm-6 iphone-container ">
-                    <img src="img/iphone-3.png" class="hide iphone-3" alt="">
-                </div>
-            </div>
-
-        </div>
       </section>
       <section class="contact full-color">
         <div class="row">
@@ -187,7 +120,7 @@
     </div> <!-- /main -->
 
     <div class="icon animated fadeInLeft delay-3">
-        <span> Showcase </span>
+        
     </div>
 
     <div class="settings animated fadeInLeft delay-4">
