@@ -1,7 +1,11 @@
 @extends('layouts.master')
 
 @section('topscript')
-	<title>Sign Up</title>	
+	@if(Auth::check())
+		<title>Edit Info</title>	
+	@else
+		<title>Sign Up</title>	
+	@endif
 @stop 
   
 @section('content')
@@ -23,8 +27,11 @@
 			<!-- col-table -->
 			<div class="col-table">
 				
-				<h4 class="innerAll margin-none border-bottom text-center bg-primary"><i class="fa fa-pencil"></i> Create a Profile</h4>
-
+				@if(Auth::check())
+					<h4 class="innerAll margin-none border-bottom text-center bg-primary"><i class="fa fa-pencil"></i> Edit Your Profile</h4>
+				@else
+					<h4 class="innerAll margin-none border-bottom text-center bg-primary"><i class="fa fa-pencil"></i> Create a Profile</h4>
+				@endif
 				<!-- col-table-row -->
 				<div class="col-table-row">
 
@@ -103,7 +110,12 @@
 											    </div><!-- /input-group -->
 											  </div><!-- /.col-lg-6 -->
 											</div><!-- /.row -->
-											<button type="submit" class="btn btn-primary btn-block">Create Account</button>
+											@if(Auth::check())
+												<button type="submit" class="btn btn-primary btn-block">Save Changes</button>
+											@else
+												<button type="submit" class="btn btn-primary btn-block">Create Account</button>
+											@endif
+
 										{{ Form::close() }}
 							  		</div>
 									  		

@@ -47,8 +47,6 @@ Route::resource('/users', 'UsersController');
 //Route for Skills table resources
 Route::resource('/skills', 'SkillsController');
 
-Route::get('/test', 'UsersController@showTest');
-
 Route::get('/', 'UsersController@showLanding');
 
 Route::resource('jobs', 'JobsController');
@@ -58,7 +56,5 @@ Route::resource('schools', 'SchoolsController');
 Route::resource('connections', 'ConnectionsController');
 
 Route::resource('associations', 'AssociationsController');
-
-
 
 

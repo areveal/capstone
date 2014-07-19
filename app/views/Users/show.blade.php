@@ -22,6 +22,8 @@ height: 40px;
 @section('content')
 <!-- Content START -->
 <div id="content">
+
+    @if(Auth::check())
     <div class="navbar hidden-print box main" role="navigation">
         <ul class="notifications pull-left hidden-xs">
             <li class="dropdown notif">
@@ -63,7 +65,7 @@ height: 40px;
                 </span>
                 <ul class="dropdown-menu">
                     <li><a href="">Messages</a></li>
-                    <li><a href="{{ action('UsersController@edit')}} ">Edit Profile</a></li>
+                    <li><a href="{{ action('UsersController@edit', Auth::user()->id)}} ">Edit Profile</a></li>
                     <li><a href="{{ action('HomeController@logout') }}">Logout</a></li>
                 </ul>
             </div>
@@ -73,6 +75,8 @@ height: 40px;
             <input type="text" class="form-control" placeholder="Search Inclusion Users"/>
         </div>
     </div>
+    @endif
+
     <div class="layout-app">  
         <div class="innerLR">
         <h2 class="margin-none">Profile &nbsp;<i class="fa fa-fw fa-pencil text-muted"></i></h2>
