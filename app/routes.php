@@ -11,23 +11,6 @@
 |
 */
 
-Route::get('/', function()
-{
-	//return View::make('hello');
-
-	$user = Auth::user();
-
-	// // add a friend
-	// $user->skills()->attach(6);
-
-	// // remove a friend
-	// $user->skills()->detach(6);
-
-	return $user->skills;
-
-
-});
-
 Route::get('/login', 'HomeController@showLogin');
 Route::post('/login', 'HomeController@doLogin');
 Route::get('/logout', 'HomeController@logout');
