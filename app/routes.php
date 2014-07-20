@@ -11,23 +11,6 @@
 |
 */
 
-Route::get('/', function()
-{
-	//return View::make('hello');
-
-	$user = Auth::user();
-
-	// // add a friend
-	// $user->skills()->attach(6);
-
-	// // remove a friend
-	// $user->skills()->detach(6);
-
-	return $user->skills;
-
-
-});
-
 Route::get('/login', 'HomeController@showLogin');
 Route::post('/login', 'HomeController@doLogin');
 Route::get('/logout', 'HomeController@logout');
@@ -47,8 +30,6 @@ Route::resource('/users', 'UsersController');
 //Route for Skills table resources
 Route::resource('/skills', 'SkillsController');
 
-Route::get('/test', 'UsersController@showTest');
-
 Route::get('/', 'UsersController@showLanding');
 
 Route::resource('jobs', 'JobsController');
@@ -58,7 +39,5 @@ Route::resource('schools', 'SchoolsController');
 Route::resource('connections', 'ConnectionsController');
 
 Route::resource('associations', 'AssociationsController');
-
-
 
 

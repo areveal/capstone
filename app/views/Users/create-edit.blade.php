@@ -1,11 +1,45 @@
 @extends('layouts.master')
 
 @section('topscript')
-	<title>Sign Up</title>	
+	@if(Auth::check())
+		<title>Edit Info</title>	
+	@else
+		<title>Sign Up</title>	
+	@endif
+	<style>
+	.img-circle {
+	    width:40px;
+	    height: 40px;
+	}
+	.navbar{
+	    background: #25ad9f;
+	}
+	</style>
 @stop 
   
 @section('content')
 <body class=" loginWrapper">
+
+	<div class="navbar hidden-print box main" role="navigation">
+        <div class="user-action pull-left menu-right-hidden-xs menu-left-hidden-xs border-left">
+            <div class="dropdown username pull-left">
+                <span class="dropdown-toggle" data-toggle="dropdown">
+                    <span class="media margin-none">
+                    <span class="pull-left"><img src="{{ Auth::user()->img_path }}" alt="user" class="img-circle"></span>
+                    <span class="media-body">{{ Auth::user()->first_name }} <span class="caret"></span></span>
+                </span>
+                </span>
+                <ul class="dropdown-menu">
+                    <li><a href="{{ action('UsersController@edit', Auth::user()->id)}} ">Edit Profile</a></li>
+                    <li><a href="{{ action('SkillsController@edit', Auth::user()->id)}} ">Edit Skills</a></li>
+                    <li><a href="{{ action('AssociationsController@edit', Auth::user()->id)}} ">Edit Associations</a></li>
+                    <li><a href="{{ action('JobsController@edit', Auth::user()->id)}} ">Edit Experience</a></li>
+                    <li><a href="{{ action('SchoolsController@edit', Auth::user()->id)}} ">Edit Education</a></li>
+                    <li><a href="{{ action('UsersController@show', Auth::user()->id)}} ">Done Editing</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
 	
 	<!-- Main Container Fluid -->
 	<div class="container-fluid menu-hidden ">
@@ -23,8 +57,11 @@
 			<!-- col-table -->
 			<div class="col-table">
 				
-				<h4 class="innerAll margin-none border-bottom text-center bg-primary"><i class="fa fa-pencil"></i> Create a Profile</h4>
-
+				@if(Auth::check())
+					<h4 class="innerAll margin-none border-bottom text-center bg-primary"><i class="fa fa-pencil"></i> Edit Your Profile</h4>
+				@else
+					<h4 class="innerAll margin-none border-bottom text-center bg-primary"><i class="fa fa-pencil"></i> Create a Profile</h4>
+				@endif
 				<!-- col-table-row -->
 				<div class="col-table-row">
 
@@ -103,7 +140,12 @@
 											    </div><!-- /input-group -->
 											  </div><!-- /.col-lg-6 -->
 											</div><!-- /.row -->
-											<button type="submit" class="btn btn-primary btn-block">Create Account</button>
+											@if(Auth::check())
+												<button type="submit" class="btn btn-primary btn-block">Save Changes</button>
+											@else
+												<button type="submit" class="btn btn-primary btn-block">Create Account</button>
+											@endif
+
 										{{ Form::close() }}
 							  		</div>
 									  		

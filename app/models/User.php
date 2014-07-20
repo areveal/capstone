@@ -75,7 +75,58 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 
         $image->move($systemPath, $imageName);
 
-        $this->img_path = '/' . $this->imgDir . '/' . $imageName;
+	    $maxHeight = 80;
+	    $maxWidth = 80;
+
+	    $newHeight = 0;
+	    $newWidth = 0;
+
+	    $inputFile = public_path() . "/img-upload/{$imageName}";
+
+	    $newImageName = substr($imageName, 0, strlen($imageName)-4) . "-small.jpg";
+
+	    $outputFile = public_path() . "/img-upload/{$newImageName}";
+
+	    // load the image to be manipulated
+	    $image = new Imagick($inputFile);
+
+	    // get the current image dimensions
+	    $currentWidth = $image->getImageWidth(); 
+	    $currentHeight = $image->getImageHeight();
+
+	    // determine what the new height and width should be based on the type of photo
+	    if ($currentWidth > $currentHeight)
+	    {
+	        // landscape photo
+	        // width should be resized to max and height should be resized proportionally
+	        $newWidth = $maxWidth;
+	        $newHeight = ceil($currentHeight * ($newWidth / $currentWidth));
+	    }
+	    else if ($currentHeight > $currentWidth)
+	    {
+	        // portrait photo
+	        // height should be resized to max and width should be resized proportionally
+	        $newHeight = $maxHeight;
+	        $newWidth = ceil($currentWidth * ($newHeight / $currentHeight));
+	    }
+	    else
+	    {
+	        // square photo
+	        // resize image to max dimensions
+	        $newHeight = $newWidth = $maxHeight;
+	    }
+
+	    // perform the image resize
+	    $image->resizeImage($newWidth, $newHeight, Imagick::FILTER_LANCZOS, true);  
+
+	    // write out the new image
+	    $image->writeImage($outputFile);
+
+	    // clear memory resources
+	    $image->clear(); 
+	    $image->destroy();    
+
+        $this->img_path = '/' . $this->imgDir . '/' . $newImageName;
     }
 
 }
