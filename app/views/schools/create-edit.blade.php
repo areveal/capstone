@@ -86,7 +86,6 @@
 								  		{{Form::open(array('action' => 'SchoolsController@store', 'class' => 'form-signin', 'role' => 'form'))}}
 								  		<!--<form role="form" action="index.html?lang=en"> -->
 									  		<div class="form-group">
-									  		<p>Hey Justin</p>
 									    		
 									  		</div>
 									  		<div class="form-group">
@@ -124,7 +123,7 @@
 											</div><br><br><br><br>
 
 											<p>	
-									  		<button type="submit" class="btn btn-primary ">Save</button>
+									  		<button type="submit" class="btn btn-primary ">Add School</button>
 									  		</p>
 										{{Form::close()}}
 							  		</div>
