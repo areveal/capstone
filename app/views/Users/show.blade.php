@@ -68,11 +68,15 @@ height: 40px;
                 </ul>
             </div>
         </div>
-        <div class="input-group col-md-4">
-            <span class="input-group-addon"><i class="icon-search"></i></span>
-            <input type="text" class="form-control" placeholder="Search Inclusion Users"/>
+        <div class="container">
+            <div class="input-group col-md-4">
+                <input type="text" class="form-control" placeholder="Search Inclusion Users">
+                    <div class="col-md-8">
+                        <a class="glyphicon glyphicon-search btn btn-primary btn-xs" pull-right>Search</a>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
     <div class="layout-app">  
         <div class="innerLR">
         <h2 class="margin-none">Profile &nbsp;<i class="fa fa-fw fa-pencil text-muted"></i></h2>
