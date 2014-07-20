@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>MPM - Landing Page</title>
+        <title>Diversity Thread</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
 
@@ -24,7 +24,7 @@
     <div class="main">
         
       <section class="home"><nav class="navbar navbar-default" role="navigation">
-  <div class="container-fluid"> <a class="navbar-brand" style="font-family: Raleway" href="#"><strong>MINORITY PROFESIONALS MEET</a>
+  <div class="container-fluid"> <a class="navbar-brand" style="text-blue innerB text-center" href="#"><strong>Diversity Thread</a>
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header" style="float: right">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -62,33 +62,40 @@
                 <div class="home-copy  col-xs-12 col-sm-8 col-sm-offset-2 animated fadeInDown delay-2 ">
                     <br><h1 class="demo1"><br><!-- <button type="submit" class="btn btn-signup"><i >IN</strong></i> --></button> 
                     	 
-                    <p>The professional network for women and minorities</p>
-                    <span class="rotate">Connect, Share, Jobs </span> 
+                    <h3 class="text-white innerB text-center">The professional network for women and minorities.</h3>
+                    <!-- <span class="rotate">Connect, Share, Jobs </span>  -->
+<div id="menu-right">
+    <div class="row row-app">
+        <div class="col-md-12">
+            <div class="col-separator col-separator-first box col-unscrollable col-fs">
+                <div class="col-table">
+                    <div class="col-table-row">
+                        <div class="col-app col-unscrollable tab-content">
+                            <div class="col-app lock-wrapper lock-bg-1 tab-pane active animated fadeIn" id="lock-1-1">
+                                <h3 class="text-white innerB text-center">Get Started-Its free.</h3>
+                                <div class="lock-container">
+                                    <div class="innerAll text-center">
+                                        <img src="../assets//images/people/100/6.jpg" class="img-circle"/><img src="../assets//images/people/100/1.jpg" class="img-circle"/><img src="../assets//images/people/100/10.jpg" class="img-circle"/><img src="../assets//images/people/100/23.jpg" class="img-circle"/>
+                                        {{ Form::open(['action' => 'HomeController@doLogin', 'class' => 'form-signin']) }}  
+                                            <div class="innerLR">
 
-                    <p><strong>Get Started. Its free.<br>Registration takes less than 2 minutes</strong>
-                    
-                    <span>
-                    <div class="home-copy">    
-                       {{ Form::open(['action' => 'UsersController@create', 'class' => 'form-signin']) }}                  
-                          <div>
-                          <span class="input-group"></span>
-                          <input name="first_name" id="first_name"type="text"  style="float:left" class="form-control" placeholder="First name">
-                          <span class="input-group"></span>
-                          <input name="last_name" id="last_name" type="text" style="float:left" class="form-control" placeholder="Last name">
-                          </div>  
-                          <span class="input-group"></span>
-                          <input name="email" id="email" type="text" class="form-control" placeholder="Email">
-                          <span class="input-group"></span>
-                          <input name="password" id="password" type="text" class="form-control" placeholder="Password">                 
-                   	{{link_to_action('UsersController@create','Join Now', null, array('class' => 'btn btn-default btn-lg'))}}
-                    {{ Form::close() }} 
+                                                <input class="form-control text-center bg-gray" type="text" placeholder="Email" name="email">
+                                                <input class="form-control text-center bg-gray" type="password" placeholder="Enter Password" name="password">
+                                            </div>
+                                            <div class="innerT">
+                                                <button type="submit" class="btn btn-primary">Join Now <i class='fa fa-fw fa-unlock-alt'></i></button>
+                                            </div>
+                                        {{ Form::close() }}
+                                            <a href="{{ action('RemindersController@getRemind') }}" class="btn margin-none">Build a profile in under 2 minutes.</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </span>
-            </p>
-                </div>
+                </div>  
             </div>
-
         </div>
+    </div>
 
       </section>
 
