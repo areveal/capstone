@@ -57,7 +57,7 @@ class UsersController extends \BaseController {
 	public function create()
 	{
 		//this is our signup page
-		return View::make('users.create');
+		return View::make('users.create-edit');
 	}
 
 
@@ -68,49 +68,7 @@ class UsersController extends \BaseController {
 	 */
 	public function store()
 	{
-		// store function
-		$validator = Validator::make(Input::all(), User::$rules);
-
-		if($validator->fails())
-		{
-			Session::flash('errorMessage','We could not create a new profile. Please see errors below.');
-			return Redirect::back()->withInput()->withErrors($validator);
-		}
-		else
-		{
-			$user = new User();
-
-
-			$user->first_name = Input::get('first_name');
-			$user->last_name = Input::get('last_name');		
-			$user->email = Input::get('email');
-			$password = Input::get('password');
-			$confirmPassword = Input::get('confirmPassword');
-
-			if($confirmPassword == $password)
-			{
-				$user->password = Hash::make(Input::get('password'));
-				$user->save();
-				Session::flash('successMessage', 'You have successfully created an account.');
-	    		return Redirect::action('UsersController@show', $user->id);
-			}
-			
-			$user->country = Input::get('country');
-			$user->zip = Input::get('zip');
-			$user->status = Input::get('status');
-
-
-			if (Input::hasFile('image') && Input::file('image')->isValid())
-			{
-			    $user->addUploadedImage(Input::file('image'));
-			    $user->save();
-			}
-			else 
-			{
-				Session::flash('errorMessage', 'Your password and your confirmation password did not match.');
-	    		return Redirect::back()->withInput();
-			}
-		}
+		return $this->update(null);
 	}
 
 
@@ -138,7 +96,7 @@ class UsersController extends \BaseController {
 	public function edit($id)
 	{
 		$user = User::find($id);
-		return View::make('users.edit')->with('user', $user);
+		return View::make('users.create-edit')->with('user', $user);
 	}
 
 
@@ -150,7 +108,68 @@ class UsersController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		// this updates the user
+		// update function
+		$validator = Validator::make(Input::all(), User::$rules);
+
+		if($validator->fails())
+		{
+			Session::flash('errorMessage','We could not create a new profile. Please see errors below.');
+			return Redirect::back()->withInput()->withErrors($validator);
+		}
+		else
+		{
+			$user = new User();
+
+			if(isset($id)) 
+			{
+				$user = User::findOrfail($id);
+				if(Auth::user()->id != $id) 
+				{
+						Session::flash('errorMessage','You do not have the necessary credentials to edit this user.');
+						return Redirect::url('/');
+				}
+			}
+
+
+			$user->first_name = Input::get('first_name');
+			$user->last_name = Input::get('last_name');		
+			$user->email = Input::get('email');	
+			$user->country = Input::get('country');
+			$user->zip = Input::get('zip');
+			$user->status = Input::get('status');
+			$password = Input::get('password');
+			$confirmPassword = Input::get('confirmPassword');
+
+			if($confirmPassword == $password)
+			{
+				$user->password = Hash::make(Input::get('password'));
+				$user->save();
+			}
+			else 
+			{
+				Session::flash('errorMessage', 'Your password and your confirmation password did not match.');
+	    		return Redirect::back()->withInput();
+			}
+			
+			if (Input::hasFile('image') && Input::file('image')->isValid())
+			{
+			    $user->addUploadedImage(Input::file('image'));
+			    $user->save();
+			}
+			
+			if(isset($id)) 
+			{
+				Session::flash('successMessage', 'You have successfully edited your account.');
+    			return Redirect::action('UsersController@show',$id);
+			}
+			else
+			{
+				Session::flash('successMessage', 'You have successfully created an account.');
+    			Auth::login($user);
+    			return Redirect::action('UsersController@show', Auth::user()->id);
+			}
+
+		}
 	}
 
 
@@ -165,11 +184,6 @@ class UsersController extends \BaseController {
 		// this deletes the user
 	}
 
-	public function showTest()
-	{
-		
-		return View::make('users.profiler');
-	}
 
 	public function showLanding()
 	{

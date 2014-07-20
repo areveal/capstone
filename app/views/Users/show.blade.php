@@ -4,13 +4,12 @@
 <title>User Profile</title>
 <style>
 .img-circle {
-width:40px;
-height: 40px;
+    width:40px;
+    height: 40px;
 }
-.navbar
-  {
-      background: #25ad9f;
-  }
+.navbar{
+    background: #25ad9f;
+}
 </style>
 
 @stop
@@ -22,6 +21,8 @@ height: 40px;
 @section('content')
 <!-- Content START -->
 <div id="content">
+
+    @if(Auth::check())
     <div class="navbar hidden-print box main" role="navigation">
         <ul class="notifications pull-left hidden-xs">
             <li class="dropdown notif">
@@ -63,7 +64,7 @@ height: 40px;
                 </span>
                 <ul class="dropdown-menu">
                     <li><a href="">Messages</a></li>
-                    <li><a href="">Edit Profile</a></li>
+                    <li><a href="{{ action('UsersController@edit', Auth::user()->id)}} ">Edit Profile</a></li>
                     <li><a href="{{ action('HomeController@logout') }}">Logout</a></li>
                 </ul>
             </div>
@@ -73,6 +74,8 @@ height: 40px;
             <input type="text" class="form-control" placeholder="Search Inclusion Users"/>
         </div>
     </div>
+    @endif
+
     <div class="layout-app">  
         <div class="innerLR">
         <h2 class="margin-none">Profile &nbsp;<i class="fa fa-fw fa-pencil text-muted"></i></h2>
@@ -81,18 +84,18 @@ height: 40px;
                     <div class="row">
                         <div class="col-md-9 ">
                         <!-- Widget start -->
-                        <div class="widget widget-body-white">
-                            <div class="media widget-body innerAll">
-                                <a href="" class="pull-left"><img src="/assets/images/people/100/16.jpg" width="60" alt=""></a>
-                                <div class="media-body innerL half">
-                                    <h4 class="margin-none"><a href="" class="text-primary">Adrian Demian</a></h4>
-                                    <p class="strong">Senior UI Designer</p>
+                            <div class="widget widget-body-white">
+                                <div class="media widget-body innerAll">
+                                    <a href="" class="pull-left"><img src="{{{ $user->img_path }}}" width="60" alt=""></a>
+                                    <div class="media-body innerL half">
+                                        <h4 class="margin-none">{{{ $user->first_name . ' ' . $user->last_name }}}</h4>
+                                        <p class="strong"> </p>
                                     <div class="bg-gray innerAll ">
-                                    <h5 class="innerB half border-bottom text-muted margin-none"><i class="fa fa-fw icon-briefcase-2"></i> MOSAICPRO LLC</h5>
+                                        <h5 class="innerB half border-bottom text-muted margin-none"><i class="fa fa-fw icon-briefcase-2"></i> MOSAICPRO LLC</h5>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
                     <!-- //end Widget -->
                     <!-- Widget start-->
                     <div class="widget widget-body-white ">
@@ -101,6 +104,13 @@ height: 40px;
                         </div>
                         <div class="widget-body">
                             <div class="innerAll">
+                                @foreach($user->skills as $skill)
+                                <ul class="innerAll">
+                                    <li>
+                                        {{{ $skill->skill }}}
+                                    </li>
+                                </ul>
+                                @endforeach
                                 <a href="" class="btn btn-primary btn-xs">Edit</a>
                             </div>
                         </div>
@@ -112,28 +122,104 @@ height: 40px;
                             <h4 class=" heading glyphicon glyphicon-briefcase"><i> </i>Jobs</h4>
                         </div>
                     <div class="widget-body inner-2x">
-                        @foreach($jobs as $job)
+                       @if(count($user->jobs) > 0)
+                        @foreach($user->jobs as $job)
                             <ul class="fa-ul">  
-                              <li> {{{ $job->title }}} {{{ $job->beginDate $job->endDate }}} </li>
-                              <li> {{{ $job->companyName }}} </li>
-                              <li> 
-                                <p>
-                                  {{{ $job->description }}}
-                                </p>
-                              </li>
+                                <li> 
+                                    {{{ $job->job_title }}} {{{ $job->start_date . ' ' . $job->end_date }}} 
+                                </li>
+                                <li> 
+                                    {{{ $job->company }}} 
+                                </li>
+                                <li> 
+                                    <p>
+                                      {{{ $job->description }}}
+                                    </p>
+                                </li>
                             </ul> 
                         @endforeach
+                        @endif
                             <a href="" class="btn btn-primary btn-xs">Edit</a>
                     </div>
                 </div>
                 <!-- //end Widget -->
             </div>
-            <!-- //Widget -->
+            <div class="col-md-3 "> 
+        <div class="widget">
+            <div class="widget-body text-center">
+<!--                     <a href=""><img src="../assets/images/people/250/22.jpg" width="120" alt="" class="img-circle"></a>
+-->                    <h2 class="strong margin-none">Connections</h2>
+                <div class="innerB"></div>
+<!--                     <a href="" class="btn btn-primary text-center btn-block">PRO Account</a>
+-->                    <div class="btn-group-vertical btn-block">
+                            <a href="" class="btn btn-primary btn-xs pull-right">Edit</a>
+<!--                         <a href="" class="btn btn-default"><i class="fa fa-cog pull-right"></i>Edit Account</a>
+--><!--                         <a href="" class="btn btn-default"><i class="fa fa-cog pull-right"></i>Logout</a>
+-->                    </div>
+            </div>
+        </div><!-- /.widget -->
+
+        <div class="widget">
+                <h5 class="innerAll margin-none border-bottom bg-gray">Your Network</h5>
+                <div class="widget-body padding-none">
+                    <div class="media border-bottom innerAll margin-none">
+                        <img src="../assets/images/people/35/22.jpg" class="pull-left media-object"/>
+                        <div class="media-body">
+                            <a href="" class="pull-right text-muted innerT half">
+                                <i class="fa fa-comments"></i> 4
+                            </a>
+                            <h5 class="margin-none"><a href="" class="text-inverse">Social Admin Released</a></h5>
+                            <small>on February 2nd, 2014 </small> 
+                        </div>
+                    </div>
+                </div><!-- /.media -->
+                <div class="media border-bottom innerAll margin-none">
+                    <img src="../assets/images/people/35/22.jpg" class="pull-left media-object"/>
+                    <div class="media-body">
+                        <a href="" class="pull-right text-muted innerT half">
+                            <i class="fa fa-comments"></i> 4
+                        </a>
+                        <h5 class="margin-none"><a href="" class="text-inverse">Timeline Cover Page</a></h5>
+                        <small>on February 2nd, 2014 </small> 
+                    </div>
+                </div><!-- /.media -->
+                <div class="media border-bottom innerAll margin-none">
+                    <img src="../assets/images/people/35/22.jpg" class="pull-left media-object"/>
+                    <div class="media-body">
+                        <a href="" class="pull-right text-muted innerT half">
+                            <i class="fa fa-comments"></i> 4
+                        </a>
+                        <h5 class="margin-none"><a href="" class="text-inverse">1000+ Sales</a></h5>
+                        <small>on February 2nd, 2014 </small> 
+                    </div>
+                </div><!-- .media -->
+                <div class="media border-bottom innerAll margin-none">
+                    <img src="../assets/images/people/35/22.jpg" class="pull-left media-object"/>
+                    <div class="media-body">
+                        <a href="" class="pull-right text-muted innerT half">
+                            <i class="fa fa-comments"></i> 4
+                        </a>
+                        <h5 class="margin-none"><a href="" class="text-inverse">On-Page Optimization</a></h5>
+                        <small>on February 2nd, 2014 </small> 
+                    </div>
+                </div><!-- /.media -->
+                <div class="media border-bottom innerAll margin-none">
+                    <img src="../assets/images/people/35/22.jpg" class="pull-left media-object"/>
+                    <div class="media-body">
+                        <a href="" class="pull-right text-muted innerT half">
+                            <i class="fa fa-comments"></i> 4
+                        </a>
+                        <h5 class="margin-none"><a href="" class="text-inverse">14th Admin Template</a></h5>
+                        <small>on February 2nd, 2014 </small> 
+                    </div>
+                </div><!-- /.media -->
+           
+        </div>
+    </div>
         </div>
         <!-- //End Col -->
         <div class="col-md-9">
         <!-- Widget -->
-        <!-- Widget  -->
         <div class="widget widget-body-white padding-none">
             <div class="widget-head height-auto">
                 <div class="media innerAll">
@@ -145,37 +231,33 @@ height: 40px;
                         </div>
                     </div>
                 </div>
+                @if(count($user->schools) >0)
+                @foreach($user->schools as $school)
                 <ul class="list-unstyled">
-                    <li class="innerAll border-bottom">
-                        <span class="badge badge-default pull-right">4</span>
-                        <i class="fa fa-fw icon-user-1"></i> Team Members
+                    <li> 
+                        {{{ $school->college }}} 
                     </li>
-                    <li class="innerAll border-bottom">
-                        <span class="badge badge-default pull-right">4</span>
-                        <i class="fa fa-fw fa-dashboard"></i> Active Projects
+                    <li>
+                        {{{ $school->date_began . ' ' . $school->date_complete }}}
                     </li>
-                    <li class="innerAll border-bottom">
-                        <span class="badge badge-default bg-primary pull-right">59</span>
-                        <i class="fa fa-fw icon-browser-check"></i> Completed Tasks
+                    <li>
+                        {{{ $school->major }}}
                     </li>
-                    <li class="innerAll border-bottom">
-                        <span class="badge badge-default pull-right">3</span>
-                        <i class="fa fa-fw fa-file-text-o"></i> Files under review
-                    </li>
-                    <li class="innerAll bg-white text-center">
-                        <a href="" class="btn btn-primary btn-sm">View Openings</a>
-                        <a href="" class="btn btn-primary btn-xs pull-left">Edit</a>
-                    </li>
+                    <a href="" class="btn btn-primary btn-xs pull-left">Edit</a>
+                @endforeach
+                @endif
                 </ul>
             </div>
             <!-- //end Widget -->
-        </div>
+        </div><!-- /.col-md-9 -->
+
         <!-- //End Col -->
-    </div>   
+    
+    </div>  
 <!-- End Row -->
 </div>
 
-</div>
+
 <!-- // Content END -->
 <div class="clearfix"></div>
 <!-- // Sidebar menu & content wrapper END -->

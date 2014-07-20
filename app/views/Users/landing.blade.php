@@ -60,6 +60,7 @@
             <div class="row">
 
                 <div class="home-copy  col-xs-12 col-sm-8 col-sm-offset-2 animated fadeInDown delay-2 ">
+<<<<<<< HEAD
                     <br><h1 class="demo1"><br><!-- <button type="submit" class="btn btn-signup"><i >IN</strong></i> --></button> 
                     	 
                     <h3 class="text-white innerB text-center">The professional network for women and minorities.</h3>
@@ -93,6 +94,18 @@
                         </div>
                     </div>
                 </div>  
+=======
+                    <br><h1 class="demo1">MPM<br><!-- <button type="submit" class="btn btn-signup"><i >IN</strong></i> --></button> 
+
+                    	 <!-- <span class="rotate"> Meet, Connect, Share, Jobs,</span> </h1> -->
+                    <p>Minority Professionals Meet</p>
+                    <p><strong>Sign up. Its free.</strong> <br><br>
+                    <span>    
+                   	{{link_to_action('UsersController@create','Join Today', null, array('class' => 'btn btn-default btn-lg'))}}
+                    <br></span>
+                	</p>
+                </div>
+>>>>>>> master
             </div>
         </div>
     </div>
