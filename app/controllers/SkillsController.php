@@ -2,33 +2,6 @@
 
 class SkillsController extends \BaseController {
 
-
-
-	/**
-	 * Show the form for creating a new resource.
-	 *
-	 * @return Response
-	 */
-	public function create()
-	{	
-
-		$skills_already_have = DB::table('skill_user')->where('user_id', '=', Auth::user()->id)->lists('skill_id');
-		$skills = Skill::whereNotIn('id',$skills_already_have)->get();
-		return View::make('skills.create-edit')->with('skills', $skills);
-	}
-
-
-	/**
-	 * Store a newly created resource in storage.
-	 *
-	 * @return Response
-	 */
-	public function store()
-	{
-		return $this->update(null);
-	}
-
-
 	/**
 	 * Show the form for editing the specified resource.
 	 *

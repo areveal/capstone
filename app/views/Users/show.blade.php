@@ -4,13 +4,12 @@
 <title>User Profile</title>
 <style>
 .img-circle {
-width:40px;
-height: 40px;
+    width:40px;
+    height: 40px;
 }
-.navbar
-  {
-      background: #25ad9f;
-  }
+.navbar{
+    background: #25ad9f;
+}
 </style>
 
 @stop
@@ -22,6 +21,8 @@ height: 40px;
 @section('content')
 <!-- Content START -->
 <div id="content">
+
+    @if(Auth::check())
     <div class="navbar hidden-print box main" role="navigation">
         <ul class="notifications pull-left hidden-xs">
             <li class="dropdown notif">
@@ -64,6 +65,7 @@ height: 40px;
                 <ul class="dropdown-menu">
                     <li><a href="">Messages</a></li>
                     <li><a href="{{ action('UsersController@edit', Auth::user()->id) }} ">Edit Profile</a></li>
+                    <li><a href="{{ action('UsersController@edit', Auth::user()->id)}} ">Edit Profile</a></li>
                     <li><a href="{{ action('HomeController@logout') }}">Logout</a></li>
                 </ul>
             </div>
@@ -77,6 +79,10 @@ height: 40px;
                 </div>
             </div>
         </div>
+    </div>
+    @endif
+
+>>>>>>> master
     <div class="layout-app">  
         <div class="innerLR">
         <h2 class="margin-none">Profile &nbsp;<i class="fa fa-fw fa-pencil text-muted"></i></h2>
