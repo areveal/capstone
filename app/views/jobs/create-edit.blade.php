@@ -269,13 +269,6 @@
 			
 <div class="navbar hidden-print navbar-default box main" role="navigation">
 
-	<div class="user-action user-action-btn-navbar pull-right border-left">
-		<a href="#menu-right" class="btn btn-sm btn-navbar btn-open-right"><i class="fa fa-comments fa-2x"></i></a>
-	</div>
-	<div class="user-action user-action-btn-navbar pull-left">
-		<a href="#menu" class="btn btn-sm btn-navbar btn-open-left"><i class="fa fa-bars fa-2x"></i></a>
-	</div>
-
 	<ul class="notifications pull-left hidden-xs">
 		<li class="dropdown notif">
 			<a href="" class="dropdown-toggle"  data-toggle="dropdown"><i class="notif-block icon-envelope-1"></i><span class="fa fa-star"></span></a>
@@ -345,7 +338,7 @@
 			<!-- col-table -->
 			<div class="col-table">
 				
-				<h4 class="innerAll margin-none border-bottom text-center bg-primary"><i class="fa fa-pencil"></i> Build a Profile</h4>
+				<h4 class="innerAll margin-none border-bottom text-center bg-primary"></i> Build a Profile</h4>
 
 				<!-- col-table-row -->
 				<div class="col-table-row">
@@ -358,7 +351,7 @@
 
 							<div class="login">
 								
-								<div class="placeholder text-center"><i class="fa fa-pencil"></i></div>
+								<div class="placeholder text-center"><i class="fa fa-user"></i></div>
 								
 								<div class="panel panel-default col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
 
@@ -371,7 +364,7 @@
 									    		<label for="job_title">What is your current position?</label>
 									    		<!-- below is for when a user has had more than one job
 									    		<label for="jobs">Where else have you worked?</label> -->
-									    		<input name="job_title" type="text" class="form-control" id="job_title" placeholder="Your job title" value="">
+									    		<input name="job_title" type="text" class="form-control" id="job_title" placeholder="Job title" value="">
 									  		</div>
 									  		<div class="form-group">
 									    		<label for="company">Company</label>
@@ -395,9 +388,10 @@
 									    		<label for="description">Job Description</label>
 									    		<input name="description" type="textarea" class="form-control" id="description" placeholder="Job description" value="">
 									  		</div>	
-									  		<button type="submit" class="btn btn-primary ">Save</button>
-									  		<button type="submit" class="btn btn-primary ">Skip</button>
-									  		<a href="#">No more jobs</a>
+									  		
+									  		{{link_to_action('JobsController@create','Save', 'null', array('class' => 'btn btn-default' ))}}
+									  		{{link_to_action('SchoolsController@create','Skip', 'null', array('class' => 'btn btn-default'))}}
+									  		{{link_to_action('SchoolsController@create','No more jobs', 'null', array('class' => 'a'))}}
 									  		</p>
 										{{Form::close()}}
 							  		</div>
@@ -425,9 +419,6 @@
 
 </div>
 <!-- // END first sign up screen-->
-
-
-	
 
 	<!-- Global -->
 	<script data-id="App.Config">
