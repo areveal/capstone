@@ -35,11 +35,16 @@
       </button>
      
         {{ Form::open(['action' => 'HomeController@doLogin', 'class' => 'form-signin']) }}  
+            
             <div style="float: right">
+                
                 <input  style="width: 180px" type="text" placeholder="Username" name="email">
                 <input  style="width: 180px" type="password" placeholder="Enter Password" name="password">
                 <button type="submit" class="btn btn-primary">Sign In<i class='fa fa-fw fa-unlock-alt'></i></button>
-            </div>
+            </div><br>
+            
+            <h6><a style="float: right; padding-right: 136px; color: grey" href="{{ action('RemindersController@getRemind') }}" class="btn margin-none" style="color: grey">Forgot password?</a></h6>
+            
         {{ Form::close() }} 
         <!-- <div style="float: right">   
             {{link_to_action('HomeController@showLogin', 'Login', null, array('class' => 'btn btn-default btn-sm'))}}
@@ -60,7 +65,6 @@
             <div class="row">
 
                 <div class="home-copy  col-xs-12 col-sm-8 col-sm-offset-2 animated fadeInDown delay-2 ">
-<<<<<<< HEAD
                     <br><h1 class="demo1"><br><!-- <button type="submit" class="btn btn-signup"><i >IN</strong></i> --></button> 
                     	 
                     <h3 class="text-white innerB text-center">The professional network for women and minorities.</h3>
@@ -77,35 +81,23 @@
                                 <div class="lock-container">
                                     <div class="innerAll text-center">
                                         <img src="../assets//images/people/100/6.jpg" class="img-circle"/><img src="../assets//images/people/100/1.jpg" class="img-circle"/><img src="../assets//images/people/100/10.jpg" class="img-circle"/><img src="../assets//images/people/100/23.jpg" class="img-circle"/>
-                                        {{ Form::open(['action' => 'HomeController@doLogin', 'class' => 'form-signin']) }}  
+                                        {{ Form::open(['action' => 'UsersController@create', 'class' => 'form-signin']) }}  
                                             <div class="innerLR">
 
                                                 <input class="form-control text-center bg-gray" type="text" placeholder="Email" name="email">
                                                 <input class="form-control text-center bg-gray" type="password" placeholder="Enter Password" name="password">
                                             </div>
                                             <div class="innerT">
-                                                <button type="submit" class="btn btn-primary">Join Now <i class='fa fa-fw fa-unlock-alt'></i></button>
+                                                {{link_to_action('UsersController@create','Join Now', null, array('class' => 'btn btn-default btn-lg'))}}
                                             </div>
                                         {{ Form::close() }}
-                                            <a href="{{ action('RemindersController@getRemind') }}" class="btn margin-none">Build a profile in under 2 minutes.</a>
+                                            <p class="btn margin-none">Build a profile in under 2 minutes.</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>  
-=======
-                    <br><h1 class="demo1">MPM<br><!-- <button type="submit" class="btn btn-signup"><i >IN</strong></i> --></button> 
-
-                    	 <!-- <span class="rotate"> Meet, Connect, Share, Jobs,</span> </h1> -->
-                    <p>Minority Professionals Meet</p>
-                    <p><strong>Sign up. Its free.</strong> <br><br>
-                    <span>    
-                   	{{link_to_action('UsersController@create','Join Today', null, array('class' => 'btn btn-default btn-lg'))}}
-                    <br></span>
-                	</p>
-                </div>
->>>>>>> master
             </div>
         </div>
     </div>
