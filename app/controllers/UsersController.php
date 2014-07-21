@@ -125,10 +125,15 @@ class UsersController extends \BaseController {
 			Session::flash('errorMessage','You must be logged in to edit users.');
 			return Redirect::action('UsersController@index');			
 		}
-		else
+		elseif(Auth::user()->id == $id)
 		{
 			$user = User::find($id);
 			return View::make('users.create-edit')->with('user', $user);
+		}
+		else
+		{
+			Session::flash('errorMessage','You do not have authorization to edit this user.');
+			return Redirect::action('UsersController@index');			
 		}
 	}
 
