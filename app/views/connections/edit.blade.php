@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('topscript')
-	<title>Diversity Connect</title>
+	<title>{{ $user->first_name }}'s  Connections</title>
 @stop
 
 

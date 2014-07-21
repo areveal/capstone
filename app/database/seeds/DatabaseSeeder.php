@@ -37,8 +37,8 @@ class UserTableSeeder extends Seeder {
 		  $user->email = $faker->email;
 		  $user->password = Hash::make('password');
 		  $user->img_path = '/img-upload/user.jpg';
-		  $user->country = $faker->country;
-		  $user->zip = $faker->postcode;
+		  $user->city = $faker->city;
+		  $user->state = $faker->stateAbbr;
 		  $user->status = 'Job Seeker';
 		  $user->save();
 		}
