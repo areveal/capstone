@@ -79,38 +79,38 @@
 
 								  	<div class="panel-body">
 								  		
-								  		{{Form::open(array('action' => 'JobsController@store', 'class' => 'form-signin', 'role' => 'form'))}}
+								  		{{Form::open(array('action' => array('JobsController@update',Auth::user()->id), 'method' => 'PUT', 'class' => 'form-signin', 'role' => 'form'))}}
 								  		<!--<form role="form" action="index.html?lang=en"> -->
 									  		<div class="form-group">
 									    		<label for="job_title">What is the title of the position?</label>
 									    		<!-- below is for when a user has had more than one job
 									    		<label for="jobs">Where else have you worked?</label> -->
-									    		<input name="job_title" type="text" class="form-control" id="job_title" placeholder="Job title" value="">
+									    		<input name="job_title" type="text" class="form-control" id="job_title" placeholder="Job title" value="{{{ Input::old('job_title') }}}">
 									  		</div>
 									  		<div class="form-group">
 									    		<label for="company">Company</label>
-									    		<input name="company" type="text" class="form-control" id="company" placeholder="Company name" value="">
+									    		<input name="company" type="text" class="form-control" id="company" placeholder="Company name" value="{{{ Input::old('company') }}}">
 									  		</div>
 									  		<p class="muted"><strong>When did you start?</strong></p>
 									  		<div class="form-group">
 									  			<div class="col-md-9">
-											<input name="start_date" input type="date" id="start_date" class="col-md-6 form-control" value=""/>
+											<input name="start_date" input type="date" id="start_date" class="col-md-6 form-control" value="{{{ Input::old('start_date') }}}"/>
 											<div class="separator"></div>
 											</div><br><br><br>
 											<p>
 											<p class="muted"><strong>When did you end working here?</strong></p>
 									  		<div class="form-group">
 									  			<div class="col-md-9">
-											<input name="end_date"input type="date" id="end_date" class="col-md-6 form-control" value=""/>
+											<input name="end_date"input type="date" id="end_date" class="col-md-6 form-control" value="{{{ Input::old('end_date') }}}"/>
 											<div class="separator"></div>
 											</div><br><br><br>
 											<p>
 											<div class="form-group">
 									    		<label for="description">Job Description</label>
-									    		<input name="description" type="textarea" class="form-control" id="description" placeholder="Job description" value="">
+									    		<textarea name="description" class="form-control" id="description" rows="7" placeholder="Job description">{{{ Input::old('description') }}}</textarea>
 									  		</div>	
 									  		
-									  		{{link_to_action('JobsController@create','Save', 'null', array('class' => 'btn btn-default' ))}}
+									  		<button type="submit" class="btn btn-primary">Add Experience</button>
 									  		</p>
 										{{Form::close()}}
 							  		</div>

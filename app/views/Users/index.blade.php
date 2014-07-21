@@ -35,7 +35,7 @@
 					<h4>{{ Auth::user()->id }} {{ Auth::user()->first_name . ' ' . Auth::user()->last_name }}</a> <a href="" class="text-muted"></h4>
 					<div class="clearfix"></div>
 					<a href="{{ action('UsersController@show', Auth::user()->id) }}" class="btn btn-info btn-sm">
-						<i class="icon-turn-right"></i> Home
+						<i class="icon-turn-right"></i> Profile
 					</a>
 				</div>
 			</div>
@@ -101,9 +101,9 @@
 		
 </div>
 
-@if(!empty($_GET['search']))
+@if(!empty($_GET['search']) && (count($users)>0))
 	{{ $users->appends(['search' => $_GET['search']])->links() }}
-@else 
+@elseif((count($users)>0)) 
 	{{ $users->links() }}
 @endif
 
@@ -129,24 +129,28 @@
 	<div class="widget-body padding-none">
 		<ul class="list-group list-group-1 borders-none margin-none">
 			<li class="list-group-item"><div class="input-group innerB">
-			 	<input type="text" class="form-control " placeholder="Search by Skills">
-				<div class="input-group-btn"><button class="btn btn-default" type="button"><i class="fa fa-search"></i></button></div>
-				</div>
+		  		{{ Form::open(array('action' => 'UsersController@index', 'method' => 'GET')) }}
+			  		<div class="col-md-18 col-lg-10">
+			    		<label for="skill">Search by Skill</label>
+			    		<select name="skill" class="form-control" id="skill">
+			    			@foreach($skills as $skill)
+			    				<option value="{{{ $skill->id }}}">{{{ $skill->skill }}}</option>
+			    			@endforeach
+			    		</select>
+			  		</div>
+			  		<div class="input-group-btn"><button style="margin-left:13px" class="btn btn-default" type="submit"><i class="fa fa-search"></i></button></div>
+				{{ Form::close() }}
 			</li>
 			<li class="list-group-item"><div class="input-group innerB">
-			 	<input type="text" class="form-control " placeholder="Search by Association">
-				<div class="input-group-btn"><button class="btn btn-default" type="button"><i class="fa fa-search"></i></button></div>
-				</div>
-			</li>
-			<li class="list-group-item"><div class="input-group innerB">
-				<div class="col-md-18 col-lg-9">
-				 	<input type="text" name ="city" class="form-control " placeholder="City" required>
-				</div>
-				<div class="col-md-6 col-lg-3">
-				 	<input type="text" name="state" class="form-control " placeholder="St" required>
-				</div>				
-				<div class="input-group-btn"><button class="btn btn-default" type="button"><i class="fa fa-search"></i></button></div>
-				</div>
+		  		{{ Form::open(array('action' => 'UsersController@index', 'method' => 'GET')) }}
+					<div class="col-md-18 col-lg-6">
+					 	<input type="text" name ="city" class="form-control " placeholder="City" required>
+					</div>
+					<div class="col-md-18 col-lg-4">
+						<select name="state" class="form-control" required> <option value="" selected="selected">State</option> <option value="AL">Alabama</option> <option value="AK">Alaska</option> <option value="AZ">Arizona</option> <option value="AR">Arkansas</option> <option value="CA">California</option> <option value="CO">Colorado</option> <option value="CT">Connecticut</option> <option value="DE">Delaware</option> <option value="DC">District Of Columbia</option> <option value="FL">Florida</option> <option value="GA">Georgia</option> <option value="HI">Hawaii</option> <option value="ID">Idaho</option> <option value="IL">Illinois</option> <option value="IN">Indiana</option> <option value="IA">Iowa</option> <option value="KS">Kansas</option> <option value="KY">Kentucky</option> <option value="LA">Louisiana</option> <option value="ME">Maine</option> <option value="MD">Maryland</option> <option value="MA">Massachusetts</option> <option value="MI">Michigan</option> <option value="MN">Minnesota</option> <option value="MS">Mississippi</option> <option value="MO">Missouri</option> <option value="MT">Montana</option> <option value="NE">Nebraska</option> <option value="NV">Nevada</option> <option value="NH">New Hampshire</option> <option value="NJ">New Jersey</option> <option value="NM">New Mexico</option> <option value="NY">New York</option> <option value="NC">North Carolina</option> <option value="ND">North Dakota</option> <option value="OH">Ohio</option> <option value="OK">Oklahoma</option> <option value="OR">Oregon</option> <option value="PA">Pennsylvania</option> <option value="RI">Rhode Island</option> <option value="SC">South Carolina</option> <option value="SD">South Dakota</option> <option value="TN">Tennessee</option> <option value="TX">Texas</option> <option value="UT">Utah</option> <option value="VT">Vermont</option> <option value="VA">Virginia</option> <option value="WA">Washington</option> <option value="WV">West Virginia</option> <option value="WI">Wisconsin</option> <option value="WY">Wyoming</option> </select>			
+					</div>					
+					<div class="input-group-btn"><button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button></div>
+				{{ Form::close() }}
 			</li>
 		</ul>
 	</div>
