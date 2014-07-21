@@ -6,6 +6,10 @@
 			position: relative;
 			z-index: 0;
 		}
+
+		.back {
+			background: #3498db;
+		}
 	</style>
 @stop						
 		
