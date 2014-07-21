@@ -130,7 +130,25 @@
 							  		</div>
 								
 								</div>
-								<div class="clearfix"></div>					
+								<div class="panel panel-default col-md-3 col-md-offset-0 col-sm-6 col-sm-offset-3">
+									<div class="panel-body">
+										<table class="table table-hover" align= "center">
+									    		<th><h4>Your Schools</h4></th>
+									    			@foreach($schools as $school)
+									    					<tr>
+									    						<td style="vertical-align: middle">
+									    						{{ Form::model($schools, array('action' => array('SchoolsController@destroy', $school->id), 'method' => 'DELETE')) }}
+									    							{{{$school->college }}}
+									    						</td>
+									    						<td style="vertical-align: middle">
+									    							<button type="submit" class="glyphicon glyphicon-ban-circle">Remove</button>
+									    						{{ Form::close() }}
+									    						</td>
+									    					</tr>
+									    			@endforeach		
+									    				<table>
+									  		</div>
+									  	</div>						
 
 							</div>
 							
@@ -148,7 +166,7 @@
 			
 		</div>
 		<!-- // END col-separator.box -->
-
+		
 
 </div>
 <!-- // END first sign up screen-->

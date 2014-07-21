@@ -73,7 +73,10 @@ class SchoolsController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		$school = School::findOrFail($id);
+		$school->delete();
+		Session::flash('successMessage', 'School deleted successfully.');
+		return Redirect::action('SchoolsController@edit', Auth::user()->id);
 	}
 
 

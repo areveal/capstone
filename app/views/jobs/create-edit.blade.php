@@ -112,7 +112,7 @@
 									  		</div>	
 
 									  		<button type="submit" class="btn btn-default">Save</button>
-									  		<a href="/users">view in profile</a>
+									  		<a href="{{ action('UsersController@show', Auth::user()->id)}}">view in profile</a>
 
 									  		</p>
 										{{Form::close()}}
@@ -136,50 +136,33 @@
 			
 		</div>
 		<!-- // END col-separator.box -->
-								<div class="panel panel-default col-md-3 col-md-offset-8">
-									    		<center><h4>Your Positions</h4></center>
-									    		<ul class="list-unstyled">
-
-									    			@foreach($jobs as $job)
-									    				<center>
-									    					<li>
-									    						{{ Form::model($jobs, array('action' => array('JobsController@destroy', $job->id), 'method' => 'DELETE')) }}
-									    							{{{$job->job_title . ' , ' . $job->company }}}
-
-									    							<button type="submit" class="glyphicon glyphicon-ban-circle">Remove</button>
-									    						{{ Form::close() }}
-									    					</li>
-									    				</center>
-									    			@endforeach
-									    		</ul>
+								<div style="margin-left: 20px" class="panel panel-default col-md-3 col-md-offset-0 col-sm-6 col-sm-offset-3">
+									<div class="panel-body">
+										<table class="table table-hover" align= "center">
+								    		<h4>Your Positions</h4>
+								    		
+								    			@foreach($jobs as $job)
+							    					<tr>
+							    						<td style="vertical-align: middle">
+							    						{{ Form::model($jobs, array('action' => array('JobsController@destroy', $job->id), 'method' => 'DELETE')) }}
+							    							<strong>{{{$job->job_title}}}</strong><br>
+							    							{{{$job->company }}}
+							    						</td>
+							    						<td style="vertical-align: middle">
+							    							<button type="submit" class="glyphicon glyphicon-ban-circle">Remove</button>
+							    						{{ Form::close() }}
+							    						</td>
+							    					</tr>
+								    			@endforeach		
+								    				<table>
 									  		</div>
-
+									  	</div>	
 </div>
 
 
 <!-- // END first sign up screen-->
 
-<div class="panel panel-default col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
 
-								  	<div class="panel-body">
-								  		  		<center><h4>Your Positions</h4></center>
-									    		<ul class="list-unstyled">
-
-									    			@foreach($jobs as $job)
-									    				<center>
-									    					<li>
-									    						{{ Form::model($jobs, array('action' => array('JobsController@destroy', $job->id), 'method' => 'DELETE')) }}
-									    							{{{$job->job_title . ' , ' . $job->company. ' , ' . $job->start_date . ' , ' . $job->description}}}
-
-									    							<button type="submit" class="glyphicon glyphicon-ban-circle">Remove</button>
-									    						{{ Form::close() }}
-									    					</li>
-									    				</center>
-									    			@endforeach
-									    		</ul>
-									  		</div>
-								  		
-								</div>
 
 	<!-- Global -->
 	<script data-id="App.Config">
