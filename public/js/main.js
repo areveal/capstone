@@ -21,7 +21,7 @@ $(document).ready(function(){
     if(Modernizr.touch){
         BV.show("img/working-coffee-shop.jpg");
     }else{
-        BV.show("video/diverse.mp4",{
+        BV.show("video/timelapse.mp4",{
             ambient: true,
             doLoop: true,
             altSource: "video/diverse.mp4"

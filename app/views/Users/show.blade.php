@@ -103,9 +103,10 @@
                                         <div class="media-body innerL half">
                                             <h4 class="margin-none">{{{ $user->first_name . ' ' . $user->last_name }}}</h4>
                                             <p class="strong"> </p>
-                                            <div class="bg-gray innerAll ">
-                                                <h5 class="innerB half border-bottom text-muted margin-none"><i class="fa fa-fw icon-briefcase-2"></i>{{{ $user->status }}}</h5>
-                                            </div>
+
+                                        <div class="bg-gray innerAll ">
+                                            <h5 class="innerB half border-bottom text-muted margin-none"><i class="fa fa-fw icon-briefcase-2"></i>{{ $most_recent->job_title }}</h5>
+
                                         </div>
                                     </div>
                                 </div>
