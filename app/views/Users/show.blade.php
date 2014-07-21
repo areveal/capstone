@@ -8,7 +8,10 @@
     height: 40px;
 }
 .navbar{
-    background: #25ad9f;
+    background: #3498db;
+}
+.search {
+    margin-top:15px;
 }
 </style>
 
@@ -71,9 +74,10 @@
         </div>
         <div class="container">
             <div class+"col-md-6">
-                <div class="input-append">
+                <div class="input-append search">
+                    {{ Form::(['action' => ['UsersController@index'], 'method' => 'GET']) }}
                     <input id="appendedInputButton" class="span6" type="text" placeholder="Search...">
-                    <!-- <button class="btn" type="button"><i class="icon-search"></i></button> -->
+<!-- search function will be going to index blade -->
                     <a class="glyphicon glyphicon-search btn btn-primary btn-xs" pull-right>Search</a>
                 </div>
             <!-- <div class="input-group col-md-4">
@@ -232,7 +236,7 @@
                 <div class="widget-head height-auto">
                     <div class="media innerAll">
                         <a href="" class="pull-right"><i class="fa icon-comment-fill-2"></i></a>
-                        <a href="" class="pull-left"><img src="/assets/images/people/50/8.jpg" alt="" class="img-circle"></a>
+                        <a href="" class="pull-left"></a>
                             <div class="media-body">
                                 <h4>Education</h4>
                     <!-- p class="margin-none">School</p> -->
