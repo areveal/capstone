@@ -64,7 +64,6 @@
                 </span>
                 <ul class="dropdown-menu">
                     <li><a href="">Messages</a></li>
-                    <li><a href="{{ action('UsersController@edit', Auth::user()->id) }} ">Edit Profile</a></li>
                     <li><a href="{{ action('UsersController@edit', Auth::user()->id)}} ">Edit Profile</a></li>
                     <li><a href="{{ action('HomeController@logout') }}">Logout</a></li>
                 </ul>
@@ -79,10 +78,8 @@
                 </div>
             </div>
         </div>
-    </div>
     @endif
 
->>>>>>> master
     <div class="layout-app">  
         <div class="innerLR">
         <h2 class="margin-none">Profile &nbsp;<i class="fa fa-fw fa-pencil text-muted"></i></h2>
