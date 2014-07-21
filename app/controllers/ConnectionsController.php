@@ -3,51 +3,6 @@
 class ConnectionsController extends \BaseController {
 
 	/**
-	 * Display a listing of the resource.
-	 *
-	 * @return Response
-	 */
-	public function index()
-	{
-		return View::make('connections.list');
-	}
-
-
-	/**
-	 * Show the form for creating a new resource.
-	 *
-	 * @return Response
-	 */
-	public function create()
-	{
-		
-	}
-
-
-	/**
-	 * Store a newly created resource in storage.
-	 *
-	 * @return Response
-	 */
-	public function store()
-	{
-		//
-	}
-
-
-	/**
-	 * Display the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function show($id)
-	{
-		
-	}
-
-
-	/**
 	 * Show the form for editing the specified resource.
 	 *
 	 * @param  int  $id
@@ -55,7 +10,17 @@ class ConnectionsController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		$connections = DB::table('connections')->where('user_id', '=', $id)->lists('connection_id');
+		if(count($connections) > 0)
+		{
+			$connections = User::whereIn('id', $connections)->get();
+		}
+		else
+		{
+			$connections = [];
+		}
+		$user = User::findOrFail($id);
+		return View::make('connections.edit')->with('user' , $user)->with('connections', $connections);
 	}
 
 
@@ -82,10 +47,6 @@ class ConnectionsController extends \BaseController {
 		//
 	}
 
-	public function showConnections()
-	{
-		
-	}
 
 
 }
