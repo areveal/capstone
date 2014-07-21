@@ -79,7 +79,7 @@
 
 								  	<div class="panel-body">
 								  		
-								  		{{Form::open(array('action' => 'JobsController@store', 'class' => 'form-signin', 'role' => 'form'))}}
+								  		{{Form::open(array('action' => 'JobsController@update', 'class' => 'form-signin', 'role' => 'form', 'method' => 'PUT'))}}
 								  		<!--<form role="form" action="index.html?lang=en"> -->
 									  		<div class="form-group">
 									    		<label for="job_title">What is the title of the position?</label>
@@ -110,11 +110,11 @@
 									    		<input name="description" type="textarea" class="form-control" id="description" placeholder="Job description" value="">
 									  		</div>	
 									  		
-									  		{{link_to_action('JobsController@create','Save', 'null', array('class' => 'btn btn-default' ))}}
+									  		<button type="submit" class="btn btn-default">Save</button>
+									  		<a href="/users">view in profile</a>
 									  		</p>
 										{{Form::close()}}
 							  		</div>
-								
 								</div>
 								<div class="clearfix"></div>					
 
@@ -134,10 +134,50 @@
 			
 		</div>
 		<!-- // END col-separator.box -->
+								<div class="panel panel-default col-md-3 col-md-offset-8">
+									    		<center><h4>Your Positions</h4></center>
+									    		<ul class="list-unstyled">
 
+									    			@foreach($jobs as $job)
+									    				<center>
+									    					<li>
+									    						{{ Form::model($jobs, array('action' => array('JobsController@destroy', $job->id), 'method' => 'DELETE')) }}
+									    							{{{$job->job_title . ' , ' . $job->company }}}
+
+									    							<button type="submit" class="glyphicon glyphicon-ban-circle">Remove</button>
+									    						{{ Form::close() }}
+									    					</li>
+									    				</center>
+									    			@endforeach
+									    		</ul>
+									  		</div>
 
 </div>
+
+
 <!-- // END first sign up screen-->
+
+<div class="panel panel-default col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
+
+								  	<div class="panel-body">
+								  		  		<center><h4>Your Positions</h4></center>
+									    		<ul class="list-unstyled">
+
+									    			@foreach($jobs as $job)
+									    				<center>
+									    					<li>
+									    						{{ Form::model($jobs, array('action' => array('JobsController@destroy', $job->id), 'method' => 'DELETE')) }}
+									    							{{{$job->job_title . ' , ' . $job->company. ' , ' . $job->start_date . ' , ' . $job->description}}}
+
+									    							<button type="submit" class="glyphicon glyphicon-ban-circle">Remove</button>
+									    						{{ Form::close() }}
+									    					</li>
+									    				</center>
+									    			@endforeach
+									    		</ul>
+									  		</div>
+								  		
+								</div>
 
 	<!-- Global -->
 	<script data-id="App.Config">

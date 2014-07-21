@@ -37,10 +37,12 @@
         {{ Form::open(['action' => 'HomeController@doLogin', 'class' => 'form-signin']) }}  
             
             <div style="float: right">
+                <div class="innerAll text-center">
                 
-                <input  style="width: 180px" type="text" placeholder="Username" name="email">
-                <input  style="width: 180px" type="password" placeholder="Enter Password" name="password">
+                <input  style="width: 180px; color: black;" type="text" placeholder="Username" name="email">
+                <input  style="width: 180px; color: black;" type="password" placeholder="Enter Password" name="password">
                 <button type="submit" class="btn btn-primary">Sign In<i class='fa fa-fw fa-unlock-alt'></i></button>
+                </div>
             </div><br>
             
             <h6><a style="float: right; padding-right: 136px; color: grey" href="{{ action('RemindersController@getRemind') }}" class="btn margin-none" style="color: grey">Forgot password?</a></h6>
@@ -82,7 +84,7 @@
                                     <div class="innerAll text-center">
                                         <img src="../assets//images/people/100/6.jpg" class="img-circle"/><img src="../assets//images/people/100/1.jpg" class="img-circle"/><img src="../assets//images/people/100/10.jpg" class="img-circle"/><img src="../assets//images/people/100/23.jpg" class="img-circle"/>
                                         {{ Form::open(['action' => 'UsersController@create', 'class' => 'form-signin']) }}  
-                                            <div class="innerLR">
+                                            <div class="innerLR" style="width: 400px">
 
                                                 <input class="form-control text-center bg-gray" type="text" placeholder="Email" name="email">
                                                 <input class="form-control text-center bg-gray" type="password" placeholder="Enter Password" name="password">
