@@ -186,8 +186,8 @@ class UsersController extends \BaseController {
 			$user->first_name = Input::get('first_name');
 			$user->last_name = Input::get('last_name');		
 			$user->email = Input::get('email');	
-			$user->country = Input::get('country');
-			$user->zip = Input::get('zip');
+			$user->city = Input::get('city');
+			$user->state = Input::get('state');
 			$user->status = Input::get('status');
 			$password = Input::get('password');
 			$confirmPassword = Input::get('confirmPassword');
