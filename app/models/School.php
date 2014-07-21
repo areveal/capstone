@@ -7,6 +7,11 @@ class School extends BaseModel {
 
     // Validation rules for our model properties
     static public $rules = [
+    	'college' => 'required|max:100',
+    	'date_began' => 'required',
+    	'date_complete' => 'required',
+    	'major' => 'required|max:100',
+    	'gpa' => 'required|max:6',
     ];
 
     public function user() 

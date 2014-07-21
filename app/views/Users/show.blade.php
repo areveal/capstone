@@ -69,11 +69,19 @@
                 </ul>
             </div>
         </div>
-        <div class="input-group col-md-4">
-            <span class="input-group-addon"><i class="icon-search"></i></span>
-            <input type="text" class="form-control" placeholder="Search Inclusion Users"/>
+        <div class="container">
+            <div class+"col-md-6">
+                <div class="input-append">
+                    <input id="appendedInputButton" class="span6" type="text" placeholder="Search...">
+                    <!-- <button class="btn" type="button"><i class="icon-search"></i></button> -->
+                    <a class="glyphicon glyphicon-search btn btn-primary btn-xs" pull-right>Search</a>
+                </div>
+            <!-- <div class="input-group col-md-4">
+                <input type="text" class="form-control" placeholder="Search Inclusion Users">
+                    <div class="col-md-8">
+                        <a class="glyphicon glyphicon-search btn btn-primary btn-xs" pull-right>Search</a> -->
+             </div>
         </div>
-    </div>
     @endif
 
     <div class="layout-app">  
@@ -111,7 +119,7 @@
                                     </li>
                                 </ul>
                                 @endforeach
-                                <a href="" class="btn btn-primary btn-xs">Edit</a>
+                                <a href="{{ action('SkillsController@edit') }}" class="btn btn-primary btn-xs">Edit</a>
                             </div>
                         </div>
                     </div>
@@ -122,7 +130,7 @@
                             <h4 class=" heading glyphicon glyphicon-briefcase"><i> </i>Jobs</h4>
                         </div>
                     <div class="widget-body inner-2x">
-                       @if(count($user->jobs) > 0)
+                        @if(count($user->jobs) > 0)
                         @foreach($user->jobs as $job)
                             <ul class="fa-ul">  
                                 <li> 
@@ -147,12 +155,12 @@
             <div class="col-md-3 "> 
         <div class="widget">
             <div class="widget-body text-center">
-<!--                     <a href=""><img src="../assets/images/people/250/22.jpg" width="120" alt="" class="img-circle"></a>
+<!--                     <a href=""><img src="/assets/images/people/250/22.jpg" width="120" alt="" class="img-circle"></a>
 -->                    <h2 class="strong margin-none">Connections</h2>
                 <div class="innerB"></div>
 <!--                     <a href="" class="btn btn-primary text-center btn-block">PRO Account</a>
 -->                    <div class="btn-group-vertical btn-block">
-                            <a href="" class="btn btn-primary btn-xs pull-right">Edit</a>
+                            <a href="{{ action('ConnectionsController@edit') }}" class="btn btn-primary btn-xs pull-right">Edit</a>
 <!--                         <a href="" class="btn btn-default"><i class="fa fa-cog pull-right"></i>Edit Account</a>
 --><!--                         <a href="" class="btn btn-default"><i class="fa fa-cog pull-right"></i>Logout</a>
 -->                    </div>
@@ -163,7 +171,7 @@
                 <h5 class="innerAll margin-none border-bottom bg-gray">Your Network</h5>
                 <div class="widget-body padding-none">
                     <div class="media border-bottom innerAll margin-none">
-                        <img src="../assets/images/people/35/22.jpg" class="pull-left media-object"/>
+                        <img src="/assets/images/people/35/22.jpg" class="pull-left media-object"/>
                         <div class="media-body">
                             <a href="" class="pull-right text-muted innerT half">
                                 <i class="fa fa-comments"></i> 4
@@ -219,34 +227,35 @@
         </div>
         <!-- //End Col -->
         <div class="col-md-9">
-        <!-- Widget -->
-        <div class="widget widget-body-white padding-none">
-            <div class="widget-head height-auto">
-                <div class="media innerAll">
-                    <a href="" class="pull-right"><i class="fa icon-comment-fill-2"></i></a>
-                    <a href="" class="pull-left"><img src="/assets/images/people/50/8.jpg" alt="" class="img-circle"></a>
-                        <div class="media-body">
-                            <h4>Education</h4>
-                <!-- p class="margin-none">School</p> -->
-                        </div>
+            <!-- Widget -->
+            <div class="widget widget-body-white padding-none">
+                <div class="widget-head height-auto">
+                    <div class="media innerAll">
+                        <a href="" class="pull-right"><i class="fa icon-comment-fill-2"></i></a>
+                        <a href="" class="pull-left"><img src="/assets/images/people/50/8.jpg" alt="" class="img-circle"></a>
+                            <div class="media-body">
+                                <h4>Education</h4>
+                    <!-- p class="margin-none">School</p> -->
+                            </div>
                     </div>
                 </div>
-                @if(count($user->schools) >0)
-                @foreach($user->schools as $school)
-                <ul class="list-unstyled">
-                    <li> 
-                        {{{ $school->college }}} 
-                    </li>
-                    <li>
-                        {{{ $school->date_began . ' ' . $school->date_complete }}}
-                    </li>
-                    <li>
-                        {{{ $school->major }}}
-                    </li>
-                    <a href="" class="btn btn-primary btn-xs pull-left">Edit</a>
-                @endforeach
-                @endif
-                </ul>
+                    @if(count($user->schools) >0)
+                    @foreach($user->schools as $school)
+                    <ul class="list-unstyled">
+                        <li> 
+                            {{{ $school->college }}} 
+                        </li>
+                        <li>
+                            {{{ $school->date_began . ' ' . $school->date_complete }}}
+                        </li>
+                        <li>
+                            {{{ $school->major }}}
+                        </li>
+                        
+                    @endforeach
+                        <a href="{{ action('SchoolsController@create') }}" class="btn btn-primary btn-xs pull-left">Edit</a>
+                    @endif
+                    </ul>
             </div>
             <!-- //end Widget -->
         </div><!-- /.col-md-9 -->
