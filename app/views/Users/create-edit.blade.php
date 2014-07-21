@@ -41,6 +41,7 @@
 	            </div>
 	        </div>
 	    </div>
+
     @endif
 	
 	<!-- Main Container Fluid -->
