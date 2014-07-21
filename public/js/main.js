@@ -19,12 +19,12 @@ $(document).ready(function(){
     BV.init();
 
     if(Modernizr.touch){
-        BV.show("img/background.jpg");
+        BV.show("img/background1.jpg");
     }else{
-        BV.show("video/surf.mp4",{
+        BV.show("video/diverse.mp4",{
             ambient: true,
             doLoop: true,
-            altSource: "video/surf.ogv"
+            altSource: "video/diverse.mp4"
         });
     }
 

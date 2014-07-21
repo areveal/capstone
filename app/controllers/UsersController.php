@@ -42,7 +42,32 @@ class UsersController extends \BaseController {
 		}
 		else 
 		{
-			$users = User::orderBy('last_name','asc')->paginate(20);
+			if(Input::has('first_name') || Input::has('last_name'))
+			{
+				$first = Input::get('first_name');
+				$last = Input::get('last_name');
+				$users = User::where('first_name','LIKE', "%{$first}%")->where('last_name','LIKE', "%{$last}%")->orderBy('last_name','asc')->paginate(20);
+			}
+			elseif(Input::has('skills'))
+			{
+				$skills = Input::get('skills');
+				$users = User::where('first_name','LIKE', "%{$first}%")->orderBy('last_name','asc')->paginate(20);
+			}
+			elseif(Input::has('associations'))
+			{
+				$associations = Input::get('associations');
+				$users = User::where('first_name','LIKE', "%{$first}%")->orderBy('last_name','asc')->paginate(20);
+			}
+			elseif(Input::has('city') && Input::has('state'))
+			{
+				$city = Input::get('city');
+				$state = Input::get('state');
+				$users = User::where('first_name','LIKE', "%{$first}%")->orderBy('last_name','asc')->paginate(20);
+			}		
+			else 
+			{
+				$users = User::orderBy('last_name','asc')->paginate(20);
+			}
 		}
 		
 		return View::make('users.index')->with('users',$users);
@@ -95,8 +120,16 @@ class UsersController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		$user = User::find($id);
-		return View::make('users.create-edit')->with('user', $user);
+		if(Auth::guest()) 
+		{
+			Session::flash('errorMessage','You must be logged in to edit users.');
+			return Redirect::action('UsersController@index');			
+		}
+		else
+		{
+			$user = User::find($id);
+			return View::make('users.create-edit')->with('user', $user);
+		}
 	}
 
 

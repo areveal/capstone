@@ -65,7 +65,7 @@
 			<!-- col-table -->
 			<div class="col-table">
 				
-				<h4 class="innerAll margin-none border-bottom text-center bg-primary"><i class="fa fa-pencil"></i> Build a Profile</h4>
+				<h4 class="innerAll margin-none border-bottom text-center bg-primary"><i class="fa fa-pencil"></i> Edit Education</h4>
 
 				<!-- col-table-row -->
 				<div class="col-table-row">
@@ -83,44 +83,45 @@
 								<div class="panel panel-default col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
 
 								  	<div class="panel-body">
-								  		{{Form::open(array('action' => 'SchoolsController@store', 'class' => 'form-signin', 'role' => 'form'))}}
+								  		{{Form::open(array('action' => array('SchoolsController@update', Auth::user()->id),'class' => 'form-signin', 'role' => 'form','method' => 'PUT'))}}
 								  		<!--<form role="form" action="index.html?lang=en"> -->
 									  		<div class="form-group">
-									    		
-									  		</div>
-									  		<div class="form-group">
-									    		<label for="jobs">Where did you go to school (college, university, high school, etc.)?</label>
-									  			<!-- below is for when a user has had more than one job
-									    		<label for="jobs">What other schools have you attended?</label> -->
-									    		<input name="college" type="text" class="form-control" id="college" placeholder="School name">
+									    		<p class="muted"><strong>Where did you go to school (college, university, high school, etc.)?</strong></p>
+									    		{{ $errors->first('college', '<span style="color:red" class="help-block">:message</span>') }}
+									    		<input name="college" type="text" class="form-control" id="college" placeholder="School Name">
 									  		</div>
 									  		
 									  		<div class="form-group">
 									  			<p class="muted"><strong>When did you start?</strong></p>
 									  			<div class="col-md-9">
-											<input name="date_began" input type="date" id="date_began" class="col-md-6 form-control" value=""/>
-											<div class="separator"></div>
-											</div><br><br><br><br>
+									  				{{ $errors->first('date_began', '<span style="color:red" class="help-block">:message</span>') }}
+													<input name="date_began" input type="date" id="date_began" class="col-md-6 form-control" value=""/>
+												</div>
+											</div><br><br><br>
 											
 									  		<div class="form-group">
 									  			<p class="muted"><strong>When did you graduate?</strong></p>
 									  			<div class="col-md-9">
-											<input name="date_complete"input type="date" id="date_complete" class="col-md-6 form-control" value=""/>
-											<div class="separator"></div>
-											</div><br><br><br><br>
+									  				{{ $errors->first('date_complete', '<span style="color:red" class="help-block">:message</span>') }}
+													<input name="date_complete"input type="date" id="date_complete" class="col-md-6 form-control" value=""/>
+												</div>
+											</div><br><br><br>
 								
 											<div class="form-group">
 									  			<p class="muted"><strong>What type of degree?</strong></p>
 									  			<div class="col-md-9">
-											<input name="major" type="text" class="form-control" id="major" placeholder="Ex: B.S. Psychology">
-											<div class="separator"></div>
-											</div><br><br><br><br>
+									  				{{ $errors->first('major', '<span style="color:red" class="help-block">:message</span>') }}
+													<input name="major" type="text" class="form-control" id="major" placeholder="Ex: B.S. Psychology">
+												</div>
+											</div><br><br><br>
+
 											<div class="form-group">
 									  			<p class="muted"><strong>What was your GPA?</strong></p>
 									  			<div class="col-md-9">
-											<input name="gpa" type="number" class="form-control" id="gpa" placeholder="GPA">
-											<div class="separator"></div>
-											</div><br><br><br><br>
+									  				{{ $errors->first('gpa', '<span style="color:red" class="help-block">:message</span>') }}
+													<input name="gpa" type="number" class="form-control" id="gpa" placeholder="GPA">
+												</div>
+											</div><br><br><br>
 
 											<p>	
 									  		<button type="submit" class="btn btn-primary ">Add School</button>

@@ -10,8 +10,14 @@ class SkillsController extends \BaseController {
 	 */
 	public function edit($id)
 	{
+		if(Auth::guest())
+		{
+			Session::flash('errorMessage','You must be logged in to edit users.');
+			return Redirect::action('UsersController@index');
+		}
 		if(Auth::check())
 		{
+
 			if(Auth::user()->id == $id)	
 			{
 				$skills_owned = DB::table('skill_user')->where('user_id', '=', $id)->lists('skill_id');
@@ -31,11 +37,6 @@ class SkillsController extends \BaseController {
 				Session::flash('errorMessage','You do not have the necessary priveleges to edit this user.');
 				return Redirect::action('UsersController@index');
 			}
-		}
-		else
-		{
-			Session::flash('errorMessage','You must be logged in to edit users.');
-			return Redirect::action('UsersController@index');
 		}
 	}
 
