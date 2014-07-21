@@ -79,42 +79,47 @@
 
 								  	<div class="panel-body">
 								  		
-								  		{{Form::open(array('action' => 'JobsController@store', 'class' => 'form-signin', 'role' => 'form'))}}
+<<<<<<< HEAD
+								  		{{Form::open(array('action' => 'JobsController@update', 'class' => 'form-signin', 'role' => 'form', 'method' => 'PUT'))}}
+=======
+								  		{{Form::open(array('action' => array('JobsController@update',Auth::user()->id), 'method' => 'PUT', 'class' => 'form-signin', 'role' => 'form'))}}
+>>>>>>> 9c158085aa42dbf54b86e7b19d9e4975bb976329
 								  		<!--<form role="form" action="index.html?lang=en"> -->
 									  		<div class="form-group">
 									    		<label for="job_title">What is the title of the position?</label>
 									    		<!-- below is for when a user has had more than one job
 									    		<label for="jobs">Where else have you worked?</label> -->
-									    		<input name="job_title" type="text" class="form-control" id="job_title" placeholder="Job title" value="">
+									    		<input name="job_title" type="text" class="form-control" id="job_title" placeholder="Job title" value="{{{ Input::old('job_title') }}}">
 									  		</div>
 									  		<div class="form-group">
 									    		<label for="company">Company</label>
-									    		<input name="company" type="text" class="form-control" id="company" placeholder="Company name" value="">
+									    		<input name="company" type="text" class="form-control" id="company" placeholder="Company name" value="{{{ Input::old('company') }}}">
 									  		</div>
 									  		<p class="muted"><strong>When did you start?</strong></p>
 									  		<div class="form-group">
 									  			<div class="col-md-9">
-											<input name="start_date" input type="date" id="start_date" class="col-md-6 form-control" value=""/>
+											<input name="start_date" input type="date" id="start_date" class="col-md-6 form-control" value="{{{ Input::old('start_date') }}}"/>
 											<div class="separator"></div>
 											</div><br><br><br>
 											<p>
 											<p class="muted"><strong>When did you end working here?</strong></p>
 									  		<div class="form-group">
 									  			<div class="col-md-9">
-											<input name="end_date"input type="date" id="end_date" class="col-md-6 form-control" value=""/>
+											<input name="end_date"input type="date" id="end_date" class="col-md-6 form-control" value="{{{ Input::old('end_date') }}}"/>
 											<div class="separator"></div>
 											</div><br><br><br>
 											<p>
 											<div class="form-group">
 									    		<label for="description">Job Description</label>
-									    		<input name="description" type="textarea" class="form-control" id="description" placeholder="Job description" value="">
+									    		<textarea name="description" class="form-control" id="description" rows="7" placeholder="Job description">{{{ Input::old('description') }}}</textarea>
 									  		</div>	
-									  		
-									  		{{link_to_action('JobsController@create','Save', 'null', array('class' => 'btn btn-default' ))}}
+
+									  		<button type="submit" class="btn btn-default">Save</button>
+									  		<a href="/users">view in profile</a>
+
 									  		</p>
 										{{Form::close()}}
 							  		</div>
-								
 								</div>
 								<div class="clearfix"></div>					
 
@@ -134,10 +139,50 @@
 			
 		</div>
 		<!-- // END col-separator.box -->
+								<div class="panel panel-default col-md-3 col-md-offset-8">
+									    		<center><h4>Your Positions</h4></center>
+									    		<ul class="list-unstyled">
 
+									    			@foreach($jobs as $job)
+									    				<center>
+									    					<li>
+									    						{{ Form::model($jobs, array('action' => array('JobsController@destroy', $job->id), 'method' => 'DELETE')) }}
+									    							{{{$job->job_title . ' , ' . $job->company }}}
+
+									    							<button type="submit" class="glyphicon glyphicon-ban-circle">Remove</button>
+									    						{{ Form::close() }}
+									    					</li>
+									    				</center>
+									    			@endforeach
+									    		</ul>
+									  		</div>
 
 </div>
+
+
 <!-- // END first sign up screen-->
+
+<div class="panel panel-default col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
+
+								  	<div class="panel-body">
+								  		  		<center><h4>Your Positions</h4></center>
+									    		<ul class="list-unstyled">
+
+									    			@foreach($jobs as $job)
+									    				<center>
+									    					<li>
+									    						{{ Form::model($jobs, array('action' => array('JobsController@destroy', $job->id), 'method' => 'DELETE')) }}
+									    							{{{$job->job_title . ' , ' . $job->company. ' , ' . $job->start_date . ' , ' . $job->description}}}
+
+									    							<button type="submit" class="glyphicon glyphicon-ban-circle">Remove</button>
+									    						{{ Form::close() }}
+									    					</li>
+									    				</center>
+									    			@endforeach
+									    		</ul>
+									  		</div>
+								  		
+								</div>
 
 	<!-- Global -->
 	<script data-id="App.Config">

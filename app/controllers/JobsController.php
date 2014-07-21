@@ -15,7 +15,8 @@ class JobsController extends \BaseController {
 		{
 			if(Auth::user()->id == $id)	
 			{
-				$jobs = Job::where('user_id', Auth::user()->id)->get();
+				$jobs = Job::where('user_id', '=' , Auth::user()->id)->get();
+				
 				return View::make('jobs.create-edit')->with('jobs', $jobs);
 			}
 			else 
@@ -60,7 +61,7 @@ class JobsController extends \BaseController {
 			$job->save();
 		}
 		Session::flash('successMessage', 'You have successfully edited your account.');	
-		return Redirect::action('JobsController@edit',Auth::user()->id);
+		return Redirect::action('JobsController@edit', Auth::user()->id);
 	}
 
 
@@ -72,7 +73,10 @@ class JobsController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		$job = Job::findOrFail($id);
+		$job->delete();
+		Session::flash('successMessage', 'Job deleted successfully.');
+		return Redirect::action('JobsController@edit', Auth::user()->id);
 	}
 
 

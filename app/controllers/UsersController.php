@@ -9,6 +9,8 @@ class UsersController extends \BaseController {
 	 */
 	public function index()
 	{
+		$skills = Skill::get();
+
 		if(Auth::check())
 		{
 			$current_user = DB::table('users')->where('id', '=', Auth::user()->id)->lists('id');
@@ -19,21 +21,24 @@ class UsersController extends \BaseController {
 				$last = Input::get('last_name');
 				$users = User::whereNotIn('id', $current_user)->where('first_name','LIKE', "%{$first}%")->where('last_name','LIKE', "%{$last}%")->orderBy('last_name','asc')->paginate(20);
 			}
-			elseif(Input::has('skills'))
+			elseif(Input::has('skill'))
 			{
-				$skills = Input::get('skills');
-				$users = User::whereNotIn('id', $current_user)->where('first_name','LIKE', "%{$first}%")->orderBy('last_name','asc')->paginate(20);
-			}
-			elseif(Input::has('associations'))
-			{
-				$associations = Input::get('associations');
-				$users = User::whereNotIn('id', $current_user)->where('first_name','LIKE', "%{$first}%")->orderBy('last_name','asc')->paginate(20);
+				$skill = Input::get('skill');
+				$skilled_users = DB::table('skill_user')->where('skill_id', '=', $skill)->lists('user_id');
+				if(count($skilled_users) > 0)
+				{
+					$users = User::whereNotIn('id',$current_user)->whereIn('id', $skilled_users)->orderBy('last_name','asc')->paginate(20);
+				}
+				else
+				{
+					$users = [];
+				}
 			}
 			elseif(Input::has('city') && Input::has('state'))
 			{
 				$city = Input::get('city');
 				$state = Input::get('state');
-				$users = User::whereNotIn('id', $current_user)->where('first_name','LIKE', "%{$first}%")->orderBy('last_name','asc')->paginate(20);
+				$users = User::whereNotIn('id',$current_user)->where('city','LIKE', "%{$city}%")->where('state', 'LIKE', "%{$state}%")->orderBy('last_name','asc')->paginate(20);
 			}		
 			else 
 			{
@@ -48,21 +53,24 @@ class UsersController extends \BaseController {
 				$last = Input::get('last_name');
 				$users = User::where('first_name','LIKE', "%{$first}%")->where('last_name','LIKE', "%{$last}%")->orderBy('last_name','asc')->paginate(20);
 			}
-			elseif(Input::has('skills'))
+			elseif(Input::has('skill'))
 			{
-				$skills = Input::get('skills');
-				$users = User::where('first_name','LIKE', "%{$first}%")->orderBy('last_name','asc')->paginate(20);
-			}
-			elseif(Input::has('associations'))
-			{
-				$associations = Input::get('associations');
-				$users = User::where('first_name','LIKE', "%{$first}%")->orderBy('last_name','asc')->paginate(20);
+				$skill = Input::get('skill');
+				$skilled_users = DB::table('skill_user')->where('skill_id', '=', $skill)->lists('user_id');
+				if(count($skilled_users) > 0)
+				{
+					$users = User::whereIn('id', $skilled_users)->orderBy('last_name','asc')->paginate(20);
+				}
+				else
+				{
+					$users = [];
+				}
 			}
 			elseif(Input::has('city') && Input::has('state'))
 			{
 				$city = Input::get('city');
 				$state = Input::get('state');
-				$users = User::where('first_name','LIKE', "%{$first}%")->orderBy('last_name','asc')->paginate(20);
+				$users = User::where('city','LIKE', "%{$city}%")->where('state', 'LIKE', "%{$state}%")->orderBy('last_name','asc')->paginate(20);
 			}		
 			else 
 			{
@@ -70,7 +78,7 @@ class UsersController extends \BaseController {
 			}
 		}
 		
-		return View::make('users.index')->with('users',$users);
+		return View::make('users.index')->with('users',$users)->with('skills', $skills);
 	}
 
 
@@ -131,10 +139,15 @@ class UsersController extends \BaseController {
 			Session::flash('errorMessage','You must be logged in to edit users.');
 			return Redirect::action('UsersController@index');			
 		}
-		else
+		elseif(Auth::user()->id == $id)
 		{
 			$user = User::find($id);
 			return View::make('users.create-edit')->with('user', $user);
+		}
+		else
+		{
+			Session::flash('errorMessage','You do not have authorization to edit this user.');
+			return Redirect::action('UsersController@index');			
 		}
 	}
 
@@ -226,8 +239,14 @@ class UsersController extends \BaseController {
 
 	public function showLanding()
 	{
-		
-		return View::make('users.landing');
+		if(Auth::check())
+		{
+			return Redirect::action('UsersController@show', Auth::user()->id);
+		}
+		else
+		{
+			return View::make('users.landing');
+		}
 	}
 
 }
