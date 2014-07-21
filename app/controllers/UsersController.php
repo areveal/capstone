@@ -34,11 +34,19 @@ class UsersController extends \BaseController {
 					$users = [];
 				}
 			}
-			elseif(Input::has('city') && Input::has('state'))
+			elseif(Input::has('state'))
 			{
-				$city = Input::get('city');
-				$state = Input::get('state');
-				$users = User::whereNotIn('id',$current_user)->where('city','LIKE', "%{$city}%")->where('state', 'LIKE', "%{$state}%")->orderBy('last_name','asc')->paginate(20);
+				if(Input::has('city') != '')
+				{
+					$city = Input::get('city');
+					$state = Input::get('state');
+					$users = User::whereNotIn('id',$current_user)->where('city','LIKE', "%{$city}%")->where('state', 'LIKE', "%{$state}%")->orderBy('last_name','asc')->paginate(20);
+				}
+				else 
+				{
+					$state = Input::get('state');
+					$users = User::whereNotIn('id',$current_user)->where('state', 'LIKE', "%{$state}%")->orderBy('last_name','asc')->paginate(20);
+				}
 			}		
 			else 
 			{
@@ -66,7 +74,7 @@ class UsersController extends \BaseController {
 					$users = [];
 				}
 			}
-			elseif(Input::has('city') && Input::has('state'))
+			elseif(Input::has('state'))
 			{
 				$city = Input::get('city');
 				$state = Input::get('state');
@@ -121,8 +129,9 @@ class UsersController extends \BaseController {
 	{
 		// this is our user's home page
 		$user = User::with('jobs')->with('skills')->with('associations')->with('schools')->findOrfail($id);
+		$most_recent = Job::where('user_id', '=', $user->id)->orderBy('end_date','asc')->first();
 
-		return View::make('users.show')->with('user', $user);
+		return View::make('users.show')->with('user', $user)->with('most_recent',$most_recent);
 	}
 
 
@@ -186,8 +195,8 @@ class UsersController extends \BaseController {
 			$user->first_name = Input::get('first_name');
 			$user->last_name = Input::get('last_name');		
 			$user->email = Input::get('email');	
-			$user->country = Input::get('country');
-			$user->zip = Input::get('zip');
+			$user->city = Input::get('city');
+			$user->state = Input::get('state');
 			$user->status = Input::get('status');
 			$password = Input::get('password');
 			$confirmPassword = Input::get('confirmPassword');

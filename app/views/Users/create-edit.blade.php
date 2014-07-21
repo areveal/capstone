@@ -20,26 +20,29 @@
 @section('content')
 <body class=" loginWrapper">
 
-	<div class="navbar hidden-print box main" role="navigation">
-        <div class="user-action pull-left menu-right-hidden-xs menu-left-hidden-xs border-left">
-            <div class="dropdown username pull-left">
-                <span class="dropdown-toggle" data-toggle="dropdown">
-                    <span class="media margin-none">
-                    <span class="pull-left"><img src="{{ Auth::user()->img_path }}" alt="user" class="img-circle"></span>
-                    <span class="media-body">{{ Auth::user()->first_name }} <span class="caret"></span></span>
-                </span>
-                </span>
-                <ul class="dropdown-menu">
-                    <li><a href="{{ action('UsersController@edit', Auth::user()->id)}} ">Edit Profile</a></li>
-                    <li><a href="{{ action('SkillsController@edit', Auth::user()->id)}} ">Edit Skills</a></li>
-                    <li><a href="{{ action('AssociationsController@edit', Auth::user()->id)}} ">Edit Associations</a></li>
-                    <li><a href="{{ action('JobsController@edit', Auth::user()->id)}} ">Edit Experience</a></li>
-                    <li><a href="{{ action('SchoolsController@edit', Auth::user()->id)}} ">Edit Education</a></li>
-                    <li><a href="{{ action('UsersController@show', Auth::user()->id)}} ">Done Editing</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
+	@if(Auth::check())
+		<div class="navbar hidden-print box main" role="navigation">
+	        <div class="user-action pull-left menu-right-hidden-xs menu-left-hidden-xs border-left">
+	            <div class="dropdown username pull-left">
+	                <span class="dropdown-toggle" data-toggle="dropdown">
+	                    <span class="media margin-none">
+	                    <span class="pull-left"><img src="{{ Auth::user()->img_path }}" alt="user" class="img-circle"></span>
+	                    <span class="media-body">{{ Auth::user()->first_name }} <span class="caret"></span></span>
+	                </span>
+	                </span>
+	                <ul class="dropdown-menu">
+	                    <li><a href="{{ action('UsersController@edit', Auth::user()->id)}} ">Edit Profile</a></li>
+	                    <li><a href="{{ action('SkillsController@edit', Auth::user()->id)}} ">Edit Skills</a></li>
+	                    <li><a href="{{ action('AssociationsController@edit', Auth::user()->id)}} ">Edit Associations</a></li>
+	                    <li><a href="{{ action('JobsController@edit', Auth::user()->id)}} ">Edit Experience</a></li>
+	                    <li><a href="{{ action('SchoolsController@edit', Auth::user()->id)}} ">Edit Education</a></li>
+	                    <li><a href="{{ action('UsersController@show', Auth::user()->id)}} ">Done Editing</a></li>
+	                </ul>
+	            </div>
+	        </div>
+	    </div>
+
+    @endif
 	
 	<!-- Main Container Fluid -->
 	<div class="container-fluid menu-hidden ">

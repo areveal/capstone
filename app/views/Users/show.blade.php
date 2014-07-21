@@ -29,7 +29,6 @@
 @section('content')
 <!-- Content START -->
 <div id="content">
-
     @if(Auth::check())
     <div class="navbar hidden-print box main" role="navigation">
         <ul class="notifications pull-right hidden-xs">
@@ -92,7 +91,7 @@
     </div>
         <div class="layout-app">  
             <div class="innerLR">
-            <h2 class="margin-left">Profile &nbsp;<i class="fa fa-fw fa-pencil text-muted"></i></h2>
+                <h2 class="margin-left">Profile &nbsp;<i class="fa fa-fw fa-pencil text-muted"></i></h2>
                 <div class="separator-h"></div>
                     <div class="container margin: 50px">
                         <div class="row">
@@ -104,58 +103,60 @@
                                         <div class="media-body innerL half">
                                             <h4 class="margin-none">{{{ $user->first_name . ' ' . $user->last_name }}}</h4>
                                             <p class="strong"> </p>
+
                                         <div class="bg-gray innerAll ">
-                                            <h5 class="innerB half border-bottom text-muted margin-none"><i class="fa fa-fw icon-briefcase-2"></i>Job Title</h5>
+                                            <h5 class="innerB half border-bottom text-muted margin-none"><i class="fa fa-fw icon-briefcase-2"></i>{{ $most_recent->job_title }}</h5>
+
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            
+
                     <!-- //end Widget -->
                     <!-- Widget start-->
                     <div class="widget widget-body-white ">
                         <div class="widget-head">
-                            <h4 class="heading glyphicons list"><i></i>Skills</h4>
+                            <h4 class="heading glyphicon glyphicon-list"><i> </i>Skills</h4>
                         </div>
-                        <div class="widget-body">
-                            <div class="innerAll">
-                                @foreach($user->skills as $skill)
-                                <ul class="innerAll">
-                                    <li>
-                                        {{{ $skill->skill }}}
-                                    </li>
-                                </ul>
-                                @endforeach
-                                <a href="{{ action('SkillsController@edit') }}" class="btn btn-primary btn-xs">Edit</a>
-                            </div>
+                        <div class="widget-body inner-2x">
+                            @foreach($user->skills as $skill)
+                            <ul class="innerAll">
+                                <li>
+                                    {{{ $skill->skill }}}
+                                </li>
+                            </ul>
+                            @endforeach
+                            <a href="{{ action('SkillsController@edit', Auth::user()->id) }}" class="btn btn-primary btn-xs">Edit</a>
                         </div>
                     </div>
                     <!-- //end Widget -->
                     <!-- Widget start -->
                     <div class="widget widget-body-white">
                         <div class="widget-head">
-                            <h4 class=" heading glyphicon glyphicon-briefcase"><i> </i>Jobs</h4>
+                            <h4 class="heading glyphicon glyphicon-briefcase"><i> </i>Jobs</h4>
                         </div>
-                    <div class="widget-body inner-2x">
-                        @if(count($user->jobs) > 0)
-                        @foreach($user->jobs as $job)
-                            <ul class="fa-ul">  
-                                <li> 
-                                    {{{ $job->job_title }}} {{{ $job->start_date . ' ' . $job->end_date }}} 
-                                </li>
-                                <li> 
-                                    {{{ $job->company }}} 
-                                </li>
-                                <li> 
-                                    <p>
-                                      {{{ $job->description }}}
-                                    </p>
-                                </li>
-                            </ul> 
-                        @endforeach
-                        @endif
-                            <a href="{{ action('JobsController@edit') }}" class="btn btn-primary btn-xs">Edit</a>
+                        <div class="widget-body inner-2x">
+                            @if(count($user->jobs) > 0)
+                            @foreach($user->jobs as $job)
+                                <ul class="fa-ul">  
+                                    <li> 
+                                        {{{ $job->job_title }}} {{{ $job->start_date . ' ' . $job->end_date }}} 
+                                    </li>
+                                    <li> 
+                                        {{{ $job->company }}} 
+                                    </li>
+                                    <li> 
+                                        <p>
+                                          {{{ $job->description }}}
+                                        </p>
+                                    </li>
+                                </ul> 
+                            @endforeach
+                            @endif
+                                <a href="{{ action('JobsController@edit', Auth::user()->id) }}" class="btn btn-primary btn-xs">Edit</a>
+                        </div>
                     </div>
-                </div>
+
                 <!-- //end Widget -->
             </div>
             <div class="col-md-3 "> 
@@ -164,7 +165,7 @@
                     <h2 class="strong margin-none">Connections</h2>
                         <div class="innerB"></div>
                             <div class="btn-group-vertical btn-block">
-                            <a href="{{ action('ConnectionsController@edit') }}" class="btn btn-primary btn-xs pull-right">Edit</a>
+                            <a href="{{ action('ConnectionsController@edit', Auth::user()->id) }}" class="btn btn-primary btn-xs pull-right">Edit</a>
                             </div>
                     </div>
                 </div><!-- /.widget -->
@@ -173,7 +174,7 @@
                     <h5 class="innerAll margin-none border-bottom bg-gray">Your Network</h5>
                     <div class="widget-body padding-none">
                         <div class="media border-bottom innerAll margin-none">
-                            <img src="img_path.jpg" class="pull-left media-object"/>
+                            <img src="{{ $user->img_path }}" class="pull-left media-object"/>
                             <div class="media-body">
                                 <h5 class="margin-none">{{ $user->first_name . ' ' . $user->last_name }}</h5>
                                     <i>{{ $user->status }}</i>                                
@@ -184,39 +185,38 @@
                     </div>
                 </div>
             </div>
-        </div>
         <!-- //End Col -->
-        <div class="col-md-9">
-            <!-- Widget -->
-             <div class="widget widget-body-white">
-                <div class="widget-head">
-                    <h4 class="heading list glyphicon glyphicon-book"><i> </i>Education</h4>
+        <div class="row">
+            <div class="col-md-9">
+                <!-- Widget -->
+                 <div class="widget widget-body-white">
+                    <div class="widget-head">
+                        <h4 class="heading list glyphicon glyphicon-book"><i> </i>Education</h4>
+                    </div>
+                    <div class="widget-body inner-2x">
+                        @if(count($user->schools) >0)
+                        @foreach($user->schools as $school)
+                        <ul class="list-unstyled">
+                            <li> 
+                                {{{ $school->college }}} 
+                            </li>
+                            <li>
+                                {{{ $school->date_began . ' ' . $school->date_complete }}}
+                            </li>
+                            <li>
+                                {{{ $school->major }}}
+                            </li>
+                        </ul>
+                        <br>                       
+                        @endforeach
+                        @endif
+                        <p class="clearfix"><a href="{{ action('SchoolsController@edit', Auth::user()->id) }}" class="btn btn-primary btn-xs pull-left">Edit</a></p>                    
+                    </div>
                 </div>
-                <div class="widget-body inner-2x">
-                    @if(count($user->schools) >0)
-                    @foreach($user->schools as $school)
-                    <ul class="list-unstyled">
-                        <li> 
-                            {{{ $school->college }}} 
-                        </li>
-                        <li>
-                            {{{ $school->date_began . ' ' . $school->date_complete }}}
-                        </li>
-                        <li>
-                            {{{ $school->major }}}
-                        </li>
-                    </ul>
-                    <br>                       
-                    @endforeach
-                    @endif
-                    <p class="clearfix"><a href="{{ action('SchoolsController@edit', Auth::user()->id) }}" class="btn btn-primary btn-xs pull-left">Edit</a></p>                    
-                </div>
-            </div>
-            <!-- //end Widget -->
-        <!-- //End Col -->
-        </div><!-- /.col-md-9 -->
-    
-    </div>  
+                <!-- //end Widget -->
+            <!-- //End Col -->
+            </div><!-- /.col-md-9 -->    
+        </div>  
 <!-- End Row -->
 <!-- // Content END -->
 <div class="clearfix"></div>
