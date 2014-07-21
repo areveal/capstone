@@ -122,7 +122,7 @@
                                     </li>
                                 </ul>
                                 @endforeach
-                                <a href="{{ action('SkillsController@create') }}" class="btn btn-primary btn-xs">Edit</a>
+                                <a href="{{ action('SkillsController@edit') }}" class="btn btn-primary btn-xs">Edit</a>
                             </div>
                         </div>
                     </div>
@@ -163,7 +163,7 @@
                 <div class="innerB"></div>
 <!--                     <a href="" class="btn btn-primary text-center btn-block">PRO Account</a>
 -->                    <div class="btn-group-vertical btn-block">
-                            <a href="" class="btn btn-primary btn-xs pull-right">Edit</a>
+                            <a href="{{ action('ConnectionsController@edit') }}" class="btn btn-primary btn-xs pull-right">Edit</a>
 <!--                         <a href="" class="btn btn-default"><i class="fa fa-cog pull-right"></i>Edit Account</a>
 --><!--                         <a href="" class="btn btn-default"><i class="fa fa-cog pull-right"></i>Logout</a>
 -->                    </div>
