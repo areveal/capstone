@@ -8,7 +8,15 @@
     height: 40px;
 }
 .navbar{
-    background: #25ad9f;
+    background: #3498db;
+
+}
+.search {
+    margin-top:15px;
+    margin-right: 50%;
+}
+.navsearch {
+    margin-right: 50%;
 }
 </style>
 
@@ -24,11 +32,11 @@
 
     @if(Auth::check())
     <div class="navbar hidden-print box main" role="navigation">
-        <ul class="notifications pull-left hidden-xs">
+        <ul class="notifications pull-right hidden-xs">
             <li class="dropdown notif">
                 <a href="" class="dropdown-toggle"  data-toggle="dropdown"><i class="notif-block icon-envelope-1"></i><span class="fa fa-star"></span></a>
                 <ul class="dropdown-menu chat media-list">
-                    <li class="media"><a class="pull-left" href="#"><img class="media-object thumb" src="/assets/images/people/100/15.jpg" alt="50x50" width="30"/></a>
+                    <li class="media"><a class="pull-right" href="#"><img class="media-object thumb" src="{{ Auth::user()->img_path }}" alt="50x50" width="30"/></a>
                         <div class="media-body">
                             <span class="label label-default pull-right">5 min</span>
                             <h5 class="media-heading">Adrian D.</h5>
@@ -44,7 +52,7 @@
                         </div>
                     </li>                   
                     <li class="media">
-                        <a class="pull-left" href="#"><img class="media-object thumb" src="/assets/images/people/100/17.jpg" alt="50x50" width="50"/></a>
+                        <a class="pull-right" href="#"><img class="media-object thumb" src="/assets/images/people/100/17.jpg" alt="50x50" width="50"/></a>
                         <div class="media-body">
                             <span class="label label-default pull-right">3 days</span>
                             <h5 class="media-heading">Andrew M.</h5>
@@ -54,7 +62,7 @@
                 </ul>
             </li>
         </ul>
-        <div class="user-action pull-left menu-right-hidden-xs menu-left-hidden-xs border-left">
+        <div class="user-action pull-right menu-right-hidden-xs menu-left-hidden-xs border-right">
             <div class="dropdown username pull-left">
                 <span class="dropdown-toggle" data-toggle="dropdown">
                     <span class="media margin-none">
@@ -69,46 +77,44 @@
                 </ul>
             </div>
         </div>
-        <div class="container">
-            <div class+"col-md-6">
-                <div class="input-append">
-                    <input id="appendedInputButton" class="span6" type="text" placeholder="Search...">
-                    <!-- <button class="btn" type="button"><i class="icon-search"></i></button> -->
-                    <a class="glyphicon glyphicon-search btn btn-primary btn-xs" pull-right>Search</a>
+            <div class="container">
+            {{ Form::open(['action' => ['UsersController@index'],'method' => 'GET']) }}
+                <div class="col-md-6" style="margin-left:400px">
+                    <div class="input-append search">
+                        <input id="appendedInputButton" class="span6" type="text" placeholder="Search...">
+                        <!-- search function will be going to index blade -->
+                        <a class="glyphicon glyphicon-search btn btn-primary btn-xs" pull-right>Search</a>
+                        {{ Form::close() }}
+                    </div>
                 </div>
-            <!-- <div class="input-group col-md-4">
-                <input type="text" class="form-control" placeholder="Search Inclusion Users">
-                    <div class="col-md-8">
-                        <a class="glyphicon glyphicon-search btn btn-primary btn-xs" pull-right>Search</a> -->
-             </div>
-        </div>
-    @endif
-
-    <div class="layout-app">  
-        <div class="innerLR">
-        <h2 class="margin-none">Profile &nbsp;<i class="fa fa-fw fa-pencil text-muted"></i></h2>
-            <div class="separator-h"></div>
-                <div class="container margin: 50px">
-                    <div class="row">
-                        <div class="col-md-9 ">
-                        <!-- Widget start -->
-                            <div class="widget widget-body-white">
-                                <div class="media widget-body innerAll">
-                                    <a href="" class="pull-left"><img src="{{{ $user->img_path }}}" width="60" alt=""></a>
-                                    <div class="media-body innerL half">
-                                        <h4 class="margin-none">{{{ $user->first_name . ' ' . $user->last_name }}}</h4>
-                                        <p class="strong"> </p>
-                                    <div class="bg-gray innerAll ">
-                                        <h5 class="innerB half border-bottom text-muted margin-none"><i class="fa fa-fw icon-briefcase-2"></i> MOSAICPRO LLC</h5>
+            </div>        
+            @endif
+    </div>
+        <div class="layout-app">  
+            <div class="innerLR">
+            <h2 class="margin-left">Profile &nbsp;<i class="fa fa-fw fa-pencil text-muted"></i></h2>
+                <div class="separator-h"></div>
+                    <div class="container margin: 50px">
+                        <div class="row">
+                            <div class="col-md-9 ">
+                            <!-- Widget start -->
+                                <div class="widget widget-body-white">
+                                    <div class="media widget-body innerAll">
+                                        <a href="" class="pull-left"><img src="{{{ $user->img_path }}}" width="60" alt=""></a>
+                                        <div class="media-body innerL half">
+                                            <h4 class="margin-none">{{{ $user->first_name . ' ' . $user->last_name }}}</h4>
+                                            <p class="strong"> </p>
+                                        <div class="bg-gray innerAll ">
+                                            <h5 class="innerB half border-bottom text-muted margin-none"><i class="fa fa-fw icon-briefcase-2"></i>Job Title</h5>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
                     <!-- //end Widget -->
                     <!-- Widget start-->
                     <div class="widget widget-body-white ">
                         <div class="widget-head">
-                            <h4 class=" heading glyphicons list"><i></i>Skills</h4>
+                            <h4 class="heading glyphicons list"><i></i>Skills</h4>
                         </div>
                         <div class="widget-body">
                             <div class="innerAll">
@@ -147,98 +153,46 @@
                             </ul> 
                         @endforeach
                         @endif
-                            <a href="" class="btn btn-primary btn-xs">Edit</a>
+                            <a href="{{ action('JobsController@edit') }}" class="btn btn-primary btn-xs">Edit</a>
                     </div>
                 </div>
                 <!-- //end Widget -->
             </div>
             <div class="col-md-3 "> 
-        <div class="widget">
-            <div class="widget-body text-center">
-<!--                     <a href=""><img src="/assets/images/people/250/22.jpg" width="120" alt="" class="img-circle"></a>
--->                    <h2 class="strong margin-none">Connections</h2>
-                <div class="innerB"></div>
-<!--                     <a href="" class="btn btn-primary text-center btn-block">PRO Account</a>
--->                    <div class="btn-group-vertical btn-block">
+                <div class="widget">
+                    <div class="widget-body text-center">
+                    <h2 class="strong margin-none">Connections</h2>
+                        <div class="innerB"></div>
+                            <div class="btn-group-vertical btn-block">
                             <a href="{{ action('ConnectionsController@edit') }}" class="btn btn-primary btn-xs pull-right">Edit</a>
-<!--                         <a href="" class="btn btn-default"><i class="fa fa-cog pull-right"></i>Edit Account</a>
---><!--                         <a href="" class="btn btn-default"><i class="fa fa-cog pull-right"></i>Logout</a>
--->                    </div>
-            </div>
-        </div><!-- /.widget -->
+                            </div>
+                    </div>
+                </div><!-- /.widget -->
 
-        <div class="widget">
-                <h5 class="innerAll margin-none border-bottom bg-gray">Your Network</h5>
-                <div class="widget-body padding-none">
-                    <div class="media border-bottom innerAll margin-none">
-                        <img src="/assets/images/people/35/22.jpg" class="pull-left media-object"/>
-                        <div class="media-body">
-                            <a href="" class="pull-right text-muted innerT half">
-                                <i class="fa fa-comments"></i> 4
-                            </a>
-                            <h5 class="margin-none"><a href="" class="text-inverse">Social Admin Released</a></h5>
-                            <small>on February 2nd, 2014 </small> 
-                        </div>
+                <div class="widget">
+                    <h5 class="innerAll margin-none border-bottom bg-gray">Your Network</h5>
+                    <div class="widget-body padding-none">
+                        <div class="media border-bottom innerAll margin-none">
+                            <img src="img_path.jpg" class="pull-left media-object"/>
+                            <div class="media-body">
+                                <h5 class="margin-none">{{ $user->first_name . ' ' . $user->last_name }}</h5>
+                                    <i>{{ $user->status }}</i>                                
+                                <!-- <h5 class="margin-none"><a href="" class="text-inverse">Social Admin Released</a></h5>
+                                <small>on February 2nd, 2014 </small>  -->
+                            </div>
+                        </div>           
                     </div>
-                </div><!-- /.media -->
-                <div class="media border-bottom innerAll margin-none">
-                    <img src="../assets/images/people/35/22.jpg" class="pull-left media-object"/>
-                    <div class="media-body">
-                        <a href="" class="pull-right text-muted innerT half">
-                            <i class="fa fa-comments"></i> 4
-                        </a>
-                        <h5 class="margin-none"><a href="" class="text-inverse">Timeline Cover Page</a></h5>
-                        <small>on February 2nd, 2014 </small> 
-                    </div>
-                </div><!-- /.media -->
-                <div class="media border-bottom innerAll margin-none">
-                    <img src="../assets/images/people/35/22.jpg" class="pull-left media-object"/>
-                    <div class="media-body">
-                        <a href="" class="pull-right text-muted innerT half">
-                            <i class="fa fa-comments"></i> 4
-                        </a>
-                        <h5 class="margin-none"><a href="" class="text-inverse">1000+ Sales</a></h5>
-                        <small>on February 2nd, 2014 </small> 
-                    </div>
-                </div><!-- .media -->
-                <div class="media border-bottom innerAll margin-none">
-                    <img src="../assets/images/people/35/22.jpg" class="pull-left media-object"/>
-                    <div class="media-body">
-                        <a href="" class="pull-right text-muted innerT half">
-                            <i class="fa fa-comments"></i> 4
-                        </a>
-                        <h5 class="margin-none"><a href="" class="text-inverse">On-Page Optimization</a></h5>
-                        <small>on February 2nd, 2014 </small> 
-                    </div>
-                </div><!-- /.media -->
-                <div class="media border-bottom innerAll margin-none">
-                    <img src="../assets/images/people/35/22.jpg" class="pull-left media-object"/>
-                    <div class="media-body">
-                        <a href="" class="pull-right text-muted innerT half">
-                            <i class="fa fa-comments"></i> 4
-                        </a>
-                        <h5 class="margin-none"><a href="" class="text-inverse">14th Admin Template</a></h5>
-                        <small>on February 2nd, 2014 </small> 
-                    </div>
-                </div><!-- /.media -->
-           
-        </div>
-    </div>
+                </div>
+            </div>
         </div>
         <!-- //End Col -->
         <div class="col-md-9">
             <!-- Widget -->
-            <div class="widget widget-body-white padding-none">
-                <div class="widget-head height-auto">
-                    <div class="media innerAll">
-                        <a href="" class="pull-right"><i class="fa icon-comment-fill-2"></i></a>
-                        <a href="" class="pull-left"><img src="/assets/images/people/50/8.jpg" alt="" class="img-circle"></a>
-                            <div class="media-body">
-                                <h4>Education</h4>
-                    <!-- p class="margin-none">School</p> -->
-                            </div>
-                    </div>
+             <div class="widget widget-body-white">
+                <div class="widget-head">
+                    <h4 class="heading list glyphicon glyphicon-book"><i> </i>Education</h4>
                 </div>
+                <div class="widget-body inner-2x">
                     @if(count($user->schools) >0)
                     @foreach($user->schools as $school)
                     <ul class="list-unstyled">
@@ -251,22 +205,19 @@
                         <li>
                             {{{ $school->major }}}
                         </li>
-                        
-                    @endforeach
-                        <a href="{{ action('SchoolsController@create') }}" class="btn btn-primary btn-xs pull-left">Edit</a>
-                    @endif
                     </ul>
+                    <br>                       
+                    @endforeach
+                    @endif
+                    <p class="clearfix"><a href="{{ action('SchoolsController@edit', Auth::user()->id) }}" class="btn btn-primary btn-xs pull-left">Edit</a></p>                    
+                </div>
             </div>
             <!-- //end Widget -->
-        </div><!-- /.col-md-9 -->
-
         <!-- //End Col -->
+        </div><!-- /.col-md-9 -->
     
     </div>  
 <!-- End Row -->
-</div>
-
-
 <!-- // Content END -->
 <div class="clearfix"></div>
 <!-- // Sidebar menu & content wrapper END -->
@@ -277,7 +228,6 @@
 <!--  End Copyright Line -->
 </div>
 <!-- // Footer END -->
-</div>
 <!-- // Main Container Fluid END -->
 @stop
 

@@ -118,7 +118,7 @@
 	@if(Auth::check())
 	<center><a href="{{ action('HomeController@logout') }}" class="btn btn-danger">Log Out</a></center>
 	@else
-	<center><a href="{{ action('HomeController@showLogin') }}" class="btn btn-primary">Log In</a></center>	
+	<center><a href="{{ action('UsersController@showLanding') }}" class="btn btn-primary">Log In</a></center>	
 	@endif
 
 
