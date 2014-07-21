@@ -79,11 +79,8 @@
 
 								  	<div class="panel-body">
 								  		
-<<<<<<< HEAD
-								  		{{Form::open(array('action' => 'JobsController@update', 'class' => 'form-signin', 'role' => 'form', 'method' => 'PUT'))}}
-=======
+
 								  		{{Form::open(array('action' => array('JobsController@update',Auth::user()->id), 'method' => 'PUT', 'class' => 'form-signin', 'role' => 'form'))}}
->>>>>>> 9c158085aa42dbf54b86e7b19d9e4975bb976329
 								  		<!--<form role="form" action="index.html?lang=en"> -->
 									  		<div class="form-group">
 									    		<label for="job_title">What is the title of the position?</label>

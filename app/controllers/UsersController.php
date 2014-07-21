@@ -129,8 +129,9 @@ class UsersController extends \BaseController {
 	{
 		// this is our user's home page
 		$user = User::with('jobs')->with('skills')->with('associations')->with('schools')->findOrfail($id);
+		$most_recent = Job::where('user_id', '=', $user->id)->orderBy('end_date','asc')->first();
 
-		return View::make('users.show')->with('user', $user);
+		return View::make('users.show')->with('user', $user)->with('most_recent',$most_recent);
 	}
 
 
