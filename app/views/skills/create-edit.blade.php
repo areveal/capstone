@@ -106,24 +106,21 @@
 
 								  	<div class="panel-body">
 								  		<!--<form role="form" action="index.html?lang=en"> -->
-									  		<div class="form-group">
-									    		<center><h4>Your Skills</h4></center>
-									    		<ul class="list-unstyled">
-									    			@foreach($skills_owned as $skill_owned)
-									    				<center>
-									    					<li>
-									    						{{ Form::model($skills, array('action' => array('SkillsController@destroy', $skill_owned->id), 'method' => 'DELETE')) }}
-									    							{{{ $skill_owned->skill }}}
-
-									    							<button type="submit" class="btn btn-danger">Remove</button>
-									    						{{ Form::close() }}
-									    					</li>
-									    				</center>
-									    			@endforeach
-									    		</ul>
-									  		</div>
+								  		<table class="table table-hover">
+								    			<th><h4>Your Skills</h4></center><th>
+								    			@foreach($skills_owned as $skill_owned)
+								    				<tr>
+								    					<td>
+								    						{{ Form::model($skills, array('action' => array('SkillsController@destroy', $skill_owned->id), 'method' => 'DELETE')) }}
+								    							{{{ $skill_owned->skill }}}
+								    					</td>
+								    					<td>
+								    							<button type="submit" class="btn btn-danger">Remove</button>
+								    						{{ Form::close() }}
+								    					</td>
+								    			@endforeach		
+								    	</table>
 							  		</div>
-								
 								</div>
 								<div class="clearfix"></div>					
 
