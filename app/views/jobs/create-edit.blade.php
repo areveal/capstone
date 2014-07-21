@@ -330,7 +330,7 @@
 <div class="row row-app">
 
 	<!-- col -->
-	
+
 
 		<!-- col-separator.box -->
 		<div class="col-separator col-unscrollable box">
@@ -339,7 +339,7 @@
 			<div class="col-table">
 				
 				<h4 class="innerAll margin-none border-bottom text-center bg-primary"></i> Build a Profile</h4>
-
+				<div><strong>Progress</div>
 				<!-- col-table-row -->
 				<div class="col-table-row">
 
@@ -351,7 +351,7 @@
 
 							<div class="login">
 								
-								<div class="placeholder text-center"><i class="fa fa-user"></i></div>
+								
 								
 								<div class="panel panel-default col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
 

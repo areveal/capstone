@@ -19,7 +19,7 @@ $(document).ready(function(){
     BV.init();
 
     if(Modernizr.touch){
-        BV.show("img/background1.jpg");
+        BV.show("img/working-coffee-shop.jpg");
     }else{
         BV.show("video/diverse.mp4",{
             ambient: true,
