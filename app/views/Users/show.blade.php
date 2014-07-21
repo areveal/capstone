@@ -92,7 +92,7 @@
     </div>
         <div class="layout-app">  
             <div class="innerLR">
-            <h2 class="margin-left">Profile &nbsp;<i class="fa fa-fw fa-pencil text-muted"></i></h2>
+                <h2 class="margin-left">Profile &nbsp;<i class="fa fa-fw fa-pencil text-muted"></i></h2>
                 <div class="separator-h"></div>
                     <div class="container margin: 50px">
                         <div class="row">
@@ -125,7 +125,7 @@
                                     </li>
                                 </ul>
                                 @endforeach
-                                <a href="{{ action('SkillsController@edit') }}" class="btn btn-primary btn-xs">Edit</a>
+                                <a href="{{ action('SkillsController@edit', Auth::user()->id) }}" class="btn btn-primary btn-xs">Edit</a>
                             </div>
                         </div>
                     </div>
@@ -153,7 +153,7 @@
                             </ul> 
                         @endforeach
                         @endif
-                            <a href="{{ action('JobsController@edit') }}" class="btn btn-primary btn-xs">Edit</a>
+                            <a href="{{ action('JobsController@edit', Auth::user()->id) }}" class="btn btn-primary btn-xs">Edit</a>
                     </div>
                 </div>
                 <!-- //end Widget -->
@@ -164,7 +164,7 @@
                     <h2 class="strong margin-none">Connections</h2>
                         <div class="innerB"></div>
                             <div class="btn-group-vertical btn-block">
-                            <a href="{{ action('ConnectionsController@edit') }}" class="btn btn-primary btn-xs pull-right">Edit</a>
+                            <a href="{{ action('ConnectionsController@edit', Auth::user()->id) }}" class="btn btn-primary btn-xs pull-right">Edit</a>
                             </div>
                     </div>
                 </div><!-- /.widget -->

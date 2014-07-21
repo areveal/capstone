@@ -19,7 +19,7 @@
   
 @section('content')
 <body class=" loginWrapper">
-
+	@if(Auth::check())
 	<div class="navbar hidden-print box main" role="navigation">
         <div class="user-action pull-left menu-right-hidden-xs menu-left-hidden-xs border-left">
             <div class="dropdown username pull-left">
@@ -40,6 +40,7 @@
             </div>
         </div>
     </div>
+    @endif
 	
 	<!-- Main Container Fluid -->
 	<div class="container-fluid menu-hidden ">
