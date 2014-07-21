@@ -81,7 +81,13 @@ class UsersController extends \BaseController {
 	 */
 	public function create()
 	{
-		//this is our signup page
+		// //this is our signup page
+		// $email = Input::get('email');
+		// $password = Input::get('password');
+		// $result = array(
+		// 	'email' => $email
+		// 	'password' => $password
+		// 	)
 		return View::make('users.create-edit');
 	}
 

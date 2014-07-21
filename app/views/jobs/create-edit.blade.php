@@ -49,7 +49,7 @@
     </div>
 
 	<!-- col -->
-	
+
 
 		<!-- col-separator.box -->
 		<div class="col-separator col-unscrollable box">
@@ -57,6 +57,7 @@
 			<!-- col-table -->
 			<div class="col-table">
 				
+
 				<h4 class="innerAll margin-none border-bottom text-center bg-primary"> Edit Experience</h4>
 
 				<!-- col-table-row -->
@@ -70,7 +71,9 @@
 
 							<div class="login">
 								
+
 								<div class="placeholder text-center"><i class="fa fa-pencil"></i></div>
+
 								
 								<div class="panel panel-default col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
 
