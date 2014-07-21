@@ -24,7 +24,7 @@
 									<div class="innerAll text-center">
 										<img src="/img-upload/user.jpg" class="img-circle"/>
 										{{ Form::open(['action' => 'HomeController@doLogin', 'class' => 'form-signin']) }}	
-											<div class="innerLR">
+											<div style="postion: relative; display: block; margin-left: 100px;">
 												<input class="form-control text-center bg-gray" type="text" placeholder="Username" name="email">
 												<input class="form-control text-center bg-gray" type="password" placeholder="Enter Password" name="password">
 											</div>
