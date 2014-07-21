@@ -116,6 +116,26 @@
 									    		</ul>
 									  		</div>
 							  		</div>
+							  		<div style="margin-left: 20px" class="panel panel-default col-md-3 col-md-offset-0 col-sm-6 col-sm-offset-3">
+									<div class="panel-body">
+										<table class="table table-hover" align= "center">
+								    		<h4>Your Positions</h4>
+								    		
+								    			@foreach($assocations as $association)
+							    					<tr>
+							    						<td style="vertical-align: middle">
+							    						{{ Form::model($associations, array('action' => array('AssociationsController@destroy', $associations->id), 'method' => 'DELETE')) }}
+							    							<strong>{{{$associations->association}}}</strong><br>
+							    						</td>
+							    						<td style="vertical-align: middle">
+							    							<button type="submit" class="glyphicon glyphicon-ban-circle">Remove</button>
+							    						{{ Form::close() }}
+							    						</td>
+							    					</tr>
+								    			@endforeach		
+								    				<table>
+									  		</div>
+									  	</div>	
 								
 								</div>
 								<div class="clearfix"></div>					
