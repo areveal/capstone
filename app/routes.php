@@ -40,4 +40,3 @@ Route::resource('connections', 'ConnectionsController');
 
 Route::resource('associations', 'AssociationsController');
 
-
