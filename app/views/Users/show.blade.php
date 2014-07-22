@@ -121,12 +121,12 @@
                         <div class="widget-body inner-2x">
                             
                             @foreach($user->skills as $skill)
-                            <ul class="innerAll">
-                                <li>
+                                <button class="btn btn-default btn-sm">
                                     {{{ $skill->skill }}}
-                                </li>
-                            </ul>
+                                </button>
+
                             @endforeach
+                        </div>    
                             @if(Auth::check())
                                 @if(Auth::user()->id == $user->id)
                                 <a href="{{ action('SkillsController@edit', Auth::user()->id) }}" class="btn btn-primary btn-xs">Edit</a>

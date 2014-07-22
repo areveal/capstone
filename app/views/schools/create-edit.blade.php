@@ -65,7 +65,7 @@
 			<!-- col-table -->
 			<div class="col-table">
 				
-				<h4 class="innerAll margin-none border-bottom text-center bg-primary"><i class="fa fa-pencil"></i> Edit Education</h4>
+				<h4 class="innerAll margin-none border-bottom text-center bg-primary"><i class="fa fa-pencil"></i>Add Your Education</h4>
 
 				<!-- col-table-row -->
 				<div class="col-table-row">
@@ -123,17 +123,23 @@
 												</div>
 											</div><br><br><br>
 
-											<p>	
-									  		<button type="submit" class="btn btn-primary ">Add School</button>
-									  		</p>
+											<div class="form-group">
+									  		<button type="submit" class="btn btn-primary btn-block">Add School</button>
+									  		</div>
 										{{Form::close()}}
+										<p>
+									  	{{ Form::open(array('action' => array('UsersController@show', Auth::user()->id), 'method' => 'GET')) }}
+									  		<button type="submit" class="btn btn-default">Done</button>
+									  		<a href="{{ action('UsersController@show', Auth::user()->id)}} ">View in profile</a></span>
+									  	</p>
+										{{ Form::close() }}
 							  		</div>
 								
 								</div>
-								<div class="panel panel-default col-md-3 col-md-offset-0 col-sm-6 col-sm-offset-3">
+								<div style="margin-left: 20px" class="panel panel-default col-md-3 col-md-offset-0 col-sm-6 col-sm-offset-3">
 									<div class="panel-body">
 										<table class="table table-hover" align= "center">
-									    		<th><h4>Your Schools</h4></th>
+									    		<h4>Your Schools</h4>
 									    			@foreach($schools as $school)
 									    					<tr>
 									    						<td style="vertical-align: middle">

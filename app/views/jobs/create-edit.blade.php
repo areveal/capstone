@@ -58,7 +58,7 @@
 			<div class="col-table">
 				
 
-				<h3 class="innerAll margin-none border-bottom text-center bg-primary"> Edit Experience</h3>
+				<h4 class="innerAll margin-none border-bottom text-center bg-primary"><i class="fa fa-pencil">Add Your experience</i></h4>
 
 				<!-- col-table-row -->
 				<div class="col-table-row">
@@ -82,7 +82,7 @@
 
 								  		{{Form::open(array('action' => array('JobsController@update',Auth::user()->id), 'method' => 'PUT', 'class' => 'form-signin', 'role' => 'form'))}}
 								  		<!--<form role="form" action="index.html?lang=en"> -->
-									  		<div class="form-group"><h4>
+									  		<div class="form-group">
 									    		<label for="job_title">What is the title of the position?</label>
 									    		<!-- below is for when a user has had more than one job
 									    		<label for="jobs">Where else have you worked?</label> -->
@@ -92,51 +92,33 @@
 									    		<label for="company">Company</label>
 									    		<input name="company" type="text" class="form-control" id="company" placeholder="Company name" value="{{{ Input::old('company') }}}">
 									  		</div>
-									  		<p class="muted"><strong>When did you start?</strong></p>
 									  		<div class="form-group">
-									  			<div class="col-md-9">
-											<input name="start_date" input type="date" id="start_date" class="col-md-6 form-control" value="{{{ Input::old('start_date') }}}"/>
-											<div class="separator"></div>
-											</div><br><br><br>
-											<p>
-											<p class="muted"><strong>When did you end working here?</strong></p>
-									  		<div class="form-group">
-									  			<div class="col-md-9">
+									  		<label for="start_date">When did you start?</label>
+											<input name="start_date" type="date" id="start_date" class="col-md-6 form-control" value="{{{ Input::old('start_date') }}}"/>
+											</div>
+											<div class="form-group">
+											<label for="end_date">When did you end working here?</label>
 											<input name="end_date"input type="date" id="end_date" class="col-md-6 form-control" value="{{{ Input::old('end_date') }}}"/>
-											<div class="separator"></div>
-											</div><br><br><br>
-											<p>
+											</div>
 											<div class="form-group">
 									    		<label for="description">Job Description</label>
 									    		<textarea name="description" class="form-control" id="description" rows="7" placeholder="Job description">{{{ Input::old('description') }}}</textarea>
-									  		</div>	
-
-									  		<button type="submit" class="btn btn-default">Save</button>
-									  		<a href="{{ action('UsersController@show', Auth::user()->id)}}">view in profile</a>
-
-									  		</p>
+									  		</div>
+									  		<div class="form-group">	
+									  		<button type="submit" class="btn btn-primary btn-block">Add Job</button>
+											</div>
 										{{Form::close()}}
-							  		</h4></div>
+										<p>
+									  		{{ Form::open(array('action' => array('SchoolsController@edit', Auth::user()->id), 'method' => 'GET')) }}
+									  		<button type="submit" class="btn btn-default">Next</button>
+									  		<a href="{{ action('UsersController@show', Auth::user()->id)}} ">View in profile</a></span>
+									  		
+									  		</p>
+										{{ Form::close() }}
+							  		</div>
 								</div>
-								<div class="clearfix"></div>					
-
 							</div>
-							
-						</div>
-						<!-- // END col-app -->
-
-					</div>
-					<!-- // END col-app.col-unscrollable -->
-
-				</div>
-				<!-- // END col-table-row -->
-			
-			</div>
-			<!-- // END col-table -->
-			
-		</div>
-		<!-- // END col-separator.box -->
-								<div style="margin-left: 20px" class="panel panel-default col-md-3 col-md-offset-0 col-sm-6 col-sm-offset-3">
+							<div style="margin-left: 20px" class="panel panel-default col-md-3 col-md-offset-0 col-sm-6 col-sm-offset-3">
 									<div class="panel-body">
 										<table class="table table-hover" align= "center">
 								    		<h4>Your Positions</h4>
@@ -156,7 +138,24 @@
 								    			@endforeach		
 								    				<table>
 									  		</div>
+									  		<div class="clearfix"></div>
 									  	</div>	
+							
+						</div>
+						<!-- // END col-app -->
+
+					</div>
+					<!-- // END col-app.col-unscrollable -->
+
+				</div>
+				<!-- // END col-table-row -->
+			
+			</div>
+			<!-- // END col-table -->
+			
+		</div>
+		<!-- // END col-separator.box -->
+								
 </div>
 
 
