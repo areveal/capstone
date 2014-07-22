@@ -104,11 +104,9 @@
                                 <div class="widget widget-body-white">
                                     <div class="media widget-body innerAll">
                                         <a href="" class="pull-left"><img src="{{{ $user->img_path }}}" width="60" alt=""></a>
-                                        <div class="media-body innerL half">
+                                        <div class="media-body innerL half"><a class="btn btn-primary btn-xs pull-right"><i class="fa fa-fw fa-thumbs-up"></i> Connect</a>
                                             <h4 class="margin-none">{{{ $user->first_name . ' ' . $user->last_name }}}</h4>
-                                            <p class="strong"></p>
-
-
+                                            <p class="strong"> </p>
                                             <div class="bg-gray innerAll ">
                                                 @if(!empty($most_recent))
                                                     <h5 class="innerB half border-bottom text-muted margin-none"><i class="fa fa-fw icon-briefcase-2"></i>{{ $most_recent->job_title }}</h5>
@@ -182,7 +180,7 @@
                             <div class="btn-group-vertical btn-block">
                             @if(Auth::check())
                                 @if(Auth::user()->id == $user->id)
-                                <a href="{{ action('ConnectionsController@edit', Auth::user()->id) }}" class="btn btn-primary btn-xs pull-right">Edit</a>
+                                <a href="{{ action('ConnectionsController@edit', Auth::user()->id) }}" class="btn btn-primary btn-xs pull-right">View All Connections</a>
                                 @endif
                             @endif
                             </div>
