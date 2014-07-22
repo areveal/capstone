@@ -11,12 +11,88 @@
 			padding-left: 0px;
 			padding-right: 0px;
 		}
+		.img-circle {
+		    width:40px;
+		    height: 40px;
+		}
+		.navbar{
+		    background: #3498db;
+
+		}
+		.search {
+		    margin-top:15px;
+		    margin-right: 50%;
+		}
+		.navsearch {
+		    margin-right: 50%;
+		}
 	</style>
 @stop
 
 
 @section('content')
 <body class=" scripts-async menu-right-hidden">
+	@if(Auth::check())
+    <div class="navbar hidden-print box main" role="navigation">
+        <ul class="notifications pull-left hidden-xs">
+            <li class="dropdown notif">
+                <a href="" class="dropdown-toggle"  data-toggle="dropdown"><i class="notif-block icon-envelope-1"></i><span class="fa fa-star"></span></a>
+                <ul class="dropdown-menu chat media-list" role="menu">
+                    <li class="media"><a class="pull-left" href="#"><img class="media-object thumb" src="{{ Auth::user()->img_path }}" alt="50x50" width="30"/></a>
+                        <div class="media-body">
+                            <span class="label label-default pull-left">5 min</span>
+                            <h5 class="media-heading">Adrian D.</h5>
+                            <p class="margin-none">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                        </div>
+                    </li>
+                    <li class="media">
+                        <a class="pull-left" href="#"><img class="media-object thumb" src="/assets/images/people/100/16.jpg" alt="50x50" width="50"/></a>
+                        <div class="media-body">
+                            <span class="label label-default pull-left">2 days</span>
+                            <h5 class="media-heading">Jane B.</h5>
+                            <p class="margin-none">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                        </div>
+                    </li>                   
+                    <li class="media">
+                        <a class="pull-left" href="#"><img class="media-object thumb" src="/assets/images/people/100/17.jpg" alt="50x50" width="50"/></a>
+                        <div class="media-body">
+                            <span class="label label-default pull-left">3 days</span>
+                            <h5 class="media-heading">Andrew M.</h5>
+                            <p class="margin-none">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <div class="user-action pull-right menu-right-hidden-xs menu-left-hidden-xs border-right">
+            <div class="dropdown username pull-left">
+                <span class="dropdown-toggle" data-toggle="dropdown">
+                    <span class="media margin-none">
+                    <span class="pull-left"><img src="{{ Auth::user()->img_path }}" alt="user" class="img-circle"></span>
+                    <span class="media-body">{{ Auth::user()->first_name }} <span class="caret"></span></span>
+                </span>
+                </span>
+                <ul class="dropdown-menu">
+                    <li><a href="">Messages</a></li>
+                    <li><a href="{{ action('UsersController@show', Auth::user()->id)}} ">Profile</a></li>
+                    <li><a href="{{ action('UsersController@edit', Auth::user()->id)}} ">Edit Profile</a></li>
+                    <li><a href="{{ action('HomeController@logout') }}">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+            <div class="container">
+                {{ Form::open(['action' => ['UsersController@index'],'method' => 'GET']) }}
+                <div class="col-md-6" style="margin-left:400px">
+                    <div class="input-append search">
+                        <input id="appendedInputButton" style="border-radius:5px" class="form-inline" type="text" placeholder="Search...">
+                        <!-- search function will be going to index blade -->
+                        <a class="glyphicon glyphicon-search btn btn-primary btn-xs" pull-right>Search</a>
+                        {{ Form::close() }}
+                    </div>
+                </div>
+            </div>        
+    </div>
+    @endif
 
 			<!-- <div class="layout-app">  -->
 			<div class="innerAll">
