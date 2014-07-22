@@ -2,6 +2,15 @@
 
 @section('topscript')
 	<title>Users</title>
+	<style>
+		.buttons {
+			padding-left: 0px;
+		}
+		.connected {
+			padding-left: 6px;
+			padding-right: 6px;
+		}
+	</style>
 @stop
 
 @section('bodytag')
@@ -83,9 +92,17 @@
 					</div>
 					@if(Auth::check())
 					<div class="col-sm-3">
-						<div class="innerAll text-right">
+						<div class="innerAll text-right buttons">
 							<div class="btn-group-vertical btn-group-sm">
-								<a href="{{ action('UsersController@show', $user->id) }}" class="btn btn-primary"><i class="fa fa-fw fa-thumbs-up"></i> Connect</a>
+								@if(in_array($user->id, $connections))
+									{{ Form::open(array('action' => array('ConnectionsController@edit', Auth::user()->id),'method' => 'GET', 'class' => 'form-signin'))}}
+										<button type="submit" class="btn btn-warning connected"><i class="fa fa-fw fa-thumbs-up"></i> Connected</button>
+									{{ Form::close() }}
+								@else
+									{{ Form::open(array('action' => array('ConnectionsController@update', $user->id), 'class' => 'form-signin','method' => 'PUT')) }}
+										<button type="submit" class="btn btn-primary"><i class="fa fa-fw fa-thumbs-up"></i> Connect</button>
+									{{ Form::close() }}
+								@endif
 								<a href="" class="btn btn-default" data-toggle="sidr-open" data-menu="menu-right"><i class="fa fa-fw fa-envelope-o"></i> Chat</a>
 							</div>
 						</div>

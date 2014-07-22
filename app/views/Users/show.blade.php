@@ -18,6 +18,10 @@
 .navsearch {
     margin-right: 50%;
 }
+.small-pic {
+    height: 20%;
+    width: 20%;
+}
 </style>
 
 @stop
@@ -87,7 +91,7 @@
                     </div>
                 </div>
             </div>        
-            @endif
+    @endif
     </div>
         <div class="layout-app">  
             <div class="innerLR">
@@ -105,7 +109,10 @@
                                             <p class="strong"> </p>
 
                                         <div class="bg-gray innerAll ">
-                                            <h5 class="innerB half border-bottom text-muted margin-none"><i class="fa fa-fw icon-briefcase-2"></i>{{ $most_recent->job_title }}</h5>
+                                            @if(!empty($most_recent))
+                                                <h5 class="innerB half border-bottom text-muted margin-none"><i class="fa fa-fw icon-briefcase-2"></i>{{ $most_recent->job_title }}</h5>
+                                            @endif
+
 
                                         </div>
                                     </div>
@@ -126,7 +133,11 @@
                                 </li>
                             </ul>
                             @endforeach
-                            <a href="{{ action('SkillsController@edit', Auth::user()->id) }}" class="btn btn-primary btn-xs">Edit</a>
+                            @if(Auth::check())
+                                @if(Auth::user()->id == $user->id)
+                                    <a href="{{ action('SkillsController@edit', Auth::user()->id) }}" class="btn btn-primary btn-xs">Edit</a>
+                                @endif
+                            @endif
                         </div>
                     </div>
                     <!-- //end Widget -->
@@ -153,7 +164,11 @@
                                 </ul> 
                             @endforeach
                             @endif
-                                <a href="{{ action('JobsController@edit', Auth::user()->id) }}" class="btn btn-primary btn-xs">Edit</a>
+                            @if(Auth::check())
+                                @if(Auth::user()->id == $user->id)
+                                    <a href="{{ action('JobsController@edit', Auth::user()->id) }}" class="btn btn-primary btn-xs">Edit</a>
+                                @endif
+                            @endif
                         </div>
                     </div>
 
@@ -165,7 +180,11 @@
                     <h2 class="strong margin-none">Connections</h2>
                         <div class="innerB"></div>
                             <div class="btn-group-vertical btn-block">
-                            <a href="{{ action('ConnectionsController@edit', Auth::user()->id) }}" class="btn btn-primary btn-xs pull-right">Edit</a>
+                            @if(Auth::check())
+                                @if(Auth::user()->id == $user->id)
+                                    <a href="{{ action('ConnectionsController@edit', Auth::user()->id) }}" class="btn btn-primary btn-xs pull-right">Edit</a>
+                                @endif
+                            @endif    
                             </div>
                     </div>
                 </div><!-- /.widget -->
@@ -173,15 +192,17 @@
                 <div class="widget">
                     <h5 class="innerAll margin-none border-bottom bg-gray">Your Network</h5>
                     <div class="widget-body padding-none">
-                        <div class="media border-bottom innerAll margin-none">
-                            <img src="{{ $user->img_path }}" class="pull-left media-object"/>
-                            <div class="media-body">
-                                <h5 class="margin-none">{{ $user->first_name . ' ' . $user->last_name }}</h5>
-                                    <i>{{ $user->status }}</i>                                
-                                <!-- <h5 class="margin-none"><a href="" class="text-inverse">Social Admin Released</a></h5>
-                                <small>on February 2nd, 2014 </small>  -->
-                            </div>
-                        </div>           
+                        @foreach($connections as $connection)
+                            <div class="media border-bottom innerAll margin-none">
+                                <img src="{{ $connection->img_path }}" class="pull-left media-object small-pic"/>
+                                <div class="media-body">
+                                    <h5 class="margin-none">{{ $connection->first_name . ' ' . $connection->last_name }}</h5>
+                                        <i>{{ $connection->status }}</i>                                
+                                    <!-- <h5 class="margin-none"><a href="" class="text-inverse">Social Admin Released</a></h5>
+                                    <small>on February 2nd, 2014 </small>  -->
+                                </div>
+                            </div> 
+                        @endforeach          
                     </div>
                 </div>
             </div>
@@ -210,7 +231,11 @@
                         <br>                       
                         @endforeach
                         @endif
-                        <p class="clearfix"><a href="{{ action('SchoolsController@edit', Auth::user()->id) }}" class="btn btn-primary btn-xs pull-left">Edit</a></p>                    
+                        @if(Auth::check())
+                            @if(Auth::user()->id == $user->id)
+                                <p class="clearfix"><a href="{{ action('SchoolsController@edit', Auth::user()->id) }}" class="btn btn-primary btn-xs pull-left">Edit</a></p>                    
+                            @endif
+                        @endif
                     </div>
                 </div>
                 <!-- //end Widget -->

@@ -32,7 +32,19 @@ class ConnectionsController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		if(Auth::check())
+		{
+			$friend = User::findOrFail($id);
+			$user = Auth::user();
+			$user->connections()->attach($friend);
+			Session::flash('successMessage', 'You have successfully addded a connection.');
+			return Redirect::back();
+		}
+		else
+		{
+			Session::flash('errorMessage','You do not have the necessary priveleges to edit this user.');
+			return Redirect::action('UsersController@index');			
+		}
 	}
 
 
