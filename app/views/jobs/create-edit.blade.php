@@ -58,7 +58,7 @@
 			<div class="col-table">
 				
 
-				<h4 class="innerAll margin-none border-bottom text-center bg-primary"> Edit Experience</h4>
+				<h3 class="innerAll margin-none border-bottom text-center bg-primary"> Edit Experience</h3>
 
 				<!-- col-table-row -->
 				<div class="col-table-row">
@@ -82,7 +82,7 @@
 
 								  		{{Form::open(array('action' => array('JobsController@update',Auth::user()->id), 'method' => 'PUT', 'class' => 'form-signin', 'role' => 'form'))}}
 								  		<!--<form role="form" action="index.html?lang=en"> -->
-									  		<div class="form-group">
+									  		<div class="form-group"><h4>
 									    		<label for="job_title">What is the title of the position?</label>
 									    		<!-- below is for when a user has had more than one job
 									    		<label for="jobs">Where else have you worked?</label> -->
@@ -116,7 +116,7 @@
 
 									  		</p>
 										{{Form::close()}}
-							  		</div>
+							  		</h4></div>
 								</div>
 								<div class="clearfix"></div>					
 
