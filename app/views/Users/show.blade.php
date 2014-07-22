@@ -121,6 +121,7 @@
                                                 @if(!empty($most_recent))
                                                     <h5 class="innerB half border-bottom text-muted margin-none"><i class="fa fa-fw icon-briefcase-2"></i>{{ $most_recent->job_title }}</h5>
                                                 @endif
+                                            @endif
                                             </div>
                                         </div>
                                     </div>
