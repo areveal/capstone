@@ -104,7 +104,16 @@
                                 <div class="widget widget-body-white">
                                     <div class="media widget-body innerAll">
                                         <a href="" class="pull-left"><img src="{{{ $user->img_path }}}" width="60" alt=""></a>
-                                        <div class="media-body innerL half"><a class="btn btn-primary btn-xs pull-right"><i class="fa fa-fw fa-thumbs-up"></i> Connect</a>
+                                        <div class="media-body innerL half">
+                                            @if(Auth::check() && (Auth::user()->id != $user->id))
+                                                @if(in_array($user->id, $your_connections))
+                                                    <a class="btn btn-warning btn-xs pull-right"><i class="fa fa-fw fa-thumbs-up"></i> Connected</a>
+                                                @else
+                                                    {{ Form::open(array('action' => array('ConnectionsController@update', $user->id), 'class' => 'form-signin','method' => 'PUT')) }}
+                                                        <button type="submit" class="btn btn-primary btn-xs pull-right"><i class="fa fa-fw fa-thumbs-up"></i> Connect</button>
+                                                    {{ Form::close() }}
+                                                @endif
+                                            @endif
                                             <h4 class="margin-none">{{{ $user->first_name . ' ' . $user->last_name }}}</h4>
                                             <p class="strong"> </p>
                                             <div class="bg-gray innerAll ">
@@ -178,11 +187,7 @@
                     <h2 class="strong margin-none">Connections</h2>
                         <div class="innerB"></div>
                             <div class="btn-group-vertical btn-block">
-                            @if(Auth::check())
-                                @if(Auth::user()->id == $user->id)
-                                <a href="{{ action('ConnectionsController@edit', Auth::user()->id) }}" class="btn btn-primary btn-xs pull-right">View All Connections</a>
-                                @endif
-                            @endif
+                                <a href="{{ action('ConnectionsController@edit', $user->id) }}" class="btn btn-primary btn-xs pull-right">View All Connections</a>
                             </div>
                     </div>
                 </div><!-- /.widget -->
