@@ -87,7 +87,7 @@
                     </div>
                 </div>
             </div>        
-            @endif
+    @endif
     </div>
         <div class="layout-app">  
             <div class="innerLR">
@@ -119,6 +119,7 @@
                             <h4 class="heading glyphicon glyphicon-list"><i> </i>Skills</h4>
                         </div>
                         <div class="widget-body inner-2x">
+                            
                             @foreach($user->skills as $skill)
                             <ul class="innerAll">
                                 <li>
@@ -126,7 +127,11 @@
                                 </li>
                             </ul>
                             @endforeach
-                            <a href="{{ action('SkillsController@edit', Auth::user()->id) }}" class="btn btn-primary btn-xs">Edit</a>
+                            @if(Auth::check())
+                                @if(Auth::user()->id == $user->id)
+                                <a href="{{ action('SkillsController@edit', Auth::user()->id) }}" class="btn btn-primary btn-xs">Edit</a>
+                                @endif
+                            @endif
                         </div>
                     </div>
                     <!-- //end Widget -->
@@ -153,7 +158,11 @@
                                 </ul> 
                             @endforeach
                             @endif
-                                <a href="{{ action('JobsController@edit', Auth::user()->id) }}" class="btn btn-primary btn-xs">Edit</a>
+                            @if(Auth::check())
+                                @if(Auth::user()->id == $user->id)
+                                    <a href="{{ action('JobsController@edit', Auth::user()->id) }}" class="btn btn-primary btn-xs">Edit</a>
+                                 @endif 
+                            @endif  
                         </div>
                     </div>
 
@@ -165,7 +174,11 @@
                     <h2 class="strong margin-none">Connections</h2>
                         <div class="innerB"></div>
                             <div class="btn-group-vertical btn-block">
-                            <a href="{{ action('ConnectionsController@edit', Auth::user()->id) }}" class="btn btn-primary btn-xs pull-right">Edit</a>
+                            @if(Auth::check())
+                                @if(Auth::user()->id == $user->id)
+                                <a href="{{ action('ConnectionsController@edit', Auth::user()->id) }}" class="btn btn-primary btn-xs pull-right">Edit</a>
+                                @endif
+                            @endif
                             </div>
                     </div>
                 </div><!-- /.widget -->
@@ -210,7 +223,11 @@
                         <br>                       
                         @endforeach
                         @endif
-                        <p class="clearfix"><a href="{{ action('SchoolsController@edit', Auth::user()->id) }}" class="btn btn-primary btn-xs pull-left">Edit</a></p>                    
+                        @if(Auth::check())
+                            @if(Auth::user()->id == $user->id)
+                            <p class="clearfix"><a href="{{ action('SchoolsController@edit', Auth::user()->id) }}" class="btn btn-primary btn-xs pull-left">Edit</a></p>                    
+                            @endif
+                        @endif
                     </div>
                 </div>
                 <!-- //end Widget -->
