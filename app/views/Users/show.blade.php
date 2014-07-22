@@ -19,8 +19,8 @@
     margin-right: 50%;
 }
 .small-pic {
-    height: 15%;
-    width: 15%;
+    height: 20%;
+    width: 20%;
 }
 </style>
 
@@ -35,13 +35,13 @@
 <div id="content">
     @if(Auth::check())
     <div class="navbar hidden-print box main" role="navigation">
-        <ul class="notifications pull-left hidden-xs">
+        <ul class="notifications pull-right hidden-xs">
             <li class="dropdown notif">
                 <a href="" class="dropdown-toggle"  data-toggle="dropdown"><i class="notif-block icon-envelope-1"></i><span class="fa fa-star"></span></a>
-                <ul class="dropdown-menu chat media-list" role="menu">
-                    <li class="media"><a class="pull-left" href="#"><img class="media-object thumb" src="{{ Auth::user()->img_path }}" alt="50x50" width="30"/></a>
+                <ul class="dropdown-menu chat media-list">
+                    <li class="media"><a class="pull-right" href="#"><img class="media-object thumb" src="{{ Auth::user()->img_path }}" alt="50x50" width="30"/></a>
                         <div class="media-body">
-                            <span class="label label-default pull-left">5 min</span>
+                            <span class="label label-default pull-right">5 min</span>
                             <h5 class="media-heading">Adrian D.</h5>
                             <p class="margin-none">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
                         </div>
@@ -49,15 +49,15 @@
                     <li class="media">
                         <a class="pull-left" href="#"><img class="media-object thumb" src="/assets/images/people/100/16.jpg" alt="50x50" width="50"/></a>
                         <div class="media-body">
-                            <span class="label label-default pull-left">2 days</span>
+                            <span class="label label-default pull-right">2 days</span>
                             <h5 class="media-heading">Jane B.</h5>
                             <p class="margin-none">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
                         </div>
                     </li>                   
                     <li class="media">
-                        <a class="pull-left" href="#"><img class="media-object thumb" src="/assets/images/people/100/17.jpg" alt="50x50" width="50"/></a>
+                        <a class="pull-right" href="#"><img class="media-object thumb" src="/assets/images/people/100/17.jpg" alt="50x50" width="50"/></a>
                         <div class="media-body">
-                            <span class="label label-default pull-left">3 days</span>
+                            <span class="label label-default pull-right">3 days</span>
                             <h5 class="media-heading">Andrew M.</h5>
                             <p class="margin-none">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
                         </div>
@@ -75,25 +75,24 @@
                 </span>
                 <ul class="dropdown-menu">
                     <li><a href="">Messages</a></li>
-                    <li><a href="{{ action('UsersController@show', Auth::user()->id)}} ">Profile</a></li>
                     <li><a href="{{ action('UsersController@edit', Auth::user()->id)}} ">Edit Profile</a></li>
                     <li><a href="{{ action('HomeController@logout') }}">Logout</a></li>
                 </ul>
             </div>
         </div>
             <div class="container">
-                {{ Form::open(['action' => ['UsersController@index'],'method' => 'GET']) }}
+            {{ Form::open(['action' => ['UsersController@index'],'method' => 'GET']) }}
                 <div class="col-md-6" style="margin-left:400px">
                     <div class="input-append search">
-                        <input id="appendedInputButton" style="border-radius:5px" class="form-inline" type="text" placeholder="Search...">
+                        <input id="appendedInputButton" class="span6" type="text" placeholder="Search...">
                         <!-- search function will be going to index blade -->
                         <a class="glyphicon glyphicon-search btn btn-primary btn-xs" pull-right>Search</a>
                         {{ Form::close() }}
                     </div>
                 </div>
             </div>        
-    </div>
     @endif
+    </div>
         <div class="layout-app">  
             <div class="innerLR">
                 <h2 class="margin-left">Profile &nbsp;<i class="fa fa-fw fa-pencil text-muted"></i></h2>
@@ -106,25 +105,19 @@
                                     <div class="media widget-body innerAll">
                                         <a href="" class="pull-left"><img src="{{{ $user->img_path }}}" width="60" alt=""></a>
                                         <div class="media-body innerL half">
-                                            @if(Auth::check() && (Auth::user()->id != $user->id))
-                                                @if(in_array($user->id, $your_connections))
-                                                    <a class="btn btn-warning btn-xs pull-right"><i class="fa fa-fw fa-thumbs-up"></i> Connected</a>
-                                                @else
-                                                    {{ Form::open(array('action' => array('ConnectionsController@update', $user->id), 'class' => 'form-signin','method' => 'PUT')) }}
-                                                        <button type="submit" class="btn btn-primary btn-xs pull-right"><i class="fa fa-fw fa-thumbs-up"></i> Connect</button>
-                                                    {{ Form::close() }}
-                                                @endif
-                                            @endif
                                             <h4 class="margin-none">{{{ $user->first_name . ' ' . $user->last_name }}}</h4>
                                             <p class="strong"> </p>
-                                            <div class="bg-gray innerAll ">
-                                                @if(!empty($most_recent))
-                                                    <h5 class="innerB half border-bottom text-muted margin-none"><i class="fa fa-fw icon-briefcase-2"></i>{{ $most_recent->job_title }}</h5>
-                                                @endif
-                                            </div>
+
+                                        <div class="bg-gray innerAll ">
+                                            @if(!empty($most_recent))
+                                                <h5 class="innerB half border-bottom text-muted margin-none"><i class="fa fa-fw icon-briefcase-2"></i>{{ $most_recent->job_title }}</h5>
+                                            @endif
+
+
                                         </div>
                                     </div>
                                 </div>
+                            
 
                     <!-- //end Widget -->
                     <!-- Widget start-->
@@ -133,7 +126,6 @@
                             <h4 class="heading glyphicon glyphicon-list"><i> </i>Skills</h4>
                         </div>
                         <div class="widget-body inner-2x">
-                            
                             @foreach($user->skills as $skill)
                                 <button class="btn btn-default btn-sm">
                                     {{{ $skill->skill }}}
@@ -143,7 +135,7 @@
                         </div>    
                             @if(Auth::check())
                                 @if(Auth::user()->id == $user->id)
-                                <a href="{{ action('SkillsController@edit', Auth::user()->id) }}" class="btn btn-primary btn-xs">Edit</a>
+                                    <a href="{{ action('SkillsController@edit', Auth::user()->id) }}" class="btn btn-primary btn-xs">Edit</a>
                                 @endif
                             @endif
                         </div>
@@ -175,8 +167,8 @@
                             @if(Auth::check())
                                 @if(Auth::user()->id == $user->id)
                                     <a href="{{ action('JobsController@edit', Auth::user()->id) }}" class="btn btn-primary btn-xs">Edit</a>
-                                 @endif 
-                            @endif  
+                                @endif
+                            @endif
                         </div>
                     </div>
 
@@ -188,15 +180,19 @@
                     <h2 class="strong margin-none">Connections</h2>
                         <div class="innerB"></div>
                             <div class="btn-group-vertical btn-block">
-                                <a href="{{ action('ConnectionsController@edit', $user->id) }}" class="btn btn-primary btn-xs pull-right">View All Connections</a>
+                            @if(Auth::check())
+                                @if(Auth::user()->id == $user->id)
+                                    <a href="{{ action('ConnectionsController@edit', Auth::user()->id) }}" class="btn btn-primary btn-xs pull-right">Edit</a>
+                                @endif
+                            @endif    
                             </div>
                     </div>
                 </div><!-- /.widget -->
 
                 <div class="widget">
-                    <h5 class="innerAll margin-none border-bottom bg-gray">{{{ $user->first_name }}}'s Network</h5>
+                    <h5 class="innerAll margin-none border-bottom bg-gray">Your Network</h5>
                     <div class="widget-body padding-none">
-                        @foreach($connections as $connection)                       
+                        @foreach($connections as $connection)
                             <div class="media border-bottom innerAll margin-none">
                                 <img src="{{ $connection->img_path }}" class="pull-left media-object small-pic"/>
                                 <div class="media-body">
@@ -220,24 +216,24 @@
                     </div>
                     <div class="widget-body inner-2x">
                         @if(count($user->schools) >0)
-                            @foreach($user->schools as $school)
-                            <ul class="list-unstyled">
-                                <li> 
-                                    {{{ $school->college }}} 
-                                </li>
-                                <li>
-                                    {{{ $school->date_began . ' ' . $school->date_complete }}}
-                                </li>
-                                <li>
-                                    {{{ $school->major }}}
-                                </li>
-                            </ul>
-                            <br>                       
-                            @endforeach
+                        @foreach($user->schools as $school)
+                        <ul class="list-unstyled">
+                            <li> 
+                                {{{ $school->college }}} 
+                            </li>
+                            <li>
+                                {{{ $school->date_began . ' ' . $school->date_complete }}}
+                            </li>
+                            <li>
+                                {{{ $school->major }}}
+                            </li>
+                        </ul>
+                        <br>                       
+                        @endforeach
                         @endif
                         @if(Auth::check())
                             @if(Auth::user()->id == $user->id)
-                            <p class="clearfix"><a href="{{ action('SchoolsController@edit', Auth::user()->id) }}" class="btn btn-primary btn-xs pull-left">Edit</a></p>                    
+                                <p class="clearfix"><a href="{{ action('SchoolsController@edit', Auth::user()->id) }}" class="btn btn-primary btn-xs pull-left">Edit</a></p>                    
                             @endif
                         @endif
                     </div>
