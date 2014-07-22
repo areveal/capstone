@@ -95,16 +95,25 @@
 									    		<label for="new_skills">Add New</label>
 									    		<input name="new_skills" type="text" class="form-control" id="new_skills" placeholder="New Skill Here" value="{{Input::old('first_name')}}">
 									  		</div>
+									  		<div class="form-group">
 									  		<button type="submit" class="btn btn-primary btn-block">Add Skill</button>
-										{{ Form::close() }}
+									  		</div>
+									  		{{ Form::close() }}
+									  		<p>
+									  		{{ Form::open(array('action' => array('AssociationsController@edit', Auth::user()->id), 'method' => 'GET')) }}
+									  		<button type="submit" class="btn btn-default">Next</button>
+									  		<a href="{{ action('UsersController@show', Auth::user()->id)}} ">View in profile</a></span>
+									  		
+									  		</p>
+											{{ Form::close() }}
 							  		</div>
 								
 								</div>
 
 
-								<div class="panel panel-default col-md-4 col-md-offset-0 col-sm-6 col-sm-offset-3">
+								<div style="margin-left: 20px" class="panel panel-default col-md-3 col-md-offset-0 col-sm-6 col-sm-offset-3">
 
-								  	<div class="panel-body">
+								  	<div  class="panel-body">
 								  		<!--<form role="form" action="index.html?lang=en"> -->
 								  		<table class="table table-hover">
 								    			<th><h4>Your Skills</h4></center><th>
@@ -115,7 +124,7 @@
 								    							{{{ $skill_owned->skill }}}
 								    					</td>
 								    					<td>
-								    							<button type="submit" class="btn btn-danger">Remove</button>
+								    							<button type="submit" class="glyphicon glyphicon-ban-circle">Remove</button>
 								    						{{ Form::close() }}
 								    					</td>
 								    			@endforeach		
