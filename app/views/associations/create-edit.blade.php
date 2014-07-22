@@ -86,58 +86,48 @@
 									    			@endforeach
 									    		</select>
 									  		</div>
+									  		<div>
 									  		<button type="submit" class="btn btn-primary btn-block">Add association</button>
+											{{ Form::close() }}
+										</div>
+										<center><p>*This form is for informational purposes only. It will not be displayed on your profile or given to potential employers.</p></center>
+									  		<p>
+									  		{{ Form::open(array('action' => array('JobsController@edit', Auth::user()->id), 'method' => 'GET')) }}
+									  		<button type="submit" class="btn btn-default">Next</button>
+									  		<a href="{{ action('UsersController@show', Auth::user()->id)}} ">View in profile</a></span>
+									  		
+									  		</p>
+											{{ Form::close() }}
 										{{ Form::close() }}
 							  		</div>
 
-							  		<center><p>*This form is for informational purposes only. It will not be displayed on your profile or given to potential employers.</p></center>
+							  		
 								
 								</div>
 
 
-								<div class="panel panel-default col-md-4 col-md-offset-0 col-sm-6 col-sm-offset-3">
+								<div style="margin-left: 20px" class="panel panel-default col-md-3 col-md-offset-0 col-sm-6 col-sm-offset-3">
 
 								  	<div class="panel-body">
 								  		<!--<form role="form" action="index.html?lang=en"> -->
-									  		<div class="form-group">
-									    		<center><h4>Your associations</h4></center>
-									    		<ul class="list-unstyled">
+									  		<table class="table table-hover">
+									    		<h4>Your Associations</h4><center>
+									    		
 									    			@foreach($associations_owned as $association_owned)
-									    				<center>
-									    					<li>
+									    				<tr>
+									    					<td>
 									    						{{ Form::model($associations, array('action' => array('AssociationsController@destroy', $association_owned->id), 'method' => 'DELETE')) }}
 									    							{{{ $association_owned->association }}}
-
-									    							<button type="submit" class="btn btn-danger">Remove</button>
+									    					</td>
+									    					<td>
+									    							<button type="submit" class="glyphicon glyphicon-ban-circle">Remove</button>
 									    						{{ Form::close() }}
-									    					</li>
-									    				</center>
-									    			@endforeach
-									    		</ul>
+									    					</td>
+									    			@endforeach		
+									    		</table>
 									  		</div>
 							  		</div>
-							  		<div style="margin-left: 20px" class="panel panel-default col-md-3 col-md-offset-0 col-sm-6 col-sm-offset-3">
-									<div class="panel-body">
-										<table class="table table-hover" align= "center">
-								    		<h4>Your Positions</h4>
-								    		
-								    			@foreach($associations_owned as $association_owned)
-							    					<tr>
-							    						<td style="vertical-align: middle">
-							    						{{ Form::model($associations, array('action' => array('AssociationsController@destroy', $association_owned->id), 'method' => 'DELETE')) }}
-							    							<strong>{{{$associations_owned->association}}}</strong><br>
-							    						</td>
-							    						<td style="vertical-align: middle">
-							    							<button type="submit" class="glyphicon glyphicon-ban-circle">Remove</button>
-							    						{{ Form::close() }}
-							    						</td>
-							    					</tr>
-								    			@endforeach		
-								    				<table>
-									  		</div>
-									  	</div>	
-								
-								</div>
+							  		
 								<div class="clearfix"></div>					
 
 							</div>
