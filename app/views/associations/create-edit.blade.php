@@ -121,11 +121,11 @@
 										<table class="table table-hover" align= "center">
 								    		<h4>Your Positions</h4>
 								    		
-								    			@foreach($assocations as $association)
+								    			@foreach($associations_owned as $association_owned)
 							    					<tr>
 							    						<td style="vertical-align: middle">
-							    						{{ Form::model($associations, array('action' => array('AssociationsController@destroy', $associations->id), 'method' => 'DELETE')) }}
-							    							<strong>{{{$associations->association}}}</strong><br>
+							    						{{ Form::model($associations, array('action' => array('AssociationsController@destroy', $association_owned->id), 'method' => 'DELETE')) }}
+							    							<strong>{{{$associations_owned->association}}}</strong><br>
 							    						</td>
 							    						<td style="vertical-align: middle">
 							    							<button type="submit" class="glyphicon glyphicon-ban-circle">Remove</button>

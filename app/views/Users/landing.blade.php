@@ -24,7 +24,7 @@
     <div class="main">
         
       <section class="home"><nav class="navbar navbar-default" role="navigation">
-      <div class="container-fluid"> <a class="navbar-brand" style="text-blue innerB text-center" href="#"><strong>Diversity Thread</strong></a>
+      <div class="container-fluid"> <a class="navbar-brand" href="#"><strong ><h3 class="demo1">DiversityThread </h3></strong></a>
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header" style="float: right">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -67,10 +67,11 @@
             <div class="row">
 
                 <div class="home-copy  col-xs-12 col-sm-8 col-sm-offset-2 animated fadeInDown delay-2 ">
-                    <br><h1 class="demo1"><br><!-- <button type="submit" class="btn btn-signup"><i >IN</strong></i> --></button> 
-                    	 
-                    <h3 class="text-white innerB text-center">The professional network for women and minorities.</h3>
-                    <!-- <span class="rotate">Connect, Share, Jobs </span>  -->
+                    <h1 class="demo1"><br><!-- <button type="submit" class="btn btn-signup"><i >IN</strong></i> --></button> 
+                    	 <span class="rotate">Connect, Share, Jobs </span><h1>
+                    
+                    <h3 style="margin-top: -50px"class="text-white innerB text-center">Professional networking for women and minorities.</h3>
+                      
 <div id="menu-right">
     <div class="row row-app">
         <div class="col-md-12">
@@ -82,18 +83,17 @@
                                 <h3 class="text-white innerB text-center">Get Started-Its free.</h3>
                                 <div class="lock-container">
                                     <div class="innerAll text-center">
+                                        <div style="height: 120px"
                                         <img src="../assets//images/people/100/6.jpg" class="img-circle"/><img src="../assets//images/people/100/1.jpg" class="img-circle"/><img src="../assets//images/people/100/10.jpg" class="img-circle"/><img src="../assets//images/people/100/23.jpg" class="img-circle"/>
-                                        {{ Form::open(['action' => 'UsersController@create', 'class' => 'form-signin']) }}  
-                                            <div class="innerLR" style="width: 400px">
-
-                                                <input class="form-control text-center bg-gray" type="text" placeholder="Email" name="email">
-                                                <input class="form-control text-center bg-gray" type="password" placeholder="Enter Password" name="password">
-                                            </div>
-                                            <div class="innerT">
-                                                {{link_to_action('UsersController@create','Join Now', null, array('class' => 'btn btn-default btn-lg'))}}
-                                            </div>
+                                        </div>
+                                        {{ Form::open(array('action' => 'UsersController@create', 'method' => 'GET', 'class' => 'form-signin', 'role' => 'form')) }}  
+                                            <!-- Single button -->
+                                        <div class="btn-group">
+                                          <button type="submit" class="btn btn-default btn-lg">
+                                            Build a Profile Now
+                                          </button>
                                         {{ Form::close() }}
-                                            <p class="btn margin-none">Build a profile in under 2 minutes.</p>
+                                            <!-- <p class="btn margin-none">Build a profile in under 2 minutes.</p> -->
                                     </div>
                                 </div>
                             </div>
@@ -106,9 +106,7 @@
 
       </section>
 
-      
-      </section>
-      <section class="contact full-color">
+      <<!-- section class="contact full-color">
         <div class="row">
             <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3">
                 <h2>Keep in touch</h2>
@@ -129,7 +127,7 @@
                 </div>
             </div>
         </div>
-      </section>
+      </section> -->
 
     </div> <!-- /main -->
 
