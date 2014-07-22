@@ -105,7 +105,9 @@
                                             <p class="strong"> </p>
 
                                         <div class="bg-gray innerAll ">
-                                            <h5 class="innerB half border-bottom text-muted margin-none"><i class="fa fa-fw icon-briefcase-2"></i>{{ $most_recent->job_title }}</h5>
+                                            @if(!empty($most_recent))
+                                                <h5 class="innerB half border-bottom text-muted margin-none"><i class="fa fa-fw icon-briefcase-2"></i>{{ $most_recent->job_title }}</h5>
+                                            @endif
 
                                         </div>
                                     </div>
@@ -208,20 +210,20 @@
                     </div>
                     <div class="widget-body inner-2x">
                         @if(count($user->schools) >0)
-                        @foreach($user->schools as $school)
-                        <ul class="list-unstyled">
-                            <li> 
-                                {{{ $school->college }}} 
-                            </li>
-                            <li>
-                                {{{ $school->date_began . ' ' . $school->date_complete }}}
-                            </li>
-                            <li>
-                                {{{ $school->major }}}
-                            </li>
-                        </ul>
-                        <br>                       
-                        @endforeach
+                            @foreach($user->schools as $school)
+                            <ul class="list-unstyled">
+                                <li> 
+                                    {{{ $school->college }}} 
+                                </li>
+                                <li>
+                                    {{{ $school->date_began . ' ' . $school->date_complete }}}
+                                </li>
+                                <li>
+                                    {{{ $school->major }}}
+                                </li>
+                            </ul>
+                            <br>                       
+                            @endforeach
                         @endif
                         @if(Auth::check())
                             @if(Auth::user()->id == $user->id)
