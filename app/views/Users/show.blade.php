@@ -18,6 +18,10 @@
 .navsearch {
     margin-right: 50%;
 }
+.small-pic {
+    height: 20%;
+    width: 20%;
+}
 </style>
 
 @stop
@@ -77,21 +81,18 @@
             </div>
         </div>
             <div class="container">
-                {{ Form::open(['action' => ['UsersController@index'],'method' => 'GET']) }}
-                <div class="row; col-md-6;" style="margin-left:400px">
-                    <div class="input-group">
-                        <span class="input-group-btn">
-                            <button class="btn btn-default" type="button">Go!</button>
-                        </span>    
-                                <input id="appendedInputButton" class="span6" type="text" placeholder="Search...">
+            {{ Form::open(['action' => ['UsersController@index'],'method' => 'GET']) }}
+                <div class="col-md-6" style="margin-left:400px">
+                    <div class="input-append search">
+                        <input id="appendedInputButton" class="span6" type="text" placeholder="Search...">
                         <!-- search function will be going to index blade -->
                         <a class="glyphicon glyphicon-search btn btn-primary btn-xs" pull-right>Search</a>
                         {{ Form::close() }}
                     </div>
                 </div>
             </div>        
-    </div>
     @endif
+    </div>
         <div class="layout-app">  
             <div class="innerLR">
                 <h2 class="margin-left">Profile &nbsp;<i class="fa fa-fw fa-pencil text-muted"></i></h2>
@@ -103,17 +104,20 @@
                                 <div class="widget widget-body-white">
                                     <div class="media widget-body innerAll">
                                         <a href="" class="pull-left"><img src="{{{ $user->img_path }}}" width="60" alt=""></a>
-                                        <div class="media-body innerL half"><a class="btn btn-primary btn-xs pull-right"><i class="fa fa-fw fa-thumbs-up"></i> Connect</a>
+                                        <div class="media-body innerL half">
                                             <h4 class="margin-none">{{{ $user->first_name . ' ' . $user->last_name }}}</h4>
                                             <p class="strong"> </p>
-                                            <div class="bg-gray innerAll ">
-                                                @if(!empty($most_recent))
-                                                    <h5 class="innerB half border-bottom text-muted margin-none"><i class="fa fa-fw icon-briefcase-2"></i>{{ $most_recent->job_title }}</h5>
-                                                @endif
-                                            </div>
+
+                                        <div class="bg-gray innerAll ">
+                                            @if(!empty($most_recent))
+                                                <h5 class="innerB half border-bottom text-muted margin-none"><i class="fa fa-fw icon-briefcase-2"></i>{{ $most_recent->job_title }}</h5>
+                                            @endif
+
+
                                         </div>
                                     </div>
                                 </div>
+                            
 
                     <!-- //end Widget -->
                     <!-- Widget start-->
@@ -122,7 +126,6 @@
                             <h4 class="heading glyphicon glyphicon-list"><i> </i>Skills</h4>
                         </div>
                         <div class="widget-body inner-2x">
-                            
                             @foreach($user->skills as $skill)
                                 <button class="btn btn-default btn-sm">
                                     {{{ $skill->skill }}}
@@ -132,7 +135,7 @@
                         </div>    
                             @if(Auth::check())
                                 @if(Auth::user()->id == $user->id)
-                                <a href="{{ action('SkillsController@edit', Auth::user()->id) }}" class="btn btn-primary btn-xs">Edit</a>
+                                    <a href="{{ action('SkillsController@edit', Auth::user()->id) }}" class="btn btn-primary btn-xs">Edit</a>
                                 @endif
                             @endif
                         </div>
@@ -164,8 +167,8 @@
                             @if(Auth::check())
                                 @if(Auth::user()->id == $user->id)
                                     <a href="{{ action('JobsController@edit', Auth::user()->id) }}" class="btn btn-primary btn-xs">Edit</a>
-                                 @endif 
-                            @endif  
+                                @endif
+                            @endif
                         </div>
                     </div>
 
@@ -179,9 +182,9 @@
                             <div class="btn-group-vertical btn-block">
                             @if(Auth::check())
                                 @if(Auth::user()->id == $user->id)
-                                <a href="{{ action('ConnectionsController@edit', Auth::user()->id) }}" class="btn btn-primary btn-xs pull-right">View All Connections</a>
+                                    <a href="{{ action('ConnectionsController@edit', Auth::user()->id) }}" class="btn btn-primary btn-xs pull-right">Edit</a>
                                 @endif
-                            @endif
+                            @endif    
                             </div>
                     </div>
                 </div><!-- /.widget -->
@@ -189,15 +192,17 @@
                 <div class="widget">
                     <h5 class="innerAll margin-none border-bottom bg-gray">Your Network</h5>
                     <div class="widget-body padding-none">
-                        <div class="media border-bottom innerAll margin-none">
-                            <img src="{{ $user->img_path }}" class="pull-left media-object"/>
-                            <div class="media-body">
-                                <h5 class="margin-none">{{ $user->first_name . ' ' . $user->last_name }}</h5>
-                                    <i>{{ $user->status }}</i>                                
-                                <!-- <h5 class="margin-none"><a href="" class="text-inverse">Social Admin Released</a></h5>
-                                <small>on February 2nd, 2014 </small>  -->
-                            </div>
-                        </div>           
+                        @foreach($connections as $connection)
+                            <div class="media border-bottom innerAll margin-none">
+                                <img src="{{ $connection->img_path }}" class="pull-left media-object small-pic"/>
+                                <div class="media-body">
+                                    <h5 class="margin-none">{{ $connection->first_name . ' ' . $connection->last_name }}</h5>
+                                        <i>{{ $connection->status }}</i>                                
+                                    <!-- <h5 class="margin-none"><a href="" class="text-inverse">Social Admin Released</a></h5>
+                                    <small>on February 2nd, 2014 </small>  -->
+                                </div>
+                            </div> 
+                        @endforeach          
                     </div>
                 </div>
             </div>
@@ -211,24 +216,24 @@
                     </div>
                     <div class="widget-body inner-2x">
                         @if(count($user->schools) >0)
-                            @foreach($user->schools as $school)
-                            <ul class="list-unstyled">
-                                <li> 
-                                    {{{ $school->college }}} 
-                                </li>
-                                <li>
-                                    {{{ $school->date_began . ' ' . $school->date_complete }}}
-                                </li>
-                                <li>
-                                    {{{ $school->major }}}
-                                </li>
-                            </ul>
-                            <br>                       
-                            @endforeach
+                        @foreach($user->schools as $school)
+                        <ul class="list-unstyled">
+                            <li> 
+                                {{{ $school->college }}} 
+                            </li>
+                            <li>
+                                {{{ $school->date_began . ' ' . $school->date_complete }}}
+                            </li>
+                            <li>
+                                {{{ $school->major }}}
+                            </li>
+                        </ul>
+                        <br>                       
+                        @endforeach
                         @endif
                         @if(Auth::check())
                             @if(Auth::user()->id == $user->id)
-                            <p class="clearfix"><a href="{{ action('SchoolsController@edit', Auth::user()->id) }}" class="btn btn-primary btn-xs pull-left">Edit</a></p>                    
+                                <p class="clearfix"><a href="{{ action('SchoolsController@edit', Auth::user()->id) }}" class="btn btn-primary btn-xs pull-left">Edit</a></p>                    
                             @endif
                         @endif
                     </div>

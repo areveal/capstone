@@ -16,7 +16,7 @@ class UsersController extends \BaseController {
 			$connections = DB::table('connections')->where('user_id', '=', Auth::user()->id)->lists('connection_id');
 			$current_user = DB::table('users')->where('id', '=', Auth::user()->id)->lists('id');
 			//this will return a page to search through all users
-			if(Input::has('first_name') || Input::has('last_name'))
+			if(Input::has('last_name'))
 			{
 				$first = Input::get('first_name');
 				$last = Input::get('last_name');
@@ -57,7 +57,7 @@ class UsersController extends \BaseController {
 		else 
 		{
 			$connections = [];
-			if(Input::has('first_name') || Input::has('last_name'))
+			if(Input::has('last_name'))
 			{
 				$first = Input::get('first_name');
 				$last = Input::get('last_name');
@@ -134,9 +134,11 @@ class UsersController extends \BaseController {
 		
 		$connections = $user->connections->take(5);
 
+		$your_connections = DB::table('connections')->where('user_id', '=', Auth::user()->id)->lists('connection_id');
+
 		$most_recent = Job::where('user_id', '=', $user->id)->orderBy('end_date','asc')->first();
 
-		return View::make('users.show')->with('user', $user)->with('most_recent',$most_recent)->with('connections', $connections);
+		return View::make('users.show')->with('user', $user)->with('most_recent',$most_recent)->with('connections', $connections)->with('your_connections', $your_connections);
 	}
 
 

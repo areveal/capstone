@@ -2,11 +2,97 @@
 
 @section('topscript')
 	<title>{{ $user->first_name }}'s  Connections</title>
+	<style>
+		.connect {
+			padding-left: 6px;
+			padding-right: 6px;
+		}
+		.connected {
+			padding-left: 0px;
+			padding-right: 0px;
+		}
+		.img-circle {
+		    width:40px;
+		    height: 40px;
+		}
+		.navbar{
+		    background: #3498db;
+
+		}
+		.search {
+		    margin-top:15px;
+		    margin-right: 50%;
+		}
+		.navsearch {
+		    margin-right: 50%;
+		}
+	</style>
 @stop
 
 
 @section('content')
 <body class=" scripts-async menu-right-hidden">
+	@if(Auth::check())
+    <div class="navbar hidden-print box main" role="navigation">
+        <ul class="notifications pull-left hidden-xs">
+            <li class="dropdown notif">
+                <a href="" class="dropdown-toggle"  data-toggle="dropdown"><i class="notif-block icon-envelope-1"></i><span class="fa fa-star"></span></a>
+                <ul class="dropdown-menu chat media-list" role="menu">
+                    <li class="media"><a class="pull-left" href="#"><img class="media-object thumb" src="{{ Auth::user()->img_path }}" alt="50x50" width="30"/></a>
+                        <div class="media-body">
+                            <span class="label label-default pull-left">5 min</span>
+                            <h5 class="media-heading">Adrian D.</h5>
+                            <p class="margin-none">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                        </div>
+                    </li>
+                    <li class="media">
+                        <a class="pull-left" href="#"><img class="media-object thumb" src="/assets/images/people/100/16.jpg" alt="50x50" width="50"/></a>
+                        <div class="media-body">
+                            <span class="label label-default pull-left">2 days</span>
+                            <h5 class="media-heading">Jane B.</h5>
+                            <p class="margin-none">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                        </div>
+                    </li>                   
+                    <li class="media">
+                        <a class="pull-left" href="#"><img class="media-object thumb" src="/assets/images/people/100/17.jpg" alt="50x50" width="50"/></a>
+                        <div class="media-body">
+                            <span class="label label-default pull-left">3 days</span>
+                            <h5 class="media-heading">Andrew M.</h5>
+                            <p class="margin-none">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <div class="user-action pull-right menu-right-hidden-xs menu-left-hidden-xs border-right">
+            <div class="dropdown username pull-left">
+                <span class="dropdown-toggle" data-toggle="dropdown">
+                    <span class="media margin-none">
+                    <span class="pull-left"><img src="{{ Auth::user()->img_path }}" alt="user" class="img-circle"></span>
+                    <span class="media-body">{{ Auth::user()->first_name }} <span class="caret"></span></span>
+                </span>
+                </span>
+                <ul class="dropdown-menu">
+                    <li><a href="">Messages</a></li>
+                    <li><a href="{{ action('UsersController@show', Auth::user()->id)}} ">Profile</a></li>
+                    <li><a href="{{ action('UsersController@edit', Auth::user()->id)}} ">Edit Profile</a></li>
+                    <li><a href="{{ action('HomeController@logout') }}">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+            <div class="container">
+                {{ Form::open(['action' => ['UsersController@index'],'method' => 'GET']) }}
+                <div class="col-md-6" style="margin-left:400px">
+                    <div class="input-append search">
+                        <input id="appendedInputButton" style="border-radius:5px" class="form-inline" type="text" placeholder="Search...">
+                        <!-- search function will be going to index blade -->
+                        <a class="glyphicon glyphicon-search btn btn-primary btn-xs" pull-right>Search</a>
+                        {{ Form::close() }}
+                    </div>
+                </div>
+            </div>        
+    </div>
+    @endif
 
 			<!-- <div class="layout-app">  -->
 			<div class="innerAll">
@@ -22,7 +108,7 @@
 					<img src="{{ $user->img_path }}" alt="" class="img-circle">
 				</div>
 				<div class="media-body">
-					<h4><a href="">{{{ $user->first_name . ' ' . $user->last_name }}}</a> <a href="" class="text-muted"></a></h4>					
+					<h4><a href="{{ action('UsersController@show', $user->id) }}">{{{ $user->first_name . ' ' . $user->last_name }}}</a> <a href="" class="text-muted"></a></h4>					
 				</div>
 			</div>
 		</div>
@@ -43,10 +129,17 @@
 
 
 
-			<div class="input-group innerB">
- 	<input type="text" class="form-control " placeholder="Search contacts">
-	<div class="input-group-btn"><button class="btn btn-default" type="button"><i class="fa fa-search"></i></button></div>
+{{ Form::open(['action' => ['ConnectionsController@edit', $user->id],'method' => 'GET']) }}			
+<div class="input-group innerB">
+	<div class="col-md-12 col-lg-6">
+ 		<input type="text" name="first_name" class="form-control " placeholder="First Name">
+ 	</div>
+ 	<div class="col-md-12 col-lg-6">
+	 	<input type="text" name="last_name" class="form-control " placeholder="Last Name" required>
+	 </div>
+	<div class="input-group-btn"><button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button></div>
 </div>
+{{ Form::close() }}
 
 <div class="row row-merge">
 		
@@ -61,11 +154,11 @@
 
 				<div class="col-sm-9">
 					<div class="media">
-						<a class="pull-left margin-none" href="#">
+						<a class="pull-left margin-none" href="{{ action('UsersController@show', $connection->id) }}">
 							<img class="img-clean" src="{{{ $connection->img_path }}}" alt="...">
 						</a>
 						<div class="media-body innerAll inner-2x padding-right-none padding-bottom-none">
-							 <h4 class="media-heading"><a href="" class="text-inverse">{{{ $connection->first_name . ' ' . $connection->last_name }}}</a></h4>
+							 <h4 class="media-heading"><a href="{{ action('UsersController@show', $connection->id) }}" class="text-inverse">{{{ $connection->first_name . ' ' . $connection->last_name }}}</a></h4>
 							 <p>
 							 	<i class="fa fa-fw fa-map-marker text-muted"></i> Living in {{{ $connection->city . ', ' . $connection->state }}}</p> 
 						</div>
@@ -74,8 +167,25 @@
 				<div class="col-sm-3">
 					<div class="innerAll text-right">
 						<div class="btn-group-vertical btn-group-sm">
-							<a href="" class="btn btn-primary"><i class="fa fa-fw fa-thumbs-up"></i> Connect</a>
-							<a href="" class="btn btn-default" data-toggle="sidr-open" data-menu="menu-right"><i class="fa fa-fw fa-envelope-o"></i> Chat</a>
+	                        @if(Auth::guest())
+	                        @elseif(Auth::user()->id != $user->id)
+	                            @if(in_array($connection->id, $your_connections))
+	                                {{ Form::open(array('action' => null, 'class' => 'form-signin')) }}
+	                                    <button class="btn btn-warning btn-sm connected pull-right"><i class="fa fa-fw fa-thumbs-up"></i> Connected</button>
+	                                    <a href="" class="btn btn-default" data-toggle="sidr-open" data-menu="menu-right"><i class="fa fa-fw fa-envelope-o"></i> Chat</a>
+	                                {{ Form::close() }}	                            
+	                            @else
+	                                {{ Form::open(array('action' => array('ConnectionsController@update', $connection->id), 'class' => 'form-signin','method' => 'PUT')) }}
+	                                    <button type="submit" class="btn btn-primary btn-sm connect pull-right"><i class="fa fa-fw fa-thumbs-up"></i> Connect</button>
+	                                    <a href="" class="btn btn-default" data-toggle="sidr-open" data-menu="menu-right"><i class="fa fa-fw fa-envelope-o"></i> Chat</a>
+	                                {{ Form::close() }}
+	                            @endif
+	                        @else
+                                {{ Form::open(array('action' => array('ConnectionsController@destroy', $connection->id), 'class' => 'form-signin','method' => 'DELETE')) }}
+                                    <button type="submit" class="btn btn-danger pull-right"> Remove</button>
+                                    <a href="" class="btn btn-default" data-toggle="sidr-open" data-menu="menu-right"><i class="fa fa-fw fa-envelope-o"></i> Chat</a>
+                                {{ Form::close() }}	                        	
+	                        @endif
 						</div>
 					</div>
 				</div>
