@@ -81,7 +81,7 @@
             </div>
         </div>
             <div class="container">
-            {{ Form::open(['action' => ['UsersController@index'],'method' => 'GET']) }}
+                {{ Form::open(['action' => ['UsersController@index'],'method' => 'GET']) }}
                 <div class="col-md-6" style="margin-left:400px">
                     <div class="input-append search">
                         <input id="appendedInputButton" class="span6" type="text" placeholder="Search...">
@@ -91,8 +91,8 @@
                     </div>
                 </div>
             </div>        
-    @endif
     </div>
+    @endif
         <div class="layout-app">  
             <div class="innerLR">
                 <h2 class="margin-left">Profile &nbsp;<i class="fa fa-fw fa-pencil text-muted"></i></h2>
@@ -108,16 +108,14 @@
                                             <h4 class="margin-none">{{{ $user->first_name . ' ' . $user->last_name }}}</h4>
                                             <p class="strong"> </p>
 
-                                        <div class="bg-gray innerAll ">
-                                            @if(!empty($most_recent))
-                                                <h5 class="innerB half border-bottom text-muted margin-none"><i class="fa fa-fw icon-briefcase-2"></i>{{ $most_recent->job_title }}</h5>
-                                            @endif
-
-
+                                            <div class="bg-gray innerAll ">
+                                                @if(!empty($most_recent))
+                                                    <h5 class="innerB half border-bottom text-muted margin-none"><i class="fa fa-fw icon-briefcase-2"></i>{{ $most_recent->job_title }}</h5>
+                                                @endif
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            
 
                     <!-- //end Widget -->
                     <!-- Widget start-->
