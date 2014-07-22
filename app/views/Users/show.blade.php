@@ -91,8 +91,8 @@
                     </div>
                 </div>
             </div>        
-    @endif
     </div>
+    @endif
         <div class="layout-app">  
             <div class="innerLR">
                 <h2 class="margin-left">Profile &nbsp;<i class="fa fa-fw fa-pencil text-muted"></i></h2>
