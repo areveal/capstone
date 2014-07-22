@@ -31,13 +31,13 @@
 <div id="content">
     @if(Auth::check())
     <div class="navbar hidden-print box main" role="navigation">
-        <ul class="notifications pull-right hidden-xs">
+        <ul class="notifications pull-left hidden-xs">
             <li class="dropdown notif">
                 <a href="" class="dropdown-toggle"  data-toggle="dropdown"><i class="notif-block icon-envelope-1"></i><span class="fa fa-star"></span></a>
-                <ul class="dropdown-menu chat media-list">
-                    <li class="media"><a class="pull-right" href="#"><img class="media-object thumb" src="{{ Auth::user()->img_path }}" alt="50x50" width="30"/></a>
+                <ul class="dropdown-menu chat media-list" role="menu">
+                    <li class="media"><a class="pull-left" href="#"><img class="media-object thumb" src="{{ Auth::user()->img_path }}" alt="50x50" width="30"/></a>
                         <div class="media-body">
-                            <span class="label label-default pull-right">5 min</span>
+                            <span class="label label-default pull-left">5 min</span>
                             <h5 class="media-heading">Adrian D.</h5>
                             <p class="margin-none">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
                         </div>
@@ -45,15 +45,15 @@
                     <li class="media">
                         <a class="pull-left" href="#"><img class="media-object thumb" src="/assets/images/people/100/16.jpg" alt="50x50" width="50"/></a>
                         <div class="media-body">
-                            <span class="label label-default pull-right">2 days</span>
+                            <span class="label label-default pull-left">2 days</span>
                             <h5 class="media-heading">Jane B.</h5>
                             <p class="margin-none">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
                         </div>
                     </li>                   
                     <li class="media">
-                        <a class="pull-right" href="#"><img class="media-object thumb" src="/assets/images/people/100/17.jpg" alt="50x50" width="50"/></a>
+                        <a class="pull-left" href="#"><img class="media-object thumb" src="/assets/images/people/100/17.jpg" alt="50x50" width="50"/></a>
                         <div class="media-body">
-                            <span class="label label-default pull-right">3 days</span>
+                            <span class="label label-default pull-left">3 days</span>
                             <h5 class="media-heading">Andrew M.</h5>
                             <p class="margin-none">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
                         </div>
@@ -71,6 +71,7 @@
                 </span>
                 <ul class="dropdown-menu">
                     <li><a href="">Messages</a></li>
+                    <li><a href="{{ action('UsersController@show', Auth::user()->id)}} ">Profile</a></li>
                     <li><a href="{{ action('UsersController@edit', Auth::user()->id)}} ">Edit Profile</a></li>
                     <li><a href="{{ action('HomeController@logout') }}">Logout</a></li>
                 </ul>
@@ -80,7 +81,7 @@
                 {{ Form::open(['action' => ['UsersController@index'],'method' => 'GET']) }}
                 <div class="col-md-6" style="margin-left:400px">
                     <div class="input-append search">
-                        <input id="appendedInputButton" class="span6" type="text" placeholder="Search...">
+                        <input id="appendedInputButton" style="border-radius:5px" class="form-inline" type="text" placeholder="Search...">
                         <!-- search function will be going to index blade -->
                         <a class="glyphicon glyphicon-search btn btn-primary btn-xs" pull-right>Search</a>
                         {{ Form::close() }}
