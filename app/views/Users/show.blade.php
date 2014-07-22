@@ -18,6 +18,10 @@
 .navsearch {
     margin-right: 50%;
 }
+.small-pic {
+    height: 15%;
+    width: 15%;
+}
 </style>
 
 @stop
@@ -102,9 +106,9 @@
                                         <a href="" class="pull-left"><img src="{{{ $user->img_path }}}" width="60" alt=""></a>
                                         <div class="media-body innerL half">
                                             <h4 class="margin-none">{{{ $user->first_name . ' ' . $user->last_name }}}</h4>
-                                            <p class="strong"> </p>
+                                            <p class="strong"></p>
 
-\
+
                                             <div class="bg-gray innerAll ">
                                                 @if(!empty($most_recent))
                                                     <h5 class="innerB half border-bottom text-muted margin-none"><i class="fa fa-fw icon-briefcase-2"></i>{{ $most_recent->job_title }}</h5>
@@ -186,17 +190,19 @@
                 </div><!-- /.widget -->
 
                 <div class="widget">
-                    <h5 class="innerAll margin-none border-bottom bg-gray">Your Network</h5>
+                    <h5 class="innerAll margin-none border-bottom bg-gray">{{{ $user->first_name }}}'s Network</h5>
                     <div class="widget-body padding-none">
-                        <div class="media border-bottom innerAll margin-none">
-                            <img src="{{ $user->img_path }}" class="pull-left media-object"/>
-                            <div class="media-body">
-                                <h5 class="margin-none">{{ $user->first_name . ' ' . $user->last_name }}</h5>
-                                    <i>{{ $user->status }}</i>                                
-                                <!-- <h5 class="margin-none"><a href="" class="text-inverse">Social Admin Released</a></h5>
-                                <small>on February 2nd, 2014 </small>  -->
-                            </div>
-                        </div>           
+                        @foreach($connections as $connection)                       
+                            <div class="media border-bottom innerAll margin-none">
+                                <img src="{{ $connection->img_path }}" class="pull-left media-object small-pic"/>
+                                <div class="media-body">
+                                    <h5 class="margin-none">{{ $connection->first_name . ' ' . $connection->last_name }}</h5>
+                                        <i>{{ $connection->status }}</i>                                
+                                    <!-- <h5 class="margin-none"><a href="" class="text-inverse">Social Admin Released</a></h5>
+                                    <small>on February 2nd, 2014 </small>  -->
+                                </div>
+                            </div> 
+                        @endforeach          
                     </div>
                 </div>
             </div>
