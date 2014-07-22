@@ -78,9 +78,12 @@
         </div>
             <div class="container">
                 {{ Form::open(['action' => ['UsersController@index'],'method' => 'GET']) }}
-                <div class="col-md-6" style="margin-left:400px">
-                    <div class="input-append search">
-                        <input id="appendedInputButton" class="span6" type="text" placeholder="Search...">
+                <div class="row; col-md-6;" style="margin-left:400px">
+                    <div class="input-group">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="button">Go!</button>
+                        </span>    
+                                <input id="appendedInputButton" class="span6" type="text" placeholder="Search...">
                         <!-- search function will be going to index blade -->
                         <a class="glyphicon glyphicon-search btn btn-primary btn-xs" pull-right>Search</a>
                         {{ Form::close() }}
