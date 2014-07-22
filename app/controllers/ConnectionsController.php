@@ -11,6 +11,17 @@ class ConnectionsController extends \BaseController {
 	public function edit($id)
 	{
 		$connections = DB::table('connections')->where('user_id', '=', $id)->lists('connection_id');
+		$your_connections = DB::table('connections')->where('user_id', '=', Auth::user()->id)->lists('connection_id');
+
+		if(Input::has('last_name'))
+		{
+			$first = Input::get('first_name');
+			$last = Input::get('last_name');
+			$users = DB::table('users')->where('first_name','LIKE', "%{$first}%")->where('last_name','LIKE', "%{$last}%")->lists('id');
+			$connections = DB::table('connections')->whereIn('connection_Id', $users)->where('user_id', '=', $id)->lists('connection_id');
+		}
+		
+
 		if(count($connections) > 0)
 		{
 			$connections = User::whereIn('id', $connections)->get();
@@ -20,7 +31,7 @@ class ConnectionsController extends \BaseController {
 			$connections = [];
 		}
 		$user = User::findOrFail($id);
-		return View::make('connections.edit')->with('user' , $user)->with('connections', $connections);
+		return View::make('connections.edit')->with('user' , $user)->with('connections', $connections)->with('your_connections', $your_connections);
 	}
 
 
@@ -56,7 +67,19 @@ class ConnectionsController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		if(Auth::check())
+		{
+			$friend = User::findOrFail($id);
+			$user = Auth::user();
+			$user->connections()->detach($friend);
+			Session::flash('successMessage', 'You have successfully deleted the connection.');
+			return Redirect::back();
+		}
+		else
+		{
+			Session::flash('errorMessage','You do not have the necessary priveleges to edit this user.');
+			return Redirect::action('UsersController@index');			
+		}
 	}
 
 

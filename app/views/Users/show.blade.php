@@ -18,6 +18,10 @@
 .navsearch {
     margin-right: 50%;
 }
+.small-pic {
+    height: 15%;
+    width: 15%;
+}
 </style>
 
 @stop
@@ -101,7 +105,16 @@
                                 <div class="widget widget-body-white">
                                     <div class="media widget-body innerAll">
                                         <a href="" class="pull-left"><img src="{{{ $user->img_path }}}" width="60" alt=""></a>
-                                        <div class="media-body innerL half"><a class="btn btn-primary btn-xs pull-right"><i class="fa fa-fw fa-thumbs-up"></i> Connect</a>
+                                        <div class="media-body innerL half">
+                                            @if(Auth::check() && (Auth::user()->id != $user->id))
+                                                @if(in_array($user->id, $your_connections))
+                                                    <a class="btn btn-warning btn-xs pull-right"><i class="fa fa-fw fa-thumbs-up"></i> Connected</a>
+                                                @else
+                                                    {{ Form::open(array('action' => array('ConnectionsController@update', $user->id), 'class' => 'form-signin','method' => 'PUT')) }}
+                                                        <button type="submit" class="btn btn-primary btn-xs pull-right"><i class="fa fa-fw fa-thumbs-up"></i> Connect</button>
+                                                    {{ Form::close() }}
+                                                @endif
+                                            @endif
                                             <h4 class="margin-none">{{{ $user->first_name . ' ' . $user->last_name }}}</h4>
                                             <p class="strong"> </p>
                                             <div class="bg-gray innerAll ">
@@ -175,27 +188,25 @@
                     <h2 class="strong margin-none">Connections</h2>
                         <div class="innerB"></div>
                             <div class="btn-group-vertical btn-block">
-                            @if(Auth::check())
-                                @if(Auth::user()->id == $user->id)
-                                <a href="{{ action('ConnectionsController@edit', Auth::user()->id) }}" class="btn btn-primary btn-xs pull-right">View All Connections</a>
-                                @endif
-                            @endif
+                                <a href="{{ action('ConnectionsController@edit', $user->id) }}" class="btn btn-primary btn-xs pull-right">View All Connections</a>
                             </div>
                     </div>
                 </div><!-- /.widget -->
 
                 <div class="widget">
-                    <h5 class="innerAll margin-none border-bottom bg-gray">Your Network</h5>
+                    <h5 class="innerAll margin-none border-bottom bg-gray">{{{ $user->first_name }}}'s Network</h5>
                     <div class="widget-body padding-none">
-                        <div class="media border-bottom innerAll margin-none">
-                            <img src="{{ $user->img_path }}" class="pull-left media-object"/>
-                            <div class="media-body">
-                                <h5 class="margin-none">{{ $user->first_name . ' ' . $user->last_name }}</h5>
-                                    <i>{{ $user->status }}</i>                                
-                                <!-- <h5 class="margin-none"><a href="" class="text-inverse">Social Admin Released</a></h5>
-                                <small>on February 2nd, 2014 </small>  -->
-                            </div>
-                        </div>           
+                        @foreach($connections as $connection)                       
+                            <div class="media border-bottom innerAll margin-none">
+                                <img src="{{ $connection->img_path }}" class="pull-left media-object small-pic"/>
+                                <div class="media-body">
+                                    <h5 class="margin-none">{{ $connection->first_name . ' ' . $connection->last_name }}</h5>
+                                        <i>{{ $connection->status }}</i>                                
+                                    <!-- <h5 class="margin-none"><a href="" class="text-inverse">Social Admin Released</a></h5>
+                                    <small>on February 2nd, 2014 </small>  -->
+                                </div>
+                            </div> 
+                        @endforeach          
                     </div>
                 </div>
             </div>

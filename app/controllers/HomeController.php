@@ -48,7 +48,7 @@ class HomeController extends BaseController {
 	public function logout()
 	{
 		Auth::logout();
-		return Redirect::action('UsersController@index');
+		return Redirect::action('UsersController@showLanding');
 	}
 
 	// public function getContacts()
