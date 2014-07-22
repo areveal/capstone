@@ -88,6 +88,7 @@
 									  		{{Form::open(array('action' => 'UsersController@store', 'class' => 'form-signin','files' => true))}}
 								  		@endif
 								  		<!--<form role="form" action="index.html?lang=en"> -->
+									  		<h4> Welcome please create your profile.</h4>
 									  		<div class="form-group">
 									    		{{ Form::label('first_name','First Name') }}
 									    		{{ $errors->first('first_name', '<span style="color:red" class="help-block">:message</span>') }}
