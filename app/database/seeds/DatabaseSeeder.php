@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder {
 		$this->call('JobsTableSeeder');
 		$this->call('SkillsTableSeeder');
 		$this->call('AssociationsTableSeeder');
+		// $this->call('ZipcodesTableSeeder');
 	}
 
 }
@@ -31,16 +32,22 @@ class UserTableSeeder extends Seeder {
 		 
 		for ($i = 0; $i < 100; $i++)
 		{
-		  $user = new User;
-		  $user->first_name = $faker->firstName;
-		  $user->last_name = $faker->lastName;
-		  $user->email = $faker->email;
-		  $user->password = Hash::make('password');
-		  $user->img_path = '/img-upload/user.jpg';
-		  $user->city = $faker->city;
-		  $user->state = $faker->stateAbbr;
-		  $user->status = 'Job Seeker';
-		  $user->save();
+		    $user = new User;
+		    $user->first_name = $faker->firstName;
+		    $user->last_name = $faker->lastName;
+		    $user->email = $faker->email;
+		    $user->password = Hash::make('password');
+		    $user->img_path = '/img-upload/user.jpg';
+			$zips = DB::table('zipcodes')->lists('zip');
+			$zip = array_rand($zips);
+		    $user->zip = $zips[$zip];
+			$city = DB::table('zipcodes')->where('zip', '=', $zips[$zip])->lists('city');
+			$user->city = $city[0];
+			$state = DB::table('zipcodes')->where('zip', '=', $zips[$zip])->lists('state_abbrev');		    
+			$user->state_abbrev = $state[0];
+		    $user->country = 'US';
+		    $user->status = 'Job Seeker';
+		    $user->save();
 		}
 
 	}
@@ -155,25 +162,41 @@ class AssociationsTableSeeder extends Seeder {
 
 }
 
-// class SkillUserTableSeeder extends Seeder {
+class ZipcodesTableSeeder extends Seeder {
 
-// 	public function run() 
-// 	{
-// 		DB::table('skill_user')->delete();
+	public function run() 
+	{
+		DB::table('zipcodes')->delete();
 
-// 		DB::table('skill_user')->insert(
-// 			array(
-// 				for ($i=0; $i < 50; $i++) { 
-// 					array('skill_id' => mt_rand(1,5)),
-// 					array('skill_id' => mt_rand(1,5))
-// 				}
-// 			));
-		 
-// 			$skill_user = DB::table('skil');
-// 			$skill_user->skill_user = 'Disabled';
-// 			$skill_user->save();			
+		$filename = "/vagrant/sites/final-project.dev/public/US.txt";
 
-// 	}
+		$filesize = filesize($filename);
+	    //open file to read
+	    $read = fopen($filename, 'r');
+	    //read file into string
+	    $list_string = fread($read, $filesize);
+	    //turn string into array
+	    $zipcode_array = explode("\n", $list_string);
 
-// }
+	    foreach ($zipcode_array as $key => $zipcodes) {
+	    	$pieces[] = explode("\t",$zipcodes);
+	    }    
+
+	    foreach($pieces as $piece)
+	    {
+			$zipcode = new Zipcode();
+			$zipcode->zip = $piece[1];
+			$zipcode->lat = $piece[9];
+			$zipcode->lon = $piece[10];
+			$zipcode->city = $piece[2];
+			$zipcode->state = $piece[3];
+			$zipcode->state_abbrev = $piece[4];
+			$zipcode->save();
+	    	
+	    }
+
+
+	}
+
+}
 

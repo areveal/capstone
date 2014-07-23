@@ -35,19 +35,15 @@ class UsersController extends \BaseController {
 					$users = [];
 				}
 			}
-			elseif(Input::has('state'))
+			elseif(Input::has('zip'))
 			{
-				if(Input::has('city') != '')
-				{
-					$city = Input::get('city');
-					$state = Input::get('state');
-					$users = User::whereNotIn('id',$current_user)->where('city','LIKE', "%{$city}%")->where('state', 'LIKE', "%{$state}%")->orderBy('last_name','asc')->paginate(20);
+				$zip = Input::get('zip');
+				$displacement = Input::get('displacement');
+				$zip_array = DB::select("CALL zip_proximity($zip, $displacement, 'mi')");
+				foreach ($zip_array as $zip) {
+					$zips[] = $zip->zip;
 				}
-				else 
-				{
-					$state = Input::get('state');
-					$users = User::whereNotIn('id',$current_user)->where('state', 'LIKE', "%{$state}%")->orderBy('last_name','asc')->paginate(20);
-				}
+				$users = User::whereNotIn('id',$current_user)->whereIn('zip',$zips)->paginate(20);
 			}		
 			else 
 			{
@@ -76,12 +72,16 @@ class UsersController extends \BaseController {
 					$users = [];
 				}
 			}
-			elseif(Input::has('state'))
+			elseif(Input::has('zip'))
 			{
-				$city = Input::get('city');
-				$state = Input::get('state');
-				$users = User::where('city','LIKE', "%{$city}%")->where('state', 'LIKE', "%{$state}%")->orderBy('last_name','asc')->paginate(20);
-			}		
+				$zip = Input::get('zip');
+				$displacement = Input::get('displacement');
+				$zip_array = DB::select("CALL zip_proximity($zip, $displacement, 'mi')");
+				foreach ($zip_array as $zip) {
+					$zips[] = $zip->zip;
+				}
+				$users = User::whereIn('zip',$zips)->paginate(20);
+			}			
 			else 
 			{
 				$users = User::orderBy('last_name','asc')->paginate(20);
@@ -134,7 +134,14 @@ class UsersController extends \BaseController {
 		
 		$connections = $user->connections->take(5);
 
-		$your_connections = DB::table('connections')->where('user_id', '=', Auth::user()->id)->lists('connection_id');
+		if(Auth::guest())
+		{
+			$your_connections = [];
+		}
+		else
+		{
+			$your_connections = DB::table('connections')->where('user_id', '=', Auth::user()->id)->lists('connection_id');
+		}
 
 		$most_recent = Job::where('user_id', '=', $user->id)->orderBy('end_date','asc')->first();
 
@@ -202,8 +209,12 @@ class UsersController extends \BaseController {
 			$user->first_name = Input::get('first_name');
 			$user->last_name = Input::get('last_name');		
 			$user->email = Input::get('email');	
-			$user->city = Input::get('city');
-			$user->state = Input::get('state');
+			$user->zip = Input::get('zip');
+			$city = DB::table('zipcodes')->where('zip', '=', $user->zip)->lists('city');
+			$user->city = $city[0];
+			$state = DB::table('zipcodes')->where('zip', '=', $user->zip)->lists('state_abbrev');
+			$user->state_abbrev = $state[0];
+			$user->country = Input::get('country');
 			$user->status = Input::get('status');
 			$password = Input::get('password');
 			$confirmPassword = Input::get('confirmPassword');

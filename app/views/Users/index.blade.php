@@ -10,25 +10,22 @@
 			padding-left: 6px;
 			padding-right: 6px;
 		}
+		.img-circle {
+		    width:40px;
+		    height: 40px;
+		}
+		.navbar{
+		    background: #3498db;
+
+		}
+		.search {
+		    margin-top:15px;
+		    margin-right: 50%;
+		}
+		.navsearch {
+		    margin-right: 50%;
+		}
 	</style>
-
-	<style>
-.img-circle {
-    width:40px;
-    height: 40px;
-}
-.navbar{
-    background: #3498db;
-
-}
-.search {
-    margin-top:15px;
-    margin-right: 50%;
-}
-.navsearch {
-    margin-right: 50%;
-}
-</style>
 @stop
 
 @section('bodytag')
@@ -164,7 +161,7 @@
 								 <h4 class="media-heading"><a href="{{ action('UsersController@show', $user->id) }}" class="text-inverse">{{ $user->first_name . ' ' . $user->last_name }}</a></h4>
 								 <p>
 								 	<!-- <span class="text-success strong"><i class="fa fa-check"></i> Friend</span> &nbsp;  -->
-								 	<i class="fa fa-fw fa-map-marker text-muted"></i>{{ $user->city . ', ' . $user->state }}</p> 
+								 	<i class="fa fa-fw fa-map-marker text-muted"></i>{{ $user->city . ', ' . $user->state_abbrev }}</p> 
 							</div>
 						</div>
 					</div>
@@ -196,9 +193,8 @@
 		
 </div>
 
-@if(!empty($_GET['search']) && (count($users)>0))
-	{{ $users->appends(['search' => $_GET['search']])->links() }}
-@elseif((count($users)>0)) 
+	
+@if((count($users)>0)) 
 	{{ $users->links() }}
 @endif
 
@@ -239,11 +235,18 @@
 			<li class="list-group-item"><div class="input-group innerB">
 		  		{{ Form::open(array('action' => 'UsersController@index', 'method' => 'GET')) }}
 					<div class="col-md-18 col-lg-6">
-					 	<label for="city">Search by Location</label>
-					 	<input type="text" name ="city" class="form-control " placeholder="City">
+					 	<label for="zip">Search by Zip</label>
+					 	<input type="text" name ="zip" class="form-control " placeholder="Zipcode" required>
 					</div>
-					<div class="col-md-18 col-lg-4" style="margin-top:30px">
-						<select name="state" class="form-control" required> <option value="" selected="selected">State</option> <option value="AL">Alabama</option> <option value="AK">Alaska</option> <option value="AZ">Arizona</option> <option value="AR">Arkansas</option> <option value="CA">California</option> <option value="CO">Colorado</option> <option value="CT">Connecticut</option> <option value="DE">Delaware</option> <option value="DC">District Of Columbia</option> <option value="FL">Florida</option> <option value="GA">Georgia</option> <option value="HI">Hawaii</option> <option value="ID">Idaho</option> <option value="IL">Illinois</option> <option value="IN">Indiana</option> <option value="IA">Iowa</option> <option value="KS">Kansas</option> <option value="KY">Kentucky</option> <option value="LA">Louisiana</option> <option value="ME">Maine</option> <option value="MD">Maryland</option> <option value="MA">Massachusetts</option> <option value="MI">Michigan</option> <option value="MN">Minnesota</option> <option value="MS">Mississippi</option> <option value="MO">Missouri</option> <option value="MT">Montana</option> <option value="NE">Nebraska</option> <option value="NV">Nevada</option> <option value="NH">New Hampshire</option> <option value="NJ">New Jersey</option> <option value="NM">New Mexico</option> <option value="NY">New York</option> <option value="NC">North Carolina</option> <option value="ND">North Dakota</option> <option value="OH">Ohio</option> <option value="OK">Oklahoma</option> <option value="OR">Oregon</option> <option value="PA">Pennsylvania</option> <option value="RI">Rhode Island</option> <option value="SC">South Carolina</option> <option value="SD">South Dakota</option> <option value="TN">Tennessee</option> <option value="TX">Texas</option> <option value="UT">Utah</option> <option value="VT">Vermont</option> <option value="VA">Virginia</option> <option value="WA">Washington</option> <option value="WV">West Virginia</option> <option value="WI">Wisconsin</option> <option value="WY">Wyoming</option> </select>			
+					<div class="col-md-18 col-lg-4">
+					 	<label for="displacement">Within:</label>
+					 	<select name="displacement" class="form-control" style="margin-top:5px" required>
+					 		<option value="10">10 miles</option>
+					 		<option value="20">20 miles</option>
+					 		<option value="30">30 miles</option>
+					 		<option value="40">40 miles</option>
+					 		<option value="50">50 miles</option>
+					 	</select>
 					</div>					
 					<div class="input-group-btn"><button style="margin-left:12px" class="btn btn-default" type="submit"><i class="fa fa-search"></i></button></div>
 				{{ Form::close() }}
