@@ -94,7 +94,7 @@
 									  		{{ Form::close() }}
 									  		<p>
 									  		{{ Form::open(array('action' => array('AssociationsController@edit', Auth::user()->id), 'method' => 'GET')) }}
-									  		<button type="submit" class="btn btn-default">Next</button>
+									  		<button type="submit" class="btn btn-default">Done</button>
 									  		<a href="{{ action('UsersController@show', Auth::user()->id)}} ">View in profile</a></span>
 									  		
 									  		</p>
