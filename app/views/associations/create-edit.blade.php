@@ -13,7 +13,7 @@
 			height: 40px;
 		}
 		.navbar {
-		    background: #25ad9f;
+		    background: #3498db;
 		}
 	</style>
 @stop 
@@ -21,137 +21,87 @@
 @section('content')
 <body class=" loginWrapper">
 
-	<div class="navbar hidden-print box main" role="navigation">
-        <div class="user-action pull-left menu-right-hidden-xs menu-left-hidden-xs border-left">
-            <div class="dropdown username pull-left">
-                <span class="dropdown-toggle" data-toggle="dropdown">
-                    <span class="media margin-none">
-                    <span class="pull-left"><img src="{{ Auth::user()->img_path }}" alt="user" class="img-circle"></span>
-                    <span class="media-body">{{ Auth::user()->first_name }} <span class="caret"></span></span>
-                </span>
-                </span>
-                <ul class="dropdown-menu">
-                    <li><a href="{{ action('UsersController@edit', Auth::user()->id)}} ">Edit Profile</a></li>
-                    <li><a href="{{ action('SkillsController@edit', Auth::user()->id)}} ">Edit Skills</a></li>
-                    <li><a href="{{ action('AssociationsController@edit', Auth::user()->id)}} ">Edit Associations</a></li>
-                    <li><a href="{{ action('JobsController@edit', Auth::user()->id)}} ">Edit Experience</a></li>
-                    <li><a href="{{ action('SchoolsController@edit', Auth::user()->id)}} ">Edit Education</a></li>
-                    <li><a href="{{ action('UsersController@show', Auth::user()->id)}} ">Done Editing</a></li>
-                </ul>
-            </div>
+<div class="navbar hidden-print box main" role="navigation">
+    <div class="user-action pull-left menu-right-hidden-xs menu-left-hidden-xs border-left">
+        <div class="dropdown username pull-left">
+            <span class="dropdown-toggle" data-toggle="dropdown">
+                <span class="media margin-none">
+                <span class="pull-left"><img src="{{ Auth::user()->img_path }}" alt="user" class="img-circle"></span>
+                <span class="media-body">{{ Auth::user()->first_name }} <span class="caret"></span></span>
+            </span>
+            </span>
+            <ul class="dropdown-menu">
+                <li><a href="{{ action('UsersController@edit', Auth::user()->id)}} ">Edit Profile</a></li>
+                <li><a href="{{ action('SkillsController@edit', Auth::user()->id)}} ">Edit Skills</a></li>
+                <li><a href="{{ action('AssociationsController@edit', Auth::user()->id)}} ">Edit Associations</a></li>
+                <li><a href="{{ action('JobsController@edit', Auth::user()->id)}} ">Edit Experience</a></li>
+                <li><a href="{{ action('SchoolsController@edit', Auth::user()->id)}} ">Edit Education</a></li>
+                <li><a href="{{ action('UsersController@show', Auth::user()->id)}} ">Done Editing</a></li>
+            </ul>
         </div>
     </div>
+</div>
 	
 	<!-- Main Container Fluid -->
-	<div class="container-fluid menu-hidden ">
-
-			<!-- <div class="layout-app">  -->
-			<!-- row-app -->
-<div class="row row-app">
-
-	<!-- col -->
-	
-
-		<!-- col-separator.box -->
-		<div class="col-separator col-unscrollable box">
-			
-			<!-- col-table -->
-			<div class="col-table">
-				
-				<h4 class="innerAll margin-none border-bottom text-center bg-primary"><i class="fa fa-pencil"></i> Add Your associations</h4>
-
-				<!-- col-table-row -->
-				<div class="col-table-row">
-
-					<!-- col-app -->
-					<div class="col-app col-unscrollable">
-
-						<!-- col-app -->
-						<div class="col-app">
-
-							<div class="login">
-								
-								<div class="placeholder text-center"><i class="fa fa-pencil"></i></div>
-								
-								
-								<div class="panel panel-default col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
-
-								  	<div class="panel-body">
-								  		{{ Form::model($associations, array('action' => array('AssociationsController@update', Auth::user()->id), 'method' => 'PUT')) }}
-									  		<div class="form-group">
-									    		<label for="existing_associations">Choose From Existing Associations</label>
-									    		<select name="existing_associations" class="form-control" id="existing_associations">
-									    			@foreach($associations as $association)
-									    				<option value="{{{ $association->id }}}">{{{ $association->association }}}</option>
-									    			@endforeach
-									    		</select>
-									  		</div>
-									  		<div>
-									  		<button type="submit" class="btn btn-primary btn-block">Add association</button>
-											{{ Form::close() }}
-										</div>
-										<center><p>*This form is for informational purposes only. It will not be displayed on your profile or given to potential employers.</p></center>
-									  		<p>
-									  		{{ Form::open(array('action' => array('JobsController@edit', Auth::user()->id), 'method' => 'GET')) }}
-									  		<button type="submit" class="btn btn-default">Next</button>
-									  		<a href="{{ action('UsersController@show', Auth::user()->id)}} ">View in profile</a></span>
-									  		
-									  		</p>
-											{{ Form::close() }}
-										{{ Form::close() }}
-							  		</div>
-
-							  		
-								
+<div class="container-fluid menu-hidden">		
+<h2 class="text-center" style="margin-top: 40px"><i class="fa fa-pencil"></i> Add Your associations</h2>
+	<div class="col-table-row">
+		<!-- col-app -->
+		<div class="col-app col-unscrollable">
+			<!-- col-app -->
+			<div class="col-app">
+				<div class="login">
+					<div class="placeholder text-center"><i class="fa fa-pencil"></i></div>								
+						<div class="panel panel-default col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
+						  	<div class="panel-body">
+						  		{{ Form::model($associations, array('action' => array('AssociationsController@update', Auth::user()->id), 'method' => 'PUT')) }}
+						  		<div class="form-group">
+						    		<label for="existing_associations">Choose From Existing Associations</label>
+						    		<select name="existing_associations" class="form-control" id="existing_associations">
+						    			@foreach($associations as $association)
+						    				<option value="{{{ $association->id }}}">{{{ $association->association }}}</option>
+						    			@endforeach
+						    		</select>
+						  		</div>
+						  		<div>
+						  		<button type="submit" class="btn btn-primary btn-block">Add association</button>
+								{{ Form::close() }}
 								</div>
-
-
-								<div style="margin-left: 20px" class="panel panel-default col-md-3 col-md-offset-0 col-sm-6 col-sm-offset-3">
-
-								  	<div class="panel-body">
-								  		<!--<form role="form" action="index.html?lang=en"> -->
-									  		<table class="table table-hover">
-									    		<h4>Your Associations</h4><center>
-									    		
-									    			@foreach($associations_owned as $association_owned)
-									    				<tr>
-									    					<td>
-									    						{{ Form::model($associations, array('action' => array('AssociationsController@destroy', $association_owned->id), 'method' => 'DELETE')) }}
-									    							{{{ $association_owned->association }}}
-									    					</td>
-									    					<td>
-									    							<button type="submit" class="glyphicon glyphicon-ban-circle">Remove</button>
-									    						{{ Form::close() }}
-									    					</td>
-									    			@endforeach		
-									    		</table>
-									  		</div>
-							  		</div>
-							  		
-								<div class="clearfix"></div>					
-
-							</div>
-							
-						</div>
-						<!-- // END col-app -->
-
+								<center><p>*This form is for informational purposes only. It will not be displayed on your profile or given to potential employers.</p></center>
+						  		<p>
+						  		{{ Form::open(array('action' => array('JobsController@edit', Auth::user()->id), 'method' => 'GET')) }}
+						  		<button type="submit" class="btn btn-default">Next</button>
+						  		<a href="{{ action('UsersController@show', Auth::user()->id)}} ">View in profile</a></span>
+						  		</p>
+								{{ Form::close() }}
+								{{ Form::close() }}
+					  		</div>						  									
 					</div>
-					<!-- // END col-app.col-unscrollable -->
-
-				</div>
-				<!-- // END col-table-row -->
-			
-			</div>
-			<!-- // END col-table -->
-			
+					<div style="margin-left: 20px" class="panel panel-default col-md-3 col-md-offset-0 col-sm-6 col-sm-offset-3">
+					  	<div class="panel-body">					
+					  		<table class="table table-hover">
+					    		<h4>Your Associations</h4><center>
+				    			@foreach($associations_owned as $association_owned)
+				    				<tr>
+				    					<td>
+				    						{{ Form::model($associations, array('action' => array('AssociationsController@destroy', $association_owned->id), 'method' => 'DELETE')) }}
+				    						{{{ $association_owned->association }}}
+				    					</td>
+				    					<td>
+				    						<button type="submit" class="btn btn-info glyphicon glyphicon-ban-circle">Remove</button>
+				    						{{ Form::close() }}
+				    					</td>
+				    			@endforeach		
+							</table>
+						 </div>
+				  	</div>						  		
+				<div class="clearfix"></div>					
+			</div>						
 		</div>
-		<!-- // END col-separator.box -->
-
-
+	<!-- // END col-app -->
+	</div>
+<!-- // END col-app.col-unscrollable -->
 </div>
-<!-- // END row-app -->
-
-	
 
 	<!-- Global -->
 	<script data-id="App.Config">

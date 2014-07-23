@@ -24,7 +24,7 @@
     <div class="main">
         
       <section class="home"><nav class="navbar navbar-default" role="navigation">
-      <div class="container-fluid"> <a class="navbar-brand" href="#"><strong ><h3 class="demo1">DiversityThread </h3></strong></a>
+      <div class="container-fluid"> <a class="navbar-brand" href="#"><strong ><h3 class="demo1">Diversity Thread</h3></a>
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header" style="float: right">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -39,8 +39,8 @@
             <div style="float: right">
                 <div class="innerAll text-center">
                 
-                <input  style="width: 180px; color: black;" type="text" placeholder="Username" name="email">
-                <input  style="width: 180px; color: black;" type="password" placeholder="Enter Password" name="password">
+                <input  style="width: 180px; color: black; border-radius: 5px" type="text" placeholder="Username" name="email">
+                <input  style="width: 180px; color: black; border-radius: 5px" type="password" placeholder="Enter Password" name="password">
                 <button type="submit" class="btn btn-primary">Sign In<i class='fa fa-fw fa-unlock-alt'></i></button>
                 </div>
             </div><br>
@@ -83,8 +83,8 @@
                                 <h3 class="text-white innerB text-center">Get Started-Its free.</h3>
                                 <div class="lock-container">
                                     <div class="innerAll text-center">
-                                        <div style="height: 120px"
-                                        <img src="../assets//images/people/100/6.jpg" class="img-circle"/><img src="../assets//images/people/100/1.jpg" class="img-circle"/><img src="../assets//images/people/100/10.jpg" class="img-circle"/><img src="../assets//images/people/100/23.jpg" class="img-circle"/>
+                                        <div style="height: 120px">
+                                        <img src="../assets//images/people/100/6.jpg" class="img-circle"/><img src="../assets//images/people/100/10.jpg" class="img-circle"/><img src="../assets//images/people/100/23.jpg" class="img-circle"/>
                                         </div>
                                         {{ Form::open(array('action' => 'UsersController@create', 'method' => 'GET', 'class' => 'form-signin', 'role' => 'form')) }}  
                                             <!-- Single button -->

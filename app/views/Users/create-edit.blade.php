@@ -12,7 +12,7 @@
 	    height: 40px;
 	}
 	.navbar{
-	    background: #25ad9f;
+	    background: #3498db;
 	}
 	</style>
 @stop 
@@ -61,9 +61,9 @@
 			<div class="col-table">
 				
 				@if(Auth::check())
-					<h4 class="innerAll margin-none border-bottom text-center bg-primary"><i class="fa fa-pencil"></i> Edit Your Profile</h4>
+					<h2 class="text-center" style="margin-top: 40px"><i class="fa fa-pencil"></i> Edit Your Profile</h2>
 				@else
-					<h4 class="innerAll margin-none border-bottom text-center bg-primary"><i class="fa fa-pencil"></i> Create a Profile</h4>
+					<h2 class="innerAll margin-none border-bottom text-center bg-primary"><i class="fa fa-pencil"></i> Create a Profile</h2>
 				@endif
 				<!-- col-table-row -->
 				<div class="col-table-row">

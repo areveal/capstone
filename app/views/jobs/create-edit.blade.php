@@ -9,7 +9,7 @@
 	    height: 40px;
 	}
 	.navbar{
-	    background: #25ad9f;
+	    background: #3498db;
 	}
 	</style>
 @stop 
@@ -58,7 +58,7 @@
 			<div class="col-table">
 				
 
-				<h4 class="innerAll margin-none border-bottom text-center bg-primary"><i class="fa fa-pencil">Add Your experience</i></h4>
+				<h2 class="text-center" style="margin-top: 40px"><i class="fa fa-pencil">Add Your experience</i></h2>
 
 				<!-- col-table-row -->
 				<div class="col-table-row">
@@ -131,7 +131,7 @@
 							    							{{{$job->company }}}
 							    						</td>
 							    						<td style="vertical-align: middle">
-							    							<button type="submit" class="glyphicon glyphicon-ban-circle">Remove</button>
+							    							<button type="submit" class="btn btn-info glyphicon glyphicon-ban-circle">Remove</button>
 							    						{{ Form::close() }}
 							    						</td>
 							    					</tr>
