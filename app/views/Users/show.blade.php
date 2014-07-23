@@ -19,8 +19,8 @@
     margin-right: 50%;
 }
 .small-pic {
-    height: 20%;
-    width: 20%;
+    height: 15%;
+    width: 15%;
 }
 
 .sidemenu

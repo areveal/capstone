@@ -40,3 +40,16 @@ Route::resource('connections', 'ConnectionsController');
 
 Route::resource('associations', 'AssociationsController');
 
+Route::get('/test',function() {
+
+	$zip = '78240';
+	$displacement = '10';
+	$zip_array = DB::select("CALL zip_proximity($zip, $displacement, 'mi')");
+	foreach ($zip_array as $zip) {
+		$zips[] = $zip->zip;
+	}		    
+
+	var_dump($zips);
+
+
+});
