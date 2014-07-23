@@ -35,7 +35,7 @@
 <div id="content">
     @if(Auth::check())
     <div class="navbar hidden-print box main" role="navigation">
-        <ul class="notifications pull-right hidden-xs">
+        <ul class="notifications pull-left hidden-xs">
             <li class="dropdown notif">
                 <a href="" class="dropdown-toggle"  data-toggle="dropdown"><i class="notif-block icon-envelope-1"></i><span class="fa fa-star"></span></a>
                 <ul class="dropdown-menu chat media-list">
@@ -84,7 +84,7 @@
             {{ Form::open(['action' => ['UsersController@index'],'method' => 'GET']) }}
                 <div class="col-md-6" style="margin-left:400px">
                     <div class="input-append search">
-                        <input id="appendedInputButton" class="span6" type="text" placeholder="Search...">
+                        <input id="appendedInputButton" style="border-radius: 5px" class="span6" type="text" placeholder="Search...">
                         <!-- search function will be going to index blade -->
                         <a class="glyphicon glyphicon-search btn btn-primary btn-xs" pull-right>Search</a>
                         {{ Form::close() }}
