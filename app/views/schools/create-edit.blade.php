@@ -119,7 +119,7 @@
 									  			<p class="muted"><strong>What was your GPA?</strong></p>
 									  			<div class="col-md-9">
 									  				{{ $errors->first('gpa', '<span style="color:red" class="help-block">:message</span>') }}
-													<input name="gpa" type="number" class="form-control" id="gpa" placeholder="GPA">
+													<input name="gpa" type="float" class="form-control" id="gpa" placeholder="GPA">
 												</div>
 											</div><br><br><br>
 
