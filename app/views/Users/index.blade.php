@@ -96,9 +96,6 @@
                 </div>
             </div>        
 	</div>
-<<<<<<< HEAD
-	
-
 </div>
 @endif
 

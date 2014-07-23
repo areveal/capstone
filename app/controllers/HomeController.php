@@ -19,7 +19,7 @@ class HomeController extends BaseController {
 	//show the login screen
 	public function showLogin()
 	{
-		return View::make('users.login');
+		return View::make('users.landing');
 	}
 	//enter the email and password to login
 	public function doLogin()
