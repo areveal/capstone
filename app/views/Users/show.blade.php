@@ -109,14 +109,14 @@ top: -102px;
                 <!-- Widget start -->
                     <div class="widget widget-body-white">
                         <div class="media widget-body innerAll">
-                            <a href="" class="pull-left"><img src="{{{ $user->img_path }}}" width="60" alt=""></a>
+                            <a href="" class="pull-left"><img src="{{{ $user->img_path }}}" alt=""></a>
                             <div class="media-body innerL half">
                                 <h4 class="margin-none"><strong>{{{ $user->first_name . ' ' . $user->last_name }}}</strong></h4>
                                 <p class="strong"> </p>
                             </div>
-                            <div class="bg-gray innerAll ">
+                            <div>
                                 @if(!empty($most_recent))
-                                    <h5 class="innerB half border-bottom text-muted margin-none"></i><strong>{{ $most_recent->job_title }}</strong></h5>
+                                    <h5 class="innerB half border-bottom text-muted margin-none"></i><strong >{{ $most_recent->job_title }}</strong></h5>
                                 @endif
                             </div>
                         </div>
