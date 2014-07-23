@@ -115,9 +115,7 @@ top: -102px;
                                 <p class="strong"> </p>
                             </div>
                             <div>
-                                @if(!empty($most_recent))
-                                    <h5 class="innerB half border-bottom text-muted margin-none"></i><strong >{{ $most_recent->job_title }}</strong></h5>
-                                @endif
+                                <h5 class="innerB half text-muted margin-none"></i><strong >{{ $user->email }}</strong></h5>
                             </div>
                         </div>
                     </div>

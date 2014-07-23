@@ -143,9 +143,7 @@ class UsersController extends \BaseController {
 			$your_connections = DB::table('connections')->where('user_id', '=', Auth::user()->id)->lists('connection_id');
 		}
 
-		$most_recent = Job::where('user_id', '=', $user->id)->orderBy('end_date','asc')->first();
-
-		return View::make('users.show')->with('user', $user)->with('most_recent',$most_recent)->with('connections', $connections)->with('your_connections', $your_connections);
+		return View::make('users.show')->with('user', $user)->with('connections', $connections)->with('your_connections', $your_connections);
 	}
 
 
