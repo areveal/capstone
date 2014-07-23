@@ -111,13 +111,20 @@ top: -83px;
                         <div class="media widget-body innerAll">
                             <a href="" class="pull-left"><img src="{{{ $user->img_path }}}" alt=""></a>
                             <div class="media-body innerL half">
+                                @if(Auth::check() && (Auth::user()->id != $user->id))
+                                    @if(in_array($user->id, $your_connections))
+                                        <a class="btn btn-warning btn-xs pull-right"><i class="fa fa-fw fa-thumbs-up"></i> Connected</a>
+                                    @else
+                                        {{ Form::open(array('action' => array('ConnectionsController@update', $user->id), 'class' => 'form-signin','method' => 'PUT')) }}
+                                            <button type="submit" class="btn btn-primary btn-xs pull-right"><i class="fa fa-fw fa-thumbs-up"></i> Connect</button>
+                                        {{ Form::close() }}
+                                    @endif
+                                @endif
                                 <h4 class="margin-none"><strong>{{{ $user->first_name . ' ' . $user->last_name }}}</strong></h4>
                                 <p class="strong"> </p>
                             </div>
                             <div>
-                                @if(!empty($most_recent))
-                                    <h5 class="innerB half border-bottom text-muted margin-none"></i><strong >{{ $most_recent->job_title }}</strong></h5>
-                                @endif
+                                <h5 class="innerB half text-muted margin-none"></i><strong >{{ $user->email }}</strong></h5>
                             </div>
                         </div>
                     </div>
@@ -151,6 +158,39 @@ top: -83px;
                 </div>
             </div>
             <!-- //end Widget -->
+                <!-- Widget -->
+                 <div class="widget widget-body-white">
+                    <div class="widget-head">
+                        <h4 class="heading list glyphicon glyphicon-book"><i> </i>Education</h4>
+                    </div>
+                    <div class="widget-body inner-2x">
+                        @if(count($user->schools) >0)
+                        @foreach($user->schools as $school)
+                        <ul class="fa-ul">
+                            <li><h4>
+                                <strong> 
+                                {{{ $school->college }}} 
+                            </strong></h4>
+                            </li>
+                            <li>
+                                {{{ $school->major }}}
+                            </li>
+                            <li>
+                                {{{ $school->date_began . ' ' . $school->date_complete }}}
+                            </li>
+                            
+                        </ul>
+                        <br>                       
+                        @endforeach
+                        @endif
+                        @if(Auth::check())
+                            @if(Auth::user()->id == $user->id)
+                                <p class="clearfix"><a href="{{ action('SchoolsController@edit', Auth::user()->id) }}" class="btn btn-primary btn-xs pull-left">Edit</a></p>                    
+                            @endif
+                        @endif
+                    </div>
+                </div>
+                <!-- //end Widget -->
                     <!-- Widget start -->
                     <div class="widget widget-body-white">
                         <div class="widget-head">
@@ -197,11 +237,7 @@ top: -83px;
                     <h2 class="strong margin-none">Connections</h2>
                         <div class="innerB"></div>
                             <div class="btn-group-vertical btn-block">
-                            @if(Auth::check())
-                                @if(Auth::user()->id == $user->id)
-                                    <a href="{{ action('ConnectionsController@edit', Auth::user()->id) }}" class="btn btn-primary btn-xs pull-right">View All</a>
-                                @endif
-                            @endif    
+                                    <a href="{{ action('ConnectionsController@edit', $user->id) }}" class="btn btn-primary btn-xs pull-right">View All</a>   
                             </div>   
                     </div>
 
@@ -211,9 +247,9 @@ top: -83px;
                     <div class="widget-body padding-none">
                         @foreach($connections as $connection)
                             <div class="media border-bottom innerAll margin-none">
-                                <img src="{{ $connection->img_path }}" class="pull-left media-object small-pic"/>
+                                <a href="{{ action('UsersController@show', $connection->id) }}"><img src="{{ $connection->img_path }}" class="pull-left media-object small-pic"/></a>
                                 <div class="media-body">
-                                    <h5 class="margin-none">{{ $connection->first_name . ' ' . $connection->last_name }}</h5>
+                                    <a href="{{ action('UsersController@show', $connection->id) }}"><h5 class="margin-none">{{ $connection->first_name . ' ' . $connection->last_name }}</h5></a>
                                         <i>{{ $connection->status }}</i>                                
                                     <!-- <h5 class="margin-none"><a href="" class="text-inverse">Social Admin Released</a></h5>
                                     <small>on February 2nd, 2014 </small>  -->
@@ -227,39 +263,6 @@ top: -83px;
         <!-- //End Col -->
         <div class="row">
             <div class="col-md-9">
-                <!-- Widget -->
-                 <div class="widget widget-body-white">
-                    <div class="widget-head">
-                        <h4 class="heading list glyphicon glyphicon-book"><i> </i>Education</h4>
-                    </div>
-                    <div class="widget-body inner-2x">
-                        @if(count($user->schools) >0)
-                        @foreach($user->schools as $school)
-                        <ul class="fa-ul">
-                            <li><h4>
-                                <strong> 
-                                {{{ $school->college }}} 
-                            </strong></h4>
-                            </li>
-                            <li>
-                                {{{ $school->major }}}
-                            </li>
-                            <li>
-                                {{{ $school->date_began . ' ' . $school->date_complete }}}
-                            </li>
-                            
-                        </ul>
-                        <br>                       
-                        @endforeach
-                        @endif
-                        @if(Auth::check())
-                            @if(Auth::user()->id == $user->id)
-                                <p class="clearfix"><a href="{{ action('SchoolsController@edit', Auth::user()->id) }}" class="btn btn-primary btn-xs pull-left">Edit</a></p>                    
-                            @endif
-                        @endif
-                    </div>
-                </div>
-                <!-- //end Widget -->
             </div>    
             <!-- //End Col -->
             </div><!-- /.col-md-9 -->    
