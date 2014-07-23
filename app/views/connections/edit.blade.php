@@ -3,30 +3,22 @@
 @section('topscript')
 	<title>{{ $user->first_name }}'s  Connections</title>
 	<style>
-		.connect {
-			padding-left: 6px;
-			padding-right: 6px;
-		}
-		.connected {
-			padding-left: 0px;
-			padding-right: 0px;
-		}
-		.img-circle {
-		    width:40px;
-		    height: 40px;
-		}
-		.navbar{
-		    background: #3498db;
+.img-circle {
+    width:40px;
+    height: 40px;
+}
+.navbar{
+    background: #3498db;
 
-		}
-		.search {
-		    margin-top:15px;
-		    margin-right: 50%;
-		}
-		.navsearch {
-		    margin-right: 50%;
-		}
-	</style>
+}
+.search {
+    margin-top:15px;
+    margin-right: 50%;
+}
+.navsearch {
+    margin-right: 50%;
+}
+</style>
 @stop
 
 
@@ -108,7 +100,7 @@
 					<img src="{{ $user->img_path }}" alt="" class="img-circle">
 				</div>
 				<div class="media-body">
-					<h4><a href="{{ action('UsersController@show', $user->id) }}">{{{ $user->first_name . ' ' . $user->last_name }}}</a> <a href="" class="text-muted"></a></h4>					
+					<h4><a href="">{{{ $user->first_name . ' ' . $user->last_name }}}</a> <a href="" class="text-muted"></a></h4>					
 				</div>
 			</div>
 		</div>
@@ -129,17 +121,10 @@
 
 
 
-{{ Form::open(['action' => ['ConnectionsController@edit', $user->id],'method' => 'GET']) }}			
 <div class="input-group innerB">
-	<div class="col-md-12 col-lg-6">
- 		<input type="text" name="first_name" class="form-control " placeholder="First Name">
- 	</div>
- 	<div class="col-md-12 col-lg-6">
-	 	<input type="text" name="last_name" class="form-control " placeholder="Last Name" required>
-	 </div>
-	<div class="input-group-btn"><button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button></div>
+ 	<input type="text" class="form-control " placeholder="Search contacts">
+	<div class="input-group-btn"><button class="btn btn-default" type="button"><i class="fa fa-search"></i></button></div>
 </div>
-{{ Form::close() }}
 
 <div class="row row-merge">
 		
@@ -154,11 +139,11 @@
 
 				<div class="col-sm-9">
 					<div class="media">
-						<a class="pull-left margin-none" href="{{ action('UsersController@show', $connection->id) }}">
+						<a class="pull-left margin-none" href="#">
 							<img class="img-clean" src="{{{ $connection->img_path }}}" alt="...">
 						</a>
 						<div class="media-body innerAll inner-2x padding-right-none padding-bottom-none">
-							 <h4 class="media-heading"><a href="{{ action('UsersController@show', $connection->id) }}" class="text-inverse">{{{ $connection->first_name . ' ' . $connection->last_name }}}</a></h4>
+							 <h4 class="media-heading"><a href="" class="text-inverse">{{{ $connection->first_name . ' ' . $connection->last_name }}}</a></h4>
 							 <p>
 							 	<i class="fa fa-fw fa-map-marker text-muted"></i> Living in {{{ $connection->city . ', ' . $connection->state }}}</p> 
 						</div>
@@ -167,25 +152,8 @@
 				<div class="col-sm-3">
 					<div class="innerAll text-right">
 						<div class="btn-group-vertical btn-group-sm">
-	                        @if(Auth::guest())
-	                        @elseif(Auth::user()->id != $user->id)
-	                            @if(in_array($connection->id, $your_connections))
-	                                {{ Form::open(array('action' => null, 'class' => 'form-signin')) }}
-	                                    <button class="btn btn-warning btn-sm connected pull-right"><i class="fa fa-fw fa-thumbs-up"></i> Connected</button>
-	                                    <a href="" class="btn btn-default" data-toggle="sidr-open" data-menu="menu-right"><i class="fa fa-fw fa-envelope-o"></i> Chat</a>
-	                                {{ Form::close() }}	                            
-	                            @else
-	                                {{ Form::open(array('action' => array('ConnectionsController@update', $connection->id), 'class' => 'form-signin','method' => 'PUT')) }}
-	                                    <button type="submit" class="btn btn-primary btn-sm connect pull-right"><i class="fa fa-fw fa-thumbs-up"></i> Connect</button>
-	                                    <a href="" class="btn btn-default" data-toggle="sidr-open" data-menu="menu-right"><i class="fa fa-fw fa-envelope-o"></i> Chat</a>
-	                                {{ Form::close() }}
-	                            @endif
-	                        @else
-                                {{ Form::open(array('action' => array('ConnectionsController@destroy', $connection->id), 'class' => 'form-signin','method' => 'DELETE')) }}
-                                    <button type="submit" class="btn btn-danger pull-right"> Remove</button>
-                                    <a href="" class="btn btn-default" data-toggle="sidr-open" data-menu="menu-right"><i class="fa fa-fw fa-envelope-o"></i> Chat</a>
-                                {{ Form::close() }}	                        	
-	                        @endif
+							<a href="" class="btn btn-primary"><i class="fa fa-fw fa-thumbs-up"></i> Connect</a>
+							<a href="" class="btn btn-default" data-toggle="sidr-open" data-menu="menu-right"><i class="fa fa-fw fa-envelope-o"></i> Chat</a>
 						</div>
 					</div>
 				</div>
@@ -196,13 +164,6 @@
 	@endforeach
 		
 </div>
-
-
-
-			
-
-
-
 		
 				<!-- Footer -->
 		<div id="footer" class="hidden-print">

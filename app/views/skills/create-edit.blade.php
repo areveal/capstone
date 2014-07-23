@@ -13,7 +13,7 @@
 		    height: 40px;
 		}
 		.navbar{
-		    background: #25ad9f;
+		    background: #3498db;
 		}
 	</style>
 @stop 
@@ -40,28 +40,21 @@
                 </ul>
             </div>
         </div>
-    </div>
-	
+    </div> 	
 	<!-- Main Container Fluid -->
 	<div class="container-fluid menu-hidden ">
+		<!-- <div class="layout-app">  -->
+		<!-- row-app -->
+		<div class="row row-app">
+			<!-- col -->
+			<!-- col-separator.box -->
+			<div class="col-separator col-unscrollable box">
+				<!-- col-table -->
+				<div class="col-table">				
+				<h2 class="text-center" style="margin-top: 40px"><i class="fa fa-pencil"></i> Add Your Skills</h2>
 
-			<!-- <div class="layout-app">  -->
-			<!-- row-app -->
-<div class="row row-app">
-
-	<!-- col -->
-	
-
-		<!-- col-separator.box -->
-		<div class="col-separator col-unscrollable box">
-			
-			<!-- col-table -->
-			<div class="col-table">
-				
-				<h4 class="innerAll margin-none border-bottom text-center bg-primary"><i class="fa fa-pencil"></i> Add Your Skills</h4>
-
-				<!-- col-table-row -->
-				<div class="col-table-row">
+					<!-- col-table-row -->
+					<div class="col-table-row">
 
 					<!-- col-app -->
 					<div class="col-app col-unscrollable">
@@ -121,10 +114,10 @@
 								    				<tr>
 								    					<td>
 								    						{{ Form::model($skills, array('action' => array('SkillsController@destroy', $skill_owned->id), 'method' => 'DELETE')) }}
-								    							{{{ $skill_owned->skill }}}
+								    						{{{ $skill_owned->skill }}}
 								    					</td>
 								    					<td>
-								    							<button type="submit" class="glyphicon glyphicon-ban-circle">Remove</button>
+								    						<button type="submit" class="btn btn-info glyphicon glyphicon-ban-circle">Remove</button>
 								    						{{ Form::close() }}
 								    					</td>
 								    			@endforeach		

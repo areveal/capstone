@@ -39,8 +39,8 @@
             <div style="float: right">
                 <div class="innerAll text-center">
                 
-                <input  style="width: 180px; color: black;" type="text" placeholder="Username" name="email">
-                <input  style="width: 180px; color: black;" type="password" placeholder="Enter Password" name="password">
+                <input  style="width: 180px; color: black; border-radius: 5px" type="text" placeholder="Username" name="email">
+                <input  style="width: 180px; color: black; border-radius: 5px" type="password" placeholder="Enter Password" name="password">
                 <button type="submit" class="btn btn-primary">Sign In<i class='fa fa-fw fa-unlock-alt'></i></button>
                 </div>
             </div><br>
