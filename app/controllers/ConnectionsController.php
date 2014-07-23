@@ -11,7 +11,16 @@ class ConnectionsController extends \BaseController {
 	public function edit($id)
 	{
 		$connections = DB::table('connections')->where('user_id', '=', $id)->lists('connection_id');
-		$your_connections = DB::table('connections')->where('user_id', '=', Auth::user()->id)->lists('connection_id');
+		
+		if(Auth::check())
+		{
+			$your_connections = DB::table('connections')->where('user_id', '=', Auth::user()->id)->lists('connection_id');
+		}
+		else
+		{
+			$your_connections = [];
+		}
+
 
 		if(Input::has('last_name'))
 		{
