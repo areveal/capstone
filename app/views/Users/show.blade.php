@@ -92,7 +92,9 @@ top: -102px;
                 {{ Form::open(['action' => ['UsersController@index'],'method' => 'GET']) }}
                 <div class="col-md-6" style="margin-left:400px">
                     <div class="input-append search">
-                        <input id="appendedInputButton" style="border-radius:5px" class="form-inline" type="text" placeholder="Search...">
+
+                        <input id="appendedInputButton" style="border-radius: 5px" class="span6" type="text" placeholder="Search...">
+
                         <!-- search function will be going to index blade -->
                         <a class="glyphicon glyphicon-search btn btn-primary btn-xs" pull-right>Search</a>
                         {{ Form::close() }}
