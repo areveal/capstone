@@ -26,4 +26,6 @@ class BaseModel extends Eloquent {
         $this->img_path = '/'  .$this->imgDir . '/' . $imageName;
     }
 
+  
+
 }
