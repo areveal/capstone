@@ -121,7 +121,7 @@ width:100%; z-index: 1002; background: #3498db;">
 <div style="padding-left: 180px">
     <h2 class="margin-left">Profile &nbsp;<i class="fa fa-fw fa-pencil text-muted"></i></h2>       
             <div class="row">
-                <div class="col-md-7">
+                <div class="col-md-10">
                 <!-- Widget start -->
                     <div class="widget widget-body-white">
                         <div class="media widget-body innerAll">
@@ -246,17 +246,25 @@ width:100%; z-index: 1002; background: #3498db;">
                         </div>
                     </div>
                 <!-- //end Widget -->
-            </div>
-            <div style="float: left" class="col-md-3"> 
+            
+
+        <!-- //End Col -->
+        <div class="row">
+            <div class="col-md-9">
+            </div>    
+            <!-- //End Col -->
+            </div><!-- /.col-md-9 -->    
+        </div>  
+        <div style=" margin-top: 100px; float: left;" class="col-md-3"> 
                 <div class="widget sidemenu">
                     <div class="widget-body text-center">
-                    <h5 class="strong margin-none">People You May Know</h5>
+                    <h5 class="strong margin-none">Network Members</h5>
                         <div class="innerB"></div>
                             <div class="btn-group-vertical btn-block">
                                     <a href="{{ action('ConnectionsController@edit', $user->id) }}" class="btn btn-primary btn-xs pull-right">View All</a>   
                             </div>   
                     </div>
-
+                    
                 </div><!-- /.widget -->
                 <div class="widget sidemenu">
                     <h5 class="innerAll margin-none border-bottom bg-gray">Your Diversity Thread Network</h5>
@@ -275,14 +283,8 @@ width:100%; z-index: 1002; background: #3498db;">
                     </div>
                 </div>
             </div>
-                
-        <!-- //End Col -->
-        <div class="row">
-            <div class="col-md-9">
-            </div>    
-            <!-- //End Col -->
-            </div><!-- /.col-md-9 -->    
-        </div>  
+        </div>        
+
 <!-- End Row -->
 <!-- // Content END -->
 <div class="clearfix"></div>

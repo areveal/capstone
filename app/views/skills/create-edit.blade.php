@@ -151,9 +151,6 @@ width:100%; z-index: 1002; background: #3498db;">
 									  		</div>
 									  		{{ Form::close() }}
 									  	</div>
-
-
-
 								
 								</div>
 
