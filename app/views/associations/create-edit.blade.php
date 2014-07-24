@@ -70,7 +70,7 @@
 								<center><p>*This form is for informational purposes only. It will not be displayed on your profile or given to potential employers.</p></center>
 						  		<p>
 						  		{{ Form::open(array('action' => array('JobsController@edit', Auth::user()->id), 'method' => 'GET')) }}
-						  		<button type="submit" class="btn btn-default">Continue</button>
+						  		<button type="submit" class="btn btn-default">Done</button>
 						  		<a href="{{ action('UsersController@show', Auth::user()->id)}} ">View in profile</a></span>
 						  		</p>
 								{{ Form::close() }}
