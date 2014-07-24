@@ -82,25 +82,25 @@ top: -83px;
                 </span>
                 <ul class="dropdown-menu">
                     <li><a href="">Messages</a></li>
-                    <li><a href="{{ action('UsersController@show', Auth::user()->id)}} ">Profile</a></li>
-                    <li><a href="{{ action('UsersController@edit', Auth::user()->id)}} ">Edit Profile</a></li>
+                    <li><a href="{{ action('UsersController@show', Auth::user()->slug)}} ">Profile</a></li>
+                    <li><a href="{{ action('UsersController@edit', Auth::user()->slug)}} ">Edit Profile</a></li>
                     <li><a href="{{ action('HomeController@logout') }}">Logout</a></li>
                 </ul>
             </div>
         </div>
             <div class="container">
-                {{ Form::open(['action' => ['UsersController@index'],'method' => 'GET']) }}
-                <div class="col-md-6" style="margin-left:400px">
-                    <div class="input-append search">
+            {{ Form::open(['action' => ['UsersController@index'],'method' => 'GET']) }}
+            <div class="col-md-6" style="margin-left:400px">
+                <div class="input-append search">
 
-                        <input id="appendedInputButton" style="border-radius: 5px" class="span6" type="text" placeholder="Search...">
+                    <input id="appendedInputButton" style="border-radius: 5px" class="span6" type="text" placeholder="Search...">
 
-                        <!-- search function will be going to index blade -->
-                        <a class="glyphicon glyphicon-search btn btn-primary btn-xs" pull-right>Search</a>
-                        {{ Form::close() }}
-                    </div>
+                    <!-- search function will be going to index blade -->
+                    <a class="glyphicon glyphicon-search btn btn-primary btn-xs" pull-right>Search</a>
+                    {{ Form::close() }}
                 </div>
-            </div>        
+            </div>
+        </div>        
     </div>
     @endif
     <h2 class="margin-left">Profile &nbsp;<i class="fa fa-fw fa-pencil text-muted"></i></h2>       
@@ -111,11 +111,11 @@ top: -83px;
                         <div class="media widget-body innerAll">
                             <a href="" class="pull-left"><img src="{{{ $user->img_path }}}" alt=""></a>
                             <div class="media-body innerL half">
-                                @if(Auth::check() && (Auth::user()->id != $user->id))
+                                @if(Auth::check() && (Auth::user()->slug != $user->slug))
                                     @if(in_array($user->id, $your_connections))
                                         <a class="btn btn-warning btn-xs pull-right"><i class="fa fa-fw fa-thumbs-up"></i> Connected</a>
                                     @else
-                                        {{ Form::open(array('action' => array('ConnectionsController@update', $user->id), 'class' => 'form-signin','method' => 'PUT')) }}
+                                        {{ Form::open(array('action' => array('ConnectionsController@update', $user->slug), 'class' => 'form-signin','method' => 'PUT')) }}
                                             <button type="submit" class="btn btn-primary btn-xs pull-right"><i class="fa fa-fw fa-thumbs-up"></i> Connect</button>
                                         {{ Form::close() }}
                                     @endif
@@ -123,8 +123,11 @@ top: -83px;
                                 <h4 class="margin-none"><strong>{{{ $user->first_name . ' ' . $user->last_name }}}</strong></h4>
                                 <p class="strong"> </p>
                             </div>
+                            <div style="padding-left:15px">
+                                <h5 class="innerB half text-muted margin-none"><strong >{{ $user->email }}</strong></h5>
+                            </div>
                             <div>
-                                <h5 class="innerB half text-muted margin-none"></i><strong >{{ $user->email }}</strong></h5>
+                                <h5 class="innerB half text-muted margin-none"><i class="fa fa-fw fa-map-marker text-muted"></i><strong >{{ $user->city . ', ' . $user->state_abbrev }}</strong></h5>
                             </div>
                         </div>
                     </div>
@@ -145,11 +148,10 @@ top: -83px;
                         </button>
 
                     @endforeach
-                    <br>
-                    <br>
+                    <br><br>
                     @if(Auth::check())
-                        @if(Auth::user()->id == $user->id)
-                            <a href="{{ action('SkillsController@edit', Auth::user()->id) }}" class="btn btn-primary btn-xs">Edit</a>
+                        @if(Auth::user()->slug == $user->slug)
+                            <a href="{{ action('SkillsController@edit', Auth::user()->slug) }}" class="btn btn-primary btn-xs">Edit</a>
                         @endif
                     @endif
                 </div> 
@@ -173,7 +175,10 @@ top: -83px;
                             </strong></h4>
                             </li>
                             <li>
-                                {{{ $school->major }}}
+                                {{{ $school->major }}} 
+                                @if(!empty($school->gpa))
+                                 | GPA: {{{ $school->gpa }}}
+                                @endif
                             </li>
                             <li>
                                 {{{ $school->date_began . ' ' . $school->date_complete }}}
@@ -184,8 +189,8 @@ top: -83px;
                         @endforeach
                         @endif
                         @if(Auth::check())
-                            @if(Auth::user()->id == $user->id)
-                                <p class="clearfix"><a href="{{ action('SchoolsController@edit', Auth::user()->id) }}" class="btn btn-primary btn-xs pull-left">Edit</a></p>                    
+                            @if(Auth::user()->slug == $user->slug)
+                                <p class="clearfix"><a href="{{ action('SchoolsController@edit', Auth::user()->slug) }}" class="btn btn-primary btn-xs pull-left">Edit</a></p>                    
                             @endif
                         @endif
                     </div>
@@ -219,12 +224,12 @@ top: -83px;
                                         </p>
                                     </li>
                                 </ul> 
-                                <br><br><br>
+                                <br><br>
                             @endforeach
                             @endif
                             @if(Auth::check())
-                                @if(Auth::user()->id == $user->id)
-                                    <a href="{{ action('JobsController@edit', Auth::user()->id) }}" class="btn btn-primary btn-xs">Edit</a>
+                                @if(Auth::user()->slug == $user->slug)
+                                    <a href="{{ action('JobsController@edit', Auth::user()->slug) }}" class="btn btn-primary btn-xs">Edit</a>
                                 @endif
                             @endif
                         </div>
@@ -237,7 +242,7 @@ top: -83px;
                     <h2 class="strong margin-none">Connections</h2>
                         <div class="innerB"></div>
                             <div class="btn-group-vertical btn-block">
-                                    <a href="{{ action('ConnectionsController@edit', $user->id) }}" class="btn btn-primary btn-xs pull-right">View All</a>   
+                                    <a href="{{ action('ConnectionsController@edit', $user->slug) }}" class="btn btn-primary btn-xs pull-right">View All</a>   
                             </div>   
                     </div>
 
@@ -247,9 +252,9 @@ top: -83px;
                     <div class="widget-body padding-none">
                         @foreach($connections as $connection)
                             <div class="media border-bottom innerAll margin-none">
-                                <a href="{{ action('UsersController@show', $connection->id) }}"><img src="{{ $connection->img_path }}" class="pull-left media-object small-pic"/></a>
+                                <a href="{{ action('UsersController@show', $connection->slug) }}"><img src="{{ $connection->img_path }}" class="pull-left media-object small-pic"/></a>
                                 <div class="media-body">
-                                    <a href="{{ action('UsersController@show', $connection->id) }}"><h5 class="margin-none">{{ $connection->first_name . ' ' . $connection->last_name }}</h5></a>
+                                    <a href="{{ action('UsersController@show', $connection->slug) }}"><h5 class="margin-none">{{ $connection->first_name . ' ' . $connection->last_name }}</h5></a>
                                         <i>{{ $connection->status }}</i>                                
                                     <!-- <h5 class="margin-none"><a href="" class="text-inverse">Social Admin Released</a></h5>
                                     <small>on February 2nd, 2014 </small>  -->

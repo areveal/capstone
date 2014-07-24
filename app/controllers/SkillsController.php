@@ -8,7 +8,7 @@ class SkillsController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function edit($id)
+	public function edit($slug)
 	{
 		if(Auth::guest())
 		{
@@ -18,12 +18,12 @@ class SkillsController extends \BaseController {
 		if(Auth::check())
 		{
 
-			if(Auth::user()->id == $id)	
+			if(Auth::user()->slug == $slug)	
 			{
-				$skills_owned = DB::table('skill_user')->where('user_id', '=', $id)->lists('skill_id');
+				$skills_owned = DB::table('skill_user')->where('user_id', '=', Auth::user()->id)->lists('skill_id');
 				if( count($skills_owned) > 0)
 				{
-					$skills = Skill::whereNotIn('id',$skills_owned)->get();
+					$skills = Skill::whereNotIn('id',$skills_owned)->orderBy('skill', 'asc')->get();
 					$skills_owned = Skill::whereIn('id', $skills_owned)->get();
 				}
 				else
@@ -56,18 +56,32 @@ class SkillsController extends \BaseController {
 				$add = Input::get('existing_skills');
 				$user = Auth::user();
 				$user->skills()->attach($add);
-				return Redirect::action('SkillsController@edit', $user->id);
+				return Redirect::action('SkillsController@edit', $user->slug);
 
 			}
 			elseif(Input::has('new_skills'))
 			{
+				$validator = Validator::make(Input::all(), Skill::$rules);
+
+				if($validator->fails())
+				{
+					Session::flash('errorMessage','This skill already exists in the database.');
+					return Redirect::back()->withInput()->withErrors($validator);
+				}
+
 				$add = Input::get('new_skills');
+				$words = explode(' ', $add);
+				foreach ($words as $word) {
+					$new_word = ucfirst($word);
+					$new_words[] = $new_word;
+				}
+				$add = implode(' ', $new_words);
 				$skill = new Skill;
 				$skill->skill = $add;
 				$skill->save();
 				$user = Auth::user();
 				$user->skills()->attach($skill->id);
-				return Redirect::action('SkillsController@edit', $user->id);
+				return Redirect::action('SkillsController@edit', $user->slug);
 			}
 		}
 		else 
@@ -90,7 +104,7 @@ class SkillsController extends \BaseController {
 	{
 		$user = Auth::user();
 		$user->skills()->detach($id);
-		return Redirect::action('SkillsController@edit', $user->id);
+		return Redirect::action('SkillsController@edit', $user->slug);
 	}
 
 

@@ -11,7 +11,7 @@ class Job extends BaseModel {
         'start_date' => 'required',
         'end_date' => 'required',
         'company' => 'required|max:100',
-        'description' => 'required|max:600',
+        'description' => 'max:600',
     ];
 
     public function user() 

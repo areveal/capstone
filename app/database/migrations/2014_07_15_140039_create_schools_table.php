@@ -18,8 +18,8 @@ class CreateSchoolsTable extends Migration {
 		    $table->string('college', 200);
 		    $table->date('date_began');
 		    $table->date('date_complete', 4);
-		    $table->string('major', 150);
-		    $table->string('gpa', 10);
+		    $table->string('major', 150)->nullable();
+		    $table->string('gpa', 10)->nullable();
 			$table->integer('user_id')->unsigned();
 		    $table->foreign('user_id')->references('id')->on('users');
 		    $table->timestamps();	    

@@ -10,8 +10,8 @@ class School extends BaseModel {
     	'college' => 'required|max:100',
     	'date_began' => 'required',
     	'date_complete' => 'required',
-    	'major' => 'required|max:100',
-    	'gpa' => 'required|max:6',
+    	'major' => 'max:100',
+    	'gpa' => 'max:6',
     ];
 
     public function user() 
