@@ -9,11 +9,11 @@ class JobsController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function edit($id)
+	public function edit($slug)
 	{
 		if(Auth::check())
 		{
-			if(Auth::user()->id == $id)	
+			if(Auth::user()->slug == $slug)	
 			{
 				$jobs = Job::where('user_id', '=' , Auth::user()->id)->get();
 				
@@ -53,15 +53,33 @@ class JobsController extends \BaseController {
 			$job = new Job();
 
 			$job->user_id = Auth::user()->id;
-			$job->job_title = Input::get('job_title');
+			
+			$job_title = Input::get('job_title');
+			$words = explode(' ', $job_title);
+			foreach ($words as $word) {
+				$new_word = ucfirst($word);
+				$new_job_title[] = $new_word;
+			}
+			$job_title = implode(' ', $new_job_title);
+			$job->job_title = $job_title;
+
 			$job->start_date = Input::get('start_date');		
 			$job->end_date = Input::get('end_date');
-			$job->company = Input::get('company');
+			
+			$company = Input::get('company');
+			$words = explode(' ', $company);
+			foreach ($words as $word) {
+				$new_word = ucfirst($word);
+				$new_company[] = $new_word;
+			}
+			$company = implode(' ', $new_company);
+			$job->company = $company;
+			
 			$job->description = Input::get('description');
 			$job->save();
 		}
 		Session::flash('successMessage', 'You have successfully edited your account.');	
-		return Redirect::action('JobsController@edit', Auth::user()->id);
+		return Redirect::action('JobsController@edit', Auth::user()->slug);
 	}
 
 
@@ -76,7 +94,7 @@ class JobsController extends \BaseController {
 		$job = Job::findOrFail($id);
 		$job->delete();
 		Session::flash('successMessage', 'Job deleted successfully.');
-		return Redirect::action('JobsController@edit', Auth::user()->id);
+		return Redirect::action('JobsController@edit', Auth::user()->slug);
 	}
 
 

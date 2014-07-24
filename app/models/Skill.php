@@ -7,6 +7,7 @@ class Skill extends BaseModel {
 
     // Validation rules for our model properties
     static public $rules = [
+    	'skills' => 'unique'
     ];
 
     public function users() 

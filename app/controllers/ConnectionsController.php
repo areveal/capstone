@@ -8,9 +8,10 @@ class ConnectionsController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function edit($id)
+	public function edit($slug)
 	{
-		$connections = DB::table('connections')->where('user_id', '=', $id)->lists('connection_id');
+		$user = User::findBySlug($slug);
+		$connections = DB::table('connections')->where('user_id', '=', $user->id)->lists('connection_id');
 		
 		if(Auth::check())
 		{
@@ -27,7 +28,7 @@ class ConnectionsController extends \BaseController {
 			$first = Input::get('first_name');
 			$last = Input::get('last_name');
 			$users = DB::table('users')->where('first_name','LIKE', "%{$first}%")->where('last_name','LIKE', "%{$last}%")->lists('id');
-			$connections = DB::table('connections')->whereIn('connection_Id', $users)->where('user_id', '=', $id)->lists('connection_id');
+			$connections = DB::table('connections')->whereIn('connection_Id', $users)->where('user_id', '=', Auth::user()->id)->lists('connection_id');
 		}
 		
 
@@ -39,7 +40,6 @@ class ConnectionsController extends \BaseController {
 		{
 			$connections = [];
 		}
-		$user = User::findOrFail($id);
 		return View::make('connections.edit')->with('user' , $user)->with('connections', $connections)->with('your_connections', $your_connections);
 	}
 
@@ -50,11 +50,11 @@ class ConnectionsController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update($slug)
 	{
 		if(Auth::check())
 		{
-			$friend = User::findOrFail($id);
+			$friend = User::findBySlug($slug);
 			$user = Auth::user();
 			$user->connections()->attach($friend);
 			Session::flash('successMessage', 'You have successfully addded a connection.');

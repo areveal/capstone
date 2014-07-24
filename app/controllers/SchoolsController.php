@@ -9,11 +9,11 @@ class SchoolsController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function edit($id)
+	public function edit($slug)
 	{
 		if(Auth::check())
 		{
-			if(Auth::user()->id == $id)	
+			if(Auth::user()->slug == $slug)	
 			{
 				$schools = School::where('user_id', Auth::user()->id)->get();
 				return View::make('schools.create-edit')->with('schools', $schools);
@@ -53,15 +53,29 @@ class SchoolsController extends \BaseController {
 			$school = new School();
 
 			$school->user_id = Auth::user()->id;
-			$school->college = Input::get('college');
+			$college = Input::get('college');
+			$words = explode(' ', $college);
+			foreach ($words as $word) {
+				$new_word = ucfirst($word);
+				$new_college[] = $new_word;
+			}
+			$college = implode(' ', $new_college);
+			$school->college = $college;
 			$school->date_began = Input::get('date_began');		
 			$school->date_complete = Input::get('date_complete');
-			$school->major = Input::get('major');
+			$major = Input::get('major');
+			$words = explode(' ', $major);
+			foreach ($words as $word) {
+				$new_word = ucfirst($word);
+				$new_major[] = $new_word;
+			}
+			$major = implode(' ', $new_major);			
+			$school->major = $major;
 			$school->gpa = Input::get('gpa');
 			$school->save();
 		}
 		Session::flash('successMessage', 'You have successfully edited your account.');	
-		return Redirect::action('SchoolsController@edit', Auth::user()->id);
+		return Redirect::action('SchoolsController@edit', Auth::user()->slug);
 	}
 
 
@@ -76,7 +90,7 @@ class SchoolsController extends \BaseController {
 		$school = School::findOrFail($id);
 		$school->delete();
 		Session::flash('successMessage', 'School deleted successfully.');
-		return Redirect::action('SchoolsController@edit', Auth::user()->id);
+		return Redirect::action('SchoolsController@edit', Auth::user()->slug);
 	}
 
 

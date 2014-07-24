@@ -79,8 +79,8 @@
                 </span>
                 <ul class="dropdown-menu">
                     <li><a href="">Messages</a></li>
-                    <li><a href="{{ action('UsersController@show', Auth::user()->id)}} ">Profile</a></li>
-                    <li><a href="{{ action('UsersController@edit', Auth::user()->id)}} ">Edit Profile</a></li>
+                    <li><a href="{{ action('UsersController@show', Auth::user()->slug)}} ">Profile</a></li>
+                    <li><a href="{{ action('UsersController@edit', Auth::user()->slug)}} ">Edit Profile</a></li>
                     <li><a href="{{ action('HomeController@logout') }}">Logout</a></li>
                 </ul>
             </div>
@@ -124,11 +124,11 @@
 						<div class="row">
 							<div class="col-sm-9">
 								<div class="media">
-									<a class="pull-left margin-none" href="{{ action('UsersController@show', $user->id) }}">
+									<a class="pull-left margin-none" href="{{ action('UsersController@show', $user->slug) }}">
 										<img class="img-clean" src="{{ $user->img_path }}" alt="">
 									</a>
 									<div class="media-body innerAll inner-2x padding-right-none padding-bottom-none">
-										<h4 class="media-heading"><a href="{{ action('UsersController@show', $user->id) }}" class="text-inverse">{{ $user->first_name . ' ' . $user->last_name }}</a></h4>
+										<h4 class="media-heading"><a href="{{ action('UsersController@show', $user->slug) }}" class="text-inverse">{{ $user->first_name . ' ' . $user->last_name }}</a></h4>
 										<p>
 									 	<!-- <span class="text-success strong"><i class="fa fa-check"></i> Friend</span> &nbsp;  -->
 									 	<i class="fa fa-fw fa-map-marker text-muted"></i>{{ $user->city . ', ' . $user->state_abbrev  }}</p> 
@@ -140,11 +140,11 @@
 									<div class="innerAll text-right buttons">
 										<div class="btn-group-vertical btn-group-sm">
 											@if(in_array($user->id, $connections))
-												{{ Form::open(array('action' => array('ConnectionsController@edit', Auth::user()->id),'method' => 'GET', 'class' => 'form-signin'))}}
+												{{ Form::open(array('action' => array('ConnectionsController@edit', Auth::user()->slug),'method' => 'GET', 'class' => 'form-signin'))}}
 												<button type="submit" class="btn btn-warning connected"><i class="fa fa-fw fa-thumbs-up"></i> Connected</button>
 												{{ Form::close() }}
 											@else
-												{{ Form::open(array('action' => array('ConnectionsController@update', $user->id), 'class' => 'form-signin','method' => 'PUT')) }}
+												{{ Form::open(array('action' => array('ConnectionsController@update', $user->slug), 'class' => 'form-signin','method' => 'PUT')) }}
 												<button type="submit" class="btn btn-primary"><i class="fa fa-fw fa-thumbs-up"></i> Connect</button>
 												{{ Form::close() }}
 											@endif

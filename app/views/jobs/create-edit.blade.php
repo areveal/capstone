@@ -37,12 +37,12 @@
                 </span>
                 </span>
                 <ul class="dropdown-menu">
-                    <li><a href="{{ action('UsersController@edit', Auth::user()->id)}} ">Edit Profile</a></li>
-                    <li><a href="{{ action('SkillsController@edit', Auth::user()->id)}} ">Edit Skills</a></li>
-                    <li><a href="{{ action('AssociationsController@edit', Auth::user()->id)}} ">Edit Associations</a></li>
-                    <li><a href="{{ action('JobsController@edit', Auth::user()->id)}} ">Edit Experience</a></li>
-                    <li><a href="{{ action('SchoolsController@edit', Auth::user()->id)}} ">Edit Education</a></li>
-                    <li><a href="{{ action('UsersController@show', Auth::user()->id)}} ">Done Editing</a></li>
+                    <li><a href="{{ action('UsersController@edit', Auth::user()->slug)}} ">Edit Profile</a></li>
+                    <li><a href="{{ action('SkillsController@edit', Auth::user()->slug)}} ">Edit Skills</a></li>
+                    <li><a href="{{ action('AssociationsController@edit', Auth::user()->slug)}} ">Edit Associations</a></li>
+                    <li><a href="{{ action('JobsController@edit', Auth::user()->slug)}} ">Edit Experience</a></li>
+                    <li><a href="{{ action('SchoolsController@edit', Auth::user()->slug)}} ">Edit Education</a></li>
+                    <li><a href="{{ action('UsersController@show', Auth::user()->slug)}} ">Done Editing</a></li>
                 </ul>
             </div>
         </div>
@@ -109,9 +109,9 @@
 											</div>
 										{{Form::close()}}
 										<p>
-									  		{{ Form::open(array('action' => array('SchoolsController@edit', Auth::user()->id), 'method' => 'GET')) }}
+									  		{{ Form::open(array('action' => array('SchoolsController@edit', Auth::user()->slug), 'method' => 'GET')) }}
 									  		<button type="submit" class="btn btn-default">Next</button>
-									  		<a href="{{ action('UsersController@show', Auth::user()->id)}} ">View in profile</a></span>
+									  		<a href="{{ action('UsersController@show', Auth::user()->slug)}} ">View in profile</a></span>
 									  		
 									  		</p>
 										{{ Form::close() }}
