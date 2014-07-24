@@ -231,11 +231,11 @@ width:100%; z-index: 1002; background: #3498db;">
 									  		<button type="submit" class="btn btn-default">Done</button>
 									  		<a href="{{ action('UsersController@show', Auth::user()->id)}} ">View in profile</a></span>
 									  		
-									  		</p>
+									  	</p>
 											{{ Form::close() }}
 
 							  	</div>	
-	
+	</div>	
 
 	<!-- Global -->
 	<script data-id="App.Config">
