@@ -12,7 +12,7 @@ class CreateRemindersTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('reminders_reminders', function(Blueprint $table)
+		Schema::create('password_reminders', function(Blueprint $table)
 		{
 			$table->string('email');
 			$table->string('token');
@@ -31,7 +31,7 @@ class CreateRemindersTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('reminders_reminders');
+		Schema::drop('password_reminders');
 	}
 
 }
