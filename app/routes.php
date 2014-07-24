@@ -15,8 +15,8 @@ Route::get('/login', 'HomeController@showLogin');
 Route::post('/login', 'HomeController@doLogin');
 Route::get('/logout', 'HomeController@logout');
 
+Route::controller('password', 'RemindersController');
 
-Route::controller('forgetpass', 'RemindersController');
 
 //will import email lists
 Route::get('/contact', 'HomeController@getContacts');
@@ -42,14 +42,17 @@ Route::resource('associations', 'AssociationsController');
 
 Route::get('/test',function() {
 
-	$zip = '78240';
-	$displacement = '10';
-	$zip_array = DB::select("CALL zip_proximity($zip, $displacement, 'mi')");
-	foreach ($zip_array as $zip) {
-		$zips[] = $zip->zip;
-	}		    
+	$filename = "/vagrant/sites/final-project.dev/public/skills.txt";
 
-	var_dump($zips);
+	$filesize = filesize($filename);
+    //open file to read
+    $read = fopen($filename, 'r');
+    //read file into string
+    $list_string = fread($read, $filesize);
+    //turn string into array
+    $skills_array = explode("\n", $list_string);		    
+
+	var_dump($skills_array);
 
 
 });

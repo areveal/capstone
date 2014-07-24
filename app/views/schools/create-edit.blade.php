@@ -66,8 +66,8 @@ width:100%; z-index: 1002; background: #3498db;">
                     </span>
                 <ul class="dropdown-menu" style="padding-right: 10px">
                     <li><a href="">Messages</a></li>
-                    <li><a href="{{ action('UsersController@show', Auth::user()->id)}} ">Profile</a></li>
-                    <li><a href="{{ action('UsersController@edit', Auth::user()->id)}} ">Edit Profile</a></li>
+                    <li><a href="{{ action('UsersController@show', Auth::user()->slug)}} ">Profile</a></li>
+                    <li><a href="{{ action('UsersController@edit', Auth::user()->slug)}} ">Edit Profile</a></li>
                     <li><a href="{{ action('HomeController@logout') }}">Logout</a></li>
                 </ul>
                 </div>
@@ -193,7 +193,7 @@ width:100%; z-index: 1002; background: #3498db;">
 								    			<tr><button style="padding-left: 10px; text-align: left; height: 50px;" class=" btn btn-default btn-sm btn-block"><strong><h4><a href="">3. Education</a></h4></button></strong></tr>
 								    			<tr><button style="padding-left: 10px; text-align: left; height: 50px;" class=" btn btn-default btn-sm btn-block"><strong><h4>4. Skills</h4></button></strong></tr>
 								    			<tr><button style="padding-left: 10px; text-align: left; height: 50px;" class=" btn btn-default btn-sm btn-block"><strong><h4>5. See your Profile</h4></button></strong></tr>	
-								    			<tr style="padding-bottom: 10px;"><strong><a href="{{ action('UsersController@show', Auth::user()->id)}}">Finish later ></a></strong></tr>
+								    			<tr style="padding-bottom: 10px;"><strong><a href="{{ action('UsersController@show', Auth::user()->slug)}}">Finish later ></a></strong></tr>
 								    	</table>
 
 
@@ -241,9 +241,9 @@ width:100%; z-index: 1002; background: #3498db;">
 		   	<table><br>
 			{{Form::close()}}
 			<p>
-		  	{{ Form::open(array('action' => array('UsersController@show', Auth::user()->id), 'method' => 'GET')) }}
+		  	{{ Form::open(array('action' => array('UsersController@show', Auth::user()->slug), 'method' => 'GET')) }}
 		  		<button type="submit" class="btn btn-default">Done</button>
-		  		<a href="{{ action('UsersController@show', Auth::user()->id)}} ">View in profile</a></span>
+		  		<a href="{{ action('UsersController@show', Auth::user()->slug)}} ">View in profile</a></span>
 		  	</p>
 			{{ Form::close() }}
 		  </div>

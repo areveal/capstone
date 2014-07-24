@@ -66,8 +66,8 @@
                 </span>
                 <ul class="dropdown-menu">
                     <li><a href="">Messages</a></li>
-                    <li><a href="{{ action('UsersController@show', Auth::user()->id)}} ">Profile</a></li>
-                    <li><a href="{{ action('UsersController@edit', Auth::user()->id)}} ">Edit Profile</a></li>
+                    <li><a href="{{ action('UsersController@show', Auth::user()->slug)}} ">Profile</a></li>
+                    <li><a href="{{ action('UsersController@edit', Auth::user()->slug)}} ">Edit Profile</a></li>
                     <li><a href="{{ action('HomeController@logout') }}">Logout</a></li>
                 </ul>
             </div>
@@ -100,7 +100,7 @@
 					<img src="{{ $user->img_path }}" alt="" class="img-circle">
 				</div>
 				<div class="media-body">
-					<h4><a href="{{ action('UsersController@show', $user->id) }}">{{{ $user->first_name . ' ' . $user->last_name }}}</a> <a href="" class="text-muted"></a></h4>					
+					<h4><a href="{{ action('UsersController@show', $user->slug) }}">{{{ $user->first_name . ' ' . $user->last_name }}}</a> <a href="" class="text-muted"></a></h4>					
 				</div>
 			</div>
 		</div>
@@ -108,7 +108,7 @@
 		
 		<div class="">
 			<ul class="navigation">
-				<li><a class="" href="{{ action('UsersController@show', $user->id) }}"><i class="fa fa-fw fa-user"></i><span> Profile</span></a></li>
+				<li><a class="" href="{{ action('UsersController@show', $user->slug) }}"><i class="fa fa-fw fa-user"></i><span> Profile</span></a></li>
 				<li class="active"><a href="#"><i class="fa fa-fw icon-group"></i><span> Connections</span></a></li>
 			</ul>
 			<div class="clearfix"></div>
@@ -121,7 +121,7 @@
 
 
 
-{{ Form::open(['action' => ['ConnectionsController@edit', $user->id],'method' => 'GET']) }}			
+{{ Form::open(['action' => ['ConnectionsController@edit', $user->slug],'method' => 'GET']) }}			
 	<div class="input-group innerB">
 		<div class="col-md-12 col-lg-6">
 	 		<input type="text" name="first_name" class="form-control " placeholder="First Name">
@@ -160,7 +160,7 @@
 					<div class="innerAll text-right">
 						<div class="btn-group-vertical btn-group-sm">
 	                        @if(Auth::guest())
-	                        @elseif(Auth::user()->id != $user->id)
+	                        @elseif(Auth::user()->slug != $user->slug)
 	                            @if(in_array($connection->id, $your_connections))
 	                                {{ Form::open(array('action' => null, 'class' => 'form-signin')) }}
 	                                    <button class="btn btn-warning btn-sm connected pull-right"><i class="fa fa-fw fa-thumbs-up"></i> Connected</button>

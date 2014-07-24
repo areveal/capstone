@@ -9,7 +9,7 @@ class UsersController extends \BaseController {
 	 */
 	public function index()
 	{
-		$skills = Skill::get();
+		$skills = Skill::orderBy('skill','asc')->get();
 
 		if(Auth::check())
 		{
@@ -127,10 +127,10 @@ class UsersController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($id)
+	public function show($slug)
 	{
 		// this is our user's home page
-		$user = User::with('jobs')->with('skills')->with('associations')->with('schools')->with('connections')->findOrfail($id);
+		$user = User::findBySlug($slug);
 		
 		$connections = $user->connections->take(5);
 
@@ -153,16 +153,16 @@ class UsersController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function edit($id)
+	public function edit($slug)
 	{
 		if(Auth::guest()) 
 		{
 			Session::flash('errorMessage','You must be logged in to edit users.');
 			return Redirect::action('UsersController@index');			
 		}
-		elseif(Auth::user()->id == $id)
+		elseif(Auth::user()->slug == $slug)
 		{
-			$user = User::find($id);
+			$user = User::findBySlug($slug);
 			return View::make('users.create-edit')->with('user', $user);
 		}
 		else
@@ -179,7 +179,7 @@ class UsersController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update($slug)
 	{
 		// update function
 		$validator = Validator::make(Input::all(), User::$rules);
@@ -193,19 +193,27 @@ class UsersController extends \BaseController {
 		{
 			$user = new User();
 
-			if(isset($id)) 
+			if(isset($slug)) 
 			{
-				$user = User::findOrfail($id);
-				if(Auth::user()->id != $id) 
+				$user = User::findBySlug($slug);
+				if(Auth::user()->slug != $slug) 
 				{
 						Session::flash('errorMessage','You do not have the necessary credentials to edit this user.');
 						return Redirect::url('/');
 				}
 			}
 
+			$slugs = DB::table('users')->lists('slug');
 
-			$user->first_name = Input::get('first_name');
-			$user->last_name = Input::get('last_name');		
+			if(in_array(Input::get('slug'), $slugs))
+			{
+				Session::flash('errorMessage','This extension is already in use. Please try a different URL extension.');
+				return Redirect::back();
+			}
+
+
+			$user->first_name = ucfirst(Input::get('first_name'));
+			$user->last_name = ucfirst(Input::get('last_name'));		
 			$user->email = Input::get('email');	
 			$user->zip = Input::get('zip');
 			$city = DB::table('zipcodes')->where('zip', '=', $user->zip)->lists('city');
@@ -221,6 +229,18 @@ class UsersController extends \BaseController {
 			{
 				$user->password = Hash::make(Input::get('password'));
 				$user->save();
+
+				if(!empty(Input::get('slug')))
+				{
+					$new_slug = Input::get('slug');
+					$user->slug = $new_slug;	
+				}
+				else
+				{
+					$user->slug = $user->id . '-' . $user->first_name . '-' . $user->last_name ;
+				}
+				
+				$user->save();
 			}
 			else 
 			{
@@ -233,17 +253,22 @@ class UsersController extends \BaseController {
 			    $user->addUploadedImage(Input::file('image'));
 			    $user->save();
 			}
+			else 
+			{
+			    $user->img_path = '/img-upload/user.jpg';
+			    $user->save();
+			}
 			
-			if(isset($id)) 
+			if(isset($slug)) 
 			{
 				Session::flash('successMessage', 'You have successfully edited your account.');
-    			return Redirect::action('UsersController@show',$id);
+    			return Redirect::action('UsersController@show', $user->slug);
 			}
 			else
 			{
 				Session::flash('successMessage', 'You have successfully created an account.');
     			Auth::login($user);
-    			return Redirect::action('UsersController@show', Auth::user()->id);
+    			return Redirect::action('UsersController@show', $user->slug);
 			}
 
 		}
@@ -266,7 +291,7 @@ class UsersController extends \BaseController {
 	{
 		if(Auth::check())
 		{
-			return Redirect::action('UsersController@show', Auth::user()->id);
+			return Redirect::action('UsersController@show', Auth::user()->slug);
 		}
 		else
 		{

@@ -64,8 +64,8 @@ width:100%; z-index: 1002; background: #3498db;">
                     </span>
                 <ul class="dropdown-menu" style="padding-right: 10px">
                     <li><a href="">Messages</a></li>
-                    <li><a href="{{ action('UsersController@show', Auth::user()->id)}} ">Profile</a></li>
-                    <li><a href="{{ action('UsersController@edit', Auth::user()->id)}} ">Edit Profile</a></li>
+                    <li><a href="{{ action('UsersController@show', Auth::user()->slug)}} ">Profile</a></li>
+                    <li><a href="{{ action('UsersController@edit', Auth::user()->slug)}} ">Edit Profile</a></li>
                     <li><a href="{{ action('HomeController@logout') }}">Logout</a></li>
                 </ul>
                 </div>
@@ -139,7 +139,7 @@ width:100%; z-index: 1002; background: #3498db;">
 								  	<div class="panel-body">
 
 								  		@if(isset($user))
-								  			{{ Form::model($user, array('action' => array('UsersController@update', $user->id), 'method' => 'PUT','files' => true)) }}
+								  			{{ Form::model($user, array('action' => array('UsersController@update', $user->slug), 'method' => 'PUT','files' => true)) }}
 								  		@else
 									  		{{Form::open(array('action' => 'UsersController@store', 'class' => 'form-signin','files' => true))}}
 								  		@endif
@@ -184,6 +184,11 @@ width:100%; z-index: 1002; background: #3498db;">
 									    		{{ $errors->first('zip', '<span style="color:red" class="col-lg-6 col-md-6 col-sm-6 col-xs-12">:message</span>') }}
 									    		{{ Form::text('zip', Input::old('zip') , ['class' => 'form-control', 'placeholder' => 'Zipcode'])  }}
 									        </div>
+									  		<div class="form-group">
+									    		{{ Form::label('slug','URL: diversitythread.com/users/') }}
+									    		{{ $errors->first('slug', '<span style="color:red" class="col-lg-6 col-md-6 col-sm-6 col-xs-12">:message</span>') }}
+									    		{{ Form::text('slug', Input::old('slug') , ['class' => 'form-control', 'placeholder' => 'Type Extension Here'])  }}
+									        </div>									        
 									  		<div class="form-group">
 									    		<label for="status">I am currently:</label>
 									    		{{ $errors->first('status', '<span style="color:red" class="help-block">:message</span>') }}
