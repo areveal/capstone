@@ -112,6 +112,7 @@
 									  		{{ Form::open(array('action' => array('SchoolsController@edit', Auth::user()->slug), 'method' => 'GET')) }}
 									  		<button type="submit" class="btn btn-default">Next</button>
 									  		<a href="{{ action('UsersController@show', Auth::user()->slug)}} ">View in profile</a></span>
+
 									  		
 									  		</p>
 										{{ Form::close() }}

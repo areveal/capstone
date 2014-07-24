@@ -20,6 +20,7 @@
 <title>Password Reminder Page</title>
 
 @section('content')
+<div class="container">
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
 	<div id="header" class="global-header responsive-header nav-v5-2-header responsive-1 remote-nav" role="banner">
 		<div id="top-header">
@@ -32,8 +33,10 @@
   		</div>
   	</div>
 </nav>
+</div>
 
-<div class="container">
+<br>
+<div class="container"><br>
 	<h2>Password Reset</h2>
 	<form action="{{ action('RemindersController@postRemind') }}" method="POST">
 	   	 <label for="user">Email</label>  

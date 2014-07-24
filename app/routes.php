@@ -15,8 +15,8 @@ Route::get('/login', 'HomeController@showLogin');
 Route::post('/login', 'HomeController@doLogin');
 Route::get('/logout', 'HomeController@logout');
 
+Route::controller('password', 'RemindersController');
 
-Route::controller('forgetpass', 'RemindersController');
 
 //will import email lists
 Route::get('/contact', 'HomeController@getContacts');

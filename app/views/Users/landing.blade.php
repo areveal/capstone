@@ -106,7 +106,7 @@
 
       </section>
 
-      <<!-- section class="contact full-color">
+      <!-- section class="contact full-color">
         <div class="row">
             <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3">
                 <h2>Keep in touch</h2>

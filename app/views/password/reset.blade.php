@@ -24,7 +24,7 @@
 		<div id="top-header">
 			<div class"wrapper">
 	  			<div class="container ">
-				  	<a href="http://final-project.dev/create" class="logo" id="li-logo">		
+				  	<a href="" class="logo" id="li-logo">		
 				    Inclusion
 					</a>
 	  			</div>
@@ -36,16 +36,25 @@
 <div class="container">
 	<div class="body">Enter the following information to reset your password.</div>
 	  <div class="col-md-3 col-md-6 col-md-3"></div>
-			<div class="form position: relative">
-			    {{ Form::open(array('action' => 'RemindersController@postReset')) }}
-				    <input type="hidden" name="token" value="{{ $token }}">
-				    {{ Form::label('email', 'E-Mail Address') }}
-				    {{ Form::text('email') }}
-				    {{ Form::input('password', 'Temporary Password') }}
-				    {{ Form::input('password', 'New Password') }}
-				    {{ Form::input('passwprd', 'Confirm Password') }}
-				    {{ Form::submit('Send') }}
-			    {{ Form::close() }}
+			<div class="form position: relative center-block">
+			    <ul>		    
+				    {{ Form::open(array('action' => 'RemindersController@postReset')) }}
+					    <input type="hidden" name="token" value="{{ $token }}">
+					    <li>
+					    	{{ Form::label('email', 'E-Mail Address') }}
+					    	{{ Form::text('email') }}
+					    </li>
+					    <li>
+					   		{{ Form::label('New Password', 'New Password') }}
+					    	{{ Form::input('password', 'New Password') }}
+					    </li>
+					    	{{ Form::label('Confirm New Password', 'Confirm New Password') }}
+						    {{ Form::input('Confirm Password', 'Confirm New Password') }}
+						 </li>
+						    {{ Form::submit('Send') }}
+					    {{ Form::close() }}
+					</li>
+				</ul>
 			</div>
 		</div>
 	</div>
