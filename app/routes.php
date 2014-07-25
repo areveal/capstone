@@ -60,3 +60,8 @@ Route::get('/test',function() {
 
 
 });
+
+// Route::get('/password/email', function(){
+
+// 	return view::make('password.email');
+// });

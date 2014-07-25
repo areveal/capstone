@@ -4,7 +4,7 @@
 <style>
 	.navbar
 	{
-  		background: #25ad9f;
+  		background: #3498db;
 	}
 	.body 
 	{ 
@@ -33,32 +33,58 @@
   	</div>
 </nav>
 
-<div class="container">
-	<div class="body">Enter the following information to reset your password.</div>
-	  <div class="col-md-3 col-md-6 col-md-3"></div>
-			<div class="form position: relative center-block">
-			    <ul>		    
-				    {{ Form::open(array('action' => 'RemindersController@postReset')) }}
-					    <input type="hidden" name="token" value="{{ $token }}">
-					    <li>
-					    	{{ Form::label('email', 'E-Mail Address') }}
-					    	{{ Form::text('email') }}
-					    </li>
-					    <li>
-					   		{{ Form::label('New Password', 'New Password') }}
-					    	{{ Form::input('password', 'New Password') }}
-					    </li>
-					    	{{ Form::label('Confirm New Password', 'Confirm New Password') }}
-						    {{ Form::input('Confirm Password', 'Confirm New Password') }}
-						 </li>
-						    {{ Form::submit('Send') }}
-					    {{ Form::close() }}
-					</li>
-				</ul>
-			</div>
-		</div>
-	</div>
-</div
-	    
+@if (Session::has('status'))
+    <div class="alert alert-info">
+        <button type="button" class="close" data-dismiss="alert">
+            <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+        </button>
 
-	@stop
+        {{{ Session::get('status') }}}
+    </div>
+@endif
+
+@if (Session::has('error'))
+    <div class="alert alert-danger">
+        <button type="button" class="close" data-dismiss="alert">
+            <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+        </button>
+
+        {{{ Session::get('error') }}}
+    </div>
+@endif
+
+<div class="container">
+	<div class="body">Enter the following information to reset your password.</div>	  
+	<div class="form position: relative">
+	    {{ Form::open(array('action' => 'RemindersController@postReset', 'class' => 'form-horizontal')) }}
+			<input type="hidden" name="token" value="{{ $token }}"></input>					
+		    
+		    <div class="form-group">
+			    <label for="inputEmail3" class="col-sm-2 control-label">E-Mail</label>
+			    <div class="col-sm-6">
+			    	<input type="email" name="email" class="form-control" id="inputEmail3" placeholder="Email">
+				</div>
+			</div>
+			
+			<div class="form-group">
+			    <label for="inputPassword3" class="col-sm-2 control-label">New Password</label>
+			    <div class="col-sm-6">
+				    <input type="password" name="password" class="form-control" id="inputPassword3" placeholder="Password">
+				</div>
+			</div>
+			
+			<div class="form-group">
+			    <label for="inputPassword3" class="col-sm-2 control-label">Confirm New Password</label>
+			    <div class="col-sm-6">
+				    <input type="password" name="password_confirmation" class="form-control" id="inputPassword3" placeholder="Password">
+				</div>
+			</div>
+			
+			<div class="form-group">
+				 <div class="col-sm-offset-2 col-sm-10">
+				     <button type="submit" class="btn btn-default">Login</button>
+				</div>
+			</div>
+		{{ Form::close() }}
+	</div>
+</div>

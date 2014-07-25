@@ -51,9 +51,7 @@ class RemindersController extends BaseController {
 	 */
 	public function postReset()
 	{
-		$credentials = Input::only(
-			'email', 'password', 'password_confirmation', 'token'
-		);
+		$credentials = Input::only('email', 'password', 'password_confirmation', 'token');
 
 		$response = Password::reset($credentials, function($user, $password)
 		{
@@ -70,8 +68,13 @@ class RemindersController extends BaseController {
 				return Redirect::back()->with('error', Lang::get($response));
 
 			case Password::PASSWORD_RESET:
-				return Redirect::to('/');
+				Session::flash('successMessage', 'Your password has been reset.');
+				return Redirect::action('UsersController@showLanding');
 		}
+	}
+	public function email()
+	{
+		return View::make('password.email');
 	}
 
 }
