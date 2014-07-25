@@ -166,10 +166,11 @@ width:100%; z-index: 1002; background: #3498db;">
 								  				<tr style=" height: 14px; padding-bottom: 10px;"><strong>Lets build your profile!</strong></tr>
 
 								  				<tr><button style=" padding-left: 10px; text-align: left; height: 50px;" class=" btn btn-default btn-sm btn-block"><h4>1.Personal</h4></button></tr>
-								  				<tr><button style=" padding-left: 10px; text-align: left; height: 50px;" class=" btn btn-default btn-sm btn-block"><strong><h4>2. Experience</h4></button></strong></tr>
+								  				<tr><button style=" padding-left: 10px; text-align: left; height: 50px;" class=" btn btn-default btn-sm btn-block"><strong><h4><a href="">2. Skills</a></h4></button></strong></tr>
 								    			<tr><button style="padding-left: 10px; text-align: left; height: 50px;" class=" btn btn-default btn-sm btn-block"><strong><h4>3. Education</h4></button></strong></tr>
-								    			<tr><button style="padding-left: 10px; text-align: left; height: 50px;" class=" btn btn-default btn-sm btn-block"><strong><h4><a href="/skills">4. Skills</a></h4></button></strong></tr>
-								    			<tr><button style="padding-left: 10px; text-align: left; height: 50px;" class=" btn btn-default btn-sm btn-block"><strong><h4>5. See your Profile</h4></button></strong></tr>	
+								    			<tr><button style="padding-left: 10px; text-align: left; height: 50px;" class=" btn btn-default btn-sm btn-block"><strong><h4>4. Experience</h4></button></strong></tr>
+								    			<tr><button style="padding-left: 10px; text-align: left; height: 50px;" class=" btn btn-default btn-sm btn-block"><strong><h4>5. Associations</h4></button></strong></tr>
+								    			<tr><button style="padding-left: 10px; text-align: left; height: 50px;" class=" btn btn-default btn-sm btn-block"><strong><h4>See your Profile</h4></button></strong></tr>	
 								    			<tr style="padding-bottom: 10px;"><strong><a href="{{ action('UsersController@show', Auth::user()->slug)}}">Finish later ></a></strong></tr>
 								    	</table>
 
@@ -226,9 +227,9 @@ width:100%; z-index: 1002; background: #3498db;">
 								    			@endforeach		
 								    	</table><br>
 								    	<p>
-									  		{{ Form::open(array('action' => array('AssociationsController@edit', Auth::user()->slug), 'method' => 'GET')) }}
+									  		{{ Form::open(array('action' => array('UsersController@show', Auth::user()->slug), 'method' => 'GET')) }}
 									  		<button type="submit" class="btn btn-default">Done</button>
-									  		<a href="{{ action('UsersController@show', Auth::user()->slug)}} ">View in profile</a></span>
+									  		<a href="{{ action('SchoolsController@edit', Auth::user()->slug), 'method' => 'GET')) }} ">Go to Education</a></span>
 									  		
 									  	</p>
 											{{ Form::close() }}
