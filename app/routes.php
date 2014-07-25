@@ -40,19 +40,23 @@ Route::resource('connections', 'ConnectionsController');
 
 Route::resource('associations', 'AssociationsController');
 
+Route::post('/slug_update', 'UsersController@update_slug');
+
 Route::get('/test',function() {
 
-	$filename = "/vagrant/sites/final-project.dev/public/skills.txt";
+	$slugs = DB::table('users')->lists('slug');
 
-	$filesize = filesize($filename);
-    //open file to read
-    $read = fopen($filename, 'r');
-    //read file into string
-    $list_string = fread($read, $filesize);
-    //turn string into array
-    $skills_array = explode("\n", $list_string);		    
+	$new_slug = str_replace(' ', '-', 'coletheman');
+	
+	if(in_array($new_slug, $slugs))
+	{
+		echo "wrong";					
+	}
+	else 
+	{
+		echo "you're good";	
+	}		    
 
-	var_dump($skills_array);
 
 
 });

@@ -24,6 +24,7 @@ class User extends BaseModel implements UserInterface, RemindableInterface {
     	'country' => 'required|max:100',
     	'zip' => 'required',
     	'status' => 'required',
+    	'slug' => 'unique:users'
     ];
 
 	/**
