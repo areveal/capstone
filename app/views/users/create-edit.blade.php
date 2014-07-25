@@ -141,8 +141,8 @@ width:100%; z-index: 1002; background: #3498db;">
                     				</div>
 									@else
 									<div class="widget-head">
+										<br>
                         				<h4 class="heading list glyphicon glyphicon-user"><i> </i>Profile</h4>
-                        				<h5><i> </i>Create a profile</h5>
                     				</div>
                     				@endif
 								<div class="panel panel-default col-md-7">
@@ -159,7 +159,7 @@ width:100%; z-index: 1002; background: #3498db;">
 									  		<h4> Hi {{ Auth::user()->first_name }}. Update your profile.</h4>
 									  		@else
 
-									  		<h4> Welcome. Please create your profile.</h4> master
+									  		<h4> Welcome. Please create your profile.</h4> 
 
 									  		@endif
 									  		<div class="form-group">
