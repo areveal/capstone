@@ -14,6 +14,9 @@
 	.navbar{
 	    background: #3498db;
 	}
+	.hidden {
+		display: none;
+	}
 	</style>
 @stop 
   
@@ -164,15 +167,31 @@ width:100%; z-index: 1002; background: #3498db;">
 									    		{{ $errors->first('email', '<span style="color:red" class="help-block">:message</span>') }}
 									    		{{ Form::email('email', Input::old('email') , ['class' => 'form-control', 'placeholder' => 'Enter Email'])  }}
 									  		</div>
-									  		<div class="form-group">
-									    		<label for="password">Password</label>
-									    		{{ $errors->first('password', '<span style="color:red" class="help-block">:message</span>') }}
-									    		<input name="password" type="password" class="form-control" id="password" placeholder="Password" >
-									  		</div>
-								    		<div class="form-group">
-									    		<label for="confirm_password">Confirm Password</label>
-									    		<input type="password" name="confirmPassword" class="form-control" id="exampleInputPassword2" placeholder="Retype Password">
-									  		</div>
+									  		@if(Auth::guest())
+										  		<div class="form-group">
+										    		<label for="password">Password</label>
+										    		{{ $errors->first('password', '<span style="color:red" class="help-block">:message</span>') }}
+										    		<input name="password" type="password" class="form-control" id="password" placeholder="Password" >
+										  		</div>
+									    		<div class="form-group">
+										    		<label for="confirm_password">Confirm Password</label>
+										    		<input type="password" name="confirmPassword" class="form-control" id="exampleInputPassword2" placeholder="Retype Password">
+										  		</div>
+									  		@else
+										  		<div class="form-group pass_btn">
+										  			<a class="btn btn-default change_pass">Change Password</a>
+										  		</div>
+										  		<div class="form-group pass">
+										    		<label for="password">New Password</label>
+										    		{{ $errors->first('password', '<span style="color:red" class="help-block">:message</span>') }}
+										    		<input name="password" type="password" class="form-control" id="password" value=<?= $user->password ?> >
+										  		</div>
+									    		<div class="form-group pass">
+										    		<label for="confirm_password">Confirm Password</label>
+										    		<input type="password" name="confirmPassword" class="form-control" id="exampleInputPassword2" value=<?= $user->password ?>>
+										  		</div>
+										  	@endif
+
 									  		<div class="form-group">
 									    			{{ Form::label('country','Country') }}
 									    			{{ $errors->first('country', '<span style="color:red" class="help-block">:message</span>') }}
@@ -184,21 +203,24 @@ width:100%; z-index: 1002; background: #3498db;">
 									    		{{ $errors->first('zip', '<span style="color:red" class="col-lg-6 col-md-6 col-sm-6 col-xs-12">:message</span>') }}
 									    		{{ Form::text('zip', Input::old('zip') , ['class' => 'form-control', 'placeholder' => 'Zipcode'])  }}
 									        </div>
-									  		<div class="form-group">
-									    		{{ $errors->first('slug', '<span style="color:red" class="col-lg-6 col-md-6 col-sm-6 col-xs-12">:message</span>') }}
-									    		{{ Form::label('slug','URL: diversitythread.com/users/') }}
-									    		{{ Form::text('slug', Input::old('slug') , ['class' => 'form-control', 'placeholder' => 'Type Extension Here'])  }}
-									        </div>									        
+									        @if(Auth::guest())
+										  		<div class="form-group">
+										    		{{ $errors->first('slug', '<span style="color:red" class="col-lg-6 col-md-6 col-sm-6 col-xs-12">:message</span>') }}
+										    		{{ Form::label('slug','URL: diversitythread.com/users/') }}
+										    		{{ Form::text('slug', Input::old('slug') , ['class' => 'form-control', 'placeholder' => 'Type Extension Here'])  }}
+										        </div>	
+									        @endif								        
 									  		<div class="form-group">
 									    		<label for="status">I am currently:</label>
 									    		{{ $errors->first('status', '<span style="color:red" class="help-block">:message</span>') }}
 									    		<div class="row">
 												  <div class="col-lg-6">
 												    <div class="input-group">
-												        <input type="radio" name="status" value="Employed">Employed<br>
-												        <input type="radio" name="status" value="Job Seeker">Job Seeker<br>
-												        <input type="radio" name="status" value="Student">Student<br>
+												        <input type="radio" name="status" value="Employed" <?= ((isset($user->status)) && ($user->status == "Employed")) ? 'checked' : '' ?>>Employed<br>
+												        <input type="radio" name="status" value="Job Seeker" <?= ((isset($user->status)) && ($user->status == "Job Seeker")) ? 'checked' : '' ?>>Job Seeker<br>
+												        <input type="radio" name="status" value="Student" <?= ((isset($user->status)) && ($user->status == "Student")) ? 'checked' : '' ?>>Student<br>
 												    </div>
+												@if(Auth::guest())
 											    	<div class="form-group">
 														<div class="tab-pane" id="tab5">
 															<div>
@@ -207,6 +229,19 @@ width:100%; z-index: 1002; background: #3498db;">
 															</div><br>
 														</div>
 													</div>
+												@else
+											  		<div class="form-group pic_btn">
+											  			<a class="btn btn-default change_pic">Change Pofile Image</a>
+											  		</div>												
+											    	<div class="form-group pic">
+														<div class="tab-pane" id="tab5">
+															<div>
+																{{ Form::label('image', 'Upload an Image of Yourself') }}
+																{{ Form::file('image') }}
+															</div><br>
+														</div>
+													</div>												
+												@endif
 											    </div><!-- /input-group -->
 											  </div><!-- /.col-lg-6 -->
 											</div><!-- /.row -->
@@ -264,7 +299,6 @@ width:100%; z-index: 1002; background: #3498db;">
 
 </div>
 <!-- // END row-app -->
-
 	
 
 	<!-- Global -->
@@ -301,4 +335,24 @@ width:100%; z-index: 1002; background: #3498db;">
 
 
 @section('bottomscript')
+
+<script>
+	$('.pass').hide();
+
+
+	$('.change_pass').on("click",function(){
+		console.log('This works.');
+		$('.pass_btn').fadeOut(1000);
+		$('.pass').fadeIn(1000);
+	});
+
+	$('.pic').hide();
+
+
+	$('.change_pic').on("click",function(){
+		console.log('This works.');
+		$('.pic_btn').fadeOut(1000);
+		$('.pic').fadeIn(1000);
+	});
+</script>
 @stop
