@@ -12,16 +12,16 @@ class CreateZipcodesTable extends Migration {
 	 */
 	public function up()
 	{
-		// Schema::create('zipcodes', function($table)
-		// {
-		//     $table->string('zip', 5);
-		//     $table->float('lat');
-		//     $table->float('lon');
-		//     $table->string('city', 30);
-		//     $table->string('state', 30);
-		//     $table->string('state_abbrev',2);  
-		//     $table->timestamps();		    
-		// });
+		Schema::create('zipcodes', function($table)
+		{
+		    $table->string('zip', 5);
+		    $table->float('lat');
+		    $table->float('lon');
+		    $table->string('city', 30);
+		    $table->string('state', 30);
+		    $table->string('state_abbrev',2);  
+		    $table->timestamps();		    
+		});
 	}
 
 	/**
@@ -31,7 +31,7 @@ class CreateZipcodesTable extends Migration {
 	 */
 	public function down()
 	{
-		// Schema::drop('zipcodes');
+		Schema::drop('zipcodes');
 	}
 
 }
