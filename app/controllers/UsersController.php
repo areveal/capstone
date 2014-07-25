@@ -198,8 +198,8 @@ class UsersController extends \BaseController {
 				$user = User::findBySlug($slug);
 				if(Auth::user()->slug != $slug) 
 				{
-						Session::flash('errorMessage','You do not have the necessary credentials to edit this user.');
-						return Redirect::url('/');
+					Session::flash('errorMessage','You do not have the necessary credentials to edit this user.');
+					return Redirect::url('/');
 				}
 			}
 
@@ -230,18 +230,16 @@ class UsersController extends \BaseController {
 				$user->password = Hash::make(Input::get('password'));
 				$user->save();
 
-				if(Input::has('slug'))
-				{
-					if(isset($user->slug) && (Input::get('slug') != $user->slug))
+				if(!isset($slug))
+					if(Input::has('slug'))
 					{
 						$new_slug = str_replace(' ', '-', Input::get('slug'));
 						$user->slug = $new_slug;	
 					}
-				}
-				elseif(!isset($user->slug))
-				{
-					$user->slug = $user->id . '-' . $user->first_name . '-' . $user->last_name ;
-				}
+					else
+					{
+						$user->slug = $user->id . '-' . $user->first_name . '-' . $user->last_name ;
+					}
 				
 				$user->save();
 			}
@@ -265,12 +263,8 @@ class UsersController extends \BaseController {
 				}
 			}
 			
-			if(isset($new_slug))
-			{
-				Session::flash('successMessage', 'You have successfully edited your account.');
-    			return Redirect::action('UsersController@show', $user->slug);				
-			}
-			elseif(isset($slug)) 
+
+			if(isset($slug)) 
 			{
 				Session::flash('successMessage', 'You have successfully edited your account.');
     			return Redirect::action('UsersController@show', $user->slug);
