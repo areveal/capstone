@@ -105,7 +105,10 @@ width:100%; z-index: 1002; background: #3498db;">
                     <a href="{{ action('UsersController@edit', Auth::user()->slug)}}">Profile</a>
                 </td>
                 <td style="padding-right: 30px">
-                    <a href="/users">Connections</a>
+                    <a href="{{ action('ConnectionsController@edit', Auth::user()->slug)}}">Connections</a>
+                </td>
+                <td style="padding-right: 30px">
+                    <a href="/users">Members</a>
                 </td>
             </tr>
         </table>
