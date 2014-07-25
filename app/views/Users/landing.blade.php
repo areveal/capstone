@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html class="no-js">
     <head>
+
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title>Diversity Thread</title>
@@ -18,6 +19,7 @@
         <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
     </head>
 
+    
     <body>
 
                     
@@ -105,6 +107,183 @@
     </div>
 
       </section>
+      <section id="services" class="padding-80">
+
+
+            <div class="services-section-1">
+                <div class="container">
+                    <div class="section-heading text-center">
+                        <h4 class="small section-title"><span>What we do?</span></h4>
+                        <h2 class="large section-title">Our Service</h2>
+                    </div><!--section heading-->             
+
+                </div><!--container-->
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="margin-btm-40">
+                                <h4>Diversity Thread</h4>
+                                <p>
+                                    Diversity thread seeks to connect the unique talents of sometimes hard to find minority candidates across all minority groups to help corporations and industries find diverse talent.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 wow animated fadeInLeft" data-wow-delay="0.3s">
+
+                            <div class="row margin-btm-20">
+                                <div class="col-md-2">
+                                    <div class="services-icon">
+                                        <i class="ion-images"></i>
+                                    </div> 
+                                </div>
+                                <div class="col-md-10">
+                                    <div class="services-info">
+                                        <h3>Website design</h3>
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eget viverra augue. Nunc dignissim rutrum tempor. 
+                                        </p>
+                                    </div>
+                                </div>
+                            </div><!--.services row end-->
+                            <div class="row margin-btm-20">
+                                <div class="col-md-2">
+                                    <div class="services-icon">
+                                        <i class="ion-speakerphone"></i>
+                                    </div> 
+                                </div>
+                                <div class="col-md-10">
+                                    <div class="services-info">
+                                        <h3>Marketing </h3>
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eget viverra augue. Nunc dignissim rutrum tempor. 
+                                        </p>
+                                    </div>
+                                </div>
+                            </div><!--.services row end-->
+                            <div class="row margin-btm-20">
+                                <div class="col-md-2">
+                                    <div class="services-icon">
+                                        <i class="ion-leaf"></i>
+                                    </div> 
+                                </div>
+                                <div class="col-md-10">
+                                    <div class="services-info">
+                                        <h3>Logo design </h3>
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eget viverra augue. Nunc dignissim rutrum tempor. 
+                                        </p>
+                                    </div>
+                                </div>
+                            </div><!--.services row end-->
+                            <div class="row margin-btm-20">
+                                <div class="col-md-2">
+                                    <div class="services-icon">
+                                        <i class="ion-speedometer"></i>
+                                    </div> 
+                                </div>
+                                <div class="col-md-10">
+                                    <div class="services-info">
+                                        <h3>Search engine optimization(seo) </h3>
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eget viverra augue. Nunc dignissim rutrum tempor. 
+                                        </p>
+                                    </div>
+                                </div>
+                            </div><!--.services row end-->
+                        </div>
+                        <div class="col-md-6 wow animated fadeInRight" data-wow-delay="0.6s">
+
+                            <div class="row margin-btm-20">
+                                <div class="col-md-2">
+                                    <div class="services-icon">
+                                        <i class="ion-images"></i>
+                                    </div> 
+                                </div>
+                                <div class="col-md-10">
+                                    <div class="services-info">
+                                        <h3>Website design</h3>
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eget viverra augue. Nunc dignissim rutrum tempor. 
+                                        </p>
+                                    </div>
+                                </div>
+                            </div><!--.services row end-->
+                            <div class="row margin-btm-20">
+                                <div class="col-md-2">
+                                    <div class="services-icon">
+                                        <i class="ion-speakerphone"></i>
+                                    </div> 
+                                </div>
+                                <div class="col-md-10">
+                                    <div class="services-info">
+                                        <h3>Marketing </h3>
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eget viverra augue. Nunc dignissim rutrum tempor. 
+                                        </p>
+                                    </div>
+                                </div>
+                            </div><!--.services row end-->
+                            <div class="row margin-btm-20">
+                                <div class="col-md-2">
+                                    <div class="services-icon">
+                                        <i class="ion-leaf"></i>
+                                    </div> 
+                                </div>
+                                <div class="col-md-10">
+                                    <div class="services-info">
+                                        <h3>Logo design </h3>
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eget viverra augue. Nunc dignissim rutrum tempor. 
+                                        </p>
+                                    </div>
+                                </div>
+                            </div><!--.services row end-->
+                            <div class="row margin-btm-20">
+                                <div class="col-md-2">
+                                    <div class="services-icon">
+                                        <i class="ion-speedometer"></i>
+                                    </div> 
+                                </div>
+                                <div class="col-md-10">
+                                    <div class="services-info">
+                                        <h3>Search engine optimization(seo) </h3>
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eget viverra augue. Nunc dignissim rutrum tempor. 
+                                        </p>
+                                    </div>
+                                </div>
+                            </div><!--.services row end-->
+                        </div>
+                    </div>
+                </div>
+            </div><!--services section 1 end-->
+            <div class="services-section-2 wow animated fadeInUp" data-wow-delay=".4s">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <h1>Subscribe to Newsletter</h1>
+                            <form class="newsletter-form">
+                                <div class="row">
+                                    <div class="col-sm-4 col-sm-offset-4">
+                                        <div class="input-group">
+                                            <label class="sr-only" for="subscribe-email">Email address</label>
+                                            <input type="email" class="form-control" id="subscribe-email" placeholder="Enter your email">
+                                            <span class="input-group-btn">
+                                                <button type="submit" class="btn btn-theme-color btn-lg">OK</button>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div><!--services section 1 end-->
+        </section>
+        <!--section services end here-->
+
 
       <!-- section class="contact full-color">
         <div class="row">

@@ -18,7 +18,7 @@
 @stop 
   
 @section('content')
-@if(Auth::check())
+
 <divclass="col-md-18 col-lg-6" style="margin-top: 10px; margin-left: 2px;">
 <div style="position:fixed;
 top:0;
@@ -54,19 +54,25 @@ width:100%; z-index: 1002; background: #3498db;">
             </div>
     </div>                
         </td> 
+        
             <div class="user-action pull-right menu-right-hidden-xs menu-left-hidden-xs border-right">
                 <div class="dropdown username pull-left" style="padding-top: 14px">
                     <span class="dropdown-toggle" data-toggle="dropdown" style="padding-right: 180px">
                     <span class="media margin-none">
+                    @if(Auth::check())	
                     <span class="pull-left"><img src="{{ Auth::user()->img_path }}" alt="user" class="img-circle"></span>
+                    
                     <span class="media-body">{{ Auth::user()->first_name }}</span><span class="caret"></span>
+                    @endif
                     </span>
                     </span>
                 <ul class="dropdown-menu" style="padding-right: 10px">
                     <li><a href="">Messages</a></li>
+                   @if(Auth::check()) 
                     <li><a href="{{ action('UsersController@show', Auth::user()->slug)}} ">Profile</a></li>
                     <li><a href="{{ action('UsersController@edit', Auth::user()->slug)}} ">Edit Profile</a></li>
                     <li><a href="{{ action('HomeController@logout') }}">Logout</a></li>
+                    @endif
                 </ul>
                 </div>
             </div>
@@ -76,6 +82,7 @@ width:100%; z-index: 1002; background: #3498db;">
 <div style="margin-top: 48px">  
 <div class="navbar hidden-print box main" role="navigation" style="height:34px;background: #3f3f3f; background-image: linear-gradient(top, #696969 0%,#3f3f3f 100%);">
     <div  style="margin-top: 6px; margin-left: 180px">
+        @if(Auth::check()) 
         <table>
             <tr>
                 <td style="padding-right: 30px">
@@ -89,9 +96,10 @@ width:100%; z-index: 1002; background: #3498db;">
                 </td>
             </tr>
         </table>
+        @endif
     </div>
 </div> 
-@endif
+
 	
 	<!-- Main Container Fluid -->
 	<div class="container-fluid menu-hidden ">
@@ -131,7 +139,7 @@ width:100%; z-index: 1002; background: #3498db;">
 									@else
 									<div class="widget-head">
                         				<h4 class="heading list glyphicon glyphicon-user"><i> </i>Profile</h4>
-                        				<h5><i> </i>Create</h5>
+                        				<h5><i> </i>Create a profile</h5>
                     				</div>
                     				@endif
 								<div class="panel panel-default col-md-7">
@@ -145,9 +153,9 @@ width:100%; z-index: 1002; background: #3498db;">
 								  		@endif
 								  		<!--<form role="form" action="index.html?lang=en"> -->
 								  			@if(Auth::check())
-									  		<h4> Welcome {{ Auth::user()->first_name }}. Update your profile.</h4>
+									  		<h4> Hi {{ Auth::user()->first_name }}. Update your profile.</h4>
 									  		@else
-									  		<h4> Welcome {{ Auth::user()->first_name }}. Please create your profile.</h4>
+									  		<h4> Welcome. Please create your profile.</h4>
 									  		@endif
 									  		<div class="form-group">
 									    		{{ Form::label('first_name','First Name') }}
@@ -213,7 +221,7 @@ width:100%; z-index: 1002; background: #3498db;">
 											@if(Auth::check())
 												<button type="submit" class="btn btn-primary">Save Changes</button>
 											@else
-												<button type="submit" class="btn btn-primary btn-block">Create Account</button>
+												<button type="submit" class="btn btn-primary">Create Account</button>
 											@endif
 
 										{{ Form::close() }}
@@ -230,11 +238,14 @@ width:100%; z-index: 1002; background: #3498db;">
 								  				<tr style=" height: 14px; padding-bottom: 10px;"><strong>Lets build your profile!</strong></tr>
 
 								  				<tr><button style=" padding-left: 10px; text-align: left; height: 50px;" class=" btn btn-default btn-sm btn-block"><h4><a href="">1.Personal</a></h4></button></tr>
-								  				<tr><button style=" padding-left: 10px; text-align: left; height: 50px;" class=" btn btn-default btn-sm btn-block"><strong><h4>2. Experience</h4></button></strong></tr>
+								  				<tr><button style=" padding-left: 10px; text-align: left; height: 50px;" class=" btn btn-default btn-sm btn-block"><strong><h4>2. Skills</h4></button></strong></tr>
 								    			<tr><button style="padding-left: 10px; text-align: left; height: 50px;" class=" btn btn-default btn-sm btn-block"><strong><h4>3. Education</h4></button></strong></tr>
-								    			<tr><button style="padding-left: 10px; text-align: left; height: 50px;" class=" btn btn-default btn-sm btn-block"><strong><h4>4. Skills</h4></button></strong></tr>
-								    			<tr><button style="padding-left: 10px; text-align: left; height: 50px;" class=" btn btn-default btn-sm btn-block"><strong><h4>5. See your Profile</h4></button></strong></tr>	
+								    			<tr><button style="padding-left: 10px; text-align: left; height: 50px;" class=" btn btn-default btn-sm btn-block"><strong><h4>4. Experience</h4></button></strong></tr>
+								    			<tr><button style="padding-left: 10px; text-align: left; height: 50px;" class=" btn btn-default btn-sm btn-block"><strong><h4>5. Associations</h4></button></strong></tr>
+								    			<tr><button style="padding-left: 10px; text-align: left; height: 50px;" class=" btn btn-default btn-sm btn-block"><strong><h4>See your Profile</h4></button></strong></tr>	
+								    			@if(Auth::check()))
 								    			<tr style="padding-bottom: 10px;"><strong><a href="{{ action('UsersController@show', Auth::user()->id)}}">Finish later ></a></strong></tr>
+								    			@endif
 								    	</table>
 
 
