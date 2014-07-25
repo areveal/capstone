@@ -230,12 +230,15 @@ class UsersController extends \BaseController {
 				$user->password = Hash::make(Input::get('password'));
 				$user->save();
 
-				if(!empty(Input::get('slug')))
+				if(Input::has('slug'))
 				{
-					$new_slug = Input::get('slug');
-					$user->slug = $new_slug;	
+					if(isset($user->slug) && (Input::get('slug') != $user->slug))
+					{
+						$new_slug = str_replace(' ', '-', Input::get('slug'));
+						$user->slug = $new_slug;	
+					}
 				}
-				else
+				elseif(!isset($user->slug))
 				{
 					$user->slug = $user->id . '-' . $user->first_name . '-' . $user->last_name ;
 				}
@@ -255,11 +258,19 @@ class UsersController extends \BaseController {
 			}
 			else 
 			{
-			    $user->img_path = '/img-upload/user.jpg';
-			    $user->save();
+				if(!isset($user->img_path))
+				{
+				    $user->img_path = '/img-upload/user.jpg';
+				    $user->save();
+				}
 			}
 			
-			if(isset($slug)) 
+			if(isset($new_slug))
+			{
+				Session::flash('successMessage', 'You have successfully edited your account.');
+    			return Redirect::action('UsersController@show', $user->slug);				
+			}
+			elseif(isset($slug)) 
 			{
 				Session::flash('successMessage', 'You have successfully edited your account.');
     			return Redirect::action('UsersController@show', $user->slug);
