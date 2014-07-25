@@ -11,6 +11,7 @@ class DatabaseSeeder extends Seeder {
 	{
 		Eloquent::unguard();
 
+		$this->call('ZipcodesTableSeeder');
 		$this->call('UserTableSeeder');
 		$this->call('SchoolsTableSeeder');
 		$this->call('JobsTableSeeder');
@@ -18,7 +19,6 @@ class DatabaseSeeder extends Seeder {
 		$this->call('AssociationsTableSeeder');
 		$this->call('SkillUserTableSeeder');
 		$this->call('ConnectionsTableSeeder');
-		// $this->call('ZipcodesTableSeeder');
 	}
 
 }
@@ -116,7 +116,7 @@ class SkillsTableSeeder extends Seeder {
 	{
 		DB::table('skills')->delete();
 		 
-		$filename = "/vagrant/sites/final-project.dev/public/skills.txt";
+		$filename = publi_path() . "/skills.txt";
 
 		$filesize = filesize($filename);
 	    //open file to read
@@ -169,7 +169,7 @@ class ZipcodesTableSeeder extends Seeder {
 	{
 		DB::table('zipcodes')->delete();
 
-		$filename = "/vagrant/sites/final-project.dev/public/US.txt";
+		$filename = publi_path() . "/US.txt";
 
 		$filesize = filesize($filename);
 	    //open file to read

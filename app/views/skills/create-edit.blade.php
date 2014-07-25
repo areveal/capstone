@@ -81,7 +81,7 @@ width:100%; z-index: 1002; background: #3498db;">
         <table>
             <tr>
                 <td style="padding-right: 30px">
-                    <a  href="">Home</a></a>
+                    <a  href="{{ action('UsersController@show', Auth::user()->slug)}}">Home</a></a>
                 </td>
                 <td style="padding-right: 30px">
                     <a href="">Profile</a>
@@ -229,7 +229,7 @@ width:100%; z-index: 1002; background: #3498db;">
 								    	<p>
 									  		{{ Form::open(array('action' => array('UsersController@show', Auth::user()->slug), 'method' => 'GET')) }}
 									  		<button type="submit" class="btn btn-default">Done</button>
-									  		<a href="{{ action('SchoolsController@edit', Auth::user()->slug), 'method' => 'GET')) }} ">Go to Education</a></span>
+									  		<a href="{{ action('SchoolsController@edit', Auth::user()->slug) }} ">Go to Education</a></span>
 									  		
 									  	</p>
 											{{ Form::close() }}
