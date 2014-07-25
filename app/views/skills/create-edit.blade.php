@@ -80,15 +80,17 @@ width:100%; z-index: 1002; background: #3498db;">
     <div  style="margin-top: 6px; margin-left: 180px">
         <table>
             <tr>
-                <td style="padding-right: 30px">
+                <td style="padding-right: 40px">
                     <a  href="{{ action('UsersController@show', Auth::user()->slug)}}">Home</a></a>
                 </td>
-                <td style="padding-right: 30px">
-                    <a href="">Profile</a>
+                <td style="padding-right: 40px">
+                    <a  href="{{ action('UsersController@edit', Auth::user()->slug)}}">Profile</a></a>
                 </td>
-                <td style="padding-right: 30px">
-                    <a href="/users">Connections</a>
+                <td style="padding-right: 40px">
+                    <a href="{{ action('ConnectionsController@edit', Auth::user()->slug)}}">Connections</a>
                 </td>
+                <td style="padding-right: 40px">
+                    <a href="/users">Members</a>
             </tr>
         </table>
     </div>
