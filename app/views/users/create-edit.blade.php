@@ -17,6 +17,14 @@
 	.hidden {
 		display: none;
 	}
+
+	.navbar a {
+    color: #E8E8E8;
+	}
+
+	.navbar a:hover {
+	    color: #171717;
+	}
 	</style>
 @stop 
   
@@ -28,8 +36,8 @@ top:0;
 width:100%; z-index: 1002; background: #3498db;">
 <table >
     <tr>
-        <td style="padding-left: 168px">   
-            <div class"btn-group"><button class="btn btn-primary btn-sm"><h3>DiversityThread</h3></button></div>
+        <td style="padding-left: 180px; height: 70px;">   
+            <h3>DiversityThread</h3></button>
         </td>
         <td style="padding-left: 12px; padding-top: 10px">
             <h6>Search</h6>
@@ -88,14 +96,17 @@ width:100%; z-index: 1002; background: #3498db;">
         @if(Auth::check()) 
         <table>
             <tr>
-                <td style="padding-right: 30px">
+                <td style="padding-right: 40px">
                     <a  href="{{ action('UsersController@show', Auth::user()->slug)}}">Home</a></a>
                 </td>
-                <td style="padding-right: 30px">
-                    <a href="">Profile</a>
+                <td style="padding-right: 40px">
+                    <a  href="{{ action('UsersController@edit', Auth::user()->slug)}}">Profile</a></a>
                 </td>
-                <td style="padding-right: 30px">
-                    <a href="/users">Connections</a>
+                <td style="padding-right: 40px">
+                    <a href="{{ action('ConnectionsController@edit', Auth::user()->slug)}}">Connections</a>
+                </td>
+                <td style="padding-right: 40px">
+                    <a href="/users">Members</a>
                 </td>
             </tr>
         </table>

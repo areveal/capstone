@@ -59,7 +59,7 @@ top:0;
 width:100%; z-index: 1002; background: #3498db;">
 <table >
     <tr>
-        <td style="padding-left: 168px; height: 70px;">   
+        <td style="padding-left: 180px; height: 70px;">   
             <h3>DiversityThread</h3></button>
         </td>
         <td style="padding-left: 12px; padding-top: 10px">
