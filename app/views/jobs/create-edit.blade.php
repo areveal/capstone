@@ -80,7 +80,7 @@ width:100%; z-index: 1002; background: #3498db;">
         <table>
             <tr>
                 <td style="padding-right: 30px">
-                    <a  href="">Home</a></a>
+                    <a  href="{{ action('UsersController@show', Auth::user()->slug)}}">Home</a></a>
                 </td>
                 <td style="padding-right: 30px">
                     <a href="">Profile</a>
