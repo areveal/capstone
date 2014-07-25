@@ -181,8 +181,9 @@ class ZipcodesTableSeeder extends Seeder {
 
 	    foreach ($zipcode_array as $key => $zipcodes) {
 	    	$pieces[] = explode("\t",$zipcodes);
-	    }    
-
+	    }  
+		
+	    
 	    foreach($pieces as $piece)
 	    {
 			$zipcode = new Zipcode();
