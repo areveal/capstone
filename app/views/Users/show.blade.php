@@ -260,10 +260,10 @@ width:100%; z-index: 1002; background: #3498db;">
             <!-- //End Col -->
             </div><!-- /.col-md-9 -->    
         </div>  
-        <div style=" margin-top: 100px; float: left;" class="col-md-3"> 
+        <div style=" margin-top: 83px; float: left;" class="col-md-3"> 
                 <div class="widget sidemenu">
                     <div class="widget-body text-center">
-                    <h5 class="strong margin-none">Network Members</h5>
+                    <h5 class="strong margin-none">Connections</h5>
                         <div class="innerB"></div>
                             <div class="btn-group-vertical btn-block">
                                     <a href="{{ action('ConnectionsController@edit', $user->slug) }}" class="btn btn-primary btn-xs pull-right">View All</a>   

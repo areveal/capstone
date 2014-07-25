@@ -156,6 +156,7 @@ width:100%; z-index: 1002; background: #3498db;">
 									  		<div class="form-group">	
 									  		<button type="submit" class="btn btn-primary">Add</button>
 											</div>
+										{{ Form::close() }}	
 							  		</div>
 								</div>
 							</div>
@@ -166,10 +167,11 @@ width:100%; z-index: 1002; background: #3498db;">
 							  				<tr style=" height: 14px; padding-bottom: 10px;"><strong>Lets build your profile!</strong></tr>
 
 							  				<tr><button style=" padding-left: 10px; text-align: left; height: 50px;" class=" btn btn-default btn-sm btn-block"><h4>1.Personal</h4></button></tr>
-							  				<tr><button style=" padding-left: 10px; text-align: left; height: 50px;" class=" btn btn-default btn-sm btn-block"><strong><h4><a href="">2. Experience</a></h4></button></strong></tr>
+							  				<tr><button style=" padding-left: 10px; text-align: left; height: 50px;" class=" btn btn-default btn-sm btn-block"><strong><h4>2. Skills</h4></button></strong></tr>
 							    			<tr><button style="padding-left: 10px; text-align: left; height: 50px;" class=" btn btn-default btn-sm btn-block"><strong><h4>3. Education</h4></button></strong></tr>
-							    			<tr><button style="padding-left: 10px; text-align: left; height: 50px;" class=" btn btn-default btn-sm btn-block"><strong><h4>4. Skills</h4></button></strong></tr>
-							    			<tr><button style="padding-left: 10px; text-align: left; height: 50px;" class=" btn btn-default btn-sm btn-block"><strong><h4>5. See your Profile</h4></button></strong></tr>	
+							    			<tr><button style="padding-left: 10px; text-align: left; height: 50px;" class=" btn btn-default btn-sm btn-block"><strong><h4><a href="">4. Experience</a></h4></button></strong></tr>
+							    			<tr><button style="padding-left: 10px; text-align: left; height: 50px;" class=" btn btn-default btn-sm btn-block"><strong><h4>5. Associations</h4></button></strong></tr>
+								    			<tr><button style="padding-left: 10px; text-align: left; height: 50px;" class=" btn btn-default btn-sm btn-block"><strong><h4>See your Profile</h4></button></strong></tr>	
 							    			<tr style="padding-bottom: 10px;"><strong><a href="{{ action('UsersController@show', Auth::user()->slug)}}">Finish later ></a></strong></tr>
 					    				</table>
 				  					</div>
@@ -198,38 +200,35 @@ width:100%; z-index: 1002; background: #3498db;">
 
 		<div class="panel panel-default col-md-7">
 
-
 								  	<div  class="panel-body">
 								  		<!--<form role="form" action="index.html?lang=en"> -->
 								  		<table class="table table-hover">
-								    			<h4>Your Jobs</h4></center>	
-								    				@foreach($jobs as $job)
+							    			<h4>Your Jobs</h4></center>	
+							    				@foreach($jobs as $job)
 							    					<tr>
 							    						<td style="vertical-align: middle">
-							    						{{ Form::model($jobs, array('action' => array('JobsController@destroy', $job->id), 'method' => 'DELETE')) }}
-							    							<strong>{{{$job->job_title}}}</strong><br>
-							    						</td>
+							    							<strong>{{{$job->job_title}}}</strong>
+							    						</td><br>
 							    						<td>	
 							    							{{{$job->company }}}
 							    						</td>
 
 							    						<td style="vertical-align: middle">
+							    						{{ Form::model($jobs, array('action' => array('JobsController@destroy', $job->id), 'method' => 'DELETE')) }}
 							    							<button type="submit" class="btn btn-info glyphicon glyphicon-ban-circle">Remove</button>
 							    						{{ Form::close() }}
 							    						</td>
 							    					</tr>
 								    			@endforeach
-
-
-								    				
-								    	</table><br>
-								    	<p>
-									  		{{ Form::open(array('action' => array('AssociationsController@edit', Auth::user()->slug), 'method' => 'GET')) }}
-									  		<button type="submit" class="btn btn-default">Done</button>
-									  		<a href="{{ action('UsersController@show', Auth::user()->slug)}} ">View in profile</a></span>
-									  		
+										</table><br>
+											<p>	
+										  		{{ Form::open(array('action' => array('UsersController@show', Auth::user()->slug), 'method' => 'GET')) }}
+										  		<button type="submit" class="btn btn-default">Done</button>
+										  		
+										  		<a href="{{ action('AssociationsController@edit', Auth::user()->slug)}} ">Go to Associations</a></span>
 									  		</p>
-											{{ Form::close() }}
+									  			{{ Form::close() }}
+											
 
 							  	</div>	
 		</div>
