@@ -11,6 +11,26 @@
 	.navbar{
 	    background: #3498db;
 	}
+
+	/* unvisited link */
+a:link {
+    color: white;
+}
+
+/* visited link */
+a:visited {
+    color: white;
+}
+
+/* mouse over link */
+a:hover {
+    color: black;
+}
+
+/* selected link */
+a:active {
+    color: white;
+}
 	</style>
 @stop 
 
@@ -63,8 +83,7 @@ width:100%; z-index: 1002; background: #3498db;">
                     <span class="media-body">{{ Auth::user()->first_name }}</span><span class="caret"></span>
                     </span>
                     </span>
-                <ul class="dropdown-menu" style="padding-right: 10px">
-                    <li><a href="">Messages</a></li>
+                <ul class="dropdown-menu" style="padding-right: 10px"> 
                     <li><a href="{{ action('UsersController@show', Auth::user()->slug)}} ">Profile</a></li>
                     <li><a href="{{ action('UsersController@edit', Auth::user()->slug)}} ">Edit Profile</a></li>
                     <li><a href="{{ action('HomeController@logout') }}">Logout</a></li>
@@ -80,10 +99,10 @@ width:100%; z-index: 1002; background: #3498db;">
         <table>
             <tr>
                 <td style="padding-right: 30px">
-                    <a  href="">Home</a></a>
+                    <a  href="{{ action('UsersController@show', Auth::user()->slug)}}">Home</a></a>
                 </td>
                 <td style="padding-right: 30px">
-                    <a href="">Profile</a>
+                    <a href="{{ action('UsersController@edit', Auth::user()->slug)}}">Profile</a>
                 </td>
                 <td style="padding-right: 30px">
                     <a href="/users">Connections</a>
@@ -185,8 +204,8 @@ width:100%; z-index: 1002; background: #3498db;">
 							  				<tr><button style=" padding-left: 10px; text-align: left; height: 50px;" class=" btn btn-default btn-sm btn-block"><h4>1.Personal</h4></button></tr>
 							  				<tr><button style=" padding-left: 10px; text-align: left; height: 50px;" class=" btn btn-default btn-sm btn-block"><strong><h4>2. Skills</h4></button></strong></tr>
 							    			<tr><button style="padding-left: 10px; text-align: left; height: 50px;" class=" btn btn-default btn-sm btn-block"><strong><h4>3. Education</h4></button></strong></tr>
-							    			<tr><button style="padding-left: 10px; text-align: left; height: 50px;" class=" btn btn-default btn-sm btn-block"><strong><h4><a href="">4. Experience</a></h4></button></strong></tr>
-							    			<tr><button style="padding-left: 10px; text-align: left; height: 50px;" class=" btn btn-default btn-sm btn-block"><strong><h4>5. Associations</h4></button></strong></tr>
+							    			<tr><button style="padding-left: 10px; text-align: left; height: 50px;" class=" btn btn-default btn-sm btn-block"><strong><h4>4. Experience</h4></button></strong></tr>
+							    			<tr><button style="padding-left: 10px; text-align: left; height: 50px;" class=" btn btn-default btn-sm btn-block"><strong><h4><a href="">5. Associations</a></h4></button></strong></tr>
 								    			<tr><button style="padding-left: 10px; text-align: left; height: 50px;" class=" btn btn-default btn-sm btn-block"><strong><h4>See your Profile</h4></button></strong></tr>	
 							    			<tr style="padding-bottom: 10px;"><strong><a href="{{ action('UsersController@show', Auth::user()->slug)}}">Finish later ></a></strong></tr>
 					    				</table>
