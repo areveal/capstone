@@ -232,7 +232,7 @@ class UsersController extends \BaseController {
 
 				if(!empty(Input::get('slug')))
 				{
-					$new_slug = Input::get('slug');
+					$new_slug = str_replace(' ', '-', Input::get('slug'));
 					$user->slug = $new_slug;	
 				}
 				else
@@ -259,7 +259,12 @@ class UsersController extends \BaseController {
 			    $user->save();
 			}
 			
-			if(isset($slug)) 
+			if(isset($new_slug))
+			{
+				Session::flash('successMessage', 'You have successfully edited your account.');
+    			return Redirect::action('UsersController@show', $user->slug);				
+			}
+			elseif(isset($slug)) 
 			{
 				Session::flash('successMessage', 'You have successfully edited your account.');
     			return Redirect::action('UsersController@show', $user->slug);

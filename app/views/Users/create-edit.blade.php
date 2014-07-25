@@ -147,7 +147,7 @@ width:100%; z-index: 1002; background: #3498db;">
 								  			@if(Auth::check())
 									  		<h4> Welcome {{ Auth::user()->first_name }}. Update your profile.</h4>
 									  		@else
-									  		<h4> Welcome {{ Auth::user()->first_name }}. Please create your profile.</h4>
+									  		<h4> Please create your profile.</h4>
 									  		@endif
 									  		<div class="form-group">
 									    		{{ Form::label('first_name','First Name') }}
@@ -185,8 +185,8 @@ width:100%; z-index: 1002; background: #3498db;">
 									    		{{ Form::text('zip', Input::old('zip') , ['class' => 'form-control', 'placeholder' => 'Zipcode'])  }}
 									        </div>
 									  		<div class="form-group">
-									    		{{ Form::label('slug','URL: diversitythread.com/users/') }}
 									    		{{ $errors->first('slug', '<span style="color:red" class="col-lg-6 col-md-6 col-sm-6 col-xs-12">:message</span>') }}
+									    		{{ Form::label('slug','URL: diversitythread.com/users/') }}
 									    		{{ Form::text('slug', Input::old('slug') , ['class' => 'form-control', 'placeholder' => 'Type Extension Here'])  }}
 									        </div>									        
 									  		<div class="form-group">
@@ -234,7 +234,9 @@ width:100%; z-index: 1002; background: #3498db;">
 								    			<tr><button style="padding-left: 10px; text-align: left; height: 50px;" class=" btn btn-default btn-sm btn-block"><strong><h4>3. Education</h4></button></strong></tr>
 								    			<tr><button style="padding-left: 10px; text-align: left; height: 50px;" class=" btn btn-default btn-sm btn-block"><strong><h4>4. Skills</h4></button></strong></tr>
 								    			<tr><button style="padding-left: 10px; text-align: left; height: 50px;" class=" btn btn-default btn-sm btn-block"><strong><h4>5. See your Profile</h4></button></strong></tr>	
-								    			<tr style="padding-bottom: 10px;"><strong><a href="{{ action('UsersController@show', Auth::user()->id)}}">Finish later ></a></strong></tr>
+								    			@if(Auth::check())
+									    			<tr style="padding-bottom: 10px;"><strong><a href="{{ action('UsersController@show', Auth::user()->slug)}}">Finish later ></a></strong></tr>
+									    		@endif	
 								    	</table>
 
 
