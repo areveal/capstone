@@ -8,13 +8,13 @@ class AssociationsController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function edit($id)
+	public function edit($slug)
 	{
 		if(Auth::check())
 		{
-			if(Auth::user()->id == $id)	
+			if(Auth::user()->slug == $slug)	
 			{
-				$associations_owned = DB::table('association_user')->where('user_id', '=', $id)->lists('association_id');
+				$associations_owned = DB::table('association_user')->where('user_id', '=', Auth::user()->id)->lists('association_id');
 				if( count($associations_owned) > 0)
 				{
 					$associations = Association::whereNotIn('id',$associations_owned)->get();
@@ -35,7 +35,7 @@ class AssociationsController extends \BaseController {
 		else
 		{
 			Session::flash('errorMessage','You must be logged in to edit users.');
-			return Redirect::action('HomeController@showLogin');
+			return Redirect::action('UsersController@showLanding');
 		}
 	}
 
@@ -55,7 +55,7 @@ class AssociationsController extends \BaseController {
 				$add = Input::get('existing_associations');
 				$user = Auth::user();
 				$user->associations()->attach($add);
-				return Redirect::action('AssociationsController@edit', $user->id);
+				return Redirect::action('AssociationsController@edit', $user->slug);
 
 			}
 			elseif(Input::has('new_associations'))
@@ -66,7 +66,7 @@ class AssociationsController extends \BaseController {
 				$association->save();
 				$user = Auth::user();
 				$user->associations()->attach($association->id);
-				return Redirect::action('AssociationsController@edit', $user->id);
+				return Redirect::action('AssociationsController@edit', $user->slug);
 			}
 		}
 		else 
@@ -87,7 +87,7 @@ class AssociationsController extends \BaseController {
 	{
 		$user = Auth::user();
 		$user->associations()->detach($id);
-		return Redirect::action('AssociationsController@edit', $user->id);
+		return Redirect::action('AssociationsController@edit', $user->slug);
 	}
 
 

@@ -5,7 +5,7 @@ use Illuminate\Auth\UserInterface;
 use Illuminate\Auth\Reminders\RemindableTrait;
 use Illuminate\Auth\Reminders\RemindableInterface;
 
-class User extends Eloquent implements UserInterface, RemindableInterface {
+class User extends BaseModel implements UserInterface, RemindableInterface {
 
 	use UserTrait, RemindableTrait;
 
@@ -23,7 +23,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
     	'last_name' => 'required|max:100',
     	'country' => 'required|max:100',
     	'zip' => 'required',
-    	'status' => 'required'
+    	'status' => 'required',
     ];
 
 	/**
@@ -127,6 +127,18 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	    $image->destroy();    
 
         $this->img_path = '/' . $this->imgDir . '/' . $newImageName;
+    }
+
+    static public function findBySlug($slug) 
+    {
+        $user = self::where('slug', $slug)->first();
+        return ($user == null) ? App::abort(404) : $user;
+    }
+
+    public function setSlugAttribute($value) 
+    {
+        $value = str_replace(' ','-',trim($value));
+        $this->attributes['slug'] = strtolower($value);
     }
 
 }

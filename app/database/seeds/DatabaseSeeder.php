@@ -11,12 +11,14 @@ class DatabaseSeeder extends Seeder {
 	{
 		Eloquent::unguard();
 
+		$this->call('ZipcodesTableSeeder');
 		$this->call('UserTableSeeder');
 		$this->call('SchoolsTableSeeder');
 		$this->call('JobsTableSeeder');
 		$this->call('SkillsTableSeeder');
 		$this->call('AssociationsTableSeeder');
-		// $this->call('ZipcodesTableSeeder');
+		$this->call('SkillUserTableSeeder');
+		$this->call('ConnectionsTableSeeder');
 	}
 
 }
@@ -37,7 +39,7 @@ class UserTableSeeder extends Seeder {
 		    $user->last_name = $faker->lastName;
 		    $user->email = $faker->email;
 		    $user->password = Hash::make('password');
-		    $user->img_path = '/img-upload/user.jpg';
+		    $user->img_path = '/images/people/80/' . mt_rand(1,25) . '.jpg' ;
 			$zips = DB::table('zipcodes')->lists('zip');
 			$zip = array_rand($zips);
 		    $user->zip = $zips[$zip];
@@ -48,6 +50,9 @@ class UserTableSeeder extends Seeder {
 		    $user->country = 'US';
 		    $user->status = 'Job Seeker';
 		    $user->save();
+		    $user->slug = $user->id . '-' . $user->first_name . '-' . $user->last_name ;
+		    $user->save();
+
 		}
 
 	}
@@ -61,16 +66,18 @@ class SchoolsTableSeeder extends Seeder {
 		DB::table('schools')->delete();
 
 
-		for ($i=1; $i <=70 ; $i++) { 
-			$school = new School();
-			$school->college = 'That University';
-			$school->date_began = '2010-05-01';
-			$school->date_complete = '2014-05-01';
-			$school->major = 'BS in Comp Science';
-			$school->gpa = '3.0';
-			$school->user_id = mt_rand(1,50);
-			$school->save();
-
+		for ($i=1; $i <=100 ; $i++) { 
+			for ($j=1; $j <3 ; $j++) 
+			{
+				$school = new School();
+				$school->college = 'That University';
+				$school->date_began = '2010-05-01';
+				$school->date_complete = '2014-05-01';
+				$school->major = 'B.S. in Comp Science';
+				$school->gpa = '3.0';
+				$school->user_id = $i ;
+				$school->save();
+			}	
 		}
 	}
 
@@ -84,15 +91,18 @@ class JobsTableSeeder extends Seeder {
 		DB::table('jobs')->delete();
 
 
-		for ($i=1; $i <=400 ; $i++) { 
-			$job = new Job();
-			$job->job_title = 'That Job';
-			$job->start_date = '2010-05-01';
-			$job->end_date = '2014-05-01';
-			$job->company = 'That Business';
-			$job->description = 'Lorem ipsum dolor sit amet, volutpat nam, egestas massa pellentesque. Arcu et, amet orci vitae. Ante in vehicula, sit vitae nisl, diam exercitationem ac. At nunc nibh. Donec augue volutpat.';
-			$job->user_id = mt_rand(1,50);
-			$job->save();
+		for ($i=1; $i <=100 ; $i++) { 
+			for ($j=1; $j <3 ; $j++) 
+			{ 
+				$job = new Job();
+				$job->job_title = 'That Job';
+				$job->start_date = '2010-05-01';
+				$job->end_date = '2014-05-01';
+				$job->company = 'That Business';
+				$job->description = 'Lorem ipsum dolor sit amet, volutpat nam, egestas massa pellentesque. Arcu et, amet orci vitae. Ante in vehicula, sit vitae nisl, diam exercitationem ac. At nunc nibh. Donec augue volutpat.';
+				$job->user_id = $i;
+				$job->save();
+			}	
 
 		}
 	}
@@ -106,30 +116,21 @@ class SkillsTableSeeder extends Seeder {
 	{
 		DB::table('skills')->delete();
 		 
-			$skill = new Skill();
-			$skill->skill = 'Web Development';
-			$skill->save();
-			$skill = new Skill();
-			$skill->skill = 'Math';
-			$skill->save();
-			$skill = new Skill();
-			$skill->skill = 'Art';
-			$skill->save();
-			$skill = new Skill();
-			$skill->skill = 'Graphic design';
-			$skill->save();
-			$skill = new Skill();
-			$skill->skill = 'Communication';
-			$skill->save();
-			$skill = new Skill();
-			$skill->skill = 'Management';
-			$skill->save();
-			$skill = new Skill();
-			$skill->skill = 'Reading';
-			$skill->save();
-			$skill = new Skill();
-			$skill->skill = 'Organization';
-			$skill->save();			
+		$filename = public_path() . "/skills.txt";
+
+		$filesize = filesize($filename);
+	    //open file to read
+	    $read = fopen($filename, 'r');
+	    //read file into string
+	    $list_string = fread($read, $filesize);
+	    //turn string into array
+	    $skills_array = explode("\n", $list_string);
+
+	    foreach ($skills_array as $skill_piece) {
+	    	$skill = new Skill;
+	    	$skill->skill = $skill_piece;
+	    	$skill->save();
+    	}	
 
 	}
 
@@ -168,7 +169,7 @@ class ZipcodesTableSeeder extends Seeder {
 	{
 		DB::table('zipcodes')->delete();
 
-		$filename = "/vagrant/sites/final-project.dev/public/US.txt";
+		$filename = public_path() . "/US.txt";
 
 		$filesize = filesize($filename);
 	    //open file to read
@@ -180,8 +181,9 @@ class ZipcodesTableSeeder extends Seeder {
 
 	    foreach ($zipcode_array as $key => $zipcodes) {
 	    	$pieces[] = explode("\t",$zipcodes);
-	    }    
-
+	    }  
+		
+	    
 	    foreach($pieces as $piece)
 	    {
 			$zipcode = new Zipcode();
@@ -200,3 +202,96 @@ class ZipcodesTableSeeder extends Seeder {
 
 }
 
+class SkillUserTableSeeder extends Seeder {
+
+	public function run() 
+	{
+		DB::table('skill_user')->delete();
+		 
+		for ($i=1; $i < 100; $i++) 
+		{ 	
+			$rand_nums = [];
+			while(count($rand_nums) < 4) 
+			{
+				$rand_num = mt_rand(1,92);
+				if(!in_array($rand_num, $rand_nums))
+				{
+					$rand_nums[] = $rand_num;
+				}
+			}
+			
+			DB::table('skill_user')->insert(
+				array(
+					array(
+						'user_id' => $i,
+						'skill_id' => $rand_nums[0]
+					),
+					array(
+						'user_id' => $i,
+						'skill_id' => $rand_nums[1]
+					),
+					array(
+						'user_id' => $i,
+						'skill_id' => $rand_nums[2]
+					),
+					array(
+						'user_id' => $i,
+						'skill_id' => $rand_nums[3]
+					),
+
+			));
+		}	
+			
+
+	}
+
+}
+
+class ConnectionsTableSeeder extends Seeder {
+
+	public function run() 
+	{
+		DB::table('connections')->delete();
+		 
+		for ($i=1; $i < 100; $i++) 
+		{ 	
+			$rand_nums = [];
+			while(count($rand_nums) < 5) 
+			{
+				$rand_num = mt_rand(1,92);
+				if((!in_array($rand_num, $rand_nums)) && ($rand_num != $i))
+				{
+					$rand_nums[] = $rand_num;
+				}
+			}
+			
+			DB::table('connections')->insert(
+				array(
+					array(
+						'user_id' => $i,
+						'connection_id' => $rand_nums[0]
+					),
+					array(
+						'user_id' => $i,
+						'connection_id' => $rand_nums[1]
+					),
+					array(
+						'user_id' => $i,
+						'connection_id' => $rand_nums[2]
+					),
+					array(
+						'user_id' => $i,
+						'connection_id' => $rand_nums[3]
+					),
+					array(
+						'user_id' => $i,
+						'connection_id' => $rand_nums[4]
+					),
+
+			));
+		}	
+			
+
+	}
+
+}

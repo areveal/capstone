@@ -29,6 +29,17 @@ position: relative;
 top: -83px;
 
 }
+
+.navbar a {
+    color: #E8E8E8;
+}
+
+.navbar a:hover {
+    color: #171717;
+}
+
+
+
 </style>
 
 @stop
@@ -38,84 +49,101 @@ top: -83px;
 @stop
 
 @section('content')
+
 <!-- Content START -->
-<div id="content">
-        @if(Auth::check())
-    <div class="navbar hidden-print box main" role="navigation">
-        <ul class="notifications pull-left hidden-xs">
-            <li class="dropdown notif">
-                <a href="" class="dropdown-toggle"  data-toggle="dropdown"><i class="notif-block icon-envelope-1"></i><span class="fa fa-star"></span></a>
-                <ul class="dropdown-menu chat media-list" role="menu">
-                    <li class="media"><a class="pull-left" href="#"><img class="media-object thumb" src="{{ Auth::user()->img_path }}" alt="50x50" width="30"/></a>
-                        <div class="media-body">
-                            <span class="label label-default pull-left">5 min</span>
-                            <h5 class="media-heading">Adrian D.</h5>
-                            <p class="margin-none">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                        </div>
-                    </li>
-                    <li class="media">
-                        <a class="pull-left" href="#"><img class="media-object thumb" src="/assets/images/people/100/16.jpg" alt="50x50" width="50"/></a>
-                        <div class="media-body">
-                            <span class="label label-default pull-left">2 days</span>
-                            <h5 class="media-heading">Jane B.</h5>
-                            <p class="margin-none">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                        </div>
-                    </li>                   
-                    <li class="media">
-                        <a class="pull-left" href="#"><img class="media-object thumb" src="/assets/images/people/100/17.jpg" alt="50x50" width="50"/></a>
-                        <div class="media-body">
-                            <span class="label label-default pull-left">3 days</span>
-                            <h5 class="media-heading">Andrew M.</h5>
-                            <p class="margin-none">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                        </div>
-                    </li>
-                </ul>
-            </li>
-        </ul>
-        <div class="user-action pull-right menu-right-hidden-xs menu-left-hidden-xs border-right">
-            <div class="dropdown username pull-left">
-                <span class="dropdown-toggle" data-toggle="dropdown">
-                    <span class="media margin-none">
-                    <span class="pull-left"><img src="{{ Auth::user()->img_path }}" alt="user" class="img-circle"></span>
-                    <span class="media-body">{{ Auth::user()->first_name }} <span class="caret"></span></span>
-                </span>
-                </span>
-                <ul class="dropdown-menu">
-                    <li><a href="">Messages</a></li>
-                    <li><a href="{{ action('UsersController@show', Auth::user()->id)}} ">Profile</a></li>
-                    <li><a href="{{ action('UsersController@edit', Auth::user()->id)}} ">Edit Profile</a></li>
-                    <li><a href="{{ action('HomeController@logout') }}">Logout</a></li>
-                </ul>
-            </div>
-        </div>
-            <div class="container">
-                {{ Form::open(['action' => ['UsersController@index'],'method' => 'GET']) }}
-                <div class="col-md-6" style="margin-left:400px">
-                    <div class="input-append search">
 
-                        <input id="appendedInputButton" style="border-radius: 5px" class="span6" type="text" placeholder="Search...">
+@if(Auth::check())
+<divclass="col-md-18 col-lg-6" style="margin-top: 10px; margin-left: 2px;">
+<div style="position:fixed;
+top:0;
+width:100%; z-index: 1002; background: #3498db;">
+<table >
+    <tr>
+        <td style="padding-left: 168px; height: 70px;">   
+            <h3>DiversityThread</h3></button>
+        </td>
+        <td style="padding-left: 12px; padding-top: 10px">
+            <h6>Search</h6>
+        </td>
+        <td style="padding-left: 2px; padding-top: 10px">
+            <h6> Members</h6>
+        </td>
+        <td>
+            <div class="col-md-18 col-lg-8" style="margin-top: 10px">
+            <!--General Search Bar-->
+            {{ Form::open(['action' => ['UsersController@index'],'method' => 'GET']) }}         
+                <div class="input-group innerB">
 
-                        <!-- search function will be going to index blade -->
-                        <a class="glyphicon glyphicon-search btn btn-primary btn-xs" pull-right>Search</a>
-                        {{ Form::close() }}
+                    <div class="col-md-12 col-lg-6">
+                        <input type="text" style="border-radius: 5px" name="first_name" class="form-control " sytle="z-index: 1000" placeholder="First Name">
+                    </div>
+                    <div class="col-md-12 col-lg-6">
+                        <input type="text" style="border-radius: 5px" name="last_name" class="form-control " sytle="z-index: 1000" placeholder="Last Name" required>
+                    </div>
+                    <div class="input-group-btn">
+                        <button class="btn btn-default" sytle="z-index: 1000"><i class="fa fa-search"></i></button>
                     </div>
                 </div>
-            </div>        
+            {{ Form::close() }}   
+            </div>
+    </div>                
+        </td> 
+            <div class="user-action pull-right menu-right-hidden-xs menu-left-hidden-xs border-right">
+                <div class="dropdown username pull-left" style="padding-top: 14px">
+                    <span class="dropdown-toggle" data-toggle="dropdown" style="padding-right: 180px">
+                    <span class="media margin-none">
+                    <span class="pull-left"><img src="{{ Auth::user()->img_path }}" alt="user" class="img-circle"></span>
+                    <span class="media-body">{{ Auth::user()->first_name }}</span><span class="caret"></span>
+                    </span>
+                    </span>
+                <ul class="dropdown-menu" style="padding-right: 10px">
+                    <li><a href="">Messages</a></li>
+                    <li><a href="{{ action('UsersController@show', Auth::user()->slug)}} ">Profile</a></li>
+                    <li><a href="{{ action('UsersController@edit', Auth::user()->slug)}} ">Edit Profile</a></li>
+                    <li><a href="{{ action('HomeController@logout') }}">Logout</a></li>
+                </ul>
+                </div>
+            </div>
+    </tr>  
+</table>  
+</div> 
+<div style="margin-top: 48px">  
+<div class="navbar hidden-print box main" role="navigation" style="height:34px;background: #3f3f3f; background-image: linear-gradient(top, #696969 0%,#3f3f3f 100%);">
+    <div  style="margin-top: 6px; margin-left: 180px">
+        <table>
+            <tr>
+
+                <td style="padding-right: 40px">
+                    <a  href="{{ action('UsersController@show', Auth::user()->slug)}}">Home</a></a>
+                </td>
+                <td style="padding-right: 40px">
+                    <a  href="{{ action('UsersController@edit', Auth::user()->slug)}}">Profile</a></a>
+                </td>
+                <td style="padding-right: 40px">
+                    <a href="{{ action('ConnectionsController@edit', Auth::user()->slug)}}">Connections</a>
+                </td>
+                <td style="padding-right: 40px">
+                    <a href="/users">Members</a>
+                </td>
+            </tr>
+        </table>
     </div>
-    @endif
+</div> 
+@endif
+<div style="padding-left: 180px">
     <h2 class="margin-left">Profile &nbsp;<i class="fa fa-fw fa-pencil text-muted"></i></h2>       
             <div class="row">
-                <div class="col-md-9 ">
+                <div class="col-md-10">
                 <!-- Widget start -->
                     <div class="widget widget-body-white">
                         <div class="media widget-body innerAll">
                             <a href="" class="pull-left"><img src="{{{ $user->img_path }}}" alt=""></a>
                             <div class="media-body innerL half">
-                                @if(Auth::check() && (Auth::user()->id != $user->id))
+                                @if(Auth::check() && (Auth::user()->slug != $user->slug))
                                     @if(in_array($user->id, $your_connections))
                                         <a class="btn btn-warning btn-xs pull-right"><i class="fa fa-fw fa-thumbs-up"></i> Connected</a>
                                     @else
-                                        {{ Form::open(array('action' => array('ConnectionsController@update', $user->id), 'class' => 'form-signin','method' => 'PUT')) }}
+                                        {{ Form::open(array('action' => array('ConnectionsController@update', $user->slug), 'class' => 'form-signin','method' => 'PUT')) }}
                                             <button type="submit" class="btn btn-primary btn-xs pull-right"><i class="fa fa-fw fa-thumbs-up"></i> Connect</button>
                                         {{ Form::close() }}
                                     @endif
@@ -123,8 +151,11 @@ top: -83px;
                                 <h4 class="margin-none"><strong>{{{ $user->first_name . ' ' . $user->last_name }}}</strong></h4>
                                 <p class="strong"> </p>
                             </div>
+                            <div style="padding-left:15px">
+                                <h5 class="innerB half text-muted margin-none"><strong >{{ $user->email }}</strong></h5>
+                            </div>
                             <div>
-                                <h5 class="innerB half text-muted margin-none"></i><strong >{{ $user->email }}</strong></h5>
+                                <h5 class="innerB half text-muted margin-none"><i class="fa fa-fw fa-map-marker text-muted"></i><strong >{{ $user->city . ', ' . $user->state_abbrev }}</strong></h5>
                             </div>
                         </div>
                     </div>
@@ -133,7 +164,7 @@ top: -83px;
             <!-- //end Widget -->
             <!-- Widget start-->
             <div class="row">
-                <div class="col-md-9 ">
+                <div class="col-md-7 ">
             <div class="widget widget-body-white ">
                 <div class="widget-head">
                     <h4 class="heading glyphicon glyphicon-list"><i> </i>Skills</h4>
@@ -145,11 +176,10 @@ top: -83px;
                         </button>
 
                     @endforeach
-                    <br>
-                    <br>
+                    <br><br>
                     @if(Auth::check())
-                        @if(Auth::user()->id == $user->id)
-                            <a href="{{ action('SkillsController@edit', Auth::user()->id) }}" class="btn btn-primary btn-xs">Edit</a>
+                        @if(Auth::user()->slug == $user->slug)
+                            <a href="{{ action('SkillsController@edit', Auth::user()->slug) }}" class="btn btn-primary btn-xs">Edit</a>
                         @endif
                     @endif
                 </div> 
@@ -173,7 +203,10 @@ top: -83px;
                             </strong></h4>
                             </li>
                             <li>
-                                {{{ $school->major }}}
+                                {{{ $school->major }}} 
+                                @if(!empty($school->gpa))
+                                 | GPA: {{{ $school->gpa }}}
+                                @endif
                             </li>
                             <li>
                                 {{{ $school->date_began . ' ' . $school->date_complete }}}
@@ -184,8 +217,8 @@ top: -83px;
                         @endforeach
                         @endif
                         @if(Auth::check())
-                            @if(Auth::user()->id == $user->id)
-                                <p class="clearfix"><a href="{{ action('SchoolsController@edit', Auth::user()->id) }}" class="btn btn-primary btn-xs pull-left">Edit</a></p>                    
+                            @if(Auth::user()->slug == $user->slug)
+                                <p class="clearfix"><a href="{{ action('SchoolsController@edit', Auth::user()->slug) }}" class="btn btn-primary btn-xs pull-left">Edit</a></p>                    
                             @endif
                         @endif
                     </div>
@@ -219,37 +252,45 @@ top: -83px;
                                         </p>
                                     </li>
                                 </ul> 
-                                <br><br><br>
+                                <br><br>
                             @endforeach
                             @endif
                             @if(Auth::check())
-                                @if(Auth::user()->id == $user->id)
-                                    <a href="{{ action('JobsController@edit', Auth::user()->id) }}" class="btn btn-primary btn-xs">Edit</a>
+                                @if(Auth::user()->slug == $user->slug)
+                                    <a href="{{ action('JobsController@edit', Auth::user()->slug) }}" class="btn btn-primary btn-xs">Edit</a>
                                 @endif
                             @endif
                         </div>
                     </div>
                 <!-- //end Widget -->
-            </div>
-            <div style="float: left" class="col-md-3"> 
+            
+
+        <!-- //End Col -->
+        <div class="row">
+            <div class="col-md-9">
+            </div>    
+            <!-- //End Col -->
+            </div><!-- /.col-md-9 -->    
+        </div>  
+        <div style=" margin-top: 83px; float: left;" class="col-md-3"> 
                 <div class="widget sidemenu">
                     <div class="widget-body text-center">
-                    <h2 class="strong margin-none">Connections</h2>
+                    <h5 class="strong margin-none">Connections</h5>
                         <div class="innerB"></div>
                             <div class="btn-group-vertical btn-block">
-                                    <a href="{{ action('ConnectionsController@edit', $user->id) }}" class="btn btn-primary btn-xs pull-right">View All</a>   
+                                    <a href="{{ action('ConnectionsController@edit', $user->slug) }}" class="btn btn-primary btn-xs pull-right">View All</a>   
                             </div>   
                     </div>
-
+                    
                 </div><!-- /.widget -->
                 <div class="widget sidemenu">
-                    <h5 class="innerAll margin-none border-bottom bg-gray">Your Network</h5>
+                    <h5 class="innerAll margin-none border-bottom bg-gray">Your Diversity Thread Network</h5>
                     <div class="widget-body padding-none">
                         @foreach($connections as $connection)
                             <div class="media border-bottom innerAll margin-none">
-                                <a href="{{ action('UsersController@show', $connection->id) }}"><img src="{{ $connection->img_path }}" class="pull-left media-object small-pic"/></a>
+                                <a href="{{ action('UsersController@show', $connection->slug) }}"><img src="{{ $connection->img_path }}" class="pull-left media-object small-pic"/></a>
                                 <div class="media-body">
-                                    <a href="{{ action('UsersController@show', $connection->id) }}"><h5 class="margin-none">{{ $connection->first_name . ' ' . $connection->last_name }}</h5></a>
+                                    <a href="{{ action('UsersController@show', $connection->slug) }}"><h5 class="margin-none">{{ $connection->first_name . ' ' . $connection->last_name }}</h5></a>
                                         <i>{{ $connection->status }}</i>                                
                                     <!-- <h5 class="margin-none"><a href="" class="text-inverse">Social Admin Released</a></h5>
                                     <small>on February 2nd, 2014 </small>  -->
@@ -259,14 +300,8 @@ top: -83px;
                     </div>
                 </div>
             </div>
-                
-        <!-- //End Col -->
-        <div class="row">
-            <div class="col-md-9">
-            </div>    
-            <!-- //End Col -->
-            </div><!-- /.col-md-9 -->    
-        </div>  
+        </div>        
+
 <!-- End Row -->
 <!-- // Content END -->
 <div class="clearfix"></div>
@@ -276,6 +311,8 @@ top: -83px;
 <!--  Copyright Line -->
 <div class="copy">&copy; 2012 - 2014 - <a href="http://www.mosaicpro.biz">MosaicPro</a> - All Rights Reserved. <a href="http://themeforest.net/?ref=mosaicpro" target="_blank">Purchase Social Admin Template</a> - Current version: v2.0.0-rc8 / <a target="_blank" href="/assets///CHANGELOG.txt?v=v2.0.0-rc8">changelog</a></div>
 <!--  End Copyright Line -->
+</div>
+</div>
 </div>
 <!-- // Footer END -->
 <!-- // Main Container Fluid END -->

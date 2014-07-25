@@ -40,16 +40,23 @@ Route::resource('connections', 'ConnectionsController');
 
 Route::resource('associations', 'AssociationsController');
 
+Route::post('/slug_update', 'UsersController@update_slug');
+
 Route::get('/test',function() {
 
-	$zip = '78240';
-	$displacement = '10';
-	$zip_array = DB::select("CALL zip_proximity($zip, $displacement, 'mi')");
-	foreach ($zip_array as $zip) {
-		$zips[] = $zip->zip;
+	$slugs = DB::table('users')->lists('slug');
+
+	$new_slug = str_replace(' ', '-', 'coletheman');
+	
+	if(in_array($new_slug, $slugs))
+	{
+		echo "wrong";					
+	}
+	else 
+	{
+		echo "you're good";	
 	}		    
 
-	var_dump($zips);
 
 
 });

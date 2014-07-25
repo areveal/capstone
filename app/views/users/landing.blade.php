@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html class="no-js">
     <head>
+
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title>Diversity Thread</title>
@@ -18,6 +19,7 @@
         <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
     </head>
 
+    
     <body>
 
                     
@@ -105,7 +107,6 @@
     </div>
 
       </section>
-
       <!-- section class="contact full-color">
         <div class="row">
             <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3">
@@ -135,20 +136,7 @@
         
     </div>
 
-    <div class="settings animated fadeInLeft delay-4">
-        <span class="settings-icon">
-            <i class="entypo-cog"></i>
-        </span>
-        <h3 class="settings-title"> Settings </h3>
-
-        <span class="settings-subtitle">Home</span>
-        <span class="toggle-video hidden-xs">toggle video </span>
-        <span class="toggle-phone hidden-xs">toggle phone</span>
-        <span class="toggle-opacity-first">toggle opacity first</span>
-        <span class="settings-subtitle">Global</span>
-        <span class="toggle-opacity-all">toggle opacity all</span>
-        <span class="toggle-slide-fade"> toggle color fade on slide</span>
-    </div>
+ 
 <!--
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
  -->

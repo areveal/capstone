@@ -27,7 +27,7 @@ class HomeController extends BaseController {
 
 		if (Auth::attempt(array('email' => Input::get('email'), 'password' => Input::get('password'))))
 		{
-		    return Redirect::action('UsersController@show', Auth::user()->id);
+		    return Redirect::action('UsersController@show', Auth::user()->slug);
 		}
 
 		else
