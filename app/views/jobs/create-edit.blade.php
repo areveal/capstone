@@ -31,17 +31,17 @@
 <divclass="col-md-18 col-lg-6" style="margin-top: 10px; margin-left: 2px;">
 <div style="position:fixed;
 top:0;
-width:100%; z-index: 1002; background: #3498db;">
+width:100%; z-index: 1002; background: #3498db; background-image: -webkit-linear-gradient(top, #3498db 0%,#1A4C6E 100%);">
 <table >
     <tr>
         <td style="padding-left: 180px; height: 70px;">   
-            <h3>DiversityThread</h3></button>
-        </td>
+            <h3 style="color: white">DiversityThread</h3></button>
+        </td >
         <td style="padding-left: 12px; padding-top: 10px">
-            <h6>Search</h6>
+            <h6 style="color: white">Search</h6>
         </td>
         <td style="padding-left: 2px; padding-top: 10px">
-            <h6> Members</h6>
+            <h6 style="color: white"> Members</h6>
         </td>
         <td>
             <div class="col-md-18 col-lg-8" style="margin-top: 10px">
@@ -83,7 +83,7 @@ width:100%; z-index: 1002; background: #3498db;">
 </table>  
 </div> 
 <div style="margin-top: 48px">  
-<div class="navbar hidden-print box main" role="navigation" style="height:34px; background: #3f3f3f; background-image: linear-gradient(top, #696969 0%,#3f3f3f 100%);">
+<div class="navbar hidden-print box main" role="navigation" style="height:34px; background: #3f3f3f">
     <div  style="margin-top: 6px; margin-left: 180px">
         <table>
             <tr>

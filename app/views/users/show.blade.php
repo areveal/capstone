@@ -57,17 +57,17 @@ top: -83px;
 <divclass="col-md-18 col-lg-6" style="margin-top: 10px; margin-left: 2px;">
 <div style="position:fixed;
 top:0;
-width:100%; z-index: 1002; background: #3498db;">
+width:100%; z-index: 1002; background: #3498db; background-image: -webkit-linear-gradient(top, #3498db 0%,#1A4C6E 100%);">
 <table >
     <tr>
         <td style="padding-left: 180px; height: 70px;">   
-            <h3>DiversityThread</h3>
-        </td>
+            <h3 style="color: white">DiversityThread</h3></button>
+        </td >
         <td style="padding-left: 12px; padding-top: 10px">
-            <h6>Search</h6>
+            <h6 style="color: white">Search</h6>
         </td>
         <td style="padding-left: 2px; padding-top: 10px">
-            <h6> Members</h6>
+            <h6 style="color: white"> Members</h6>
         </td>
         <td>
             <div class="col-md-18 col-lg-8" style="margin-top: 10px">
@@ -177,7 +177,7 @@ width:100%; z-index: 1002; background: #3498db;">
                                 <p class="strong"> </p>
                             </div>
                             <div style="padding-left:25px">
-                                <h4 class="innerB half text-muted margin-none">Group Administrator, DaVita</h4>
+                                <h4 class="innerB half text-muted margin-none">Job title, Company</h4>
                             </div>
                             <div style="margin-left:25px">
                                 <h5 class="innerB half text-muted margin-none"><strong >{{ $user->email }}</strong></h5>
