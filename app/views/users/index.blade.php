@@ -25,6 +25,14 @@
 		.navsearch {
 		    margin-right: 50%;
 		}
+
+		.navbar a {
+    	color: #E8E8E8;
+		}
+
+		.navbar a:hover {
+		    color: #171717;
+		}
 	</style>
 @stop
 
@@ -44,8 +52,8 @@ top:0;
 width:100%; z-index: 1002; background: #3498db;">
 <table >
     <tr>
-        <td style="padding-left: 168px">   
-            <div class"btn-group"><button class="btn btn-primary btn-sm"><h3>DiversityThread</h3></button></div>
+        <td style="padding-left: 180px; height: 70px;">   
+            <h3>DiversityThread</h3></button>
         </td>
         <td style="padding-left: 12px; padding-top: 10px">
             <h6>Search</h6>
@@ -82,10 +90,10 @@ width:100%; z-index: 1002; background: #3498db;">
                     </span>
                     </span>
                 <ul class="dropdown-menu" style="padding-right: 10px">
-                    <li><a href="">Messages</a></li>
+                    <li><a>Account Settings</a></li>
                     <li><a href="{{ action('UsersController@show', Auth::user()->slug)}} ">Profile</a></li>
                     <li><a href="{{ action('UsersController@edit', Auth::user()->slug)}} ">Edit Profile</a></li>
-                    <li><a href="{{ action('HomeController@logout') }}">Logout</a></li>
+                    <li><a href="{{ action('HomeController@logout') }}">Sign Out</a></li>
                 </ul>
                 </div>
             </div>
@@ -93,23 +101,44 @@ width:100%; z-index: 1002; background: #3498db;">
 </table>  
 </div> 
 <div style="margin-top: 48px">  
-<div class="navbar hidden-print box main" role="navigation" style="height:34px;background: #3f3f3f; background-image: linear-gradient(top, #696969 0%,#3f3f3f 100%);">
+<div class="navbar hidden-print box main" role="navigation" style="height:34px; background: #3f3f3f; background-image: linear-gradient(top, #696969 0%,#3f3f3f 100%);">
     <div  style="margin-top: 6px; margin-left: 180px">
         <table>
             <tr>
 
                 <td style="padding-right: 40px">
-                    <a  href="">Home</a></a>
+                    <a  href="{{ action('UsersController@show', Auth::user()->slug)}}">Home</a></a>
+                </td>
+                <td style="padding-right: 40px; margin-top: -2px;" class="dropdown username pull-left">
+                    <span class="dropdown-toggle" data-toggle="dropdown">
+                    <span class="media margin-none">
+                    <span class="media-body"><a style="font-size: 14px" href="">Profile</a></span><span></span>
+                    </span>
+                    </span>
+                <ul class="dropdown-menu" style="background: #3f3f3f; margin-top: -16px;">
+                    <li><a href="{{ action('UsersController@edit', Auth::user()->slug)}} ">Edit Profile</a></li>
+                    <li><a href="{{ action('SkillsController@edit', Auth::user()->slug)}} ">Edit Skills</a></li> 
+                    <li><a href="{{ action('SchoolsController@edit', Auth::user()->slug)}} ">Edit Education</a></li> 
+                    <li><a href="{{ action('JobsController@edit', Auth::user()->slug)}} ">Edit Jobs</a></li> 
+                    <li><a href="{{ action('AssociationsController@edit', Auth::user()->slug)}} ">Edit Associations</a></li>  
+                </ul>
+                </td>
+                <td style="padding-right: 40px; margin-top: -2px;" class="dropdown username pull-left">
+                    <span class="dropdown-toggle" data-toggle="dropdown">
+                    <span class="media margin-none">
+                    <span class="media-body"><a style="font-size: 14px" href="">Connections</a></span><span></span>
+                    </span>
+                    </span>
+                <ul class="dropdown-menu" style="background: #3f3f3f; margin-top: -16px;">
+                    <li><a href="{{ action('ConnectionsController@edit', Auth::user()->slug)}}">Your Connections</a></li> 
+                </ul>
                 </td>
                 <td style="padding-right: 40px">
-                    <a  href="">Profile</a></a>
+                    <a href="/users">Network</a>
                 </td>
-                <td style="padding-right: 40px">
-                    <a href="">Connections</a>
-                </td>
-                <td style="padding-right: 40px">
-                    <a href="/users">Members</a>
-                </td>
+                
+    </tr>  
+</table>
             </tr>
         </table>
     </div>
