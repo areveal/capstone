@@ -131,6 +131,8 @@ class UsersController extends \BaseController {
 	{
 		// this is our user's home page
 		$user = User::findBySlug($slug);
+		//grab user's most recent job
+		$most_recent = Job::where('user_id', '=', $user->id)->orderBy('end_date', 'asc')->first();
 		//grab 5 of users connections
 		$connections = $user->connections->take(5);
 		//if guest chill out
@@ -144,7 +146,7 @@ class UsersController extends \BaseController {
 			$your_connections = DB::table('connections')->where('user_id', '=', Auth::user()->id)->lists('connection_id');
 		}
 		//send user to profile page requested
-		return View::make('users.show')->with('user', $user)->with('connections', $connections)->with('your_connections', $your_connections);
+		return View::make('users.show')->with('user', $user)->with('connections', $connections)->with('your_connections', $your_connections)->with('most_recent', $most_recent);
 	}
 
 
