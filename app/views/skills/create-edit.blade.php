@@ -198,18 +198,14 @@ width:100%; z-index: 1002; background: #3498db;">
 								    			<h4>Your Skills</h4></center>
 								    			@foreach($skills_owned as $skill_owned)
 								    				<tr>
-								    					
+							    						<div class="btn-group">
 								    						{{ Form::model($skills, array('action' => array('SkillsController@destroy', $skill_owned->id), 'method' => 'DELETE')) }}
-								    						
-								    					
-								    						<div class="btn-group">
-								    						<button type="button" class="btn btn-default btn-sm">{{{ $skill_owned->skill  . '  '}}}</button>
-								    						<button type="button" class="btn btn-default btn-sm" data-toggle="dropdown">
-								    						<span class="glyphicon glyphicon-remove"></span>
-								    						<span class="sr-only">Toggle Dropdown</span>
-								    						</button>
-								    						</div>	
+									    						<button class="btn btn-default btn-sm">{{{ $skill_owned->skill  . '  '}}}</button>
+									    						<button type="submit" class="btn btn-default btn-sm">
+										    						<span class="glyphicon glyphicon-remove"></span>
+									    						</button>
 								    						{{ Form::close() }}
+							    						</div>	
 								    				</tr>	
 								    			@endforeach		
 								    	</table><br>
