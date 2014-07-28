@@ -35,7 +35,7 @@ top: -83px;
 }
 
 .navbar a:hover {
-    color: #171717;
+    color: #3498db;
 }
 
 
@@ -54,16 +54,16 @@ top: -83px;
 
     <!--Navbar start-->
 
-<divclass="col-md-18 col-lg-6" style="margin-top: 10px; margin-left: 2px;">
+<div style="margin-top: 10px">
 <div style="position:fixed;
 top:0;
-width:100%; z-index: 1002; background: #3498db; background-image: -webkit-linear-gradient(top, #3498db 0%,#1A4C6E 100%);">
-<table >
+width:100%; z-index: 1002; background: #3498db; background-image: -webkit-linear-gradient(top, #3498db 0%,#1A4C6E 100%); padding-right: 20px;">
+<table>
     <tr>
         <td style="padding-left: 180px; height: 70px;">   
             <h3 style="color: white">DiversityThread</h3></button>
         </td >
-        <td style="padding-left: 12px; padding-top: 10px">
+        <td style="padding-left: 28px; padding-top: 10px">
             <h6 style="color: white">Search</h6>
         </td>
         <td style="padding-left: 2px; padding-top: 10px">
@@ -90,15 +90,15 @@ width:100%; z-index: 1002; background: #3498db; background-image: -webkit-linear
     </div>                
         </td> 
         @if(Auth::check())
-            <div class="user-action pull-right menu-right-hidden-xs menu-left-hidden-xs border-right">
+            <div class="user-action pull-right menu-right-hidden-xs menu-left-hidden-xs">
                 <div class="dropdown username pull-left" style="padding-top: 14px">
                     <span class="dropdown-toggle" data-toggle="dropdown" style="padding-right: 180px">
                     <span class="media margin-none">
                     <span class="pull-left"><img src="{{ Auth::user()->img_path }}" alt="user" class="img-circle"></span>
-                    <span class="media-body">{{ Auth::user()->first_name }}</span><span class="caret"></span>
+                    <span style="color: white" class="media-body">{{ Auth::user()->first_name }}</span><span style="color: white" class="caret"></span>
                     </span>
                     </span>
-                <ul class="dropdown-menu" style="padding-right: 10px">
+                <ul class="dropdown-menu">
                     <li><a>Account Settings</a></li>
                     <li><a href="{{ action('UsersController@show', Auth::user()->slug)}} ">Profile</a></li>
                     <li><a href="{{ action('UsersController@edit', Auth::user()->slug)}} ">Edit Profile</a></li>
@@ -110,7 +110,7 @@ width:100%; z-index: 1002; background: #3498db; background-image: -webkit-linear
     </tr>  
 </table>  
 </div> 
-<div style="margin-top: 48px">  
+<div style="margin-top: 68px;">  
 <div class="navbar hidden-print box main" role="navigation" style="height:34px; background: #3f3f3f; background-image: linear-gradient(top, #696969 0%,#3f3f3f 100%);">
     <div  style="margin-top: 6px; margin-left: 180px">
         <table>
@@ -199,12 +199,11 @@ width:100%; z-index: 1002; background: #3498db; background-image: -webkit-linear
                 </div>
                 <div class="widget-body inner-2x">
                     @foreach($user->skills as $skill)
-                        <button class="btn btn-default btn-sm">
+                        <div style="padding-bottom: 2px; padding-right: 2px; float: left;"><button style="padding-bottom: 2px"  class="btn btn-default btn-sm">
                             {{{ $skill->skill }}}
-                        </button>
-
+                        </button></div>
                     @endforeach
-                    <br><br>
+                    <br><br><br><br>
                     @if(Auth::check())
                         @if(Auth::user()->slug == $user->slug)
                             <a href="{{ action('SkillsController@edit', Auth::user()->slug) }}" class="btn btn-primary btn-xs">Edit</a>
@@ -317,8 +316,8 @@ width:100%; z-index: 1002; background: #3498db; background-image: -webkit-linear
                             <div class="media border-bottom innerAll margin-none">
                                 <a href="{{ action('UsersController@show', $connection->slug) }}"><img src="{{ $connection->img_path }}" class="pull-left media-object small-pic"/></a>
                                 <div class="media-body">
-                                    <a href="{{ action('UsersController@show', $connection->slug) }}"><h5 class="margin-none">{{ $connection->first_name . ' ' . $connection->last_name }}</h5></a>
-                                        <i>{{ $connection->status }}</i>                                
+                                    <a href="{{ action('UsersController@show', $connection->slug) }}"><h5 style="padding-left: 3px" class="margin-none">{{ $connection->first_name . ' ' . $connection->last_name }}</h5></a>
+                                        <i style="padding-left: 3px">{{ $connection->status }}</i>                                
                                     <!-- <h5 class="margin-none"><a href="" class="text-inverse">Social Admin Released</a></h5>
                                     <small>on February 2nd, 2014 </small>  -->
                                 </div>
