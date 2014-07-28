@@ -132,7 +132,7 @@ class UsersController extends \BaseController {
 		// this is our user's home page
 		$user = User::findBySlug($slug);
 		//grab user's most recent job
-		$most_recent = Job::where('user_id', '=', $user->id)->orderBy('end_date', 'asc')->first();
+		$most_recent = Job::where('user_id', '=', $user->id)->orderBy('end_date', 'desc')->first();
 		//grab 5 of users connections
 		$connections = $user->connections->take(5);
 		//if guest chill out

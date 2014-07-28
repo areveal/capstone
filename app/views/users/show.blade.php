@@ -178,7 +178,7 @@ width:100%; z-index: 1002; background: #3498db; background-image: -webkit-linear
                             </div>
                             @if(!empty($most_recent))
                                 <div style="padding-left:25px">
-                                    <h4 class="innerB half text-muted margin-none">{{{ $most_recent->job_title . ', ' . $most_recent->company }}}</h4>
+                                    <h4 class="innerB half text-muted margin-none">{{{ $most_recent->job_title . ' - ' . $most_recent->company }}}</h4>
                                 </div>
                             @endif
                             <div style="margin-left:25px">
