@@ -75,8 +75,8 @@ class User extends BaseModel implements UserInterface, RemindableInterface {
 
         $image->move($systemPath, $imageName);
 
-	    $maxHeight = 80;
-	    $maxWidth = 80;
+	    $maxHeight =160;
+	    $maxWidth = 160;
 
 	    $newHeight = 0;
 	    $newWidth = 0;
