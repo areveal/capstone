@@ -45,7 +45,7 @@
 <!-- Content START -->
 <div id="content">
 	<!--Navbar start-->
-@if(Auth::check())
+
 <divclass="col-md-18 col-lg-6" style="margin-top: 10px; margin-left: 2px;">
 <div style="position:fixed;
 top:0;
@@ -53,7 +53,8 @@ width:100%; z-index: 1002; background: #3498db; background-image: -webkit-linear
 <table >
     <tr>
         <td style="padding-left: 180px; height: 70px;">   
-            <h3 style="color: white">DiversityThread</h3></button>
+
+            <h3 style="color: white">DiversityThread</h3>
         </td >
         <td style="padding-left: 12px; padding-top: 10px">
             <h6 style="color: white">Search</h6>
@@ -81,6 +82,7 @@ width:100%; z-index: 1002; background: #3498db; background-image: -webkit-linear
             </div>
     </div>                
         </td> 
+        @if(Auth::check())
             <div class="user-action pull-right menu-right-hidden-xs menu-left-hidden-xs border-right">
                 <div class="dropdown username pull-left" style="padding-top: 14px">
                     <span class="dropdown-toggle" data-toggle="dropdown" style="padding-right: 180px">
@@ -97,6 +99,7 @@ width:100%; z-index: 1002; background: #3498db; background-image: -webkit-linear
                 </ul>
                 </div>
             </div>
+        @endif
     </tr>  
 </table>  
 </div> 
@@ -107,12 +110,13 @@ width:100%; z-index: 1002; background: #3498db; background-image: -webkit-linear
             <tr>
 
                 <td style="padding-right: 40px">
-                    <a  href="{{ action('UsersController@show', Auth::user()->slug)}}">Home</a></a>
+                    <a  href="{{ action('UsersController@showLanding')}}">Home</a></a>
                 </td>
+                @if(Auth::check())
                 <td style="padding-right: 40px; margin-top: -2px;" class="dropdown username pull-left">
                     <span class="dropdown-toggle" data-toggle="dropdown">
                     <span class="media margin-none">
-                    <span class="media-body"><a style="font-size: 14px" href="">Profile</a></span><span></span>
+                    <span class="media-body"><a style="font-size: 14px" href="{{ action('UsersController@show', Auth::user()->slug)}}">Profile</a></span><span></span>
                     </span>
                     </span>
                 <ul class="dropdown-menu" style="background: #3f3f3f; margin-top: -16px;">
@@ -133,6 +137,7 @@ width:100%; z-index: 1002; background: #3498db; background-image: -webkit-linear
                     <li><a href="{{ action('ConnectionsController@edit', Auth::user()->slug)}}">Your Connections</a></li> 
                 </ul>
                 </td>
+                @endif
                 <td style="padding-right: 40px">
                     <a href="/users">Network</a>
                 </td>
@@ -143,7 +148,7 @@ width:100%; z-index: 1002; background: #3498db; background-image: -webkit-linear
         </table>
     </div>
 </div> 
-@endif
+
 	<!--NavBar Close-->
 
 	<!--Container for Search Bar and user list-->

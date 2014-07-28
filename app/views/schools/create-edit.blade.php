@@ -207,6 +207,7 @@ width:100%; z-index: 1002; background: #3498db; background-image: -webkit-linear
 											<div class="form-group">
 									  		<button type="submit" class="btn btn-primary">Add</button>
 									  		</div>
+								  		{{ Form::close() }}
 							  		</div>
 								
 								</div>
@@ -260,23 +261,19 @@ width:100%; z-index: 1002; background: #3498db; background-image: -webkit-linear
 	    			@foreach($schools as $school)
 	    					<tr>
 	    						<td style="vertical-align: middle">
-	    						{{ Form::model($schools, array('action' => array('SchoolsController@destroy', $school->id), 'method' => 'DELETE')) }}
 	    							{{{$school->college }}}
 	    						</td>
 	    						<td style="vertical-align: middle">
-	    							<button type="submit" class="btn btn-info glyphicon glyphicon-ban-circle">Remove</button>
-	    						{{ Form::close() }}
+		    						{{ Form::model($schools, array('action' => array('SchoolsController@destroy', $school->id), 'method' => 'DELETE')) }}
+		    							<button type="submit" class="btn btn-info glyphicon glyphicon-ban-circle">Remove</button>
+		    						{{ Form::close() }}
 	    						</td>
 	    					</tr>
 	    			@endforeach		
 		   	<table><br>
 			{{Form::close()}}
-			<p>
-		  	{{ Form::open(array('action' => array('UsersController@show', Auth::user()->slug), 'method' => 'GET')) }}
-		  		<button type="submit" class="btn btn-default">Done</button>
-		  		<a href="{{ action('JobsController@edit', Auth::user()->slug)}} ">Go to Experience</a></span>
-		  	</p>
-			{{ Form::close() }}
+			<a href="{{ action('UsersController@show', Auth::user()->slug)}} ">Done</a>
+	  		<a href="{{ action('JobsController@edit', Auth::user()->slug)}} ">Go to Experience</a>
 		  </div>
 	</div>	
 </div>	

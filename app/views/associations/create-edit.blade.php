@@ -192,11 +192,11 @@ width:100%; z-index: 1002; background: #3498db; background-image: -webkit-linear
 							    			@foreach($associations_owned as $association_owned)
 							    				<tr>
 							    					<td style="vertical-align: middle">
-							    						{{ Form::model($associations, array('action' => array('AssociationsController@destroy', $association_owned->id), 'method' => 'DELETE')) }}
 							    						{{{ $association_owned->association }}}
 							    					</td>
 							    					<td style="vertical-align: middle">
-							    						<button type="submit" class="btn btn-info glyphicon glyphicon-ban-circle">Remove</button>
+							    						{{ Form::model($associations, array('action' => array('AssociationsController@destroy', $association_owned->id), 'method' => 'DELETE')) }}
+								    						<button type="submit" class="btn btn-info glyphicon glyphicon-ban-circle">Remove</button>
 							    						{{ Form::close() }}
 							    					</td>
 							    			@endforeach	
