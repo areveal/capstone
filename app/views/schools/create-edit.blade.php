@@ -207,6 +207,7 @@ width:100%; z-index: 1002; background: #3498db;">
 											<div class="form-group">
 									  		<button type="submit" class="btn btn-primary">Add</button>
 									  		</div>
+								  		{{ Form::close() }}
 							  		</div>
 								
 								</div>
@@ -260,12 +261,12 @@ width:100%; z-index: 1002; background: #3498db;">
 	    			@foreach($schools as $school)
 	    					<tr>
 	    						<td style="vertical-align: middle">
-	    						{{ Form::model($schools, array('action' => array('SchoolsController@destroy', $school->id), 'method' => 'DELETE')) }}
 	    							{{{$school->college }}}
 	    						</td>
 	    						<td style="vertical-align: middle">
-	    							<button type="submit" class="btn btn-info glyphicon glyphicon-ban-circle">Remove</button>
-	    						{{ Form::close() }}
+		    						{{ Form::model($schools, array('action' => array('SchoolsController@destroy', $school->id), 'method' => 'DELETE')) }}
+		    							<button type="submit" class="btn btn-info glyphicon glyphicon-ban-circle">Remove</button>
+		    						{{ Form::close() }}
 	    						</td>
 	    					</tr>
 	    			@endforeach		
