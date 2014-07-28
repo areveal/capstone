@@ -19,6 +19,10 @@
 	.navbar a:hover {
 	    color: #171717;
 	}
+	.thumbnail {
+		height: 80px;
+		width: 80px;
+	}	
 </style>
 @stop
 
@@ -165,12 +169,6 @@ width:100%; z-index: 1002; background: #3498db; background-image: -webkit-linear
 					</div>
 				</div>
 			</div>
-			<div class="">
-				<ul class="navigation">
-					<li><a class="" href="{{ action('UsersController@show', $user->slug) }}"><i class="fa fa-fw fa-user"></i><span> Profile</span></a></li>
-					<li class="active"><a href="#"><i class="fa fa-fw icon-group"></i><span> Connections</span></a></li>
-				</ul>
-			</div>	
 		<div class="clearfix"></div>
 		</div>		
 	</div>
@@ -209,7 +207,7 @@ width:100%; z-index: 1002; background: #3498db; background-image: -webkit-linear
 				<div class="col-sm-9">
 					<div class="media">
 						<a class="pull-left margin-none" href="#">
-							<img class="img-clean" src="{{{ $connection->img_path }}}" alt="...">
+							<img class="img-clean thumbnail" src="{{{ $connection->img_path }}}" alt="...">
 						</a>
 						<div class="media-body innerAll inner-2x padding-right-none padding-bottom-none">
 							 <h4 class="media-heading"><a href="" class="text-inverse">{{{ $connection->first_name . ' ' . $connection->last_name }}}</a></h4>

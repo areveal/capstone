@@ -11,7 +11,7 @@ class DatabaseSeeder extends Seeder {
 	{
 		Eloquent::unguard();
 
-		$this->call('ZipcodesTableSeeder');
+		// $this->call('ZipcodesTableSeeder');
 		$this->call('UserTableSeeder');
 		$this->call('SchoolsTableSeeder');
 		$this->call('JobsTableSeeder');
@@ -39,7 +39,7 @@ class UserTableSeeder extends Seeder {
 		    $user->last_name = $faker->lastName;
 		    $user->email = $faker->email;
 		    $user->password = Hash::make('password');
-		    $user->img_path = '/images/people/80/' . mt_rand(1,25) . '.jpg' ;
+		    $user->img_path = '/images/people/250/' . mt_rand(1,25) . '.jpg' ;
 			$zips = DB::table('zipcodes')->lists('zip');
 			$zip = array_rand($zips);
 		    $user->zip = $zips[$zip];
