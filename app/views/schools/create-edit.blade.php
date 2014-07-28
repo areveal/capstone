@@ -241,12 +241,8 @@ width:100%; z-index: 1002; background: #3498db;">
 	    			@endforeach		
 		   	<table><br>
 			{{Form::close()}}
-			<p>
-		  	{{ Form::open(array('action' => array('UsersController@show', Auth::user()->slug), 'method' => 'GET')) }}
-		  		<button type="submit" class="btn btn-default">Done</button>
-		  		<a href="{{ action('JobsController@edit', Auth::user()->slug)}} ">Go to Experience</a></span>
-		  	</p>
-			{{ Form::close() }}
+			<a href="{{ action('UsersController@show', Auth::user()->slug)}} ">Done</a>
+	  		<a href="{{ action('JobsController@edit', Auth::user()->slug)}} ">Go to Experience</a>
 		  </div>
 	</div>	
 </div>	

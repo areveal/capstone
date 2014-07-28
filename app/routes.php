@@ -44,18 +44,9 @@ Route::post('/slug_update', 'UsersController@update_slug');
 
 Route::get('/test',function() {
 
-	$slugs = DB::table('users')->lists('slug');
+$slugs = Input::get('password');		    
 
-	$new_slug = str_replace(' ', '-', 'coletheman');
-	
-	if(in_array($new_slug, $slugs))
-	{
-		echo "wrong";					
-	}
-	else 
-	{
-		echo "you're good";	
-	}		    
+var_dump(Input::has('password'));
 
 
 

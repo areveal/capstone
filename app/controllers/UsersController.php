@@ -131,18 +131,19 @@ class UsersController extends \BaseController {
 	{
 		// this is our user's home page
 		$user = User::findBySlug($slug);
-		
+		//grab 5 of users connections
 		$connections = $user->connections->take(5);
-
+		//if guest chill out
 		if(Auth::guest())
 		{
 			$your_connections = [];
 		}
+		//grab users connections otherwise
 		else
 		{
 			$your_connections = DB::table('connections')->where('user_id', '=', Auth::user()->id)->lists('connection_id');
 		}
-
+		//send user to profile page requested
 		return View::make('users.show')->with('user', $user)->with('connections', $connections)->with('your_connections', $your_connections);
 	}
 
@@ -155,16 +156,19 @@ class UsersController extends \BaseController {
 	 */
 	public function edit($slug)
 	{
+		//make sure user is logged in
 		if(Auth::guest()) 
 		{
 			Session::flash('errorMessage','You must be logged in to edit users.');
 			return Redirect::action('UsersController@index');			
 		}
+		//make sure the user on the page is the correct user
 		elseif(Auth::user()->slug == $slug)
 		{
 			$user = User::findBySlug($slug);
 			return View::make('users.create-edit')->with('user', $user);
 		}
+		//else error out
 		else
 		{
 			Session::flash('errorMessage','You do not have authorization to edit this user.');
@@ -181,9 +185,8 @@ class UsersController extends \BaseController {
 	 */
 	public function update($slug)
 	{
-		// update function
 		$validator = Validator::make(Input::all(), User::$rules);
-
+		//validate input for user creation/editing
 		if($validator->fails())
 		{
 			Session::flash('errorMessage','We could not create a new profile. Please see errors below.');
@@ -191,11 +194,14 @@ class UsersController extends \BaseController {
 		}
 		else
 		{
+			//create new instance of user for site sign up
 			$user = new User();
 
 			if(isset($slug)) 
 			{
+				//if editing user, grab user by Auth
 				$user = User::findBySlug($slug);
+				//error out users who do not have proper credentials
 				if(Auth::user()->slug != $slug) 
 				{
 					Session::flash('errorMessage','You do not have the necessary credentials to edit this user.');
@@ -203,15 +209,16 @@ class UsersController extends \BaseController {
 				}
 			}
 
+			//grab list of all slugs
 			$slugs = DB::table('users')->lists('slug');
-
+			//if user gave us existing slug, error out
 			if(in_array(Input::get('slug'), $slugs))
 			{
 				Session::flash('errorMessage','This extension is already in use. Please try a different URL extension.');
 				return Redirect::back();
 			}
 
-
+			//give user all input fields required
 			$user->first_name = ucfirst(Input::get('first_name'));
 			$user->last_name = ucfirst(Input::get('last_name'));		
 			$user->email = Input::get('email');	
@@ -222,59 +229,67 @@ class UsersController extends \BaseController {
 			$user->state_abbrev = $state[0];
 			$user->country = Input::get('country');
 			$user->status = Input::get('status');
-			$password = Input::get('password');
-			$confirmPassword = Input::get('confirmPassword');
-
-			if($confirmPassword == $password)
+			//these might be left blank
+			if(Input::has('password'))
 			{
-				$user->password = Hash::make(Input::get('password'));
-				$user->save();
+				//grab compare pass and confirm
+				$password = Input::get('password');
+				$confirmPassword = Input::get('confirmPassword');
 
-				if(!isset($slug))
-					if(Input::has('slug'))
-					{
-						$new_slug = str_replace(' ', '-', Input::get('slug'));
-						$user->slug = $new_slug;	
-					}
-					else
-					{
-						$user->slug = $user->id . '-' . $user->first_name . '-' . $user->last_name ;
-					}
+				if($confirmPassword == $password)
+				{
+					$user->password = Hash::make(Input::get('password'));
+					$user->save();
+				}
+				//error out otherwise
+				else 
+				{
+					Session::flash('errorMessage', 'Your password and your confirmation password did not match.');
+		    		return Redirect::back()->withInput();
+				}
+			}
+			//if new user
+			if(!isset($slug))
+			{
+				//check if they gave us input
+				if(Input::has('slug'))
+				{
+					$new_slug = str_replace(' ', '-', Input::get('slug'));
+					$user->slug = $new_slug;	
+				}
+				//save default otherwise
+				else
+				{
+					$user->slug = $user->id . '-' . $user->first_name . '-' . $user->last_name ;
+				}
+			}
 				
-				$user->save();
-			}
-			else 
-			{
-				Session::flash('errorMessage', 'Your password and your confirmation password did not match.');
-	    		return Redirect::back()->withInput();
-			}
-			
+			//if user gives us an image
 			if (Input::hasFile('image') && Input::file('image')->isValid())
 			{
 			    $user->addUploadedImage(Input::file('image'));
-			    $user->save();
 			}
-			else 
+			//otherwise
+			else
 			{
+				//if user doesn't already have a picture set give them a default
 				if(!isset($user->img_path))
 				{
 				    $user->img_path = '/img-upload/user.jpg';
-				    $user->save();
 				}
 			}
 			
-
-			if(isset($slug)) 
+			//save changes and send user to show blade
+			$user->save();
+			//if user was just created log them in
+			if(!isset($slug)) 
 			{
-				Session::flash('successMessage', 'You have successfully edited your account.');
-    			return Redirect::action('UsersController@show', $user->slug);
-			}
-			else
-			{
-				Session::flash('successMessage', 'You have successfully created an account.');
     			Auth::login($user);
-    			return Redirect::action('UsersController@show', $user->slug);
 			}
+			//send user to show blade
+			Session::flash('successMessage', 'You have successfully edited your account.');
+			return Redirect::action('UsersController@show', $user->slug);
+
 
 		}
 	}
