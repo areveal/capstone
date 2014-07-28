@@ -56,11 +56,11 @@ top: -83px;
 <divclass="col-md-18 col-lg-6" style="margin-top: 10px; margin-left: 2px;">
 <div style="position:fixed;
 top:0;
-width:100%; z-index: 1002; background: #3498db;">
+width:100%; z-index: 1002; background: #3498db; background-image: -webkit-linear-gradient(top, #696969 0%,#3f3f3f 100%);">
 <table >
     <tr>
         <td style="padding-left: 180px; height: 70px;">   
-            <h3>DiversityThread</h3></button>
+            <h3 style="color: white">DiversityThread</h3></button>
         </td>
         <td style="padding-left: 12px; padding-top: 10px">
             <h6>Search</h6>
@@ -97,10 +97,10 @@ width:100%; z-index: 1002; background: #3498db;">
                     </span>
                     </span>
                 <ul class="dropdown-menu" style="padding-right: 10px">
-                    <li><a href="">Messages</a></li>
+                    <li><a>Account Settings</a></li>
                     <li><a href="{{ action('UsersController@show', Auth::user()->slug)}} ">Profile</a></li>
                     <li><a href="{{ action('UsersController@edit', Auth::user()->slug)}} ">Edit Profile</a></li>
-                    <li><a href="{{ action('HomeController@logout') }}">Logout</a></li>
+                    <li><a href="{{ action('HomeController@logout') }}">Sign Out</a></li>
                 </ul>
                 </div>
             </div>
@@ -108,7 +108,7 @@ width:100%; z-index: 1002; background: #3498db;">
 </table>  
 </div> 
 <div style="margin-top: 48px">  
-<div class="navbar hidden-print box main" role="navigation" style="height:34px;background: #3f3f3f; background-image: linear-gradient(top, #696969 0%,#3f3f3f 100%);">
+<div class="navbar hidden-print box main" role="navigation" style="height:34px; background: #3f3f3f">
     <div  style="margin-top: 6px; margin-left: 180px">
         <table>
             <tr>
@@ -116,28 +116,49 @@ width:100%; z-index: 1002; background: #3498db;">
                 <td style="padding-right: 40px">
                     <a  href="{{ action('UsersController@show', Auth::user()->slug)}}">Home</a></a>
                 </td>
-                <td style="padding-right: 40px">
-                    <a  href="{{ action('UsersController@edit', Auth::user()->slug)}}">Profile</a></a>
+                <td style="padding-right: 40px; margin-top: -2px;" class="dropdown username pull-left">
+                    <span class="dropdown-toggle" data-toggle="dropdown">
+                    <span class="media margin-none">
+                    <span class="media-body"><a style="font-size: 14px" href="">Profile</a></span><span></span>
+                    </span>
+                    </span>
+                <ul class="dropdown-menu" style="background: #3f3f3f; margin-top: -16px;">
+                    <li><a href="{{ action('UsersController@edit', Auth::user()->slug)}} ">Edit Profile</a></li>
+                    <li><a href="{{ action('SkillsController@edit', Auth::user()->slug)}} ">Edit Skills</a></li> 
+                    <li><a href="{{ action('SchoolsController@edit', Auth::user()->slug)}} ">Edit Education</a></li> 
+                    <li><a href="{{ action('JobsController@edit', Auth::user()->slug)}} ">Edit Jobs</a></li> 
+                    <li><a href="{{ action('AssociationsController@edit', Auth::user()->slug)}} ">Edit Associations</a></li>  
+                </ul>
+                </td>
+                <td style="padding-right: 40px; margin-top: -2px;" class="dropdown username pull-left">
+                    <span class="dropdown-toggle" data-toggle="dropdown">
+                    <span class="media margin-none">
+                    <span class="media-body"><a style="font-size: 14px" href="">Connections</a></span><span></span>
+                    </span>
+                    </span>
+                <ul class="dropdown-menu" style="background: #3f3f3f; margin-top: -16px;">
+                    <li><a href="{{ action('ConnectionsController@edit', Auth::user()->slug)}}">Your Connections</a></li> 
+                </ul>
                 </td>
                 <td style="padding-right: 40px">
-                    <a href="{{ action('ConnectionsController@edit', Auth::user()->slug)}}">Connections</a>
+                    <a href="/users">Network</a>
                 </td>
-                <td style="padding-right: 40px">
-                    <a href="/users">Members</a>
-                </td>
+                
+    </tr>  
+</table>
             </tr>
         </table>
     </div>
 </div> 
 @endif
 <div style="padding-left: 180px">
-    <h2 class="margin-left">Profile &nbsp;<i class="fa fa-fw fa-pencil text-muted"></i></h2>       
+    <h2 class="margin-left"><i></i></h2><br><br>       
             <div class="row">
                 <div class="col-md-10">
                 <!-- Widget start -->
                     <div class="widget widget-body-white">
                         <div class="media widget-body innerAll">
-                            <a href="" class="pull-left"><img src="{{{ $user->img_path }}}" alt=""></a>
+                            <a href="" class="pull-left"><img  style="width: 160px; height: 160px;" src="{{{ $user->img_path }}}" alt=""></a>
                             <div class="media-body innerL half">
                                 @if(Auth::check() && (Auth::user()->slug != $user->slug))
                                     @if(in_array($user->id, $your_connections))
@@ -148,15 +169,18 @@ width:100%; z-index: 1002; background: #3498db;">
                                         {{ Form::close() }}
                                     @endif
                                 @endif
-                                <h4 class="margin-none"><strong>{{{ $user->first_name . ' ' . $user->last_name }}}</strong></h4>
+                                <h3 class="margin-none"><strong>{{{ $user->first_name . ' ' . $user->last_name }}}</strong></h3>
                                 <p class="strong"> </p>
                             </div>
-                            <div style="padding-left:15px">
+                            <div style="padding-left:25px">
+                                <h4 class="innerB half text-muted margin-none">Group Administrator, DaVita</h4>
+                            </div>
+                            <div style="margin-left:25px">
                                 <h5 class="innerB half text-muted margin-none"><strong >{{ $user->email }}</strong></h5>
                             </div>
-                            <div>
+                            <div style="padding-left:25px">
                                 <h5 class="innerB half text-muted margin-none"><i class="fa fa-fw fa-map-marker text-muted"></i><strong >{{ $user->city . ', ' . $user->state_abbrev }}</strong></h5>
-                            </div>
+                            </div>  
                         </div>
                     </div>
                 </div>
@@ -167,7 +191,7 @@ width:100%; z-index: 1002; background: #3498db;">
                 <div class="col-md-7 ">
             <div class="widget widget-body-white ">
                 <div class="widget-head">
-                    <h4 class="heading glyphicon glyphicon-list"><i> </i>Skills</h4>
+                    <h2 class="heading glyphicon glyphicon-list"><i> </i>Skills</h2>
                 </div>
                 <div class="widget-body inner-2x">
                     @foreach($user->skills as $skill)
@@ -210,8 +234,7 @@ width:100%; z-index: 1002; background: #3498db;">
                             </li>
                             <li>
                                 {{{ $school->date_began . ' ' . $school->date_complete }}}
-                            </li>
-                            
+                            </li>  
                         </ul>
                         <br>                       
                         @endforeach
