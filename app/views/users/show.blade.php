@@ -147,11 +147,8 @@ width:100%; z-index: 1002; background: #3498db; background-image: -webkit-linear
                 @endif
                 <td style="padding-right: 40px">
                     <a href="/users">Network</a>
-                </td>
-                
-    </tr>  
-</table>
-            </tr>
+                </td> 
+            </tr>  
         </table>
     </div>
 </div>
