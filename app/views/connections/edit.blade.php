@@ -20,9 +20,8 @@
 	    color: #3498db;
 	}
 	.thumbnail {
-		height: 100%;
-		width: 100%;
-		margin-right: -80px;
+		height: 80px;
+		width: 80px;
 	}	
 </style>
 @stop
