@@ -19,6 +19,7 @@
 @stop
 
 @section('content')
+<div class="container">
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
 	<div id="header" class="global-header responsive-header nav-v5-2-header responsive-1 remote-nav" role="banner">
 		<div id="top-header">
@@ -32,7 +33,8 @@
   		</div>
   	</div>
 </nav>
-
+</div>
+<div class="body">
 @if (Session::has('status'))
     <div class="alert alert-info">
         <button type="button" class="close" data-dismiss="alert">
@@ -52,7 +54,7 @@
         {{{ Session::get('error') }}}
     </div>
 @endif
-
+</div>
 <div class="container">
 	<div class="body">Enter the following information to reset your password.</div>	  
 	<div class="form position: relative">
@@ -87,4 +89,7 @@
 			</div>
 		{{ Form::close() }}
 	</div>
+	<script>
+		$(".alert").fadeOut(2000);
+	</script>
 </div>

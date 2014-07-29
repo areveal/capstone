@@ -36,8 +36,8 @@
   	</div>
 </nav>
 </div>
-
 <br>
+<div class="body">
 @if (Session::has('status'))
     <div class="alert alert-info">
         <button type="button" class="close" data-dismiss="alert">
@@ -57,13 +57,17 @@
         {{{ Session::get('error') }}}
     </div>
 @endif
-
+</div>
 <div class="container"><br>
-	<h2>Password Reset</h2>
+	<h3>Password Reset</h3>
+	<p>Enter your email address below.</p>
 	<form action="{{ action('RemindersController@postRemind') }}" method="POST">
 	   	 <label for="user">Email</label>  
 	   	 <input type="email" name="email">
 	     <input type="submit" value="Send Reminder">
 	</form>
 </div>
+<script>
+	$(".alert").fadeOut(2000);
+</script>
 @stop
