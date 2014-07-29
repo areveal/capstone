@@ -232,7 +232,7 @@ class UsersController extends \BaseController {
 			$user->country = Input::get('country');
 			$user->status = Input::get('status');
 			//these might be left blank
-			if(Input::has('password'))
+			if(Input::get('password') != $user->password)
 			{
 				//grab compare pass and confirm
 				$password = Input::get('password');
@@ -242,6 +242,7 @@ class UsersController extends \BaseController {
 				{
 					$user->password = Hash::make(Input::get('password'));
 					$user->save();
+
 				}
 				//error out otherwise
 				else 
@@ -250,6 +251,7 @@ class UsersController extends \BaseController {
 		    		return Redirect::back()->withInput();
 				}
 			}
+
 			//if new user
 			if(!isset($slug))
 			{
