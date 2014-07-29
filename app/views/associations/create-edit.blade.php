@@ -205,7 +205,7 @@ width:100%; z-index: 1002; background: #3498db; background-image: -webkit-linear
 							    				</tr>	
 										</table>
 										<p>							  		
-									  		<a href="{{ action('AssociationsController@edit', Auth::user()->slug)}} ">Go to Your Profile</a>
+									  		<a href="{{ action('UsersController@show', Auth::user()->slug)}} ">Go to Your Profile</a>
 								  		</p>						  		
 									 	</div>								
 									</div>
