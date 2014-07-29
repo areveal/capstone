@@ -21,7 +21,7 @@
 		}
 
 		.navbar a:hover {
-		    color: #171717;
+		    color: #3498db;
 		}
 			</style>
 @stop 
@@ -233,7 +233,7 @@ width:100%; z-index: 1002; background: #3498db; background-image: -webkit-linear
 							  				<tr style=" height: 14px; padding-bottom: 10px;"><strong>Lets build your profile!</strong></tr>
 
 							  				<tr><a style=" padding-left: 10px; text-align: left; height: 50px;" class=" btn btn-default btn-sm btn-block" href="{{ action('UsersController@edit', Auth::user()->slug)}}"><strong><h4>1.Personal</h4></a></strong></tr>
-							  				<tr><a style=" padding-left: 10px; text-align: left; height: 50px;" class=" btn btn-default btn-sm btn-block" href="{{ action('SkillsController@edit', Auth::user()->slug)}}"><strong><h4>2. Skills</h4></a></strong></tr>
+							  				<tr><a style=" padding-left: 10px; text-align: left; height: 50px;" class=" btn btn-default btn-sm btn-block" href="{{ action('SkillsController@edit', Auth::user()->slug)}}"><strong><h4 style="color: #3498db">2. Skills</h4></a></strong></tr>
 							    			<tr><a style="padding-left: 10px; text-align: left; height: 50px;" class=" btn btn-default btn-sm btn-block" href="{{ action('SchoolsController@edit', Auth::user()->slug)}}"><strong><h4>3. Education</h4></a></strong></tr>
 							    			<tr><a style="padding-left: 10px; text-align: left; height: 50px;" class=" btn btn-default btn-sm btn-block" href="{{ action('JobsController@edit', Auth::user()->slug)}}"><strong><h4>4. Experience</h4></a></strong></tr>
 							    			<tr><a style="padding-left: 10px; text-align: left; height: 50px;" class=" btn btn-default btn-sm btn-block" href="{{ action('AssociationsController@edit', Auth::user()->slug)}}"><strong><h4>5. Associations</h4></a></strong></tr>

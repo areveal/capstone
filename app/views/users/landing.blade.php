@@ -17,6 +17,7 @@
    <link href="/favicon1.ico" rel="icon" type="image/x-icon" />
 
         <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+        
     </head>
 
     
@@ -132,9 +133,12 @@
 
     </div> <!-- /main -->
 
-    <div class="icon animated fadeInLeft delay-3">
+    <div class="fadeInLeft delay-3">
         
     </div>
+
+    
+    
 
  
 <!--
