@@ -227,7 +227,7 @@ width:100%; z-index: 1002; background: #3498db; background-image: -webkit-linear
 	                                    <a href="" class="btn btn-default" data-toggle="sidr-open" data-menu="menu-right"><i class="fa fa-fw fa-envelope-o"></i> Chat</a>
 	                                {{ Form::close() }}	                            
 	                            @else
-	                                {{ Form::open(array('action' => array('ConnectionsController@update', $connection->id), 'class' => 'form-signin','method' => 'PUT')) }}
+	                                {{ Form::open(array('action' => array('ConnectionsController@update', $connection->slug), 'class' => 'form-signin','method' => 'PUT')) }}
 	                                    <button type="submit" class="btn btn-primary btn-sm connect pull-right"><i class="fa fa-fw fa-thumbs-up"></i> Connect</button>
 	                                    <a href="" class="btn btn-default" data-toggle="sidr-open" data-menu="menu-right"><i class="fa fa-fw fa-envelope-o"></i> Chat</a>
 	                                {{ Form::close() }}
