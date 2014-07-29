@@ -44,9 +44,23 @@ Route::post('/slug_update', 'UsersController@update_slug');
 
 Route::get('/test',function() {
 
-$slugs = Input::get('password');		    
+	
+	for ($i=1; $i < 26; $i++) { 
 
-var_dump(Input::has('password'));
+	    $inputFile = public_path() . "/images/people/250/{$i}.jpg";
+
+	    $outputFile = public_path() . "/images/people/160/{$i}.jpg";
+
+	    $image = new Imagick($inputFile);
+
+	    $image->resizeImage(160, 160, Imagick::FILTER_LANCZOS, true); 
+
+	    $image->writeImage($outputFile);
+
+	    $image->clear(); 
+	    $image->destroy();  	    
+
+	}
 
 
 

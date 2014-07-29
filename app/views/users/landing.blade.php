@@ -14,7 +14,7 @@
         <!--[if lte IE 9]>
         <link rel="stylesheet" type="text/css" href="css1/ie9-and-down.css" />
         <![endif]-->
-   <link href="/favicon1.ico" rel="icon" type="image/x-icon" />
+        <link href="/favicon1.ico" rel="icon" type="image/x-icon" />
 
         <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
         

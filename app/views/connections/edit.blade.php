@@ -20,8 +20,9 @@
 	    color: #3498db;
 	}
 	.thumbnail {
-		height: 80px;
-		width: 80px;
+		height: 100%;
+		width: 100%;
+		margin-right: -80px;
 	}	
 </style>
 @stop
@@ -160,7 +161,7 @@ width:100%; z-index: 1002; background: #3498db; background-image: -webkit-linear
 					<div class="widget-body border-bottom">
 						<div class="media">
 							<div class="pull-left innerAll">
-								<img src="{{ $user->img_path }}" alt="" class="img-circle">
+								<img src="{{ $user->img_path }}" alt="" class="thumbnail">
 							</div>
 							<div class="media-body">
 								<h4><a href="{{ action('UsersController@show', $user->slug) }}">{{{ $user->first_name . ' ' . $user->last_name }}}</a> <a href="" class="text-muted"></a></h4>					
