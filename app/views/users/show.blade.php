@@ -22,6 +22,9 @@
     height: 15%;
     width: 15%;
 }
+.img-clean {
+    margin: none;
+}
 
 .sidemenu
 {
@@ -36,6 +39,11 @@ top: -83px;
 
 .navbar a:hover {
     color: #3498db;
+}
+
+.profile-pic {
+    width:100%;
+    height: 100%;
 }
 
 
@@ -159,7 +167,7 @@ width:100%; z-index: 1002; background: #3498db; background-image: -webkit-linear
                 <!-- Widget start -->
                     <div class="widget widget-body-white">
                         <div class="media widget-body innerAll">
-                            <a href="" class="pull-left"><img  style="width: 160px; height: 160px;" src="{{{ $user->img_path }}}" alt=""></a>
+                            <img class="pull-left" src="{{{ $user->img_path }}}" alt="">
                             <div class="media-body innerL half">
                                 @if(Auth::check() && (Auth::user()->slug != $user->slug))
                                     @if(in_array($user->id, $your_connections))
