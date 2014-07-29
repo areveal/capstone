@@ -33,6 +33,8 @@ class JobsController extends \BaseController {
 	}
 
 
+	
+
 	/**
 	 * Update the specified resource in storage.
 	 *

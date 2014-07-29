@@ -14,7 +14,7 @@
         <!--[if lte IE 9]>
         <link rel="stylesheet" type="text/css" href="css1/ie9-and-down.css" />
         <![endif]-->
-   <link href="/favicon1.ico" rel="icon" type="image/x-icon" />
+        <link href="/favicon1.ico" rel="icon" type="image/x-icon" />
 
         <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
     </head>
@@ -82,7 +82,7 @@
                     <div class="col-table-row">
                         <div class="col-app col-unscrollable tab-content">
                             <div class="col-app lock-wrapper lock-bg-1 tab-pane active animated fadeIn" id="lock-1-1">
-                                <h3 class="text-white innerB text-center">Get Started-Its free.</h3>
+                                <h3 class="text-white innerB text-center">Get Started-It's free.</h3>
                                 <div class="lock-container">
                                     <div class="innerAll text-center">
                                         <div style="height: 120px">
