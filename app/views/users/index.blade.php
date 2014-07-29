@@ -31,7 +31,7 @@
 		}
 
 		.navbar a:hover {
-		    color: #171717;
+		    color: #3498db;
 		}
 		.thumbnail {
 			height: 100%;
